@@ -40,6 +40,10 @@ button{
   cursor:pointer;
   font-family:Arial,Helvetica,sans-serif;
 }
+button:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
 input,textarea,select{
   width:100%;
   background:var(--f);
@@ -995,6 +999,8 @@ function genQCM(c){
 }
 
 function rLearn(){
+  if(S.studyDeck)return rStudy();
+
   const subs=[
     {id:'grammar',l:'Grammaire'},
     {id:'phrases',l:'Phrases'},
@@ -1237,6 +1243,17 @@ function rCustomLearn(){
       `}
     </div>
 
+    ${S.deleteMode?'':`
+      <div style="display:flex;gap:7px;margin-bottom:12px">
+        <button class="bg" onclick="selectAllCustomDecks()" style="flex:1;padding:8px 10px;font-size:12px">
+          Tout sélectionner
+        </button>
+        <button class="bg" onclick="clearCustomDecks()" style="flex:1;padding:8px 10px;font-size:12px">
+          Tout désélectionner
+        </button>
+      </div>
+    `}
+
     ${decks.map(d=>{
       const checked=selected.includes(d.id);
       const deleteChecked=deleteSelected.includes(d.id);
@@ -1257,10 +1274,10 @@ function rCustomLearn(){
       }
 
       return`
-      <label style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--b);border-radius:10px;background:var(--f);margin-bottom:8px;cursor:pointer">
+      <label style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid ${checked?'var(--a)':'var(--b)'};border-radius:10px;background:${checked?'var(--s)':'var(--f)'};margin-bottom:8px;cursor:pointer">
         <input type="checkbox" ${checked?'checked':''} onchange="toggleCustomDeck('${d.id}')" style="width:auto">
         <div style="flex:1;min-width:0">
-          <div style="font-weight:600;font-size:14px">${esc(d.name)}</div>
+          <div style="font-weight:600;font-size:14px">${checked?'✓ ':''}${esc(d.name)}</div>
           <div style="font-size:11px;color:var(--m)">${d.cards.length} cartes · ${due} à revoir · ${esc(d.level||'A1')}</div>
         </div>
       </label>`;
@@ -1301,13 +1318,19 @@ function rCustomLearn(){
     <div class="card" style="margin-bottom:14px">
       <div class="sec">Lancer une session</div>
       <div style="display:flex;flex-direction:column;gap:8px">
-        <button class="bp" onclick="startCustomStudy('random')" style="width:100%">🔀 Mode aléatoire</button>
-        <button class="bg" onclick="startCustomStudy('srs')" style="width:100%">🔁 Mode SRS — cartes dues uniquement</button>
-        <button class="bg" onclick="startCustomStudy('review')" style="width:100%">🕐 Révisions personnalisées</button>
+        <button class="bp" onclick="startCustomStudy('random')" style="width:100%" ${selected.length?'':'disabled'}>
+          🔀 Mode aléatoire
+        </button>
+        <button class="bg" onclick="startCustomStudy('srs')" style="width:100%" ${selected.length?'':'disabled'}>
+          🔁 Mode SRS — cartes dues uniquement
+        </button>
+        <button class="bg" onclick="startCustomStudy('review')" style="width:100%" ${selected.length?'':'disabled'}>
+          🕐 Révisions personnalisées
+        </button>
       </div>
       <div class="small" style="margin-top:12px">
         Le mode SRS affiche seulement les cartes prévues pour révision.<br>
-        Les révisions personnalisées prennent les cartes dues, puis complètent avec les cartes les moins maîtrisées.
+        Les révisions personnalisées lancent toujours une session si les decks sélectionnés contiennent au moins une carte.
       </div>
     </div>
   `}`;
@@ -2045,6 +2068,20 @@ function toggleCustomDeck(id){
   render();
 }
 
+function selectAllCustomDecks(){
+  S.customDecks=(S.decks||[])
+    .filter(d=>d.cards&&d.cards.length>0)
+    .map(d=>d.id);
+  sv('customDecks');
+  render();
+}
+
+function clearCustomDecks(){
+  S.customDecks=[];
+  sv('customDecks');
+  render();
+}
+
 function setCustomCount(n){
   S.customCount=n;
   sv('customCount');
@@ -2148,7 +2185,7 @@ function startCustomStudy(mode){
     });
 
     if(!cards.length){
-      toast('Aucune carte à revoir maintenant. Utilise Révisions personnalisées.','#e07b39');
+      toast('Aucune carte à revoir maintenant. Lance Révisions personnalisées.','#e07b39');
       return;
     }
 
@@ -2185,6 +2222,11 @@ function startCustomStudy(mode){
     });
 
     cards=[...due,...notDue];
+
+    if(!cards.length){
+      toast('Aucune carte disponible.','#e07b39');
+      return;
+    }
 
     if(!due.length){
       toast('Aucune carte due : révision douce lancée.','#3b6fd4');
