@@ -72,29 +72,84 @@ const LVLS=[
 
 const BADGES=[
   {id:'b1',i:'🎯',n:'Premier pas'},
-  {id:'b2',i:'🔥',n:'En feu'},
+  {id:'b2',i:'🔥',n:'3 jours'},
   {id:'b3',i:'⭐',n:'100 XP'},
   {id:'b4',i:'🌟',n:'500 XP'},
-  {id:'b5',i:'📚',n:'Session terminée'},
-  {id:'b6',i:'🏆',n:'Quiz parfait'},
+  {id:'b5',i:'🏆',n:'Session finie'},
+  {id:'b6',i:'🥇',n:'Quiz parfait'},
   {id:'b7',i:'📖',n:'Lecteur'},
-  {id:'b8',i:'🎓',n:'Test terminé'}
+  {id:'b8',i:'🎓',n:'Test niveau'},
+  {id:'b9',i:'💯',n:'1000 XP'},
+  {id:'b10',i:'🚀',n:'2000 XP'},
+  {id:'b11',i:'📚',n:'50 cartes'},
+  {id:'b12',i:'📘',n:'100 cartes'},
+  {id:'b13',i:'✅',n:'10 maîtrisées'},
+  {id:'b14',i:'🧠',n:'50 maîtrisées'},
+  {id:'b15',i:'📝',n:'10 quiz'},
+  {id:'b16',i:'🎧',n:'10 écoutes'},
+  {id:'b17',i:'🗣️',n:'10 phrases'},
+  {id:'b18',i:'📰',n:'3 contenus'},
+  {id:'b19',i:'💼',n:'TOEIC 70%'},
+  {id:'b20',i:'👑',n:'TOEIC 90%'}
 ];
 
 const GRAMMAR=[
+  {rule:'To be',formula:'I am / you are / he is',ex:'She is a student.',tip:'Verbe être au présent.',lvl:'A1'},
+  {rule:'Articles',formula:'a / an / the',ex:'I saw a dog. The dog was small.',tip:'A/an pour introduire, the pour préciser.',lvl:'A1'},
+  {rule:'Plural nouns',formula:'book → books / city → cities',ex:'I have two books.',tip:'Attention aux pluriels irréguliers.',lvl:'A1'},
   {rule:'Present Simple',formula:'subject + verb',ex:'She works every day.',tip:'Habitudes et vérités générales.',lvl:'A1'},
+  {rule:'There is / There are',formula:'There is + singular / There are + plural',ex:'There are three chairs.',tip:'Pour dire il y a.',lvl:'A1'},
+  {rule:'Can / Can’t',formula:'can + verb',ex:'I can swim.',tip:'Capacité ou permission.',lvl:'A1'},
   {rule:'Past Simple',formula:'verb + -ed / irregular',ex:'They visited London last year.',tip:'Action terminée dans le passé.',lvl:'A2'},
+  {rule:'Future with will',formula:'will + verb',ex:'I will call you tomorrow.',tip:'Décision, promesse, prédiction.',lvl:'A2'},
+  {rule:'Going to',formula:'be going to + verb',ex:'I am going to study tonight.',tip:'Projet ou intention.',lvl:'A2'},
+  {rule:'Comparatives',formula:'adjective + -er / more + adjective',ex:'This book is more interesting.',tip:'Comparer deux choses.',lvl:'A2'},
+  {rule:'Superlatives',formula:'the + adjective + -est / most',ex:'It is the best choice.',tip:'Le plus parmi plusieurs.',lvl:'A2'},
+  {rule:'Countable / Uncountable',formula:'many / much / a few / a little',ex:'There is a little water.',tip:'Dénombrable ou indénombrable.',lvl:'A2'},
   {rule:'Present Perfect',formula:'have/has + past participle',ex:'I have lived here for five years.',tip:'Lien entre passé et présent.',lvl:'B1'},
+  {rule:'For / Since',formula:'for + duration / since + point',ex:'I have worked here since 2020.',tip:'For durée, since point de départ.',lvl:'B1'},
   {rule:'Passive Voice',formula:'to be + past participle',ex:'The book was written by Orwell.',tip:"On insiste sur l'action.",lvl:'B1'},
+  {rule:'First Conditional',formula:'If + present, will + verb',ex:'If it rains, we will stay home.',tip:'Condition réaliste.',lvl:'B1'},
+  {rule:'Modal verbs',formula:'must / should / have to',ex:'You should rest.',tip:'Conseil, obligation, nécessité.',lvl:'B1'},
+  {rule:'Relative clauses',formula:'who / which / that',ex:'The man who called is my boss.',tip:'Ajouter une précision.',lvl:'B1'},
   {rule:'Second Conditional',formula:'If + past, would + verb',ex:'If I had time, I would travel.',tip:'Hypothèse imaginaire.',lvl:'B2'},
-  {rule:'Third Conditional',formula:'If + past perfect, would have + pp',ex:'If I had studied, I would have passed.',tip:'Regret sur le passé.',lvl:'C1'}
+  {rule:'Reported Speech',formula:'said/told + shifted tense',ex:'He said he was tired.',tip:'Rapporter les paroles.',lvl:'B2'},
+  {rule:'Gerund / Infinitive',formula:'enjoy + ing / want + to',ex:'I enjoy reading. I want to learn.',tip:'Certains verbes demandent -ing ou to.',lvl:'B2'},
+  {rule:'Used to',formula:'used to + verb',ex:'I used to play football.',tip:'Ancienne habitude.',lvl:'B2'},
+  {rule:'Past Perfect',formula:'had + past participle',ex:'She had left before I arrived.',tip:'Action avant une autre action passée.',lvl:'B2'},
+  {rule:'Third Conditional',formula:'If + past perfect, would have + pp',ex:'If I had studied, I would have passed.',tip:'Regret sur le passé.',lvl:'C1'},
+  {rule:'Inversion',formula:'Never / Rarely + auxiliary + subject',ex:'Rarely have I seen such talent.',tip:'Structure formelle.',lvl:'C1'},
+  {rule:'Cleft Sentences',formula:'It is/was + focus + that/who',ex:'It was John who called.',tip:'Mettre en valeur.',lvl:'C1'},
+  {rule:'Advanced linking words',formula:'whereas / nevertheless / provided that',ex:'The plan is risky; nevertheless, it may work.',tip:'Connecteurs avancés.',lvl:'C1'},
+  {rule:'Hedging',formula:'seems / tends to / is likely to',ex:'This approach seems effective.',tip:'Nuancer son propos.',lvl:'C2'},
+  {rule:'Emphasis',formula:'What + clause + is...',ex:'What matters most is consistency.',tip:'Insister élégamment.',lvl:'C2'},
+  {rule:'Formal structures',formula:'Should you need assistance...',ex:'Should you need help, contact us.',tip:'Style soutenu.',lvl:'C2'}
 ];
 
 const GQUIZ=[
-  {q:'She ___ to Paris last year.',opts:['has gone','went','goes','go'],a:1,exp:'Simple past pour une action terminée.'},
-  {q:'They have lived here ___ 2020.',opts:['for','since','during','ago'],a:1,exp:'Since + point de départ.'},
-  {q:'The report ___ by the manager.',opts:['write','wrote','was written','is write'],a:2,exp:'Passive : was + participe passé.'},
-  {q:'If I ___ more time, I would travel.',opts:['had','have','will have','would have'],a:0,exp:'Second conditional.'}
+  {q:'She ___ a student.',opts:['is','are','am','be'],a:0,exp:'She utilise is.',lvl:'A1'},
+  {q:'I saw ___ elephant.',opts:['a','an','the','one'],a:1,exp:'An devant un son voyelle.',lvl:'A1'},
+  {q:'There ___ two books on the table.',opts:['is','are','am','be'],a:1,exp:'There are avec pluriel.',lvl:'A1'},
+  {q:'He ___ football every Sunday.',opts:['play','plays','playing','played'],a:1,exp:'Présent simple : he/she/it + s.',lvl:'A1'},
+  {q:'They ___ London last year.',opts:['visit','visited','visiting','visits'],a:1,exp:'Past simple.',lvl:'A2'},
+  {q:'I am ___ to study tonight.',opts:['go','going','gone','goes'],a:1,exp:'Be going to + verbe.',lvl:'A2'},
+  {q:'This test is ___ than the last one.',opts:['easy','easier','easiest','more easy'],a:1,exp:'Comparatif : easier.',lvl:'A2'},
+  {q:'There isn’t ___ milk left.',opts:['many','any','few','several'],a:1,exp:'Any dans une phrase négative.',lvl:'A2'},
+  {q:'I have lived here ___ 2020.',opts:['for','since','during','ago'],a:1,exp:'Since + point de départ.',lvl:'B1'},
+  {q:'The report ___ by the manager.',opts:['wrote','was written','is write','write'],a:1,exp:'Passive : was + participe passé.',lvl:'B1'},
+  {q:'If it rains, we ___ at home.',opts:['will stay','would stay','stayed','stay'],a:0,exp:'First conditional.',lvl:'B1'},
+  {q:'You ___ see a doctor.',opts:['should','would','did','are'],a:0,exp:'Should = conseil.',lvl:'B1'},
+  {q:'If I ___ more time, I would travel.',opts:['have','had','will have','would have'],a:1,exp:'Second conditional.',lvl:'B2'},
+  {q:'He said he ___ tired.',opts:['is','was','be','were'],a:1,exp:'Reported speech.',lvl:'B2'},
+  {q:'I enjoy ___ books.',opts:['read','reading','to read','reads'],a:1,exp:'Enjoy + ing.',lvl:'B2'},
+  {q:'She had left before I ___.',opts:['arrive','arrived','have arrived','arriving'],a:1,exp:'Past perfect + past simple.',lvl:'B2'},
+  {q:'If I had known, I ___ helped you.',opts:['will have','would have','would','had'],a:1,exp:'Third conditional.',lvl:'C1'},
+  {q:'Rarely ___ such dedication.',opts:['I have seen','have I seen','I saw','saw I'],a:1,exp:'Inversion après rarely.',lvl:'C1'},
+  {q:'It was Sarah ___ solved the problem.',opts:['which','who','where','whose'],a:1,exp:'Cleft sentence avec who.',lvl:'C1'},
+  {q:'The results are promising; ___, more research is needed.',opts:['nevertheless','because','so','while'],a:0,exp:'Nevertheless = néanmoins.',lvl:'C1'},
+  {q:'This method ___ to be effective.',opts:['tends','goes','does','makes'],a:0,exp:'Hedging : tends to.',lvl:'C2'},
+  {q:'___ matters most is consistency.',opts:['That','What','Which','Who'],a:1,exp:'Emphasis : What matters most...',lvl:'C2'},
+  {q:'Should you ___ assistance, contact us.',opts:['need','needed','needs','needing'],a:0,exp:'Structure formelle : Should you need...',lvl:'C2'}
 ];
 
 const PHRASES=[
@@ -136,12 +191,7 @@ const ARTICLES=[
     intro:'Un article simple sur la vie quotidienne et les habitudes numériques.',
     text:'Last Saturday, Emma decided to spend one full day without her smartphone. At first, she felt nervous. She usually checks her messages every ten minutes. In the morning, she read a book and made breakfast slowly. In the afternoon, she went for a walk and noticed small details in her neighbourhood: a new café, flowers near a window, and children playing in the park. In the evening, Emma wrote in her notebook. She realized that a quiet day can feel longer, but also richer.',
     fr:'Emma passe une journée sans téléphone. Elle se sent d’abord nerveuse, puis redécouvre des activités simples et remarque davantage son environnement.',
-    vocab:[
-      ['to decide','décider'],
-      ['nervous','nerveux / nerveuse'],
-      ['neighbourhood','quartier'],
-      ['to realize','se rendre compte']
-    ],
+    vocab:[['to decide','décider'],['nervous','nerveux / nerveuse'],['neighbourhood','quartier'],['to realize','se rendre compte']],
     q:'What did Emma notice during her walk?',
     a:'She noticed small details in her neighbourhood.'
   },
@@ -150,12 +200,7 @@ const ARTICLES=[
     intro:'Un article de niveau intermédiaire sur le télétravail.',
     text:'Remote work has changed the way many people organize their day. For some employees, working from home means less time in transport and more flexibility. They can start earlier, take short breaks, and spend more time with their family. However, remote work also has challenges. Some people find it difficult to separate work from personal life. They answer emails late at night or feel isolated during the day. To keep a healthy balance, experts recommend a clear schedule, a dedicated workspace, and regular communication with colleagues.',
     fr:'Le télétravail apporte flexibilité et gain de temps, mais peut aussi créer de l’isolement et brouiller la frontière entre travail et vie personnelle.',
-    vocab:[
-      ['remote work','télétravail'],
-      ['flexibility','souplesse / flexibilité'],
-      ['isolated','isolé'],
-      ['dedicated workspace','espace de travail dédié']
-    ],
+    vocab:[['remote work','télétravail'],['flexibility','flexibilité'],['isolated','isolé'],['dedicated workspace','espace de travail dédié']],
     q:'What do experts recommend?',
     a:'They recommend a clear schedule, a dedicated workspace, and regular communication.'
   },
@@ -164,12 +209,7 @@ const ARTICLES=[
     intro:'Article argumentatif sur l’apprentissage continu.',
     text:'In a changing economy, learning is no longer limited to school or university. People need to update their skills throughout their lives. New technologies can transform a job in only a few years, and professionals who stop learning may lose opportunities. Lifelong learning does not always mean formal courses. It can include reading, practicing a language, following tutorials, attending workshops, or learning from colleagues. The most important habit is consistency. A person who studies twenty minutes a day can make significant progress over a year.',
     fr:'L’apprentissage continu devient essentiel dans une économie qui change vite. Il ne dépend pas seulement des cours officiels, mais surtout de la régularité.',
-    vocab:[
-      ['lifelong learning','apprentissage tout au long de la vie'],
-      ['to update skills','mettre ses compétences à jour'],
-      ['opportunities','opportunités'],
-      ['consistency','régularité']
-    ],
+    vocab:[['lifelong learning','apprentissage continu'],['to update skills','mettre ses compétences à jour'],['opportunities','opportunités'],['consistency','régularité']],
     q:'Why is consistency important?',
     a:'Because small regular efforts can create significant progress over time.'
   },
@@ -178,122 +218,23 @@ const ARTICLES=[
     intro:'Article avancé sur l’économie de l’attention.',
     text:'Modern digital platforms compete not only for money, but also for attention. Every notification, recommendation, and infinite feed is designed to keep users engaged. This business model has clear advantages: information is easier to access, creators can reach large audiences, and communities can form across borders. Yet it also raises concerns. When attention becomes a commodity, users may find it harder to focus deeply, evaluate information carefully, or disconnect without guilt. Developing digital discipline is therefore not a rejection of technology, but a way to use it deliberately rather than passively.',
     fr:'Les plateformes numériques cherchent à capter l’attention. Elles offrent des avantages, mais peuvent réduire la concentration et l’esprit critique.',
-    vocab:[
-      ['attention economy','économie de l’attention'],
-      ['infinite feed','fil infini'],
-      ['commodity','marchandise'],
-      ['deliberately','délibérément']
-    ],
+    vocab:[['attention economy','économie de l’attention'],['infinite feed','fil infini'],['commodity','marchandise'],['deliberately','délibérément']],
     q:'What is digital discipline?',
     a:'It is the ability to use technology deliberately rather than passively.'
   }
 ];
 
 const INTERVIEWS=[
-  {
-    id:'i1',lvl:'A2',title:'Interview: A New Student in London',
-    intro:'Interview courte et simple.',
-    lines:[
-      ['Interviewer','Where are you from?'],
-      ['Student','I am from Spain, but I live in London now.'],
-      ['Interviewer','Why are you learning English?'],
-      ['Student','I want to study at a British university next year.'],
-      ['Interviewer','What is difficult for you?'],
-      ['Student','Listening is difficult because people speak very fast.']
-    ],
-    vocab:[['university','université'],['next year','l’année prochaine'],['fast','rapidement']]
-  },
-  {
-    id:'i2',lvl:'B1',title:'Interview: Working in Customer Service',
-    intro:'Interview professionnelle niveau intermédiaire.',
-    lines:[
-      ['Interviewer','Can you describe your job?'],
-      ['Employee','I help customers solve problems with their orders.'],
-      ['Interviewer','What skills are important in your role?'],
-      ['Employee','Patience, clear communication, and the ability to stay calm.'],
-      ['Interviewer','What do you do when a customer is angry?'],
-      ['Employee','I listen carefully, apologize when necessary, and offer a practical solution.']
-    ],
-    vocab:[['order','commande'],['patience','patience'],['practical solution','solution pratique']]
-  },
-  {
-    id:'i3',lvl:'B2',title:'Interview: Starting a Small Business',
-    intro:'Interview business plus naturelle.',
-    lines:[
-      ['Journalist','What made you start your own business?'],
-      ['Founder','I saw a problem in my local area and wanted to offer a simple solution.'],
-      ['Journalist','What was the hardest part at the beginning?'],
-      ['Founder','Finding customers was harder than creating the product.'],
-      ['Journalist','What advice would you give to beginners?'],
-      ['Founder','Test your idea quickly, listen to feedback, and avoid spending too much too early.']
-    ],
-    vocab:[['founder','fondateur'],['feedback','retour / avis'],['to avoid','éviter']]
-  },
-  {
-    id:'i4',lvl:'C1',title:'Interview: The Future of Education',
-    intro:'Interview avancée sur l’éducation.',
-    lines:[
-      ['Journalist','How is technology changing education?'],
-      ['Expert','It gives learners access to resources that were previously difficult to obtain.'],
-      ['Journalist','Is that always positive?'],
-      ['Expert','Not necessarily. Access to information does not automatically create understanding.'],
-      ['Journalist','What should schools focus on?'],
-      ['Expert','They should teach students how to question sources, build arguments, and learn independently.']
-    ],
-    vocab:[['previously','auparavant'],['understanding','compréhension'],['to question sources','questionner les sources']]
-  }
+  {id:'i1',lvl:'A2',title:'Interview: A New Student in London',intro:'Interview courte et simple.',lines:[['Interviewer','Where are you from?'],['Student','I am from Spain, but I live in London now.'],['Interviewer','Why are you learning English?'],['Student','I want to study at a British university next year.'],['Interviewer','What is difficult for you?'],['Student','Listening is difficult because people speak very fast.']],vocab:[['university','université'],['next year','l’année prochaine'],['fast','rapidement']]},
+  {id:'i2',lvl:'B1',title:'Interview: Working in Customer Service',intro:'Interview professionnelle niveau intermédiaire.',lines:[['Interviewer','Can you describe your job?'],['Employee','I help customers solve problems with their orders.'],['Interviewer','What skills are important in your role?'],['Employee','Patience, clear communication, and the ability to stay calm.'],['Interviewer','What do you do when a customer is angry?'],['Employee','I listen carefully, apologize when necessary, and offer a practical solution.']],vocab:[['order','commande'],['patience','patience'],['practical solution','solution pratique']]},
+  {id:'i3',lvl:'B2',title:'Interview: Starting a Small Business',intro:'Interview business plus naturelle.',lines:[['Journalist','What made you start your own business?'],['Founder','I saw a problem in my local area and wanted to offer a simple solution.'],['Journalist','What was the hardest part at the beginning?'],['Founder','Finding customers was harder than creating the product.'],['Journalist','What advice would you give to beginners?'],['Founder','Test your idea quickly, listen to feedback, and avoid spending too much too early.']],vocab:[['founder','fondateur'],['feedback','retour / avis'],['to avoid','éviter']]}
 ];
 
 const DIALOGUES=[
-  {
-    id:'d1',lvl:'A1',title:'At the Hotel',
-    intro:'Situation : arrivée à l’hôtel.',
-    lines:[
-      ['Receptionist','Good evening. Welcome to the Riverside Hotel.'],
-      ['Guest','Good evening. I have a reservation.'],
-      ['Receptionist','What is your name, please?'],
-      ['Guest','My name is Martin Dupont.'],
-      ['Receptionist','Here is your key. Your room is on the second floor.']
-    ],
-    useful:['I have a reservation.','What is your name, please?','Your room is on the second floor.']
-  },
-  {
-    id:'d2',lvl:'A2',title:'At the Doctor',
-    intro:'Situation : expliquer un problème simple.',
-    lines:[
-      ['Doctor','What seems to be the problem?'],
-      ['Patient','I have a headache and I feel tired.'],
-      ['Doctor','How long have you felt this way?'],
-      ['Patient','Since yesterday morning.'],
-      ['Doctor','You should rest and drink plenty of water.']
-    ],
-    useful:['I have a headache.','How long have you felt this way?','You should rest.']
-  },
-  {
-    id:'d3',lvl:'B1',title:'Job Interview',
-    intro:'Situation : entretien d’embauche.',
-    lines:[
-      ['Recruiter','Can you tell me about your experience?'],
-      ['Candidate','I have worked in customer service for three years.'],
-      ['Recruiter','Why do you want this position?'],
-      ['Candidate','I want to improve my skills and join a strong team.'],
-      ['Recruiter','What are your strengths?'],
-      ['Candidate','I am organized, patient, and comfortable speaking with customers.']
-    ],
-    useful:['Can you tell me about your experience?','I want to improve my skills.','What are your strengths?']
-  },
-  {
-    id:'d4',lvl:'B2',title:'Business Meeting',
-    intro:'Situation : réunion professionnelle.',
-    lines:[
-      ['Manager','Let’s start with the sales figures.'],
-      ['Analyst','Sales increased by eight percent compared with last quarter.'],
-      ['Manager','That is encouraging. What explains the improvement?'],
-      ['Analyst','The new online campaign brought more qualified leads.'],
-      ['Manager','Good. Let’s prepare a short report for Friday.']
-    ],
-    useful:['Let’s start with...','Compared with last quarter.','Let’s prepare a short report.']
-  }
+  {id:'d1',lvl:'A1',title:'At the Hotel',intro:'Situation : arrivée à l’hôtel.',lines:[['Receptionist','Good evening. Welcome to the Riverside Hotel.'],['Guest','Good evening. I have a reservation.'],['Receptionist','What is your name, please?'],['Guest','My name is Martin Dupont.'],['Receptionist','Here is your key. Your room is on the second floor.']],useful:['I have a reservation.','What is your name, please?','Your room is on the second floor.']},
+  {id:'d2',lvl:'A2',title:'At the Doctor',intro:'Situation : expliquer un problème simple.',lines:[['Doctor','What seems to be the problem?'],['Patient','I have a headache and I feel tired.'],['Doctor','How long have you felt this way?'],['Patient','Since yesterday morning.'],['Doctor','You should rest and drink plenty of water.']],useful:['I have a headache.','How long have you felt this way?','You should rest.']},
+  {id:'d3',lvl:'B1',title:'Job Interview',intro:'Situation : entretien d’embauche.',lines:[['Recruiter','Can you tell me about your experience?'],['Candidate','I have worked in customer service for three years.'],['Recruiter','Why do you want this position?'],['Candidate','I want to improve my skills and join a strong team.'],['Recruiter','What are your strengths?'],['Candidate','I am organized, patient, and comfortable speaking with customers.']],useful:['Can you tell me about your experience?','I want to improve my skills.','What are your strengths?']},
+  {id:'d4',lvl:'B2',title:'Business Meeting',intro:'Situation : réunion professionnelle.',lines:[['Manager','Let’s start with the sales figures.'],['Analyst','Sales increased by eight percent compared with last quarter.'],['Manager','That is encouraging. What explains the improvement?'],['Analyst','The new online campaign brought more qualified leads.'],['Manager','Good. Let’s prepare a short report for Friday.']],useful:['Let’s start with...','Compared with last quarter.','Let’s prepare a short report.']}
 ];
 
 const TOEIC=[
@@ -322,6 +263,7 @@ let S={
   tab:'home',dk:LS.get('dk',false),xp:LS.get('xp',0),streak:LS.get('streak',0),lastStudy:LS.get('ls',null),
   dailyP:LS.get('dp',0),dailyG:LS.get('dg',10),dailyD:LS.get('dd',null),userLvl:LS.get('ulvl',null),obDone:LS.get('ob',false),
   decks:LS.get('decks',[]),srs:LS.get('srs',{}),badges:LS.get('bdg',[]),phrases:LS.get('phr',[]),errLog:LS.get('erl',[]),readS:LS.get('rs',[]),
+  stats:LS.get('stats',{cardsStudied:0,sessions:0,quizDone:0,listens:0,phrasesLearned:0,contentRead:0,toeic70:false,toeic90:false}),
   studyDeck:null,studyIdx:0,studyMode:'flip',flipped:false,qopts:null,
   learnSub:'grammar',gqd:null,gqmode:'learn',gqf:'all',phf:'all',pron:0,dictIdx:0,
   contentSub:'articles',activeContent:null,
@@ -333,19 +275,37 @@ let S={
 if(S.dailyD!==today()){S.dailyP=0;S.dailyD=today();sv('dailyP');sv('dailyD')}
 
 function sv(k){
-  const m={xp:'xp',streak:'streak',lastStudy:'ls',dailyP:'dp',dailyG:'dg',dailyD:'dd',userLvl:'ulvl',obDone:'ob',decks:'decks',srs:'srs',badges:'bdg',phrases:'phr',errLog:'erl',readS:'rs',dk:'dk',customDecks:'customDecks',customCount:'customCount',customDir:'customDir'};
+  const m={xp:'xp',streak:'streak',lastStudy:'ls',dailyP:'dp',dailyG:'dg',dailyD:'dd',userLvl:'ulvl',obDone:'ob',decks:'decks',srs:'srs',badges:'bdg',phrases:'phr',errLog:'erl',readS:'rs',dk:'dk',customDecks:'customDecks',customCount:'customCount',customDir:'customDir',stats:'stats'};
   if(m[k])LS.set(m[k],S[k]);
 }
 function getLvl(xp){let l=LVLS[0];for(const t of LVLS){if(xp>=t.min)l=t}return l}
 function srsNext(c,ok){const now=Date.now(),i=c.srsInterval||1,e=c.srsEase||2.5;if(!ok)return{srsInterval:1,srsEase:Math.max(1.3,e-.2),srsNextReview:now+60000};const ni=Math.round(i*e);return{srsInterval:ni,srsEase:Math.min(3,e+.1),srsNextReview:now+ni*86400000}}
 function addXP(n){S.xp+=n;sv('xp');checkB();const el=document.createElement('div');el.className='xpa';el.textContent=`+${n} XP`;document.getElementById('xpt').innerHTML='';document.getElementById('xpt').appendChild(el);setTimeout(()=>el.remove(),1500)}
 function toast(msg,c='#4caf50'){const el=document.createElement('div');el.className='xpa';el.style.color=c;el.textContent=msg;document.getElementById('xpt').appendChild(el);setTimeout(()=>el.remove(),2300)}
-function earnB(id){if(S.badges.includes(id))return;S.badges.push(id);sv('badges')}
-function checkB(){if(S.xp>=100)earnB('b3');if(S.xp>=500)earnB('b4');if(S.streak>=3)earnB('b2')}
-function updStreak(){const t=today();if(S.lastStudy===t)return;const y=new Date(Date.now()-86400000).toDateString();S.streak=S.lastStudy===y?S.streak+1:1;S.lastStudy=t;sv('streak');sv('lastStudy')}
+function earnB(id){if(S.badges.includes(id))return;S.badges.push(id);sv('badges');toast('Badge débloqué','#3b6fd4')}
+function checkB(){
+  const mastered=Object.values(S.srs).filter(x=>x.srsInterval>=7).length;
+  if(S.streak>=3)earnB('b2');
+  if(S.xp>=100)earnB('b3');
+  if(S.xp>=500)earnB('b4');
+  if(S.xp>=1000)earnB('b9');
+  if(S.xp>=2000)earnB('b10');
+  if(S.stats.cardsStudied>=50)earnB('b11');
+  if(S.stats.cardsStudied>=100)earnB('b12');
+  if(mastered>=10)earnB('b13');
+  if(mastered>=50)earnB('b14');
+  if(S.stats.quizDone>=10)earnB('b15');
+  if(S.stats.listens>=10)earnB('b16');
+  if(S.stats.phrasesLearned>=10)earnB('b17');
+  if(S.stats.contentRead>=3)earnB('b18');
+  if(S.stats.toeic70)earnB('b19');
+  if(S.stats.toeic90)earnB('b20');
+}
+function updStreak(){const t=today();if(S.lastStudy===t)return;const y=new Date(Date.now()-86400000).toDateString();S.streak=S.lastStudy===y?S.streak+1:1;S.lastStudy=t;sv('streak');sv('lastStudy');checkB()}
 function incD(){S.dailyP++;sv('dailyP');if(S.dailyP===S.dailyG)toast('Objectif atteint')}
 function logErr(w,ok){S.errLog.push({t:Date.now(),w,ok});if(S.errLog.length>300)S.errLog=S.errLog.slice(-300);sv('errLog')}
-
+function stat(k,n=1){S.stats[k]=(S.stats[k]||0)+n;sv('stats');checkB()}
+function listen(text,rate=.9){stat('listens');tts(text,rate)}
 function cardDirection(c){return c._dir||'enfr'}
 function cardFrontLang(c){return cardDirection(c)==='fren'?'Français':'Anglais'}
 function cardBackLang(c){return cardDirection(c)==='fren'?'Anglais':'Français'}
@@ -373,7 +333,8 @@ function rHeader(){
   </div>
   <div style="display:flex;gap:10px;margin-bottom:20px">
     <div class="card" style="display:flex;align-items:center;gap:8px;padding:12px 14px;min-width:88px">
-      <span style="font-size:22px">🔥</span><div><div style="font-family:Georgia,serif;font-size:22px;font-weight:700;line-height:1">${S.streak}</div><div style="font-size:10px;color:var(--m)">streak</div></div>
+      <span style="font-size:22px">🔥</span>
+      <div><div style="font-family:Georgia,serif;font-size:22px;font-weight:700;line-height:1">${S.streak}</div><div style="font-size:10px;color:var(--m)">streak</div></div>
     </div>
     <div class="card" style="flex:1">
       <div style="display:flex;justify-content:space-between;margin-bottom:6px">
@@ -408,7 +369,7 @@ function rHome(){
     <button class="bg" onclick="S.tab='learn';S.learnSub='custom';render()" style="padding:14px;flex-direction:column"><span style="font-size:20px">🔀</span><span style="font-size:12px">Personnaliser</span></button>
   </div>
   <div class="grid3" style="margin-bottom:14px">
-    ${[['⚡',S.xp,'XP'],['✅',mastered,'Maîtrisées'],['🕐',due,'À revoir']].map(([i,v,l])=>`<div class="card" style="text-align:center;padding:14px 8px"><div style="font-size:20px;margin-bottom:4px">${i}</div><div style="font-family:Georgia,serif;font-size:24px;font-weight:700">${v}</div><div style="font-size:10px;color:var(--m)">${l}</div></div>`).join('')}
+    ${[['⚡',S.xp,'XP'],['✅',mastered,'Maîtrisées'],['🃏',S.stats.cardsStudied||0,'Cartes']].map(([i,v,l])=>`<div class="card" style="text-align:center;padding:14px 8px"><div style="font-size:20px;margin-bottom:4px">${i}</div><div style="font-family:Georgia,serif;font-size:24px;font-weight:700">${v}</div><div style="font-size:10px;color:var(--m)">${l}</div></div>`).join('')}
   </div>
   <div class="card" style="margin-bottom:14px">
     <h3 style="font-size:14px;margin-bottom:12px">Analyse des erreurs</h3>
@@ -416,7 +377,9 @@ function rHome(){
   </div>
   <div class="card">
     <h3 style="font-size:14px;margin-bottom:14px">Badges ${S.badges.length}/${BADGES.length}</h3>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">${BADGES.map(b=>`<div style="text-align:center;padding:10px 4px;border-radius:9px;background:${S.badges.includes(b.id)?'var(--f)':'transparent'};opacity:${S.badges.includes(b.id)?1:.25}"><div style="font-size:24px">${b.i}</div><div style="font-size:10px;color:var(--m);margin-top:4px">${b.n}</div></div>`).join('')}</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+      ${BADGES.map(b=>`<div style="text-align:center;padding:10px 4px;border-radius:9px;background:${S.badges.includes(b.id)?'var(--f)':'transparent'};opacity:${S.badges.includes(b.id)?1:.22}"><div style="font-size:24px">${b.i}</div><div style="font-size:10px;color:var(--m);margin-top:4px">${b.n}</div></div>`).join('')}
+    </div>
   </div>`;
 }
 
@@ -461,7 +424,7 @@ function rDecks(){
 
 function rStudy(){
   const dk=S.studyDeck,idx=S.studyIdx||0,card=dk.cards[idx];
-  if(!card){earnB('b5');sv('srs');return`<div style="text-align:center;padding:36px 0"><div style="font-size:48px;margin-bottom:10px">🏆</div><h2 style="margin-bottom:8px">Session terminée</h2><p class="small" style="margin-bottom:18px">Les cartes ont été enregistrées dans le système SRS.</p><button class="bp" onclick="endStudy()">Retour</button></div>`}
+  if(!card){earnB('b5');S.stats.sessions=(S.stats.sessions||0)+1;sv('stats');checkB();sv('srs');return`<div style="text-align:center;padding:36px 0"><div style="font-size:48px;margin-bottom:10px">🏆</div><h2 style="margin-bottom:8px">Session terminée</h2><p class="small" style="margin-bottom:18px">Les cartes ont été enregistrées dans le système SRS.</p><button class="bp" onclick="endStudy()">Retour</button></div>`}
   const md=S.studyMode||'flip',total=dk.cards.length,prog=Math.round((idx/total)*100);
   const frontLang=cardFrontLang(card),backLang=cardBackLang(card),front=cardFrontText(card),back=cardBackText(card);
   let cnt='';
@@ -470,12 +433,12 @@ function rStudy(){
     cnt=`<div onclick="doFlip()" style="min-height:190px;background:${fl?'var(--a)':'var(--f)'};border:1px solid var(--b);border-radius:16px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;transition:all .3s;color:${fl?'var(--bg)':'var(--t)'}">
       ${!fl?`<div style="text-align:center"><div class="sec">${frontLang}</div><div style="font-family:Georgia,serif;font-size:40px;font-weight:700">${esc(front)}</div><div style="font-size:12px;color:var(--m);margin-top:10px">Cliquer pour révéler</div>${card.deckName?`<div style="font-size:11px;color:var(--m);margin-top:8px">${esc(card.deckName)}</div>`:''}</div>`:`<div style="text-align:center"><div class="sec" style="color:var(--m)">${backLang}</div><div style="font-family:Georgia,serif;font-size:28px;font-weight:700;margin-bottom:14px">${esc(back)}</div>${card.ex?`<div style="font-size:13px;font-style:italic;color:#aaa;border-top:1px solid #333;padding-top:12px">"${esc(card.ex)}"</div>`:''}</div>`}
     </div>
-    <div style="display:flex;gap:8px;margin:12px 0"><button class="bg" onclick="tts('${esc(front)}')" style="flex:1">🔊 Écouter</button><button class="bg" onclick="doSpeech()" style="flex:1">🎤 Répéter</button></div>
+    <div style="display:flex;gap:8px;margin:12px 0"><button class="bg" onclick="listen('${esc(front)}')" style="flex:1">🔊 Écouter</button><button class="bg" onclick="doSpeech()" style="flex:1">🎤 Répéter</button></div>
     <div id="spkr"></div>
     ${fl?`<div style="display:flex;gap:9px;margin-top:6px"><button class="bd" onclick="ans(false)" style="flex:1">À revoir</button><button class="bs" onclick="ans(true)" style="flex:1">Je savais</button></div>`:`<button class="bp" onclick="doFlip()" style="width:100%">Retourner</button>`}`;
   }else if(md==='qcm'){
     const opts=S.qopts||genQCM(card);if(!S.qopts)S.qopts=opts;
-    cnt=`<div class="card" style="text-align:center;margin-bottom:14px"><div class="sec">Trouve la traduction</div><div style="font-size:12px;color:var(--m);margin-bottom:8px">${frontLang} → ${backLang}</div><div style="font-family:Georgia,serif;font-size:36px;font-weight:700">${esc(front)}</div><button class="bg" onclick="tts('${esc(front)}')" style="margin-top:10px">🔊</button></div><div id="qopts">${opts.map(o=>`<button class="opt" onclick="ansQ('${esc(o)}')">${esc(o)}</button>`).join('')}</div>`;
+    cnt=`<div class="card" style="text-align:center;margin-bottom:14px"><div class="sec">Trouve la traduction</div><div style="font-size:12px;color:var(--m);margin-bottom:8px">${frontLang} → ${backLang}</div><div style="font-family:Georgia,serif;font-size:36px;font-weight:700">${esc(front)}</div><button class="bg" onclick="listen('${esc(front)}')" style="margin-top:10px">🔊</button></div><div id="qopts">${opts.map(o=>`<button class="opt" onclick="ansQ('${esc(o)}')">${esc(o)}</button>`).join('')}</div>`;
   }else{
     cnt=`<div class="card" style="margin-bottom:14px"><div class="sec">Traduis en ${backLang.toLowerCase()}</div><div style="font-family:Georgia,serif;font-size:36px;font-weight:700;margin-bottom:8px">${esc(front)}</div>${card.ex?`<div style="font-size:13px;color:var(--m);font-style:italic">"${esc(card.ex)}"</div>`:''}</div><input id="finp" placeholder="Tape la réponse..." onkeydown="if(event.key==='Enter')chkFill()"><div id="fr" style="margin-top:10px"></div><button class="bp" onclick="chkFill()" style="width:100%;margin-top:10px" id="fbtn">Vérifier</button>`;
   }
@@ -499,31 +462,32 @@ function rLearn(){
 
 function rGram(){
   if(S.gqmode==='quiz')return rGQ();
+  const levels=['all','A1','A2','B1','B2','C1','C2'];
   const flt=S.gqf==='all'?GRAMMAR:GRAMMAR.filter(g=>g.lvl===S.gqf);
-  return`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px"><div style="display:flex;gap:5px;overflow-x:auto">${['all','A1','A2','B1','B2','C1'].map(l=>`<button class="${S.gqf===l?'bp':'bg'}" onclick="S.gqf='${l}';render()" style="padding:6px 10px;font-size:11px">${l==='all'?'Tout':l}</button>`).join('')}</div><button class="bp" onclick="S.gqmode='quiz';S.gqd={idx:0,sc:0,sel:null,done:false};render()" style="padding:7px 13px;font-size:12px">Quiz</button></div>
-  ${flt.map(g=>`<div style="padding:18px 20px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:8px;gap:8px"><div style="font-family:Georgia,serif;font-size:18px;font-weight:700">${esc(g.rule)}</div><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${g.lvl}</span></div><div style="font-size:12px;color:var(--m);background:var(--s);border-radius:7px;padding:6px 12px;margin-bottom:9px;font-style:italic">${esc(g.formula)}</div><div style="font-size:13px;margin-bottom:7px">"${esc(g.ex)}" <button onclick="tts('${esc(g.ex)}')" style="background:none;border:none;color:var(--m);font-size:13px">🔊</button></div><div style="font-size:12px;color:var(--m)">💡 ${esc(g.tip)}</div></div>`).join('')}`;
+  return`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px"><div style="display:flex;gap:5px;overflow-x:auto">${levels.map(l=>`<button class="${S.gqf===l?'bp':'bg'}" onclick="S.gqf='${l}';render()" style="padding:6px 10px;font-size:11px">${l==='all'?'Tout':l}</button>`).join('')}</div><button class="bp" onclick="S.gqmode='quiz';S.gqd={idx:0,sc:0,sel:null,done:false,qs:shuffle(GQUIZ.filter(q=>S.gqf==='all'||q.lvl===S.gqf))};render()" style="padding:7px 13px;font-size:12px">Exercices</button></div>
+  ${flt.map(g=>`<div style="padding:18px 20px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:8px;gap:8px"><div style="font-family:Georgia,serif;font-size:18px;font-weight:700">${esc(g.rule)}</div><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${g.lvl}</span></div><div style="font-size:12px;color:var(--m);background:var(--s);border-radius:7px;padding:6px 12px;margin-bottom:9px;font-style:italic">${esc(g.formula)}</div><div style="font-size:13px;margin-bottom:7px">"${esc(g.ex)}" <button onclick="listen('${esc(g.ex)}')" style="background:none;border:none;color:var(--m);font-size:13px">🔊</button></div><div style="font-size:12px;color:var(--m)">💡 ${esc(g.tip)}</div></div>`).join('')}`;
 }
 
 function rGQ(){
-  if(!S.gqd)S.gqd={idx:0,sc:0,sel:null,done:false};
-  const {idx,sc,sel,done}=S.gqd;
-  if(done)return`<div style="text-align:center;padding:36px 0"><div style="font-family:Georgia,serif;font-size:44px;font-weight:700">${sc}/${GQUIZ.length}</div><div class="small" style="margin:8px 0 24px">${sc===GQUIZ.length?'Quiz parfait':'Quiz terminé'}</div><div style="display:flex;gap:10px"><button class="bp" onclick="S.gqd={idx:0,sc:0,sel:null,done:false};render()">Recommencer</button><button class="bg" onclick="S.gqmode='learn';render()">Retour</button></div></div>`;
-  const q=GQUIZ[idx];
-  return`<div style="display:flex;justify-content:space-between;margin-bottom:14px"><button class="bg" onclick="S.gqmode='learn';render()" style="font-size:12px">← Retour</button><span style="font-size:12px;color:var(--m)">${idx+1}/${GQUIZ.length}</span></div><div style="font-family:Georgia,serif;font-size:21px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div><div>${q.opts.map((o,i)=>`<button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansGQ('${esc(o)}')" ${sel!==null?'disabled':''}>${esc(o)}</button>`).join('')}</div>${sel!==null?`<div style="margin-top:12px;padding:13px;background:var(--f);border-radius:9px;font-size:13px;color:var(--m);line-height:1.6">💡 ${esc(q.exp)}<button class="bp" onclick="nxtGQ()" style="display:block;margin-top:10px;width:100%">${idx+1>=GQUIZ.length?'Résultats':'Suivant'}</button></div>`:''}`;
+  if(!S.gqd)S.gqd={idx:0,sc:0,sel:null,done:false,qs:shuffle(GQUIZ)};
+  const {idx,sc,sel,done}=S.gqd,qs=S.gqd.qs&&S.gqd.qs.length?S.gqd.qs:GQUIZ;
+  if(done)return`<div style="text-align:center;padding:36px 0"><div style="font-family:Georgia,serif;font-size:44px;font-weight:700">${sc}/${qs.length}</div><div class="small" style="margin:8px 0 24px">${sc===qs.length?'Quiz parfait':'Quiz terminé'}</div><div style="display:flex;gap:10px"><button class="bp" onclick="S.gqd={idx:0,sc:0,sel:null,done:false,qs:shuffle(GQUIZ.filter(q=>S.gqf==='all'||q.lvl===S.gqf))};render()">Recommencer</button><button class="bg" onclick="S.gqmode='learn';render()">Retour</button></div></div>`;
+  const q=qs[idx];
+  return`<div style="display:flex;justify-content:space-between;margin-bottom:14px"><button class="bg" onclick="S.gqmode='learn';render()" style="font-size:12px">← Retour</button><span style="font-size:12px;color:var(--m)">${idx+1}/${qs.length}</span></div><div class="sec">${q.lvl}</div><div style="font-family:Georgia,serif;font-size:21px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div><div>${q.opts.map((o,i)=>`<button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansGQ('${esc(o)}')" ${sel!==null?'disabled':''}>${esc(o)}</button>`).join('')}</div>${sel!==null?`<div style="margin-top:12px;padding:13px;background:var(--f);border-radius:9px;font-size:13px;color:var(--m);line-height:1.6">💡 ${esc(q.exp)}<button class="bp" onclick="nxtGQ()" style="display:block;margin-top:10px;width:100%">${idx+1>=qs.length?'Résultats':'Suivant'}</button></div>`:''}`;
 }
 
 function rPhr(){
-  return`${PHRASES.map((p,i)=>{const done=S.phrases.includes(i);return`<div style="padding:16px 18px;border:1px solid ${done?'var(--a)':'var(--b)'};border-radius:13px;background:${done?'var(--a)':'var(--f)'};margin-bottom:10px"><div style="font-size:10px;text-transform:uppercase;color:${done?'#888':'var(--m)'};margin-bottom:7px">${esc(p.ctx)} · ${p.lvl}</div><div style="font-family:Georgia,serif;font-size:18px;font-weight:700;color:${done?'var(--bg)':'var(--t)'};margin-bottom:5px">"${esc(p.p)}" <button onclick="tts('${esc(p.p)}')" style="background:none;border:none;color:${done?'#888':'var(--m)'};font-size:13px">🔊</button></div><div style="font-size:12px;color:${done?'#888':'var(--m)'};margin-bottom:11px">→ ${esc(p.fr)}</div><button onclick="togPhr(${i})" style="padding:6px 13px;background:${done?'transparent':'var(--a)'};color:${done?'#777':'var(--bg)'};border:${done?'1px solid #555':'none'};border-radius:7px;font-size:11px">${done?'✓ Appris':'Marquer · +8 XP'}</button></div>`}).join('')}`;
+  return`${PHRASES.map((p,i)=>{const done=S.phrases.includes(i);return`<div style="padding:16px 18px;border:1px solid ${done?'var(--a)':'var(--b)'};border-radius:13px;background:${done?'var(--a)':'var(--f)'};margin-bottom:10px"><div style="font-size:10px;text-transform:uppercase;color:${done?'#888':'var(--m)'};margin-bottom:7px">${esc(p.ctx)} · ${p.lvl}</div><div style="font-family:Georgia,serif;font-size:18px;font-weight:700;color:${done?'var(--bg)':'var(--t)'};margin-bottom:5px">"${esc(p.p)}" <button onclick="listen('${esc(p.p)}')" style="background:none;border:none;color:${done?'#888':'var(--m)'};font-size:13px">🔊</button></div><div style="font-size:12px;color:${done?'#888':'var(--m)'};margin-bottom:11px">→ ${esc(p.fr)}</div><button onclick="togPhr(${i})" style="padding:6px 13px;background:${done?'transparent':'var(--a)'};color:${done?'#777':'var(--bg)'};border:${done?'1px solid #555':'none'};border-radius:7px;font-size:11px">${done?'✓ Appris':'Marquer · +8 XP'}</button></div>`}).join('')}`;
 }
 
 function rPron(){
   const t=PRON_D[S.pron||0];
-  return`<div style="display:flex;gap:7px;margin-bottom:18px;overflow-x:auto">${PRON_D.map((x,i)=>`<button class="${(S.pron||0)===i?'bp':'bg'}" onclick="S.pron=${i};render()" style="flex:1;font-family:Georgia,serif;font-size:14px;font-weight:700;padding:9px 12px">${x.s}</button>`).join('')}</div><div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px"><div><div style="font-family:Georgia,serif;font-size:44px;font-weight:700">${t.s}</div><div style="font-size:13px;color:var(--m)">${t.ipa}</div></div><button class="bp" onclick="tts('${t.ws[0]}')">🔊 Exemple</button></div><div style="font-size:13px;color:var(--m);padding:11px 14px;background:var(--f);border-radius:8px;margin-bottom:16px;line-height:1.7">${esc(t.d)}</div><div style="display:flex;flex-direction:column;gap:8px">${t.ws.map(w=>`<div style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--f);border-radius:9px"><span style="font-family:Georgia,serif;font-style:italic;font-size:15px;flex:1">${esc(w)}</span><button onclick="tts('${esc(w)}')" style="background:none;border:none;font-size:16px">🔊</button><button onclick="tts('${esc(w)}',.6)" style="background:none;border:none;font-size:12px;color:var(--m)">0.6x</button></div>`).join('')}</div></div>`;
+  return`<div style="display:flex;gap:7px;margin-bottom:18px;overflow-x:auto">${PRON_D.map((x,i)=>`<button class="${(S.pron||0)===i?'bp':'bg'}" onclick="S.pron=${i};render()" style="flex:1;font-family:Georgia,serif;font-size:14px;font-weight:700;padding:9px 12px">${x.s}</button>`).join('')}</div><div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px"><div><div style="font-family:Georgia,serif;font-size:44px;font-weight:700">${t.s}</div><div style="font-size:13px;color:var(--m)">${t.ipa}</div></div><button class="bp" onclick="listen('${t.ws[0]}')">🔊 Exemple</button></div><div style="font-size:13px;color:var(--m);padding:11px 14px;background:var(--f);border-radius:8px;margin-bottom:16px;line-height:1.7">${esc(t.d)}</div><div style="display:flex;flex-direction:column;gap:8px">${t.ws.map(w=>`<div style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--f);border-radius:9px"><span style="font-family:Georgia,serif;font-style:italic;font-size:15px;flex:1">${esc(w)}</span><button onclick="listen('${esc(w)}')" style="background:none;border:none;font-size:16px">🔊</button><button onclick="listen('${esc(w)}',.6)" style="background:none;border:none;font-size:12px;color:var(--m)">0.6x</button></div>`).join('')}</div></div>`;
 }
 
-function rIdioms(){return`<div class="small" style="margin-bottom:16px">Expressions idiomatiques utiles.</div>${IDIOMS.map(id=>`<div style="padding:16px 18px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:10px"><div style="font-family:Georgia,serif;font-size:17px;font-weight:700;margin-bottom:7px">${esc(id.e)}</div><div style="font-size:14px;color:var(--bl);margin-bottom:7px;font-weight:600">→ ${esc(id.m)}</div><div style="font-size:13px;color:var(--m);font-style:italic">"${esc(id.ex)}" <button onclick="tts('${esc(id.ex)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div></div>`).join('')}`}
+function rIdioms(){return`<div class="small" style="margin-bottom:16px">Expressions idiomatiques utiles.</div>${IDIOMS.map(id=>`<div style="padding:16px 18px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:10px"><div style="font-family:Georgia,serif;font-size:17px;font-weight:700;margin-bottom:7px">${esc(id.e)}</div><div style="font-size:14px;color:var(--bl);margin-bottom:7px;font-weight:600">→ ${esc(id.m)}</div><div style="font-size:13px;color:var(--m);font-style:italic">"${esc(id.ex)}" <button onclick="listen('${esc(id.ex)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div></div>`).join('')}`}
 
-function rDict(){const di=S.dictIdx||0,c=DICT_WORDS[di%DICT_WORDS.length];return`<div class="card" style="margin-bottom:14px"><div class="sec">Écoute et écris le mot en anglais</div><button onclick="tts('${esc(c.word)}')" style="font-size:48px;background:none;border:none;display:block;margin:0 auto 8px">🔊</button><button onclick="tts('${esc(c.word)}',.6)" style="padding:6px 14px;background:var(--f);border:1px solid var(--b);border-radius:20px;font-size:12px;display:block;margin:0 auto">0.6x lent</button></div><input id="dinp" placeholder="Écris le mot anglais..." style="margin-bottom:10px" onkeydown="if(event.key==='Enter')chkDict()"><button class="bp" onclick="chkDict()" style="width:100%">Vérifier</button><div id="dr"></div><div style="text-align:center;font-size:12px;color:var(--m);margin-top:12px">${di+1} / ${DICT_WORDS.length}</div>`}
+function rDict(){const di=S.dictIdx||0,c=DICT_WORDS[di%DICT_WORDS.length];return`<div class="card" style="margin-bottom:14px"><div class="sec">Écoute et écris le mot en anglais</div><button onclick="listen('${esc(c.word)}')" style="font-size:48px;background:none;border:none;display:block;margin:0 auto 8px">🔊</button><button onclick="listen('${esc(c.word)}',.6)" style="padding:6px 14px;background:var(--f);border:1px solid var(--b);border-radius:20px;font-size:12px;display:block;margin:0 auto">0.6x lent</button></div><input id="dinp" placeholder="Écris le mot anglais..." style="margin-bottom:10px" onkeydown="if(event.key==='Enter')chkDict()"><button class="bp" onclick="chkDict()" style="width:100%">Vérifier</button><div id="dr"></div><div style="text-align:center;font-size:12px;color:var(--m);margin-top:12px">${di+1} / ${DICT_WORDS.length}</div>`}
 
 function rCustomLearn(){
   const decks=S.decks||[],selected=S.customDecks||[],deleteSelected=S.deleteDecks||[];
@@ -562,15 +526,15 @@ function rContentReader(){
   const data=[...ARTICLES,...INTERVIEWS,...DIALOGUES],x=data.find(a=>a.id===S.activeContent);
   if(!x){S.activeContent=null;return rContent()}
   if(ARTICLES.some(a=>a.id===x.id)){
-    return`<button class="bg" onclick="S.activeContent=null;render()" style="margin-bottom:14px">← Retour</button><div class="card" style="margin-bottom:14px"><div class="sec">${x.lvl} · Article</div><h2 style="font-size:22px;margin-bottom:10px">${esc(x.title)}</h2><p class="small">${esc(x.intro)}</p></div><div class="article-text">${esc(x.text)}</div><div style="display:flex;gap:8px;margin:12px 0"><button class="bg" onclick="tts('${esc(x.text)}')" style="flex:1">🔊 Écouter</button><button class="bg" onclick="tts('${esc(x.text)}',.7)" style="flex:1">🐢 Lent</button></div><div class="card" style="margin-bottom:12px"><div class="sec">Résumé français</div><p style="font-size:14px;line-height:1.7">${esc(x.fr)}</p></div><div class="card" style="margin-bottom:12px"><div class="sec">Vocabulaire</div>${x.vocab.map(([en,fr])=>`<div style="display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:8px"><strong>${esc(en)}</strong><span style="color:var(--m)">${esc(fr)}</span></div>`).join('')}</div><div class="card" style="margin-bottom:12px"><div class="sec">Compréhension</div><p style="font-size:14px;margin-bottom:8px">${esc(x.q)}</p><p class="small">Réponse : ${esc(x.a)}</p></div><button class="bp" onclick="markContentRead('${x.id}')" style="width:100%">Marquer comme lu · +25 XP</button>`;
+    return`<button class="bg" onclick="S.activeContent=null;render()" style="margin-bottom:14px">← Retour</button><div class="card" style="margin-bottom:14px"><div class="sec">${x.lvl} · Article</div><h2 style="font-size:22px;margin-bottom:10px">${esc(x.title)}</h2><p class="small">${esc(x.intro)}</p></div><div class="article-text">${esc(x.text)}</div><div style="display:flex;gap:8px;margin:12px 0"><button class="bg" onclick="listen('${esc(x.text)}')" style="flex:1">🔊 Écouter</button><button class="bg" onclick="listen('${esc(x.text)}',.7)" style="flex:1">🐢 Lent</button></div><div class="card" style="margin-bottom:12px"><div class="sec">Résumé français</div><p style="font-size:14px;line-height:1.7">${esc(x.fr)}</p></div><div class="card" style="margin-bottom:12px"><div class="sec">Vocabulaire</div>${x.vocab.map(([en,fr])=>`<div style="display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:8px"><strong>${esc(en)}</strong><span style="color:var(--m)">${esc(fr)}</span></div>`).join('')}</div><div class="card" style="margin-bottom:12px"><div class="sec">Compréhension</div><p style="font-size:14px;margin-bottom:8px">${esc(x.q)}</p><p class="small">Réponse : ${esc(x.a)}</p></div><button class="bp" onclick="markContentRead('${x.id}')" style="width:100%">Marquer comme lu · +25 XP</button>`;
   }
   if(INTERVIEWS.some(a=>a.id===x.id)){
-    return`<button class="bg" onclick="S.activeContent=null;render()" style="margin-bottom:14px">← Retour</button><div class="card" style="margin-bottom:14px"><div class="sec">${x.lvl} · Interview</div><h2 style="font-size:22px;margin-bottom:10px">${esc(x.title)}</h2><p class="small">${esc(x.intro)}</p></div><div class="card" style="margin-bottom:12px">${x.lines.map(([who,line])=>`<div class="line"><div class="role">${esc(who)}</div><div style="font-size:14px;line-height:1.6;flex:1">${esc(line)} <button onclick="tts('${esc(line)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div></div>`).join('')}</div><div class="card" style="margin-bottom:12px"><div class="sec">Vocabulaire</div>${x.vocab.map(([en,fr])=>`<div style="display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:8px"><strong>${esc(en)}</strong><span style="color:var(--m)">${esc(fr)}</span></div>`).join('')}</div><button class="bp" onclick="markContentRead('${x.id}')" style="width:100%">Marquer comme travaillé · +25 XP</button>`;
+    return`<button class="bg" onclick="S.activeContent=null;render()" style="margin-bottom:14px">← Retour</button><div class="card" style="margin-bottom:14px"><div class="sec">${x.lvl} · Interview</div><h2 style="font-size:22px;margin-bottom:10px">${esc(x.title)}</h2><p class="small">${esc(x.intro)}</p></div><div class="card" style="margin-bottom:12px">${x.lines.map(([who,line])=>`<div class="line"><div class="role">${esc(who)}</div><div style="font-size:14px;line-height:1.6;flex:1">${esc(line)} <button onclick="listen('${esc(line)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div></div>`).join('')}</div><div class="card" style="margin-bottom:12px"><div class="sec">Vocabulaire</div>${x.vocab.map(([en,fr])=>`<div style="display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:8px"><strong>${esc(en)}</strong><span style="color:var(--m)">${esc(fr)}</span></div>`).join('')}</div><button class="bp" onclick="markContentRead('${x.id}')" style="width:100%">Marquer comme travaillé · +25 XP</button>`;
   }
-  return`<button class="bg" onclick="S.activeContent=null;render()" style="margin-bottom:14px">← Retour</button><div class="card" style="margin-bottom:14px"><div class="sec">${x.lvl} · Dialogue</div><h2 style="font-size:22px;margin-bottom:10px">${esc(x.title)}</h2><p class="small">${esc(x.intro)}</p></div><div class="card" style="margin-bottom:12px">${x.lines.map(([who,line])=>`<div class="line"><div class="role">${esc(who)}</div><div style="font-size:14px;line-height:1.6;flex:1">${esc(line)} <button onclick="tts('${esc(line)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div></div>`).join('')}</div><div class="card" style="margin-bottom:12px"><div class="sec">Phrases utiles</div>${x.useful.map(u=>`<div style="font-size:14px;margin-bottom:8px">${esc(u)} <button onclick="tts('${esc(u)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div>`).join('')}</div><button class="bp" onclick="markContentRead('${x.id}')" style="width:100%">Marquer comme travaillé · +25 XP</button>`;
+  return`<button class="bg" onclick="S.activeContent=null;render()" style="margin-bottom:14px">← Retour</button><div class="card" style="margin-bottom:14px"><div class="sec">${x.lvl} · Dialogue</div><h2 style="font-size:22px;margin-bottom:10px">${esc(x.title)}</h2><p class="small">${esc(x.intro)}</p></div><div class="card" style="margin-bottom:12px">${x.lines.map(([who,line])=>`<div class="line"><div class="role">${esc(who)}</div><div style="font-size:14px;line-height:1.6;flex:1">${esc(line)} <button onclick="listen('${esc(line)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div></div>`).join('')}</div><div class="card" style="margin-bottom:12px"><div class="sec">Phrases utiles</div>${x.useful.map(u=>`<div style="font-size:14px;margin-bottom:8px">${esc(u)} <button onclick="listen('${esc(u)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div>`).join('')}</div><button class="bp" onclick="markContentRead('${x.id}')" style="width:100%">Marquer comme travaillé · +25 XP</button>`;
 }
 
-function markContentRead(id){if(!S.readS.includes(id)){S.readS.push(id);sv('readS');addXP(25);earnB('b7')}S.activeContent=null;render()}
+function markContentRead(id){if(!S.readS.includes(id)){S.readS.push(id);S.stats.contentRead=(S.stats.contentRead||0)+1;sv('readS');sv('stats');addXP(25);earnB('b7');checkB()}S.activeContent=null;render()}
 
 function rExams(){
   const subs=[{id:'leveltest',l:'Test niveau'},{id:'toeic',l:'Mini TOEIC'}];
@@ -623,17 +587,17 @@ function startStudy(id){const dk=S.decks.find(d=>d.id===id);if(!dk||!dk.cards.le
 function endStudy(){S.studyDeck=null;S.studyIdx=0;sv('srs');render()}
 function setSM(m){S.studyMode=m;S.flipped=false;S.qopts=null;render()}
 function doFlip(){S.flipped=!S.flipped;render()}
-function ans(ok){const c=S.studyDeck.cards[S.studyIdx||0];S.srs[c.id]=srsNext(S.srs[c.id]||{},ok);addXP(ok?10:3);incD();logErr(c.word,ok);earnB('b1');S.studyIdx=(S.studyIdx||0)+1;S.flipped=false;S.qopts=null;if(S.studyIdx>=S.studyDeck.cards.length)sv('srs');render()}
-function ansQ(opt){const c=S.studyDeck.cards[S.studyIdx||0],correct=cardBackText(c),ok=opt===correct;document.querySelectorAll('.opt').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('ok');else if(b.textContent.trim()===opt&&!ok)b.classList.add('no');b.disabled=true});addXP(ok?12:2);logErr(c.word,ok);S.srs[c.id]=srsNext(S.srs[c.id]||{},ok);incD();setTimeout(()=>{S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;if(S.studyIdx>=S.studyDeck.cards.length)sv('srs');render()},1000)}
-function chkFill(){const inp=document.getElementById('finp');if(!inp)return;const c=S.studyDeck.cards[S.studyIdx||0],expected=cardBackText(c);const a=inp.value.trim().toLowerCase(),co=expected.toLowerCase();const ok=a===co||co.includes(a)||a.includes(co.split('/')[0].trim().toLowerCase());inp.style.borderColor=ok?'#4caf50':'#f44336';inp.disabled=true;const res=document.getElementById('fr');if(res)res.innerHTML=`<div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'}">${ok?'Correct · +15 XP':`C'était : "${esc(expected)}"`}<button class="bp" onclick="S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;render()" style="display:block;margin-top:10px;width:100%">Suivant</button></div>`;if(ok)addXP(15);else addXP(2);S.srs[c.id]=srsNext(S.srs[c.id]||{},ok);incD();const fb=document.getElementById('fbtn');if(fb)fb.style.display='none'}
+function ans(ok){const c=S.studyDeck.cards[S.studyIdx||0];S.srs[c.id]=srsNext(S.srs[c.id]||{},ok);addXP(ok?10:3);incD();stat('cardsStudied');logErr(c.word,ok);earnB('b1');S.studyIdx=(S.studyIdx||0)+1;S.flipped=false;S.qopts=null;if(S.studyIdx>=S.studyDeck.cards.length)sv('srs');render()}
+function ansQ(opt){const c=S.studyDeck.cards[S.studyIdx||0],correct=cardBackText(c),ok=opt===correct;document.querySelectorAll('.opt').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('ok');else if(b.textContent.trim()===opt&&!ok)b.classList.add('no');b.disabled=true});addXP(ok?12:2);stat('cardsStudied');logErr(c.word,ok);S.srs[c.id]=srsNext(S.srs[c.id]||{},ok);incD();setTimeout(()=>{S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;if(S.studyIdx>=S.studyDeck.cards.length)sv('srs');render()},1000)}
+function chkFill(){const inp=document.getElementById('finp');if(!inp)return;const c=S.studyDeck.cards[S.studyIdx||0],expected=cardBackText(c);const a=inp.value.trim().toLowerCase(),co=expected.toLowerCase();const ok=a===co||co.includes(a)||a.includes(co.split('/')[0].trim().toLowerCase());inp.style.borderColor=ok?'#4caf50':'#f44336';inp.disabled=true;const res=document.getElementById('fr');if(res)res.innerHTML=`<div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'}">${ok?'Correct · +15 XP':`C'était : "${esc(expected)}"`}<button class="bp" onclick="S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;render()" style="display:block;margin-top:10px;width:100%">Suivant</button></div>`;if(ok)addXP(15);else addXP(2);stat('cardsStudied');S.srs[c.id]=srsNext(S.srs[c.id]||{},ok);incD();const fb=document.getElementById('fbtn');if(fb)fb.style.display='none'}
 
-function ansGQ(opt){const q=GQUIZ[S.gqd.idx];S.gqd.sel=opt;const ok=q.opts[q.a]===opt;if(ok)S.gqd.sc++;addXP(ok?15:3);logErr(q.q,ok);render()}
-function nxtGQ(){const d=S.gqd;if(d.idx+1>=GQUIZ.length){d.done=true;if(d.sc===GQUIZ.length)earnB('b6')}else{d.idx++;d.sel=null}render()}
-function togPhr(idx){if(S.phrases.includes(idx))S.phrases=S.phrases.filter(x=>x!==idx);else{S.phrases.push(idx);addXP(8)}sv('phrases');render()}
+function ansGQ(opt){const q=(S.gqd.qs&&S.gqd.qs.length?S.gqd.qs:GQUIZ)[S.gqd.idx];S.gqd.sel=opt;const ok=q.opts[q.a]===opt;if(ok)S.gqd.sc++;addXP(ok?15:3);logErr(q.q,ok);render()}
+function nxtGQ(){const d=S.gqd,qs=d.qs&&d.qs.length?d.qs:GQUIZ;if(d.idx+1>=qs.length){d.done=true;stat('quizDone');if(d.sc===qs.length)earnB('b6')}else{d.idx++;d.sel=null}render()}
+function togPhr(idx){if(S.phrases.includes(idx))S.phrases=S.phrases.filter(x=>x!==idx);else{S.phrases.push(idx);S.stats.phrasesLearned=(S.stats.phrasesLearned||0)+1;sv('stats');addXP(8)}sv('phrases');checkB();render()}
 function chkDict(){const inp=document.getElementById('dinp');if(!inp)return;const c=DICT_WORDS[(S.dictIdx||0)%DICT_WORDS.length];const ok=inp.value.trim().toLowerCase()===c.word.toLowerCase();inp.style.borderColor=ok?'#4caf50':'#f44336';inp.disabled=true;const res=document.getElementById('dr');if(res)res.innerHTML=`<div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'};margin-top:10px">${ok?'Parfait · +15 XP':`C'était : "${esc(c.word)}" · ${esc(c.tr)}`}<button class="bp" onclick="S.dictIdx=(S.dictIdx||0)+1;render()" style="display:block;margin-top:10px;width:100%">Suivant</button></div>`;if(ok)addXP(15);else addXP(2)}
 
 function ansTOEIC(opt){const q=TOEIC[S.toeicIdx||0];S.toeicSel=opt;const ok=q.opts[q.a]===opt;if(!S.toeicData)S.toeicData={sc:0};if(ok)S.toeicData.sc++;addXP(ok?10:2);logErr(q.q,ok);render()}
-function nxtTOEIC(){const i=S.toeicIdx||0;if(i+1>=TOEIC.length){S.toeicDone=true;S.toeicScore=S.toeicData?.sc||0;earnB('b8')}else{S.toeicIdx=i+1;S.toeicSel=null}render()}
+function nxtTOEIC(){const i=S.toeicIdx||0;if(i+1>=TOEIC.length){S.toeicDone=true;S.toeicScore=S.toeicData?.sc||0;const pct=Math.round((S.toeicScore/TOEIC.length)*100);if(pct>=70)S.stats.toeic70=true;if(pct>=90)S.stats.toeic90=true;sv('stats');checkB();earnB('b8')}else{S.toeicIdx=i+1;S.toeicSel=null}render()}
 function resetTOEIC(){S.toeicIdx=0;S.toeicSel=null;S.toeicDone=false;S.toeicScore=0;S.toeicData=null;render()}
 function startLT(){S.ltData={idx:0,sc:0,sel:null,done:false};render()}
 function ansLT(i){const q=LTQS[S.ltData.idx];S.ltData.sel=q.opts[i];const ok=i===q.a;if(ok){S.ltData.sc++;addXP(3)}logErr(q.q,ok);render()}
