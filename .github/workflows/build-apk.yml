@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build-android:
     runs-on: ubuntu-latest
@@ -49,7 +52,7 @@ jobs:
       - name: Build release APK
         run: flutter build apk --release
 
-      - name: Rename APK with version
+      - name: Prepare release file
         run: |
           mkdir -p release
           cp build/app/outputs/flutter-apk/app-release.apk release/learn-english-v1.0.1.apk
@@ -59,3 +62,12 @@ jobs:
         with:
           name: learn-english-v1.0.1-apk
           path: release/learn-english-v1.0.1.apk
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="learn-english-v1.0.1-build-${{ github.run_number }}"
+          gh release create "$TAG" release/learn-english-v1.0.1.apk \
+            --title "Learn English v1.0.1 build ${{ github.run_number }}" \
+            --notes "APK Android Learn English v1.0.1"
