@@ -130,19 +130,19 @@ jobs:
       - name: Prepare release file
         run: |
           mkdir -p release
-          cp build/app/outputs/flutter-apk/app-release.apk release/learn-english-v1.0.5.apk
+          cp build/app/outputs/flutter-apk/app-release.apk release/learn-english-v1.0.6.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: learn-english-v1.0.5-apk
-          path: release/learn-english-v1.0.5.apk
+          name: learn-english-v1.0.6-apk
+          path: release/learn-english-v1.0.6.apk
 
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="learn-english-v1.0.5-build-${{ github.run_number }}"
-          gh release create "$TAG" release/learn-english-v1.0.5.apk \
-            --title "Learn English v1.0.5 build ${{ github.run_number }}" \
-            --notes "APK Android signée Learn English v1.0.5"
+          TAG="learn-english-v1.0.6-build-${{ github.run_number }}"
+          gh release create "$TAG" release/learn-english-v1.0.6.apk \
+            --title "Learn English v1.0.6 build ${{ github.run_number }}" \
+            --notes "APK Android signée Learn English v1.0.6"
