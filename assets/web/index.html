@@ -4,14 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Learn English</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f4f4f0;
-  --s:#fff;
+  --s:#ffffff;
   --b:#e8e8e4;
   --t:#1a1a1a;
-  --m:#999;
+  --m:#777;
   --f:#f0f0ec;
   --a:#1a1a1a;
   --g:#4caf50;
@@ -24,7 +23,7 @@
   --s:#1c1c1f;
   --b:#2a2a2e;
   --t:#f0f0ed;
-  --m:#888;
+  --m:#999;
   --f:#222226;
   --a:#f0f0ed;
 }
@@ -32,13 +31,17 @@
 body{
   background:var(--bg);
   color:var(--t);
-  font-family:'DM Sans',sans-serif;
-  transition:background .3s,color .3s;
+  font-family:Arial,Helvetica,sans-serif;
 }
-h1,h2,h3{font-family:'Playfair Display',serif}
-button{cursor:pointer;font-family:'DM Sans',sans-serif}
+h1,h2,h3{
+  font-family:Georgia,serif;
+}
+button{
+  cursor:pointer;
+  font-family:Arial,Helvetica,sans-serif;
+}
 input,textarea,select{
-  font-family:'DM Sans',sans-serif;
+  width:100%;
   background:var(--f);
   color:var(--t);
   border:1px solid var(--b);
@@ -46,59 +49,54 @@ input,textarea,select{
   padding:10px 14px;
   font-size:14px;
   outline:none;
-  width:100%;
 }
-input:focus,textarea:focus,select:focus{border-color:var(--bl)}
+textarea{resize:vertical}
 .card{
   background:var(--s);
   border:1px solid var(--b);
   border-radius:16px;
-  padding:20px;
+  padding:18px;
 }
 .bp{
   background:var(--a);
   color:var(--bg);
   border:none;
   border-radius:9px;
-  padding:11px 18px;
+  padding:11px 16px;
   font-size:13px;
-  font-weight:500;
-  cursor:pointer;
+  font-weight:600;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:5px;
+  gap:6px;
 }
 .bg{
   background:var(--f);
   color:var(--m);
   border:1px solid var(--b);
   border-radius:9px;
-  padding:11px 18px;
+  padding:11px 16px;
   font-size:13px;
-  cursor:pointer;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:5px;
+  gap:6px;
 }
 .bs{
   background:#f0faf0;
   color:#2e7d32;
   border:1px solid #c8e6c9;
   border-radius:9px;
-  padding:11px 18px;
+  padding:11px 16px;
   font-size:13px;
-  cursor:pointer;
 }
 .bd{
   background:#fff5f5;
   color:#c62828;
   border:1px solid #fcd0d0;
   border-radius:9px;
-  padding:11px 18px;
+  padding:11px 16px;
   font-size:13px;
-  cursor:pointer;
 }
 .pbar{
   height:5px;
@@ -109,7 +107,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--bl)}
 .pfill{
   height:100%;
   border-radius:3px;
-  transition:width .6s;
+  transition:width .4s;
 }
 .tab-bar{
   display:flex;
@@ -145,7 +143,6 @@ input:focus,textarea:focus,select:focus{border-color:var(--bl)}
   width:100%;
   display:block;
   margin-bottom:9px;
-  cursor:pointer;
 }
 .opt.ok{
   background:#f0faf0!important;
@@ -183,62 +180,22 @@ input:focus,textarea:focus,select:focus{border-color:var(--bl)}
 #app{
   max-width:480px;
   margin:0 auto;
-  padding:24px 16px 80px;
+  padding:24px 16px 82px;
 }
-.cbai{
-  background:var(--f);
-  border-radius:18px 18px 18px 4px;
-  padding:11px 15px;
-  max-width:85%;
-  font-size:14px;
-  line-height:1.6;
-}
-.cbme{
-  background:var(--a);
-  color:var(--bg);
-  border-radius:18px 18px 4px 18px;
-  padding:11px 15px;
-  max-width:85%;
-  font-size:14px;
-  line-height:1.6;
-}
-@keyframes bounce{
-  0%,80%,100%{transform:translateY(0)}
-  40%{transform:translateY(-6px)}
-}
-@keyframes fu{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.dl span{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--m);
-  display:inline-block;
-  animation:bounce 1s infinite;
-}
-.dl span:nth-child(2){animation-delay:.15s}
-.dl span:nth-child(3){animation-delay:.3s}
 .xpa{
-  animation:fu 1.4s ease forwards;
   position:fixed;
   top:80px;
   right:20px;
-  font-size:18px;
+  font-size:17px;
   font-weight:700;
   color:var(--g);
-  pointer-events:none;
   z-index:300;
-  font-family:'Playfair Display',serif;
+  pointer-events:none;
+  animation:fadeup 1.4s ease forwards;
 }
-.story-t{
-  font-size:15px;
-  line-height:2.1;
-  padding:20px;
-  background:var(--f);
-  border-radius:14px;
-  border:1px solid var(--b);
+@keyframes fadeup{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
 }
 .modal-ov{
   position:fixed;
@@ -253,7 +210,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--bl)}
 .modal{
   background:var(--s);
   border-radius:20px;
-  padding:26px;
+  padding:24px;
   width:100%;
   max-width:440px;
   max-height:90vh;
@@ -268,24 +225,22 @@ input:focus,textarea:focus,select:focus{border-color:var(--bl)}
   align-items:center;
   justify-content:center;
   padding:20px;
-  overflow-y:auto;
 }
 .sec{
   font-size:11px;
-  letter-spacing:.15em;
+  letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--m);
-  margin-bottom:14px;
+  margin-bottom:12px;
 }
 .lbl{
   font-size:11px;
   color:var(--m);
-  letter-spacing:.05em;
   display:block;
   margin-bottom:5px;
 }
 .small{
-  font-size:12px;
+  font-size:13px;
   color:var(--m);
   line-height:1.6;
 }
@@ -299,20 +254,13 @@ input:focus,textarea:focus,select:focus{border-color:var(--bl)}
   grid-template-columns:1fr 1fr 1fr;
   gap:10px;
 }
-.deck-row{
-  padding:12px;
-  border:1px solid var(--b);
-  border-radius:10px;
-  background:var(--f);
-  margin-bottom:8px;
-}
 </style>
 </head>
 <body>
 <div id="xpt"></div>
 <div id="ob" class="ob" style="display:none"></div>
 <div id="app" style="display:none"></div>
-<nav class="bnav" id="bnav" style="display:none"></nav>
+<nav id="bnav" class="bnav" style="display:none"></nav>
 
 <script>
 const LS={
@@ -331,7 +279,7 @@ const LS={
   }
 };
 
-const uid=()=>'_'+Math.random().toString(36).slice(2,9);
+const uid=()=>'_'+Math.random().toString(36).slice(2,10);
 
 const esc=s=>String(s||'')
   .replace(/&/g,'&amp;')
@@ -341,26 +289,18 @@ const esc=s=>String(s||'')
 
 const today=()=>new Date().toDateString();
 
-const tts=(t,r=.9)=>{
+function tts(text,rate=.9){
   if(!window.speechSynthesis)return;
   window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(t);
+  const u=new SpeechSynthesisUtterance(text);
   u.lang='en-US';
-  u.rate=r;
+  u.rate=rate;
   window.speechSynthesis.speak(u);
-};
+}
 
-/*
-  Version simplifiée :
-  - aucun appel IA
-  - aucun deck de base
-  - decks créés/importés par l'utilisateur
-  - section Apprendre conservée + sous-section Personnaliser
-  - test de niveau 40 questions
-  - mini TOEIC renforcé
-*/
-
-const DECKS=[];
+function shuffle(arr){
+  return [...arr].sort(()=>Math.random()-.5);
+}
 
 const LVLS=[
   {l:'A1',min:0,label:'Débutant',c:'#4caf50'},
@@ -382,14 +322,37 @@ const BADGES=[
   {id:'b8',i:'🎓',n:'Test terminé'}
 ];
 
+const GRAMMAR=[
+  {rule:'Present Simple',formula:'subject + verb',ex:'She works every day.',tip:'Habitudes et vérités générales.',lvl:'A1'},
+  {rule:'Past Simple',formula:'verb + -ed / irregular',ex:'They visited London last year.',tip:'Action terminée dans le passé.',lvl:'A2'},
+  {rule:'Future with will',formula:'will + verb',ex:'I will call you tomorrow.',tip:'Promesse, décision ou prédiction.',lvl:'A2'},
+  {rule:'Present Perfect',formula:'have/has + past participle',ex:'I have lived here for five years.',tip:'Lien entre passé et présent.',lvl:'B1'},
+  {rule:'Passive Voice',formula:'to be + past participle',ex:'The book was written by Orwell.',tip:"On insiste sur l'action.",lvl:'B1'},
+  {rule:'Second Conditional',formula:'If + past, would + verb',ex:'If I had time, I would travel.',tip:'Hypothèse imaginaire.',lvl:'B2'},
+  {rule:'Reported Speech',formula:'said/told + shifted tense',ex:'He said he was tired.',tip:'Rapporter les paroles.',lvl:'B2'},
+  {rule:'Third Conditional',formula:'If + past perfect, would have + pp',ex:'If I had studied, I would have passed.',tip:'Regret sur le passé.',lvl:'C1'},
+  {rule:'Inversion',formula:'Never + auxiliary + subject + verb',ex:'Never have I seen such a thing.',tip:'Structure formelle.',lvl:'C1'},
+  {rule:'Cleft Sentences',formula:'It is/was + focus + that/who...',ex:'It was John who called me.',tip:'Mettre en valeur une information.',lvl:'C2'}
+];
+
+const GQUIZ=[
+  {q:'She ___ to Paris last year.',opts:['has gone','went','goes','go'],a:1,exp:'Simple past pour une action terminée.',lvl:'A2'},
+  {q:'I ___ English every day.',opts:['study','studies','studying','studied'],a:0,exp:'Présent simple avec I.',lvl:'A1'},
+  {q:'They have lived here ___ 2020.',opts:['for','since','during','ago'],a:1,exp:'Since + point de départ.',lvl:'B1'},
+  {q:'If I ___ rich, I would travel.',opts:['am','was','were','be'],a:2,exp:'Were est courant dans les conditionnels.',lvl:'B2'},
+  {q:'The report ___ by the manager.',opts:['write','wrote','was written','is write'],a:2,exp:'Passive : was + participe passé.',lvl:'B1'},
+  {q:'By tomorrow, she ___ the book.',opts:['reads','will read','will have read','read'],a:2,exp:'Future perfect.',lvl:'C1'},
+  {q:'He told me he ___ tired.',opts:['is','was','be','were'],a:1,exp:'Reported speech.',lvl:'B2'},
+  {q:'Never ___ such a strange result.',opts:['I saw','have I seen','I have seen','saw I'],a:1,exp:'Inversion après never.',lvl:'C1'}
+];
+
 const PHRASES=[
   {p:'Could you say that again?',ctx:'Pas compris',fr:'Pouvez-vous répéter ?',lvl:'A1'},
-  {p:'Can you help me, please?',ctx:'Demander de l’aide',fr:'Pouvez-vous m’aider, s’il vous plaît ?',lvl:'A1'},
-  {p:'I would like a coffee, please.',ctx:'Commander',fr:'Je voudrais un café, s’il vous plaît.',lvl:'A1'},
+  {p:'Can you help me, please?',ctx:'Aide',fr:'Pouvez-vous m’aider ?',lvl:'A1'},
+  {p:'I would like a coffee, please.',ctx:'Commander',fr:'Je voudrais un café.',lvl:'A1'},
   {p:'It depends on the situation.',ctx:'Nuancer',fr:'Cela dépend de la situation.',lvl:'A2'},
-  {p:'I’m looking forward to it.',ctx:'Attente positive',fr:'J’ai hâte.',lvl:'B1'},
+  {p:'I’m looking forward to it.',ctx:'Attente',fr:'J’ai hâte.',lvl:'B1'},
   {p:'I was wondering if...',ctx:'Demande polie',fr:'Je me demandais si...',lvl:'B1'},
-  {p:'To be honest with you...',ctx:'Opinion franche',fr:'Pour être honnête avec toi...',lvl:'B1'},
   {p:'That being said...',ctx:'Nuance',fr:'Cela dit...',lvl:'B2'},
   {p:'From my point of view...',ctx:'Opinion',fr:'De mon point de vue...',lvl:'B2'},
   {p:'It goes without saying that...',ctx:'Évidence',fr:'Il va sans dire que...',lvl:'C1'}
@@ -401,135 +364,14 @@ const IDIOMS=[
   {e:'Bite the bullet',m:'Serrer les dents',ex:'Just bite the bullet and do it.'},
   {e:'Spill the beans',m:'Vendre la mèche',ex:"Don't spill the beans!"},
   {e:'Under the weather',m:'Ne pas se sentir bien',ex:"I'm a bit under the weather."},
-  {e:'Once in a blue moon',m:'Très rarement',ex:'He visits us once in a blue moon.'},
-  {e:'The ball is in your court',m:'C’est à toi de jouer',ex:'I made my offer. The ball is in your court.'},
-  {e:'Cut corners',m:'Faire les choses à moitié',ex:'The company cut corners to save money.'}
+  {e:'Once in a blue moon',m:'Très rarement',ex:'He visits us once in a blue moon.'}
 ];
 
 const PRON_D=[
-  {s:'TH',d:'Place la langue entre les dents. Ne prononce pas comme un simple S ou Z.',ws:['think','three','the','there','tooth'],ipa:'/θ/ ou /ð/'},
-  {s:'W',d:'Arrondis les lèvres au début du mot.',ws:['water','world','word','want','window'],ipa:'/w/'},
-  {s:'R',d:'Recourbe légèrement la langue vers l’arrière, sans rouler le R.',ws:['right','really','road','red','around'],ipa:'/r/'},
-  {s:'H',d:'Expire doucement au début du mot. Le H anglais s’entend.',ws:['house','happy','help','hotel','behind'],ipa:'/h/'},
-  {s:'V',d:'Les dents du haut touchent légèrement la lèvre inférieure.',ws:['very','voice','video','travel','never'],ipa:'/v/'}
-];
-
-const STORIES=[
-  {
-    id:'s1',
-    title:'A Morning in London',
-    lvl:'A2',
-    text:'Every morning, Tom wakes up at 7am. He lives in a small flat in London near the Thames. He makes a cup of tea and reads the news on his phone. Today, something is different. There is a letter on his doorstep from an old friend he has not seen in ten years.',
-    kw:{flat:'appartement',doorstep:'pas de la porte',Thames:'la Tamise'}
-  },
-  {
-    id:'s2',
-    title:'The Job Interview',
-    lvl:'B1',
-    text:"Sarah arrived fifteen minutes early for her interview at a tech company. She was nervous but well-prepared. The interviewer greeted her warmly. 'Tell me about yourself,' she said. Sarah took a deep breath and began speaking confidently.",
-    kw:{interview:'entretien',nervous:'nerveux/se',confidently:'avec confiance'}
-  },
-  {
-    id:'s3',
-    title:'A Difficult Decision',
-    lvl:'B2',
-    text:'Mark had been offered a new position abroad, but accepting it meant leaving his family and friends behind. He spent the evening weighing the advantages and drawbacks before making a final decision.',
-    kw:{abroad:'à l’étranger',drawbacks:'inconvénients',weighing:'pesant / évaluant'}
-  }
-];
-
-const GRAMMAR=[
-  {rule:'Present Simple',formula:'subject + verb',ex:'She works every day.',tip:'Utilisé pour les habitudes et vérités générales.',lvl:'A1'},
-  {rule:'Past Simple',formula:'verb + -ed / irregular form',ex:'They visited London last year.',tip:'Action terminée dans le passé.',lvl:'A2'},
-  {rule:'Future with will',formula:'will + verb',ex:'I will call you tomorrow.',tip:'Décision, prédiction ou promesse.',lvl:'A2'},
-  {rule:'Present Perfect',formula:'have/has + past participle',ex:'I have lived here for five years.',tip:'Lien entre passé et présent.',lvl:'B1'},
-  {rule:'Passive Voice',formula:'to be + past participle',ex:'The book was written by Orwell.',tip:"On insiste sur l'action ou le résultat.",lvl:'B1'},
-  {rule:'Second Conditional',formula:'If + past, would + verb',ex:'If I had time, I would travel.',tip:'Hypothèse peu probable ou imaginaire.',lvl:'B2'},
-  {rule:'Reported Speech',formula:'said/told + shifted tense',ex:'He said he was tired.',tip:'Rapporter les paroles de quelqu’un.',lvl:'B2'},
-  {rule:'Third Conditional',formula:'If + past perfect, would have + past participle',ex:'If I had studied, I would have passed.',tip:'Regret ou hypothèse sur le passé.',lvl:'C1'},
-  {rule:'Inversion after negative adverbials',formula:'Never/Rarely + auxiliary + subject + verb',ex:'Never have I seen such a thing.',tip:'Structure formelle pour insister.',lvl:'C1'},
-  {rule:'Cleft Sentences',formula:'It is/was + focus + that/who...',ex:'It was John who called me.',tip:'Met en valeur une partie de la phrase.',lvl:'C2'}
-];
-
-const GQUIZ=[
-  {q:'She ___ to Paris last year.',opts:['has gone','went','goes','go'],a:1,exp:'Simple past pour une action terminée.',lvl:'A2'},
-  {q:'I ___ English every day.',opts:['study','studies','studying','studied'],a:0,exp:'Présent simple avec I.',lvl:'A1'},
-  {q:'They have lived here ___ 2020.',opts:['for','since','during','ago'],a:1,exp:'Since + point de départ.',lvl:'B1'},
-  {q:'If I ___ rich, I would travel.',opts:['am','was','were','be'],a:2,exp:"'Were' est courant dans les conditionnels.",lvl:'B2'},
-  {q:'The report ___ by the manager.',opts:['write','wrote','was written','is write'],a:2,exp:'Passive : was + participe passé.',lvl:'B1'},
-  {q:'By tomorrow, she ___ the book.',opts:['reads','will read','will have read','read'],a:2,exp:'Future perfect.',lvl:'C1'},
-  {q:'He told me he ___ tired.',opts:['is','was','be','were'],a:1,exp:'Reported speech : is devient was.',lvl:'B2'},
-  {q:'Never ___ such a strange result.',opts:['I saw','have I seen','I have seen','saw I'],a:1,exp:'Inversion après never.',lvl:'C1'}
-];
-const TOEIC=[
-  {q:'All employees are required to ___ their ID badges at all times.',opts:['wear','wearing','wore','worn'],a:0,exp:'Require to + verbe de base.',lvl:'B1'},
-  {q:'The meeting has been ___ until next Monday.',opts:['postponed','postpone','postponing','postpones'],a:0,exp:'Present perfect passive : has been + participe passé.',lvl:'B2'},
-  {q:'Please ___ to the attached document for more details.',opts:['refer','mention','look','point'],a:0,exp:"Refer to = se référer à.",lvl:'B1'},
-  {q:'The new policy will ___ effect from January.',opts:['take','make','do','have'],a:0,exp:"Take effect = entrer en vigueur.",lvl:'B1'},
-  {q:'Had she known about the delay, she ___ differently.',opts:['would plan','would have planned','will plan','had planned'],a:1,exp:'Third conditional : would have + participe passé.',lvl:'C1'},
-  {q:'The sales department reported a significant ___ in revenue.',opts:['increase','increasing','increased','increases'],a:0,exp:'Nom après adjectif : significant increase.',lvl:'B1'},
-  {q:'The package should arrive ___ Friday at the latest.',opts:['by','until','during','since'],a:0,exp:'By = au plus tard.',lvl:'B1'},
-  {q:'Applicants must submit their forms ___ the deadline.',opts:['before','ago','during','while'],a:0,exp:'Before the deadline = avant la date limite.',lvl:'A2'},
-  {q:'The manager asked us to ___ the figures carefully.',opts:['review','reviewing','reviewed','reviews'],a:0,exp:'Ask someone to + verbe de base.',lvl:'B1'},
-  {q:'The company is looking for ways to reduce operating ___.',opts:['costs','prices','values','fares'],a:0,exp:'Operating costs = coûts de fonctionnement.',lvl:'B2'},
-  {q:'The contract was signed ___ both parties.',opts:['by','with','from','at'],a:0,exp:'Passive voice : by + agent.',lvl:'B1'},
-  {q:'Due to bad weather, the flight was ___.',opts:['cancelled','cancel','cancelling','cancels'],a:0,exp:'Was + participe passé.',lvl:'A2'},
-  {q:'The report must be submitted ___ writing.',opts:['in','on','at','by'],a:0,exp:'In writing = par écrit.',lvl:'B1'},
-  {q:'Customers are advised to keep their ___.',opts:['receipts','recipes','records','reviews'],a:0,exp:'Receipt = reçu de paiement.',lvl:'A2'},
-  {q:'The training session is ___ for all new employees.',opts:['mandatory','optional','temporary','previous'],a:0,exp:'Mandatory = obligatoire.',lvl:'B2'},
-  {q:'The printer is currently out of ___.',opts:['order','place','work','use'],a:0,exp:'Out of order = en panne.',lvl:'B1'},
-  {q:'The invoice should be paid within thirty days of ___.',opts:['receipt','receive','receiving','received'],a:0,exp:'Receipt ici = réception.',lvl:'B2'},
-  {q:'The office will remain closed ___ further notice.',opts:['until','by','for','since'],a:0,exp:'Until further notice = jusqu’à nouvel ordre.',lvl:'B2'},
-  {q:'The candidate has extensive experience ___ project management.',opts:['in','on','at','for'],a:0,exp:'Experience in a field.',lvl:'B2'},
-  {q:'The director gave a brief ___ of the new strategy.',opts:['overview','overlook','overtime','outcome'],a:0,exp:'Overview = aperçu général.',lvl:'C1'}
-];
-
-const LTQS=[
-  {q:'___ name is John.',opts:['My','Me','I','Mine'],a:0,lvl:'A1'},
-  {q:'She ___ from Canada.',opts:['is','are','am','be'],a:0,lvl:'A1'},
-  {q:'I ___ coffee every morning.',opts:['drink','drinks','drinking','drank'],a:0,lvl:'A1'},
-  {q:'They ___ two children.',opts:['have','has','having','had'],a:0,lvl:'A1'},
-  {q:'Where ___ you live?',opts:['do','does','are','is'],a:0,lvl:'A1'},
-  {q:'This is ___ apple.',opts:['an','a','the','one'],a:0,lvl:'A1'},
-
-  {q:'I went to the cinema ___.',opts:['yesterday','tomorrow','now','often'],a:0,lvl:'A2'},
-  {q:'She is ___ than her brother.',opts:['taller','tall','tallest','more tall'],a:0,lvl:'A2'},
-  {q:'We ___ dinner when he called.',opts:['were having','had','have','are having'],a:0,lvl:'A2'},
-  {q:'I have lived here ___ three years.',opts:['for','since','during','ago'],a:0,lvl:'A2'},
-  {q:'You ___ smoke here.',opts:['must not','do not have','are not','cannot to'],a:0,lvl:'A2'},
-  {q:'There isn’t ___ milk left.',opts:['any','some','many','few'],a:0,lvl:'A2'},
-
-  {q:'If it rains, we ___ at home.',opts:['will stay','stay','stayed','would stay'],a:0,lvl:'B1'},
-  {q:'The book ___ by millions of people.',opts:['was read','read','has read','is reading'],a:0,lvl:'B1'},
-  {q:'I’m interested ___ learning English.',opts:['in','on','at','for'],a:0,lvl:'B1'},
-  {q:'He told me he ___ tired.',opts:['was','is','be','were'],a:0,lvl:'B1'},
-  {q:'She has already ___ the report.',opts:['finished','finish','finishing','finishes'],a:0,lvl:'B1'},
-  {q:'I don’t know ___ he left.',opts:['why','what','which','whose'],a:0,lvl:'B1'},
-  {q:'The film was not as good ___ I expected.',opts:['as','than','that','like'],a:0,lvl:'B1'},
-
-  {q:'If I ___ more time, I would travel.',opts:['had','have','will have','would have'],a:0,lvl:'B2'},
-  {q:'Despite ___ tired, she continued working.',opts:['being','be','was','to be'],a:0,lvl:'B2'},
-  {q:'The problem needs to be dealt ___ immediately.',opts:['with','for','about','to'],a:0,lvl:'B2'},
-  {q:'I wish I ___ harder at school.',opts:['had studied','studied','have studied','study'],a:0,lvl:'B2'},
-  {q:'The company is expected ___ next year.',opts:['to grow','growing','grow','grown'],a:0,lvl:'B2'},
-  {q:'He denied ___ the documents.',opts:['taking','to take','take','took'],a:0,lvl:'B2'},
-  {q:'This device is used ___ measuring temperature.',opts:['for','to','by','with'],a:0,lvl:'B2'},
-
-  {q:'Had I known earlier, I ___ you.',opts:['would have called','would call','will call','called'],a:0,lvl:'C1'},
-  {q:'The proposal was rejected on the ___ that it was too costly.',opts:['grounds','reasons','causes','facts'],a:0,lvl:'C1'},
-  {q:'No sooner had we arrived ___ it started raining.',opts:['than','that','when','then'],a:0,lvl:'C1'},
-  {q:'The issue is far more complex than it first ___.',opts:['appears','appearing','appear','to appear'],a:0,lvl:'C1'},
-  {q:'She gave a remarkably ___ explanation.',opts:['concise','shortly','briefly','reduced'],a:0,lvl:'C1'},
-  {q:'The results are unlikely to be ___ at this stage.',opts:['conclusive','concluded','concluding','conclusion'],a:0,lvl:'C1'},
-  {q:'Rarely ___ such dedication.',opts:['have I seen','I have seen','I saw','saw I'],a:0,lvl:'C1'},
-
-  {q:'The argument, while superficially convincing, is ultimately ___.',opts:['flawed','flaw','flawing','flaws'],a:0,lvl:'C2'},
-  {q:'His explanation was so ___ that few people understood it.',opts:['convoluted','simple','plain','direct'],a:0,lvl:'C2'},
-  {q:'The policy may have unintended ___.',opts:['consequences','sequels','outcomes only','successions'],a:0,lvl:'C2'},
-  {q:'The speaker’s remarks were deliberately ___.',opts:['ambiguous','clear','obvious','literal'],a:0,lvl:'C2'},
-  {q:'The committee reached a decision only after ___ deliberation.',opts:['lengthy','longly','length','longing'],a:0,lvl:'C2'},
-  {q:'The evidence was deemed ___.',opts:['insufficient','unsufficient','deficiently','lackingly'],a:0,lvl:'C2'},
-  {q:'The theory has been widely ___ by recent studies.',opts:['corroborated','corrupted','correlated','corrected'],a:0,lvl:'C2'}
+  {s:'TH',d:'Place la langue entre les dents.',ws:['think','three','the','there','tooth'],ipa:'/θ/ ou /ð/'},
+  {s:'W',d:'Arrondis les lèvres.',ws:['water','world','word','want'],ipa:'/w/'},
+  {s:'R',d:'Ne roule pas le R.',ws:['right','really','road','red'],ipa:'/r/'},
+  {s:'H',d:'Expire légèrement au début.',ws:['house','happy','help','hotel'],ipa:'/h/'}
 ];
 
 const DICT_WORDS=[
@@ -545,6 +387,66 @@ const DICT_WORDS=[
   {word:'decision',tr:'décision'}
 ];
 
+const STORIES=[
+  {
+    id:'s1',
+    title:'A Morning in London',
+    lvl:'A2',
+    text:'Every morning, Tom wakes up at 7am. He lives in a small flat in London near the Thames. He makes a cup of tea and reads the news on his phone. Today, something is different. There is a letter on his doorstep from an old friend.',
+    kw:{flat:'appartement',doorstep:'pas de la porte',Thames:'la Tamise'}
+  },
+  {
+    id:'s2',
+    title:'The Job Interview',
+    lvl:'B1',
+    text:"Sarah arrived fifteen minutes early for her interview at a tech company. She was nervous but well-prepared. The interviewer greeted her warmly. Sarah took a deep breath and began speaking confidently.",
+    kw:{interview:'entretien',nervous:'nerveux/se',confidently:'avec confiance'}
+  }
+];
+
+const TOEIC=[
+  {q:'All employees are required to ___ their ID badges.',opts:['wear','wearing','wore','worn'],a:0,exp:'Require to + verbe.',lvl:'B1'},
+  {q:'The meeting has been ___ until Monday.',opts:['postponed','postpone','postponing','postpones'],a:0,exp:'Has been + participe passé.',lvl:'B2'},
+  {q:'Please ___ to the attached document.',opts:['refer','mention','look','point'],a:0,exp:'Refer to = se référer à.',lvl:'B1'},
+  {q:'The new policy will ___ effect in January.',opts:['take','make','do','have'],a:0,exp:'Take effect = entrer en vigueur.',lvl:'B1'},
+  {q:'Had she known, she ___ differently.',opts:['would plan','would have planned','will plan','had planned'],a:1,exp:'Third conditional.',lvl:'C1'},
+  {q:'The package should arrive ___ Friday.',opts:['by','until','during','since'],a:0,exp:'By = au plus tard.',lvl:'B1'},
+  {q:'Applicants must submit forms ___ the deadline.',opts:['before','ago','during','while'],a:0,exp:'Before the deadline.',lvl:'A2'},
+  {q:'The manager asked us to ___ the figures.',opts:['review','reviewing','reviewed','reviews'],a:0,exp:'Ask someone to + verb.',lvl:'B1'},
+  {q:'The printer is out of ___.',opts:['order','place','work','use'],a:0,exp:'Out of order = en panne.',lvl:'B1'},
+  {q:'The training session is ___ for all employees.',opts:['mandatory','optional','temporary','previous'],a:0,exp:'Mandatory = obligatoire.',lvl:'B2'}
+];
+
+const LTQS=[
+  {q:'___ name is John.',opts:['My','Me','I','Mine'],a:0,lvl:'A1'},
+  {q:'She ___ from Canada.',opts:['is','are','am','be'],a:0,lvl:'A1'},
+  {q:'I ___ coffee every morning.',opts:['drink','drinks','drinking','drank'],a:0,lvl:'A1'},
+  {q:'Where ___ you live?',opts:['do','does','are','is'],a:0,lvl:'A1'},
+  {q:'This is ___ apple.',opts:['an','a','the','one'],a:0,lvl:'A1'},
+  {q:'I went to the cinema ___.',opts:['yesterday','tomorrow','now','often'],a:0,lvl:'A2'},
+  {q:'She is ___ than her brother.',opts:['taller','tall','tallest','more tall'],a:0,lvl:'A2'},
+  {q:'We ___ dinner when he called.',opts:['were having','had','have','are having'],a:0,lvl:'A2'},
+  {q:'I have lived here ___ three years.',opts:['for','since','during','ago'],a:0,lvl:'A2'},
+  {q:'There isn’t ___ milk left.',opts:['any','some','many','few'],a:0,lvl:'A2'},
+  {q:'If it rains, we ___ at home.',opts:['will stay','stay','stayed','would stay'],a:0,lvl:'B1'},
+  {q:'The book ___ by millions of people.',opts:['was read','read','has read','is reading'],a:0,lvl:'B1'},
+  {q:'I’m interested ___ learning English.',opts:['in','on','at','for'],a:0,lvl:'B1'},
+  {q:'He told me he ___ tired.',opts:['was','is','be','were'],a:0,lvl:'B1'},
+  {q:'She has already ___ the report.',opts:['finished','finish','finishing','finishes'],a:0,lvl:'B1'},
+  {q:'If I ___ more time, I would travel.',opts:['had','have','will have','would have'],a:0,lvl:'B2'},
+  {q:'Despite ___ tired, she continued working.',opts:['being','be','was','to be'],a:0,lvl:'B2'},
+  {q:'I wish I ___ harder at school.',opts:['had studied','studied','have studied','study'],a:0,lvl:'B2'},
+  {q:'He denied ___ the documents.',opts:['taking','to take','take','took'],a:0,lvl:'B2'},
+  {q:'This device is used ___ measuring temperature.',opts:['for','to','by','with'],a:0,lvl:'B2'},
+  {q:'Had I known earlier, I ___ you.',opts:['would have called','would call','will call','called'],a:0,lvl:'C1'},
+  {q:'No sooner had we arrived ___ it started raining.',opts:['than','that','when','then'],a:0,lvl:'C1'},
+  {q:'Rarely ___ such dedication.',opts:['have I seen','I have seen','I saw','saw I'],a:0,lvl:'C1'},
+  {q:'The results are unlikely to be ___.',opts:['conclusive','concluded','concluding','conclusion'],a:0,lvl:'C1'},
+  {q:'His explanation was so ___ that few understood it.',opts:['convoluted','simple','plain','direct'],a:0,lvl:'C2'},
+  {q:'The speaker’s remarks were deliberately ___.',opts:['ambiguous','clear','obvious','literal'],a:0,lvl:'C2'},
+  {q:'The evidence was deemed ___.',opts:['insufficient','unsufficient','deficiently','lackingly'],a:0,lvl:'C2'}
+];
+
 let S={
   tab:'home',
   dk:LS.get('dk',false),
@@ -556,19 +458,17 @@ let S={
   dailyD:LS.get('dd',null),
   userLvl:LS.get('ulvl',null),
   obDone:LS.get('ob',false),
-  decks:LS.get('decks',null),
+  decks:LS.get('decks',[]),
   srs:LS.get('srs',{}),
   badges:LS.get('bdg',[]),
   phrases:LS.get('phr',[]),
   errLog:LS.get('erl',[]),
   readS:LS.get('rs',[]),
-
   studyDeck:null,
   studyIdx:0,
   studyMode:'flip',
   flipped:false,
   qopts:null,
-
   learnSub:'grammar',
   gqd:null,
   gqmode:'learn',
@@ -576,23 +476,21 @@ let S={
   phf:'all',
   pron:0,
   dictIdx:0,
-
   contentSub:'stories',
   examSub:'leveltest',
-
   toeicIdx:0,
   toeicSel:null,
   toeicDone:false,
   toeicScore:0,
   toeicData:null,
-
   ltData:null,
-
   customDecks:LS.get('customDecks',[]),
-  customCount:LS.get('customCount',10)
+  customCount:LS.get('customCount',10),
+  customDir:LS.get('customDir','enfr'),
+  deleteMode:false,
+  deleteDecks:[],
+  activeStory:null
 };
-
-if(!S.decks)S.decks=JSON.parse(JSON.stringify(DECKS));
 
 if(S.dailyD!==today()){
   S.dailyP=0;
@@ -619,7 +517,8 @@ function sv(k){
     readS:'rs',
     dk:'dk',
     customDecks:'customDecks',
-    customCount:'customCount'
+    customCount:'customCount',
+    customDir:'customDir'
   };
   if(m[k])LS.set(m[k],S[k]);
 }
@@ -636,7 +535,6 @@ function srsNext(c,ok){
   const now=Date.now();
   const i=c.srsInterval||1;
   const e=c.srsEase||2.5;
-
   if(!ok){
     return{
       srsInterval:1,
@@ -644,7 +542,6 @@ function srsNext(c,ok){
       srsNextReview:now+60000
     };
   }
-
   const ni=Math.round(i*e);
   return{
     srsInterval:ni,
@@ -657,7 +554,6 @@ function addXP(n){
   S.xp+=n;
   sv('xp');
   checkB();
-
   const el=document.createElement('div');
   el.className='xpa';
   el.textContent=`+${n} XP`;
@@ -690,7 +586,6 @@ function checkB(){
 function updStreak(){
   const t=today();
   if(S.lastStudy===t)return;
-
   const y=new Date(Date.now()-86400000).toDateString();
   S.streak=S.lastStudy===y?S.streak+1:1;
   S.lastStudy=t;
@@ -701,7 +596,7 @@ function updStreak(){
 function incD(){
   S.dailyP++;
   sv('dailyP');
-  if(S.dailyP===S.dailyG)toast('Objectif atteint !','#4caf50');
+  if(S.dailyP===S.dailyG)toast('Objectif atteint');
 }
 
 function logErr(w,ok){
@@ -710,8 +605,32 @@ function logErr(w,ok){
   sv('errLog');
 }
 
-function shuffle(arr){
-  return [...arr].sort(()=>Math.random()-.5);
+function cardDirection(c){
+  return c._dir||'enfr';
+}
+
+function cardFrontLang(c){
+  return cardDirection(c)==='fren'?'Français':'Anglais';
+}
+
+function cardBackLang(c){
+  return cardDirection(c)==='fren'?'Anglais':'Français';
+}
+
+function cardFrontText(c){
+  return cardDirection(c)==='fren'?c.tr:c.word;
+}
+
+function cardBackText(c){
+  return cardDirection(c)==='fren'?c.word:c.tr;
+}
+
+function applyCardDirection(c,dir){
+  let finalDir=dir;
+  if(dir==='mix'){
+    finalDir=Math.random()<0.5?'enfr':'fren';
+  }
+  return{...c,_dir:finalDir};
 }
 
 function render(){
@@ -762,7 +681,7 @@ function rHeader(){
     <div class="card" style="display:flex;align-items:center;gap:8px;padding:12px 14px;min-width:88px">
       <span style="font-size:22px">🔥</span>
       <div>
-        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1">${S.streak}</div>
+        <div style="font-family:Georgia,serif;font-size:22px;font-weight:700;line-height:1">${S.streak}</div>
         <div style="font-size:10px;color:var(--m)">streak</div>
       </div>
     </div>
@@ -790,7 +709,6 @@ function renderNav(){
     {id:'content',i:'🌍',l:'Contenu'},
     {id:'exams',i:'🎓',l:'Examens'}
   ];
-
   document.getElementById('bnav').innerHTML=tabs.map(t=>`
     <button class="nit ${S.tab===t.id?'on':''}" onclick="setTab('${t.id}')">
       <span style="font-size:18px">${t.i}</span>
@@ -827,13 +745,13 @@ function rHome(){
   </div>
 
   <div class="grid2" style="margin-bottom:14px">
-    <button class="bp" onclick="startDaily()" style="padding:14px;flex-direction:column;gap:4px;border-radius:13px">
+    <button class="bp" onclick="startDaily()" style="padding:14px;flex-direction:column">
       <span style="font-size:20px">🔁</span>
       <span style="font-size:12px">Révision SRS (${due})</span>
     </button>
-    <button class="bg" onclick="S.tab='learn';S.learnSub='custom';render()" style="padding:14px;flex-direction:column;gap:4px;border-radius:13px">
+    <button class="bg" onclick="S.tab='learn';S.learnSub='custom';render()" style="padding:14px;flex-direction:column">
       <span style="font-size:20px">🔀</span>
-      <span style="font-size:12px">Session personnalisée</span>
+      <span style="font-size:12px">Personnaliser</span>
     </button>
   </div>
 
@@ -845,7 +763,7 @@ function rHome(){
     ].map(([i,v,l])=>`
       <div class="card" style="text-align:center;padding:14px 8px">
         <div style="font-size:20px;margin-bottom:4px">${i}</div>
-        <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700">${v}</div>
+        <div style="font-family:Georgia,serif;font-size:24px;font-weight:700">${v}</div>
         <div style="font-size:10px;color:var(--m)">${l}</div>
       </div>
     `).join('')}
@@ -861,7 +779,7 @@ function rHome(){
           </span>
         `).join('')}
       </div>
-    `:'<div style="font-size:13px;color:var(--m)">Aucune erreur récente.</div>'}
+    `:'<div class="small">Aucune erreur récente.</div>'}
   </div>
 
   <div class="card">
@@ -876,6 +794,7 @@ function rHome(){
     </div>
   </div>`;
 }
+
 function rDecks(){
   if(S.studyDeck)return rStudy();
 
@@ -889,9 +808,7 @@ function rDecks(){
     <div class="card" style="text-align:center">
       <div style="font-size:44px;margin-bottom:10px">📚</div>
       <h2 style="font-size:20px;margin-bottom:8px">Aucun deck</h2>
-      <p class="small" style="margin-bottom:16px">
-        Crée un deck ou importe une liste de mots pour commencer.
-      </p>
+      <p class="small" style="margin-bottom:16px">Crée ou importe un deck pour commencer.</p>
       <button class="bp" onclick="showM('imp')" style="width:100%">Importer un deck</button>
     </div>
   `:''}
@@ -901,7 +818,6 @@ function rDecks(){
       const s=S.srs[c.id];
       return !s?.srsNextReview||s.srsNextReview<=Date.now();
     }).length;
-
     const m=dk.cards.filter(c=>S.srs[c.id]?.srsInterval>=7).length;
 
     return`
@@ -909,7 +825,7 @@ function rDecks(){
       <div style="padding:16px 18px;background:${dk.color||'#e8eef8'};cursor:pointer" onclick="tog('db-${dk.id}')">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
           <div style="min-width:0">
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#1a1a1a;margin-bottom:5px">
+            <div style="font-family:Georgia,serif;font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:5px">
               ${esc(dk.name)}
             </div>
             <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
@@ -920,7 +836,7 @@ function rDecks(){
               ${due>0?`<span style="font-size:11px;padding:2px 7px;background:#fff3e0;color:#e65100;border-radius:20px">🕐 ${due}</span>`:''}
             </div>
           </div>
-          <button onclick="event.stopPropagation();startStudy('${dk.id}')" style="background:${dk.accent||'#3b6fd4'};color:#fff;border:none;border-radius:9px;padding:9px 14px;font-size:13px;cursor:pointer" ${!dk.cards.length?'disabled':''}>
+          <button onclick="event.stopPropagation();startStudy('${dk.id}')" style="background:${dk.accent||'#3b6fd4'};color:#fff;border:none;border-radius:9px;padding:9px 14px;font-size:13px" ${!dk.cards.length?'disabled':''}>
             Étudier
           </button>
         </div>
@@ -931,7 +847,7 @@ function rDecks(){
           <span style="font-size:12px;color:var(--m)">${m}/${dk.cards.length} maîtrisées</span>
           <div style="display:flex;gap:7px">
             <button class="bp" onclick="showM('acard','${dk.id}')" style="padding:6px 11px;font-size:11px">+ Carte</button>
-            <button class="bd" onclick="delDk('${dk.id}')" style="padding:6px 10px;font-size:11px">🗑</button>
+            <button class="bd" onclick="delDk('${dk.id}')" style="padding:6px 10px;font-size:11px">Supprimer</button>
           </div>
         </div>
 
@@ -939,10 +855,10 @@ function rDecks(){
           ${dk.cards.map(c=>`
             <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--f);border-radius:8px;gap:8px">
               <div style="min-width:0">
-                <span style="font-family:'Playfair Display',serif;font-size:14px;font-weight:600">${esc(c.word)}</span>
+                <span style="font-family:Georgia,serif;font-size:14px;font-weight:700">${esc(c.word)}</span>
                 <span style="font-size:12px;color:var(--m);margin-left:8px">${esc(c.tr)}</span>
               </div>
-              <button onclick="delC('${dk.id}','${c.id}')" style="background:none;border:none;color:var(--m);font-size:14px;padding:2px 4px;cursor:pointer">✕</button>
+              <button onclick="delC('${dk.id}','${c.id}')" style="background:none;border:none;color:var(--m);font-size:14px;padding:2px 4px">✕</button>
             </div>
           `).join('')}
         </div>
@@ -959,7 +875,6 @@ function rStudy(){
   if(!card){
     earnB('b5');
     sv('srs');
-
     return`
     <div style="text-align:center;padding:36px 0">
       <div style="font-size:48px;margin-bottom:10px">🏆</div>
@@ -972,31 +887,36 @@ function rStudy(){
   const md=S.studyMode||'flip';
   const total=dk.cards.length;
   const prog=Math.round((idx/total)*100);
+
+  const frontLang=cardFrontLang(card);
+  const backLang=cardBackLang(card);
+  const front=cardFrontText(card);
+  const back=cardBackText(card);
+
   let cnt='';
 
   if(md==='flip'){
     const fl=S.flipped;
-
     cnt=`
     <div onclick="doFlip()" style="min-height:190px;background:${fl?'var(--a)':'var(--f)'};border:1px solid var(--b);border-radius:16px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;transition:all .3s;color:${fl?'var(--bg)':'var(--t)'}">
       ${!fl?`
         <div style="text-align:center">
-          <div class="sec">Anglais</div>
-          <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700">${esc(card.word)}</div>
+          <div class="sec">${frontLang}</div>
+          <div style="font-family:Georgia,serif;font-size:40px;font-weight:700">${esc(front)}</div>
           <div style="font-size:12px;color:var(--m);margin-top:10px">Cliquer pour révéler</div>
           ${card.deckName?`<div style="font-size:11px;color:var(--m);margin-top:8px">${esc(card.deckName)}</div>`:''}
         </div>
       `:`
         <div style="text-align:center">
-          <div class="sec" style="color:var(--m)">Traduction</div>
-          <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:14px">${esc(card.tr)}</div>
+          <div class="sec" style="color:var(--m)">${backLang}</div>
+          <div style="font-family:Georgia,serif;font-size:28px;font-weight:700;margin-bottom:14px">${esc(back)}</div>
           ${card.ex?`<div style="font-size:13px;font-style:italic;color:#aaa;border-top:1px solid #333;padding-top:12px">"${esc(card.ex)}"</div>`:''}
         </div>
       `}
     </div>
 
     <div style="display:flex;gap:8px;margin:12px 0">
-      <button class="bg" onclick="tts('${esc(card.word)}')" style="flex:1">🔊 Écouter</button>
+      <button class="bg" onclick="tts('${esc(front)}')" style="flex:1">🔊 Écouter</button>
       <button class="bg" onclick="doSpeech()" style="flex:1">🎤 Répéter</button>
     </div>
 
@@ -1015,14 +935,13 @@ function rStudy(){
   else if(md==='qcm'){
     const opts=S.qopts||genQCM(card);
     if(!S.qopts)S.qopts=opts;
-
     cnt=`
     <div class="card" style="text-align:center;margin-bottom:14px">
-      <div class="sec">Quelle est la traduction ?</div>
-      <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700">${esc(card.word)}</div>
-      <button class="bg" onclick="tts('${esc(card.word)}')" style="margin-top:10px">🔊</button>
+      <div class="sec">Trouve la traduction</div>
+      <div style="font-size:12px;color:var(--m);margin-bottom:8px">${frontLang} → ${backLang}</div>
+      <div style="font-family:Georgia,serif;font-size:36px;font-weight:700">${esc(front)}</div>
+      <button class="bg" onclick="tts('${esc(front)}')" style="margin-top:10px">🔊</button>
     </div>
-
     <div id="qopts">
       ${opts.map(o=>`<button class="opt" onclick="ansQ('${esc(o)}')">${esc(o)}</button>`).join('')}
     </div>`;
@@ -1031,12 +950,11 @@ function rStudy(){
   else{
     cnt=`
     <div class="card" style="margin-bottom:14px">
-      <div class="sec">Traduis en français</div>
-      <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;margin-bottom:8px">${esc(card.word)}</div>
+      <div class="sec">Traduis en ${backLang.toLowerCase()}</div>
+      <div style="font-family:Georgia,serif;font-size:36px;font-weight:700;margin-bottom:8px">${esc(front)}</div>
       ${card.ex?`<div style="font-size:13px;color:var(--m);font-style:italic">"${esc(card.ex)}"</div>`:''}
     </div>
-
-    <input id="finp" placeholder="Tape la traduction..." onkeydown="if(event.key==='Enter')chkFill()">
+    <input id="finp" placeholder="Tape la réponse..." onkeydown="if(event.key==='Enter')chkFill()">
     <div id="fr" style="margin-top:10px"></div>
     <button class="bp" onclick="chkFill()" style="width:100%;margin-top:10px" id="fbtn">Vérifier</button>`;
   }
@@ -1044,7 +962,6 @@ function rStudy(){
   return`
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px">
     <button class="bg" onclick="endStudy()" style="padding:7px 12px;font-size:12px">← Retour</button>
-
     <div style="display:flex;gap:5px">
       ${['flip','qcm','fill'].map(m=>`
         <button class="${md===m?'bp':'bg'}" onclick="setSM('${m}')" style="padding:7px 10px;font-size:11px">
@@ -1052,30 +969,29 @@ function rStudy(){
         </button>
       `).join('')}
     </div>
-
     <span style="font-size:12px;color:var(--m)">${idx+1}/${total}</span>
   </div>
-
   <div class="pbar" style="margin-bottom:16px">
     <div class="pfill" style="width:${prog}%;background:${dk.accent||'var(--bl)'}"></div>
   </div>
-
   ${cnt}`;
 }
 
 function genQCM(c){
-  const all=S.decks.flatMap(d=>d.cards);
+  const correct=cardBackText(c);
+  const dir=cardDirection(c);
+  const all=S.decks.flatMap(d=>d.cards.map(x=>applyCardDirection(x,dir)));
   const oth=all
-    .filter(x=>x.id!==c.id&&x.tr!==c.tr)
+    .filter(x=>x.id!==c.id&&cardBackText(x)!==correct)
     .sort(()=>Math.random()-.5)
     .slice(0,3)
-    .map(x=>x.tr);
+    .map(x=>cardBackText(x));
 
   while(oth.length<3){
     oth.push(['Je ne sais pas','Autre réponse','Réponse proche'][oth.length]||'Autre');
   }
 
-  return[...oth,c.tr].sort(()=>Math.random()-.5);
+  return[...oth,correct].sort(()=>Math.random()-.5);
 }
 
 function rLearn(){
@@ -1110,7 +1026,6 @@ function rLearn(){
 
 function rGram(){
   if(S.gqmode==='quiz')return rGQ();
-
   const flt=S.gqf==='all'?GRAMMAR:GRAMMAR.filter(g=>g.lvl===S.gqf);
 
   return`
@@ -1130,19 +1045,16 @@ function rGram(){
   ${flt.map(g=>`
     <div style="padding:18px 20px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:12px">
       <div style="display:flex;justify-content:space-between;margin-bottom:8px;gap:8px">
-        <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700">${esc(g.rule)}</div>
+        <div style="font-family:Georgia,serif;font-size:18px;font-weight:700">${esc(g.rule)}</div>
         <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${g.lvl}</span>
       </div>
-
       <div style="font-size:12px;color:var(--m);background:var(--s);border-radius:7px;padding:6px 12px;margin-bottom:9px;font-style:italic">
         ${esc(g.formula)}
       </div>
-
       <div style="font-size:13px;margin-bottom:7px">
         "${esc(g.ex)}"
-        <button onclick="tts('${esc(g.ex)}')" style="background:none;border:none;cursor:pointer;color:var(--m);font-size:13px;vertical-align:middle">🔊</button>
+        <button onclick="tts('${esc(g.ex)}')" style="background:none;border:none;color:var(--m);font-size:13px">🔊</button>
       </div>
-
       <div style="font-size:12px;color:var(--m)">💡 ${esc(g.tip)}</div>
     </div>
   `).join('')}`;
@@ -1150,14 +1062,13 @@ function rGram(){
 
 function rGQ(){
   if(!S.gqd)S.gqd={idx:0,sc:0,sel:null,done:false};
-
   const {idx,sc,sel,done}=S.gqd;
 
   if(done){
     return`
     <div style="text-align:center;padding:36px 0">
-      <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700">${sc}/${GQUIZ.length}</div>
-      <div style="font-size:14px;color:var(--m);margin:8px 0 24px">${sc===GQUIZ.length?'Quiz parfait':'Quiz terminé'}</div>
+      <div style="font-family:Georgia,serif;font-size:44px;font-weight:700">${sc}/${GQUIZ.length}</div>
+      <div class="small" style="margin:8px 0 24px">${sc===GQUIZ.length?'Quiz parfait':'Quiz terminé'}</div>
       <div style="display:flex;gap:10px">
         <button class="bp" onclick="S.gqd={idx:0,sc:0,sel:null,done:false};render()">Recommencer</button>
         <button class="bg" onclick="S.gqmode='learn';render()">Retour</button>
@@ -1172,11 +1083,7 @@ function rGQ(){
     <button class="bg" onclick="S.gqmode='learn';render()" style="font-size:12px">← Retour</button>
     <span style="font-size:12px;color:var(--m)">${idx+1}/${GQUIZ.length}</span>
   </div>
-
-  <div style="font-family:'Playfair Display',serif;font-size:21px;font-weight:600;line-height:1.5;margin-bottom:18px">
-    ${esc(q.q)}
-  </div>
-
+  <div style="font-family:Georgia,serif;font-size:21px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div>
   <div>
     ${q.opts.map((o,i)=>`
       <button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansGQ('${esc(o)}')" ${sel!==null?'disabled':''}>
@@ -1184,7 +1091,6 @@ function rGQ(){
       </button>
     `).join('')}
   </div>
-
   ${sel!==null?`
     <div style="margin-top:12px;padding:13px;background:var(--f);border-radius:9px;font-size:13px;color:var(--m);line-height:1.6">
       💡 ${esc(q.exp)}
@@ -1197,7 +1103,6 @@ function rGQ(){
 
 function rPhr(){
   const flt=S.phf==='all'?PHRASES:PHRASES.filter(p=>p.lvl===S.phf);
-
   return`
   <div style="display:flex;gap:5px;margin-bottom:14px;overflow-x:auto">
     ${['all','A1','A2','B1','B2','C1'].map(l=>`
@@ -1206,25 +1111,18 @@ function rPhr(){
       </button>
     `).join('')}
   </div>
-
-  ${flt.map((p)=>{
+  ${flt.map(p=>{
     const gi=PHRASES.indexOf(p);
     const done=S.phrases.includes(gi);
-
     return`
     <div style="padding:16px 18px;border:1px solid ${done?'var(--a)':'var(--b)'};border-radius:13px;background:${done?'var(--a)':'var(--f)'};margin-bottom:10px">
-      <div style="font-size:10px;text-transform:uppercase;color:${done?'#888':'var(--m)'};margin-bottom:7px">
-        ${esc(p.ctx)} · ${p.lvl}
-      </div>
-
-      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:${done?'var(--bg)':'var(--t)'};margin-bottom:5px">
+      <div style="font-size:10px;text-transform:uppercase;color:${done?'#888':'var(--m)'};margin-bottom:7px">${esc(p.ctx)} · ${p.lvl}</div>
+      <div style="font-family:Georgia,serif;font-size:18px;font-weight:700;color:${done?'var(--bg)':'var(--t)'};margin-bottom:5px">
         "${esc(p.p)}"
-        <button onclick="tts('${esc(p.p)}')" style="background:none;border:none;cursor:pointer;color:${done?'#888':'var(--m)'};font-size:13px;vertical-align:middle">🔊</button>
+        <button onclick="tts('${esc(p.p)}')" style="background:none;border:none;color:${done?'#888':'var(--m)'};font-size:13px">🔊</button>
       </div>
-
       <div style="font-size:12px;color:${done?'#888':'var(--m)'};margin-bottom:11px">→ ${esc(p.fr)}</div>
-
-      <button onclick="togPhr(${gi})" style="padding:6px 13px;background:${done?'transparent':'var(--a)'};color:${done?'#777':'var(--bg)'};border:${done?'1px solid #555':'none'};border-radius:7px;font-size:11px;cursor:pointer">
+      <button onclick="togPhr(${gi})" style="padding:6px 13px;background:${done?'transparent':'var(--a)'};color:${done?'#777':'var(--bg)'};border:${done?'1px solid #555':'none'};border-radius:7px;font-size:11px">
         ${done?'✓ Appris':'Marquer · +8 XP'}
       </button>
     </div>`;
@@ -1233,57 +1131,47 @@ function rPhr(){
 
 function rPron(){
   const t=PRON_D[S.pron||0];
-
   return`
   <div style="display:flex;gap:7px;margin-bottom:18px;overflow-x:auto">
     ${PRON_D.map((x,i)=>`
-      <button class="${(S.pron||0)===i?'bp':'bg'}" onclick="S.pron=${i};render()" style="flex:1;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;padding:9px 12px">
+      <button class="${(S.pron||0)===i?'bp':'bg'}" onclick="S.pron=${i};render()" style="flex:1;font-family:Georgia,serif;font-size:14px;font-weight:700;padding:9px 12px">
         ${x.s}
       </button>
     `).join('')}
   </div>
-
   <div class="card">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
       <div>
-        <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700">${t.s}</div>
+        <div style="font-family:Georgia,serif;font-size:44px;font-weight:700">${t.s}</div>
         <div style="font-size:13px;color:var(--m)">${t.ipa}</div>
       </div>
       <button class="bp" onclick="tts('${t.ws[0]}')">🔊 Exemple</button>
     </div>
-
     <div style="font-size:13px;color:var(--m);padding:11px 14px;background:var(--f);border-radius:8px;margin-bottom:16px;line-height:1.7">
       ${esc(t.d)}
     </div>
-
     <div style="display:flex;flex-direction:column;gap:8px">
       ${t.ws.map(w=>`
         <div style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--f);border-radius:9px">
-          <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:15px;flex:1">${esc(w)}</span>
-          <button onclick="tts('${esc(w)}')" style="background:none;border:none;cursor:pointer;font-size:16px">🔊</button>
-          <button onclick="tts('${esc(w)}',.6)" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--m)">0.6x</button>
+          <span style="font-family:Georgia,serif;font-style:italic;font-size:15px;flex:1">${esc(w)}</span>
+          <button onclick="tts('${esc(w)}')" style="background:none;border:none;font-size:16px">🔊</button>
+          <button onclick="tts('${esc(w)}',.6)" style="background:none;border:none;font-size:12px;color:var(--m)">0.6x</button>
         </div>
       `).join('')}
     </div>
   </div>`;
 }
+
 function rIdioms(){
   return`
-  <div style="font-size:13px;color:var(--m);margin-bottom:16px">
-    Expressions idiomatiques utiles.
-  </div>
-
+  <div class="small" style="margin-bottom:16px">Expressions idiomatiques utiles.</div>
   ${IDIOMS.map(id=>`
     <div style="padding:16px 18px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:10px">
-      <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;margin-bottom:7px">
-        ${esc(id.e)}
-      </div>
-      <div style="font-size:14px;color:var(--bl);margin-bottom:7px;font-weight:500">
-        → ${esc(id.m)}
-      </div>
+      <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;margin-bottom:7px">${esc(id.e)}</div>
+      <div style="font-size:14px;color:var(--bl);margin-bottom:7px;font-weight:600">→ ${esc(id.m)}</div>
       <div style="font-size:13px;color:var(--m);font-style:italic">
         "${esc(id.ex)}"
-        <button onclick="tts('${esc(id.ex)}')" style="background:none;border:none;cursor:pointer;color:var(--m);font-size:12px">🔊</button>
+        <button onclick="tts('${esc(id.ex)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button>
       </div>
     </div>
   `).join('')}`;
@@ -1292,185 +1180,137 @@ function rIdioms(){
 function rDict(){
   const di=S.dictIdx||0;
   const c=DICT_WORDS[di%DICT_WORDS.length];
-
   return`
   <div class="card" style="margin-bottom:14px">
     <div class="sec">Écoute et écris le mot en anglais</div>
-    <button onclick="tts('${esc(c.word)}')" style="font-size:48px;background:none;border:none;cursor:pointer;display:block;margin:0 auto 8px">🔊</button>
-    <button onclick="tts('${esc(c.word)}',.6)" style="padding:6px 14px;background:var(--f);border:1px solid var(--b);border-radius:20px;font-size:12px;cursor:pointer;display:block;margin:0 auto">
+    <button onclick="tts('${esc(c.word)}')" style="font-size:48px;background:none;border:none;display:block;margin:0 auto 8px">🔊</button>
+    <button onclick="tts('${esc(c.word)}',.6)" style="padding:6px 14px;background:var(--f);border:1px solid var(--b);border-radius:20px;font-size:12px;display:block;margin:0 auto">
       0.6x lent
     </button>
   </div>
-
   <input id="dinp" placeholder="Écris le mot anglais..." style="margin-bottom:10px" onkeydown="if(event.key==='Enter')chkDict()">
   <button class="bp" onclick="chkDict()" style="width:100%">Vérifier</button>
   <div id="dr"></div>
-
-  <div style="text-align:center;font-size:12px;color:var(--m);margin-top:12px">
-    ${di+1} / ${DICT_WORDS.length}
-  </div>`;
+  <div style="text-align:center;font-size:12px;color:var(--m);margin-top:12px">${di+1} / ${DICT_WORDS.length}</div>`;
 }
 
 function rCustomLearn(){
   const decks=S.decks||[];
   const selected=S.customDecks||[];
+  const deleteSelected=S.deleteDecks||[];
 
   const totalSelected=decks
     .filter(d=>selected.includes(d.id))
     .reduce((sum,d)=>sum+d.cards.length,0);
+
+  const dueSelected=decks
+    .filter(d=>selected.includes(d.id))
+    .flatMap(d=>d.cards)
+    .filter(c=>{
+      const s=S.srs[c.id];
+      return !s?.srsNextReview || s.srsNextReview<=Date.now();
+    }).length;
 
   if(!decks.length){
     return`
     <div class="card" style="text-align:center">
       <div style="font-size:38px;margin-bottom:10px">📚</div>
       <h2 style="font-size:20px;margin-bottom:8px">Aucun deck disponible</h2>
-      <p class="small" style="margin-bottom:16px">
-        Importe ou crée d'abord un deck dans l'onglet Decks.
-      </p>
-      <button class="bp" onclick="setTab('decks')" style="width:100%">
-        Aller aux decks
-      </button>
+      <p class="small" style="margin-bottom:16px">Importe ou crée d'abord un deck dans l'onglet Decks.</p>
+      <button class="bp" onclick="setTab('decks')" style="width:100%">Aller aux decks</button>
     </div>`;
   }
 
   return`
   <div class="card" style="margin-bottom:14px">
     <h2 style="font-size:20px;margin-bottom:8px">Apprentissage personnalisé</h2>
-    <p class="small">
-      Choisis plusieurs decks, le nombre de cartes, puis lance une session mélangée.
-    </p>
+    <p class="small">Choisis les decks, le nombre de cartes, le sens recto/verso, puis lance une session.</p>
   </div>
 
   <div class="card" style="margin-bottom:14px">
-    <div class="sec">Decks à étudier</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px">
+      <div class="sec" style="margin:0">${S.deleteMode?'Supprimer des decks':'Decks à étudier'}</div>
+      ${S.deleteMode?`
+        <button class="bg" onclick="cancelDeleteMode()" style="padding:7px 10px;font-size:11px">Annuler</button>
+      `:`
+        <button class="bd" onclick="startDeleteMode()" style="padding:7px 10px;font-size:11px">Supprimer</button>
+      `}
+    </div>
 
     ${decks.map(d=>{
       const checked=selected.includes(d.id);
+      const deleteChecked=deleteSelected.includes(d.id);
       const due=d.cards.filter(c=>{
         const s=S.srs[c.id];
         return !s?.srsNextReview || s.srsNextReview<=Date.now();
       }).length;
+
+      if(S.deleteMode){
+        return`
+        <label style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--b);border-radius:10px;background:var(--f);margin-bottom:8px;cursor:pointer">
+          <input type="checkbox" ${deleteChecked?'checked':''} onchange="toggleDeleteDeck('${d.id}')" style="width:auto">
+          <div style="flex:1;min-width:0">
+            <div style="font-weight:600;font-size:14px">${esc(d.name)}</div>
+            <div style="font-size:11px;color:var(--m)">${d.cards.length} cartes · ${esc(d.level||'A1')}</div>
+          </div>
+        </label>`;
+      }
 
       return`
       <label style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--b);border-radius:10px;background:var(--f);margin-bottom:8px;cursor:pointer">
         <input type="checkbox" ${checked?'checked':''} onchange="toggleCustomDeck('${d.id}')" style="width:auto">
         <div style="flex:1;min-width:0">
           <div style="font-weight:600;font-size:14px">${esc(d.name)}</div>
-          <div style="font-size:11px;color:var(--m)">
-            ${d.cards.length} cartes · ${due} à revoir · ${esc(d.level||'A1')}
-          </div>
+          <div style="font-size:11px;color:var(--m)">${d.cards.length} cartes · ${due} à revoir · ${esc(d.level||'A1')}</div>
         </div>
       </label>`;
     }).join('')}
 
-    <div style="font-size:12px;color:var(--m);margin-top:10px">
-      ${selected.length} deck(s) sélectionné(s) · ${totalSelected} carte(s) disponibles
-    </div>
+    ${S.deleteMode?`
+      <button class="bd" onclick="deleteSelectedDecks()" style="width:100%;margin-top:10px" ${deleteSelected.length?'':'disabled'}>
+        Supprimer ${deleteSelected.length} deck(s) sélectionné(s)
+      </button>
+      <div class="small" style="margin-top:12px">Cette action supprimera les decks cochés et leur progression SRS.</div>
+    `:`
+      <div class="small" style="margin-top:10px">
+        ${selected.length} deck(s) sélectionné(s)<br>
+        ${totalSelected} carte(s) disponibles · ${dueSelected} à revoir maintenant
+      </div>
+    `}
   </div>
 
-  <div class="card" style="margin-bottom:14px">
-    <div class="sec">Nombre de cartes</div>
-    <div style="display:flex;gap:7px;flex-wrap:wrap">
-      ${[5,10,15,20,30,50].map(n=>`
-        <button class="${S.customCount===n?'bp':'bg'}" onclick="setCustomCount(${n})" style="flex:1">
-          ${n}
-        </button>
-      `).join('')}
+  ${S.deleteMode?'':`
+    <div class="card" style="margin-bottom:14px">
+      <div class="sec">Nombre de cartes</div>
+      <div style="display:flex;gap:7px;flex-wrap:wrap">
+        ${[5,10,15,20,30,50].map(n=>`
+          <button class="${S.customCount===n?'bp':'bg'}" onclick="setCustomCount(${n})" style="flex:1">${n}</button>
+        `).join('')}
+      </div>
     </div>
-  </div>
 
-  <div class="card" style="margin-bottom:14px">
-    <div class="sec">Mode d'apprentissage</div>
-    <div class="grid2">
-      <button class="bp" onclick="startCustomStudy('random')">
-        🔀 Mode aléatoire
-      </button>
-      <button class="bg" onclick="startCustomStudy('srs')">
-        🔁 Mode SRS
-      </button>
+    <div class="card" style="margin-bottom:14px">
+      <div class="sec">Sens des cartes</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button class="${S.customDir==='enfr'?'bp':'bg'}" onclick="setCustomDir('enfr')" style="width:100%">Anglais → Français</button>
+        <button class="${S.customDir==='fren'?'bp':'bg'}" onclick="setCustomDir('fren')" style="width:100%">Français → Anglais</button>
+        <button class="${S.customDir==='mix'?'bp':'bg'}" onclick="setCustomDir('mix')" style="width:100%">Mélange des deux</button>
+      </div>
     </div>
-  </div>`;
-}
 
-function toggleCustomDeck(id){
-  const selected=S.customDecks||[];
-
-  if(selected.includes(id)){
-    S.customDecks=selected.filter(x=>x!==id);
-  }else{
-    S.customDecks=[...selected,id];
-  }
-
-  sv('customDecks');
-  render();
-}
-
-function setCustomCount(n){
-  S.customCount=n;
-  sv('customCount');
-  render();
-}
-
-function startCustomStudy(mode){
-  const selected=S.customDecks||[];
-
-  if(!selected.length){
-    toast('Sélectionne au moins un deck.','#e07b39');
-    return;
-  }
-
-  let cards=S.decks
-    .filter(d=>selected.includes(d.id))
-    .flatMap(d=>d.cards.map(c=>({
-      ...c,
-      deckName:d.name,
-      deckAccent:d.accent
-    })));
-
-  if(!cards.length){
-    toast('Les decks sélectionnés sont vides.','#e07b39');
-    return;
-  }
-
-  if(mode==='srs'){
-    cards=cards.filter(c=>{
-      const s=S.srs[c.id];
-      return !s?.srsNextReview || s.srsNextReview<=Date.now();
-    });
-
-    if(!cards.length){
-      toast('Aucune carte à revoir en SRS.','#4caf50');
-      return;
-    }
-
-    cards.sort((a,b)=>{
-      const sa=S.srs[a.id]?.srsNextReview||0;
-      const sb=S.srs[b.id]?.srsNextReview||0;
-      return sa-sb;
-    });
-  }else{
-    cards=shuffle(cards);
-  }
-
-  cards=cards.slice(0,S.customCount||10);
-
-  S.studyDeck={
-    id:'__custom__',
-    name:mode==='srs'?'Session personnalisée SRS':'Session personnalisée aléatoire',
-    level:'',
-    color:'#e8eef8',
-    accent:mode==='srs'?'#4caf50':'#3b6fd4',
-    cards
-  };
-
-  S.studyIdx=0;
-  S.studyMode='flip';
-  S.flipped=false;
-  S.qopts=null;
-
-  updStreak();
-  earnB('b1');
-  render();
+    <div class="card" style="margin-bottom:14px">
+      <div class="sec">Lancer une session</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button class="bp" onclick="startCustomStudy('random')" style="width:100%">🔀 Mode aléatoire</button>
+        <button class="bg" onclick="startCustomStudy('srs')" style="width:100%">🔁 Mode SRS — cartes dues uniquement</button>
+        <button class="bg" onclick="startCustomStudy('review')" style="width:100%">🕐 Révisions personnalisées</button>
+      </div>
+      <div class="small" style="margin-top:12px">
+        Le mode SRS affiche seulement les cartes prévues pour révision.<br>
+        Les révisions personnalisées prennent les cartes dues, puis complètent avec les cartes les moins maîtrisées.
+      </div>
+    </div>
+  `}`;
 }
 
 function rContent(){
@@ -1482,12 +1322,9 @@ function rContent(){
   return`
   <div class="tab-bar">
     ${subs.map(s=>`
-      <button class="tbtn ${S.contentSub===s.id?'on':''}" onclick="S.contentSub='${s.id}';render()">
-        ${s.l}
-      </button>
+      <button class="tbtn ${S.contentSub===s.id?'on':''}" onclick="S.contentSub='${s.id}';render()">${s.l}</button>
     `).join('')}
   </div>
-
   <div id="ci">${S.contentSub==='stories'?rStories():rDlgs()}</div>`;
 }
 
@@ -1495,14 +1332,11 @@ function rStories(){
   if(S.activeStory)return rStoryR();
 
   return`
-  <div style="font-size:13px;color:var(--m);margin-bottom:16px">
-    Clique sur les mots soulignés pour voir la traduction intégrée.
-  </div>
-
+  <div class="small" style="margin-bottom:16px">Clique sur une histoire pour lire.</div>
   ${STORIES.map(s=>`
     <div onclick="S.activeStory='${s.id}';render()" style="padding:18px 20px;border:1px solid ${S.readS.includes(s.id)?'#4caf50':'var(--b)'};border-radius:14px;background:var(--f);cursor:pointer;margin-bottom:11px">
       <div style="display:flex;justify-content:space-between;margin-bottom:6px;gap:8px">
-        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600">${esc(s.title)}</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700">${esc(s.title)}</div>
         <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${s.lvl}</span>
       </div>
       <div style="font-size:13px;color:var(--m)">${esc(s.text.slice(0,90))}...</div>
@@ -1516,31 +1350,20 @@ function rStoryR(){
   if(!s)return rStories();
 
   const km={};
-  Object.keys(s.kw).forEach(w=>{
-    km[w.toLowerCase()]=s.kw[w];
-  });
+  Object.keys(s.kw).forEach(w=>km[w.toLowerCase()]=s.kw[w]);
 
   const th=s.text.split(/(\s+)/).map(w=>{
     const cl=w.replace(/[^a-zA-Z']/g,'').toLowerCase();
     if(!cl)return esc(w);
-
     const isK=km[cl];
-
     if(isK){
-      return`
-      <span onclick="showWordBox('${esc(cl)}','${esc(isK)}')" style="border-bottom:2px solid var(--bl);color:var(--bl);cursor:pointer">
-        ${esc(w)}
-      </span>`;
+      return`<span onclick="showWordBox('${esc(cl)}','${esc(isK)}')" style="border-bottom:2px solid var(--bl);color:var(--bl);cursor:pointer">${esc(w)}</span>`;
     }
-
     return esc(w);
   }).join('');
 
   return`
-  <button onclick="S.activeStory=null;render()" style="background:none;border:none;cursor:pointer;color:var(--m);font-size:13px;margin-bottom:14px">
-    ← Retour
-  </button>
-
+  <button onclick="S.activeStory=null;render()" style="background:none;border:none;color:var(--m);font-size:13px;margin-bottom:14px">← Retour</button>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px">
     <h2 style="font-size:20px">${esc(s.title)}</h2>
     <div style="display:flex;gap:7px">
@@ -1548,10 +1371,8 @@ function rStoryR(){
       <button onclick="tts('${esc(s.text)}',.7)" class="bg" style="padding:6px 10px;font-size:12px">🐢</button>
     </div>
   </div>
-
-  <div class="story-t">${th}</div>
+  <div style="font-size:15px;line-height:2.1;padding:20px;background:var(--f);border-radius:14px;border:1px solid var(--b)">${th}</div>
   <div id="wexp" style="margin-top:12px"></div>
-
   <button onclick="markStoryRead('${s.id}')" class="bp" style="width:100%;margin-top:16px">
     ${S.readS.includes(s.id)?'Relire':"J'ai lu · +25 XP"}
   </button>`;
@@ -1560,16 +1381,13 @@ function rStoryR(){
 function showWordBox(word,tr){
   const el=document.getElementById('wexp');
   if(!el)return;
-
   el.innerHTML=`
   <div class="card">
-    <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:8px">
+    <div style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:8px">
       ${esc(word)}
-      <button onclick="tts('${esc(word)}')" style="background:none;border:none;cursor:pointer;font-size:16px">🔊</button>
+      <button onclick="tts('${esc(word)}')" style="background:none;border:none;font-size:16px">🔊</button>
     </div>
-    <div style="font-size:14px;line-height:1.7">
-      Traduction : <strong>${esc(tr)}</strong>
-    </div>
+    <div style="font-size:14px;line-height:1.7">Traduction : <strong>${esc(tr)}</strong></div>
   </div>`;
 }
 
@@ -1580,21 +1398,12 @@ function markStoryRead(id){
     addXP(25);
     earnB('b7');
   }
-
   S.activeStory=null;
   render();
 }
 
 function rDlgs(){
-  return`
-  <div class="card" style="margin-bottom:14px">
-    <h2 style="font-size:20px;margin-bottom:8px">Dialogues types</h2>
-    <p class="small">
-      Version sans IA : lis, écoute, puis répète les phrases utiles.
-    </p>
-  </div>
-
-  ${[
+  const dialogs=[
     {
       title:'Au restaurant',
       lvl:'A1',
@@ -1614,30 +1423,26 @@ function rDlgs(){
         ['Recruiter','Why do you want this position?'],
         ['Candidate','I want to improve my skills and join a strong team.']
       ]
-    },
-    {
-      title:'Appel téléphonique',
-      lvl:'A2',
-      lines:[
-        ['A','Hello, can I speak to Mr Smith?'],
-        ['B','I’m sorry, he is not available right now.'],
-        ['A','Could you ask him to call me back?'],
-        ['B','Of course. What is your number?']
-      ]
     }
-  ].map(d=>`
+  ];
+
+  return`
+  <div class="card" style="margin-bottom:14px">
+    <h2 style="font-size:20px;margin-bottom:8px">Dialogues types</h2>
+    <p class="small">Lis, écoute, puis répète les phrases utiles.</p>
+  </div>
+  ${dialogs.map(d=>`
     <div style="padding:18px 20px;border:1px solid var(--b);border-radius:14px;background:var(--f);margin-bottom:11px">
       <div style="display:flex;justify-content:space-between;margin-bottom:10px">
-        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600">${esc(d.title)}</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700">${esc(d.title)}</div>
         <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${d.lvl}</span>
       </div>
-
       ${d.lines.map(([who,line])=>`
         <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start">
           <div style="font-size:11px;color:var(--m);width:70px">${esc(who)}</div>
           <div style="font-size:13px;line-height:1.5;flex:1">
             ${esc(line)}
-            <button onclick="tts('${esc(line)}')" style="background:none;border:none;cursor:pointer;color:var(--m);font-size:12px">🔊</button>
+            <button onclick="tts('${esc(line)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button>
           </div>
         </div>
       `).join('')}
@@ -1654,12 +1459,9 @@ function rExams(){
   return`
   <div class="tab-bar">
     ${subs.map(s=>`
-      <button class="tbtn ${S.examSub===s.id?'on':''}" onclick="S.examSub='${s.id}';render()">
-        ${s.l}
-      </button>
+      <button class="tbtn ${S.examSub===s.id?'on':''}" onclick="S.examSub='${s.id}';render()">${s.l}</button>
     `).join('')}
   </div>
-
   <div id="ec">${S.examSub==='toeic'?rTOEIC():rLT()}</div>`;
 }
 
@@ -1667,15 +1469,12 @@ function rTOEIC(){
   if(S.toeicDone){
     const pct=Math.round((S.toeicScore/TOEIC.length)*100);
     const label=pct>=85?'Excellent':pct>=70?'Bon niveau':pct>=50?'Correct':'À renforcer';
-
     return`
     <div style="text-align:center;padding:36px 0">
       <div style="font-size:48px;margin-bottom:10px">🎓</div>
-      <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700">
-        ${S.toeicScore}/${TOEIC.length}
-      </div>
-      <div style="font-size:14px;color:var(--m);margin:8px 0 24px">${pct}% · ${label}</div>
-      <button class="bp" onclick="resetTOEIC()" style="margin-top:8px">Recommencer</button>
+      <div style="font-family:Georgia,serif;font-size:36px;font-weight:700">${S.toeicScore}/${TOEIC.length}</div>
+      <div class="small" style="margin:8px 0 24px">${pct}% · ${label}</div>
+      <button class="bp" onclick="resetTOEIC()">Recommencer</button>
     </div>`;
   }
 
@@ -1688,23 +1487,15 @@ function rTOEIC(){
     <span style="font-size:12px;color:var(--m)">${q.lvl}</span>
     <span style="font-size:12px;color:var(--m)">${idx+1}/${TOEIC.length}</span>
   </div>
-
   <div class="pbar" style="margin-bottom:16px">
     <div class="pfill" style="width:${Math.round((idx/TOEIC.length)*100)}%;background:var(--bl)"></div>
   </div>
-
-  <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:600;line-height:1.5;margin-bottom:18px">
-    ${esc(q.q)}
-  </div>
-
+  <div style="font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div>
   <div>
     ${q.opts.map((o,i)=>`
-      <button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansTOEIC('${esc(o)}')" ${sel!==null?'disabled':''}>
-        ${esc(o)}
-      </button>
+      <button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansTOEIC('${esc(o)}')" ${sel!==null?'disabled':''}>${esc(o)}</button>
     `).join('')}
   </div>
-
   ${sel!==null?`
     <div style="margin-top:12px;padding:13px;background:var(--f);border-radius:9px;font-size:13px;color:var(--m);line-height:1.6">
       💡 ${esc(q.exp)}
@@ -1715,27 +1506,14 @@ function rTOEIC(){
   `:''}`;
 }
 
-function resetTOEIC(){
-  S.toeicIdx=0;
-  S.toeicSel=null;
-  S.toeicDone=false;
-  S.toeicScore=0;
-  S.toeicData=null;
-  render();
-}
-
 function rLT(){
   if(!S.ltData){
     return`
     <div style="text-align:center;padding:20px 0">
       <div style="font-size:40px;margin-bottom:14px">🎯</div>
       <h2 style="margin-bottom:10px">Test de niveau</h2>
-      <p style="color:var(--m);font-size:14px;margin-bottom:24px">
-        40 questions de A1 à C2.
-      </p>
-      <button class="bp" onclick="startLT()" style="font-size:15px;padding:13px 28px">
-        Commencer
-      </button>
+      <p class="small" style="margin-bottom:24px">${LTQS.length} questions de A1 à C2.</p>
+      <button class="bp" onclick="startLT()" style="font-size:15px;padding:13px 28px">Commencer</button>
     </div>`;
   }
 
@@ -1761,13 +1539,8 @@ function rLT(){
     return`
     <div style="text-align:center;padding:24px 0">
       <div style="font-size:48px;margin-bottom:12px">🎯</div>
-      <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--bl)">
-        ${lv}
-      </div>
-      <div style="font-size:14px;color:var(--m);margin-bottom:18px">
-        ${sc}/${LTQS.length} bonnes réponses
-      </div>
-
+      <div style="font-family:Georgia,serif;font-size:52px;font-weight:700;color:var(--bl)">${lv}</div>
+      <div class="small" style="margin-bottom:18px">${sc}/${LTQS.length} bonnes réponses</div>
       <div class="card" style="text-align:left;margin-bottom:14px">
         <div class="sec">Détail par niveau</div>
         ${Object.keys(totalByLevel).map(k=>`
@@ -1777,13 +1550,10 @@ function rLT(){
           </div>
         `).join('')}
       </div>
-
       <button class="bp" onclick="S.userLvl='${lv}';sv('userLvl');toast('Niveau enregistré');S.ltData=null;earnB('b8');render()" style="width:100%;margin-bottom:10px">
         Enregistrer
       </button>
-      <button class="bg" onclick="S.ltData=null;render()" style="width:100%">
-        Refaire plus tard
-      </button>
+      <button class="bg" onclick="S.ltData=null;render()" style="width:100%">Refaire plus tard</button>
     </div>`;
   }
 
@@ -1794,76 +1564,25 @@ function rLT(){
     <span style="font-size:12px;color:var(--m)">Test de niveau · ${q.lvl}</span>
     <span style="font-size:12px;color:var(--m)">${idx+1}/${LTQS.length}</span>
   </div>
-
   <div class="pbar" style="margin-bottom:16px">
     <div class="pfill" style="width:${Math.round((idx/LTQS.length)*100)}%;background:var(--bl)"></div>
   </div>
-
-  <div style="font-family:'Playfair Display',serif;font-size:21px;font-weight:600;line-height:1.5;margin-bottom:18px">
-    ${esc(q.q)}
-  </div>
-
+  <div style="font-family:Georgia,serif;font-size:21px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div>
   <div>
     ${q.opts.map((o,i)=>`
-      <button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansLT(${i})" ${sel!==null?'disabled':''}>
-        ${esc(o)}
-      </button>
+      <button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansLT(${i})" ${sel!==null?'disabled':''}>${esc(o)}</button>
     `).join('')}
   </div>
-
   ${sel!==null?`
     <div style="display:flex;justify-content:flex-end;margin-top:14px">
-      <button class="bp" onclick="nxtLT()">
-        ${idx+1>=LTQS.length?'Résultats':'Suivant'}
-      </button>
+      <button class="bp" onclick="nxtLT()">${idx+1>=LTQS.length?'Résultats':'Suivant'}</button>
     </div>
   `:''}`;
 }
 
-function startLT(){
-  S.ltData={
-    idx:0,
-    sc:0,
-    sel:null,
-    done:false,
-    answers:{}
-  };
-  render();
-}
-
-function ansLT(i){
-  const q=LTQS[S.ltData.idx];
-  S.ltData.sel=q.opts[i];
-
-  const ok=i===q.a;
-  if(ok){
-    S.ltData.sc++;
-    S.ltData.answers[S.ltData.idx]=true;
-    addXP(3);
-  }else{
-    S.ltData.answers[S.ltData.idx]=false;
-  }
-
-  logErr(q.q,ok);
-  render();
-}
-
-function nxtLT(){
-  const d=S.ltData;
-
-  if(d.idx+1>=LTQS.length){
-    d.done=true;
-  }else{
-    d.idx++;
-    d.sel=null;
-  }
-
-  render();
-}
 function renderOb(){
   const ob=document.getElementById('ob');
   ob.style.display='flex';
-
   const step=S.obStep||0;
 
   if(step===0){
@@ -1871,12 +1590,8 @@ function renderOb(){
     <div style="max-width:400px;width:100%;text-align:center">
       <div style="font-size:64px;margin-bottom:16px">🇬🇧</div>
       <h1 style="font-size:32px;margin-bottom:12px">Learn English</h1>
-      <p style="color:var(--m);font-size:15px;line-height:1.7;margin-bottom:32px">
-        Apprends l'anglais avec tes propres decks, un système SRS, des exercices et des examens.
-      </p>
-      <button class="bp" onclick="S.obStep=1;renderOb()" style="font-size:15px;padding:14px 32px;width:100%">
-        Commencer
-      </button>
+      <p class="small" style="margin-bottom:32px">Apprends l'anglais avec tes propres decks, un système SRS, des exercices et des examens.</p>
+      <button class="bp" onclick="S.obStep=1;renderOb()" style="font-size:15px;padding:14px 32px;width:100%">Commencer</button>
     </div>`;
   }
 
@@ -1884,21 +1599,15 @@ function renderOb(){
     ob.innerHTML=`
     <div style="max-width:400px;width:100%">
       <h2 style="font-size:24px;margin-bottom:20px">Ton niveau actuel ?</h2>
-
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px">
         ${LVLS.map(l=>`
           <div onclick="S.userLvl='${l.l}';sv('userLvl');renderOb()" style="padding:16px 8px;border:2px solid ${S.userLvl===l.l?'var(--a)':'var(--b)'};border-radius:13px;cursor:pointer;text-align:center;background:${S.userLvl===l.l?'var(--f)':'var(--s)'}">
-            <div style="font-size:22px;font-family:'Playfair Display',serif;font-weight:700;color:${l.c}">
-              ${l.l}
-            </div>
+            <div style="font-size:22px;font-family:Georgia,serif;font-weight:700;color:${l.c}">${l.l}</div>
             <div style="font-size:11px;color:var(--m)">${l.label}</div>
           </div>
         `).join('')}
       </div>
-
-      <button class="bp" onclick="S.obStep=2;renderOb()" style="width:100%">
-        Continuer
-      </button>
+      <button class="bp" onclick="S.obStep=2;renderOb()" style="width:100%">Continuer</button>
     </div>`;
   }
 
@@ -1906,20 +1615,16 @@ function renderOb(){
     ob.innerHTML=`
     <div style="max-width:400px;width:100%">
       <h2 style="font-size:24px;margin-bottom:6px">Objectif quotidien</h2>
-      <p style="color:var(--m);font-size:13px;margin-bottom:20px">Combien de cartes par jour ?</p>
-
+      <p class="small" style="margin-bottom:20px">Combien de cartes par jour ?</p>
       <div style="display:flex;gap:10px;margin-bottom:24px">
         ${[5,10,15,20].map(n=>`
           <div onclick="S.dailyG=${n};sv('dailyG');renderOb()" style="flex:1;padding:16px 4px;border:2px solid ${S.dailyG===n?'var(--a)':'var(--b)'};border-radius:13px;cursor:pointer;text-align:center;background:${S.dailyG===n?'var(--f)':'var(--s)'}">
-            <div style="font-size:20px;font-family:'Playfair Display',serif;font-weight:700">${n}</div>
+            <div style="font-size:20px;font-family:Georgia,serif;font-weight:700">${n}</div>
             <div style="font-size:10px;color:var(--m)">cartes</div>
           </div>
         `).join('')}
       </div>
-
-      <button class="bp" onclick="finOb()" style="width:100%;font-size:15px;padding:14px">
-        Démarrer
-      </button>
+      <button class="bp" onclick="finOb()" style="width:100%;font-size:15px;padding:14px">Démarrer</button>
     </div>`;
   }
 }
@@ -1946,60 +1651,45 @@ function showM(type,extra){
   if(type==='cdeck'){
     inner=`
     <h2 style="margin-bottom:20px">Nouveau deck</h2>
-
     <label class="lbl">Nom *</label>
     <input id="mn" placeholder="ex: Vocabulaire Business" style="margin-bottom:12px">
-
     <label class="lbl">Niveau</label>
     <div style="display:flex;gap:6px;margin-bottom:22px;flex-wrap:wrap">
       ${['A1','A2','B1','B2','C1','C2'].map(l=>`
-        <button class="${mL===l?'bp':'bg'} lsl" data-l="${l}" onclick="selL(this)" style="flex:1">
-          ${l}
-        </button>
+        <button class="${mL===l?'bp':'bg'} lsl" data-l="${l}" onclick="selL(this)" style="flex:1">${l}</button>
       `).join('')}
     </div>
-
     <button class="bp" onclick="mkDeck()" style="width:100%">Créer</button>`;
   }
 
   else if(type==='acard'){
     inner=`
     <h2 style="margin-bottom:20px">Nouvelle carte</h2>
-
     <label class="lbl">Mot anglais *</label>
     <input id="mw" placeholder="ex: Ephemeral" style="margin-bottom:10px">
-
     <label class="lbl">Traduction *</label>
     <input id="mt" placeholder="ex: Éphémère" style="margin-bottom:10px">
-
     <label class="lbl">Exemple</label>
     <input id="me" placeholder="ex: Fame can be ephemeral." style="margin-bottom:14px">
-
     <button class="bp" onclick="addC('${extra}')" style="width:100%">Ajouter</button>`;
   }
 
   else if(type==='imp'){
     inner=`
     <h2 style="margin-bottom:6px">Importer un deck</h2>
-    <div style="font-size:12px;color:var(--m);margin-bottom:16px;line-height:1.6">
+    <div class="small" style="margin-bottom:16px">
       Une carte par ligne.<br>
       Format : <strong>Mot ; Traduction ; Exemple</strong>
     </div>
-
     <label class="lbl">Nom du deck</label>
     <input id="min" value="Deck importé" style="margin-bottom:10px">
-
     <label class="lbl">Niveau</label>
     <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
       ${['A1','A2','B1','B2','C1','C2'].map(l=>`
-        <button class="${mL===l?'bp':'bg'} lsl" data-l="${l}" onclick="selL(this)" style="flex:1">
-          ${l}
-        </button>
+        <button class="${mL===l?'bp':'bg'} lsl" data-l="${l}" onclick="selL(this)" style="flex:1">${l}</button>
       `).join('')}
     </div>
-
-    <textarea id="mit" placeholder="Ephemeral ; Éphémère ; Fame can be ephemeral&#10;Reliable ; Fiable ; This source is reliable." style="height:150px;resize:vertical;margin-bottom:10px"></textarea>
-
+    <textarea id="mit" placeholder="Ephemeral ; Éphémère ; Fame can be ephemeral&#10;Reliable ; Fiable ; This source is reliable." style="height:150px;margin-bottom:10px"></textarea>
     <button class="bp" onclick="impDeck()" style="width:100%">Importer</button>`;
   }
 
@@ -2017,7 +1707,6 @@ function selL(b){
     x.classList.remove('bp');
     x.classList.add('bg');
   });
-
   b.classList.remove('bg');
   b.classList.add('bp');
   mL=b.dataset.l;
@@ -2042,11 +1731,7 @@ function tog(id){
 
 function startDaily(){
   const due=S.decks
-    .flatMap(d=>d.cards.map(c=>({
-      ...c,
-      deckName:d.name,
-      deckAccent:d.accent
-    })))
+    .flatMap(d=>d.cards.map(c=>({...c,deckName:d.name,deckAccent:d.accent,_dir:'enfr'})))
     .filter(c=>{
       const s=S.srs[c.id];
       return !s?.srsNextReview||s.srsNextReview<=Date.now();
@@ -2070,7 +1755,6 @@ function startDaily(){
   S.studyMode='flip';
   S.flipped=false;
   S.qopts=null;
-
   updStreak();
   earnB('b1');
   S.tab='decks';
@@ -2083,18 +1767,13 @@ function startStudy(id){
 
   S.studyDeck={
     ...dk,
-    cards:shuffle(dk.cards.map(c=>({
-      ...c,
-      deckName:dk.name,
-      deckAccent:dk.accent
-    })))
+    cards:shuffle(dk.cards.map(c=>({...c,deckName:dk.name,deckAccent:dk.accent,_dir:'enfr'})))
   };
 
   S.studyIdx=0;
   S.studyMode='flip';
   S.flipped=false;
   S.qopts=null;
-
   updStreak();
   earnB('b1');
   render();
@@ -2122,7 +1801,6 @@ function doFlip(){
 function ans(ok){
   const c=S.studyDeck.cards[S.studyIdx||0];
   const srs=srsNext(S.srs[c.id]||{},ok);
-
   S.srs[c.id]=srs;
 
   addXP(ok?10:3);
@@ -2140,10 +1818,11 @@ function ans(ok){
 
 function ansQ(opt){
   const c=S.studyDeck.cards[S.studyIdx||0];
-  const ok=opt===c.tr;
+  const correct=cardBackText(c);
+  const ok=opt===correct;
 
   document.querySelectorAll('.opt').forEach(b=>{
-    if(b.textContent.trim()===c.tr)b.classList.add('ok');
+    if(b.textContent.trim()===correct)b.classList.add('ok');
     else if(b.textContent.trim()===opt&&!ok)b.classList.add('no');
     b.disabled=true;
   });
@@ -2169,8 +1848,10 @@ function chkFill(){
   if(!inp)return;
 
   const c=S.studyDeck.cards[S.studyIdx||0];
+  const expected=cardBackText(c);
+
   const a=inp.value.trim().toLowerCase();
-  const co=c.tr.toLowerCase();
+  const co=expected.toLowerCase();
 
   const ok=a===co||co.includes(a)||a.includes(co.split('/')[0].trim().toLowerCase());
 
@@ -2181,10 +1862,8 @@ function chkFill(){
   if(res){
     res.innerHTML=`
     <div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'}">
-      ${ok?'Correct · +15 XP':`C'était : "${esc(c.tr)}"`}
-      <button class="bp" onclick="S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;render()" style="display:block;margin-top:10px;width:100%">
-        Suivant
-      </button>
+      ${ok?'Correct · +15 XP':`C'était : "${esc(expected)}"`}
+      <button class="bp" onclick="S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;render()" style="display:block;margin-top:10px;width:100%">Suivant</button>
     </div>`;
   }
 
@@ -2203,10 +1882,8 @@ function chkFill(){
 function ansGQ(opt){
   const q=GQUIZ[S.gqd.idx];
   S.gqd.sel=opt;
-
   const ok=q.opts[q.a]===opt;
   if(ok)S.gqd.sc++;
-
   addXP(ok?15:3);
   logErr(q.q,ok);
   render();
@@ -2214,7 +1891,6 @@ function ansGQ(opt){
 
 function nxtGQ(){
   const d=S.gqd;
-
   if(d.idx+1>=GQUIZ.length){
     d.done=true;
     if(d.sc===GQUIZ.length)earnB('b6');
@@ -2222,7 +1898,6 @@ function nxtGQ(){
     d.idx++;
     d.sel=null;
   }
-
   render();
 }
 
@@ -2233,7 +1908,6 @@ function togPhr(idx){
     S.phrases.push(idx);
     addXP(8);
   }
-
   sv('phrases');
   render();
 }
@@ -2253,9 +1927,7 @@ function chkDict(){
     res.innerHTML=`
     <div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'};margin-top:10px">
       ${ok?'Parfait · +15 XP':`C'était : "${esc(c.word)}" · ${esc(c.tr)}`}
-      <button class="bp" onclick="S.dictIdx=(S.dictIdx||0)+1;render()" style="display:block;margin-top:10px;width:100%">
-        Suivant
-      </button>
+      <button class="bp" onclick="S.dictIdx=(S.dictIdx||0)+1;render()" style="display:block;margin-top:10px;width:100%">Suivant</button>
     </div>`;
   }
 
@@ -2265,14 +1937,10 @@ function chkDict(){
 
 function ansTOEIC(opt){
   const q=TOEIC[S.toeicIdx||0];
-
   S.toeicSel=opt;
-
   const ok=q.opts[q.a]===opt;
-
   if(!S.toeicData)S.toeicData={sc:0};
   if(ok)S.toeicData.sc++;
-
   addXP(ok?10:2);
   logErr(q.q,ok);
   render();
@@ -2280,7 +1948,6 @@ function ansTOEIC(opt){
 
 function nxtTOEIC(){
   const i=S.toeicIdx||0;
-
   if(i+1>=TOEIC.length){
     S.toeicDone=true;
     S.toeicScore=S.toeicData?.sc||0;
@@ -2289,7 +1956,46 @@ function nxtTOEIC(){
     S.toeicIdx=i+1;
     S.toeicSel=null;
   }
+  render();
+}
 
+function resetTOEIC(){
+  S.toeicIdx=0;
+  S.toeicSel=null;
+  S.toeicDone=false;
+  S.toeicScore=0;
+  S.toeicData=null;
+  render();
+}
+
+function startLT(){
+  S.ltData={idx:0,sc:0,sel:null,done:false,answers:{}};
+  render();
+}
+
+function ansLT(i){
+  const q=LTQS[S.ltData.idx];
+  S.ltData.sel=q.opts[i];
+  const ok=i===q.a;
+  if(ok){
+    S.ltData.sc++;
+    S.ltData.answers[S.ltData.idx]=true;
+    addXP(3);
+  }else{
+    S.ltData.answers[S.ltData.idx]=false;
+  }
+  logErr(q.q,ok);
+  render();
+}
+
+function nxtLT(){
+  const d=S.ltData;
+  if(d.idx+1>=LTQS.length){
+    d.done=true;
+  }else{
+    d.idx++;
+    d.sel=null;
+  }
   render();
 }
 
@@ -2301,17 +2007,18 @@ function doSpeech(){
 
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   const r=new SR();
-
   r.lang='en-US';
   r.interimResults=false;
 
   const c=S.studyDeck?.cards[S.studyIdx||0];
   if(!c)return;
 
+  const target=cardFrontText(c).toLowerCase();
+
   r.onresult=e=>{
     const said=e.results[0][0].transcript.toLowerCase();
     const res=document.getElementById('spkr');
-    const ok=said.includes(c.word.toLowerCase());
+    const ok=said.includes(target);
 
     if(res){
       res.innerHTML=`
@@ -2325,6 +2032,200 @@ function doSpeech(){
 
   r.onerror=()=>{};
   r.start();
+}
+
+function toggleCustomDeck(id){
+  const selected=S.customDecks||[];
+  if(selected.includes(id)){
+    S.customDecks=selected.filter(x=>x!==id);
+  }else{
+    S.customDecks=[...selected,id];
+  }
+  sv('customDecks');
+  render();
+}
+
+function setCustomCount(n){
+  S.customCount=n;
+  sv('customCount');
+  render();
+}
+
+function setCustomDir(dir){
+  S.customDir=dir;
+  sv('customDir');
+  render();
+}
+
+function startDeleteMode(){
+  S.deleteMode=true;
+  S.deleteDecks=[];
+  render();
+}
+
+function cancelDeleteMode(){
+  S.deleteMode=false;
+  S.deleteDecks=[];
+  render();
+}
+
+function toggleDeleteDeck(id){
+  const selected=S.deleteDecks||[];
+  if(selected.includes(id)){
+    S.deleteDecks=selected.filter(x=>x!==id);
+  }else{
+    S.deleteDecks=[...selected,id];
+  }
+  render();
+}
+
+function deleteSelectedDecks(){
+  const ids=S.deleteDecks||[];
+
+  if(!ids.length){
+    toast('Aucun deck sélectionné.','#e07b39');
+    return;
+  }
+
+  const names=S.decks
+    .filter(d=>ids.includes(d.id))
+    .map(d=>d.name)
+    .join(', ');
+
+  const ok=confirm(`Supprimer ${ids.length} deck(s) ?\n\n${names}\n\nLa progression SRS liée sera aussi supprimée.`);
+  if(!ok)return;
+
+  const cardIds=S.decks
+    .filter(d=>ids.includes(d.id))
+    .flatMap(d=>d.cards.map(c=>c.id));
+
+  S.decks=S.decks.filter(d=>!ids.includes(d.id));
+  S.customDecks=(S.customDecks||[]).filter(id=>!ids.includes(id));
+
+  cardIds.forEach(cid=>{
+    delete S.srs[cid];
+  });
+
+  S.deleteMode=false;
+  S.deleteDecks=[];
+
+  sv('decks');
+  sv('customDecks');
+  sv('srs');
+
+  toast('Decks supprimés','#c62828');
+  render();
+}
+
+function startCustomStudy(mode){
+  const selected=S.customDecks||[];
+
+  if(!selected.length){
+    toast('Sélectionne au moins un deck.','#e07b39');
+    return;
+  }
+
+  let cards=S.decks
+    .filter(d=>selected.includes(d.id))
+    .flatMap(d=>d.cards.map(c=>({
+      ...c,
+      deckName:d.name,
+      deckAccent:d.accent
+    })));
+
+  if(!cards.length){
+    toast('Les decks sélectionnés sont vides.','#e07b39');
+    return;
+  }
+
+  const count=S.customCount||10;
+  const direction=S.customDir||'enfr';
+
+  if(mode==='srs'){
+    cards=cards.filter(c=>{
+      const s=S.srs[c.id];
+      return !s?.srsNextReview || s.srsNextReview<=Date.now();
+    });
+
+    if(!cards.length){
+      toast('Aucune carte à revoir maintenant. Utilise Révisions personnalisées.','#e07b39');
+      return;
+    }
+
+    cards.sort((a,b)=>{
+      const sa=S.srs[a.id]?.srsNextReview||0;
+      const sb=S.srs[b.id]?.srsNextReview||0;
+      return sa-sb;
+    });
+  }
+
+  else if(mode==='review'){
+    const due=[];
+    const notDue=[];
+
+    cards.forEach(c=>{
+      const s=S.srs[c.id];
+      if(!s?.srsNextReview || s.srsNextReview<=Date.now()){
+        due.push(c);
+      }else{
+        notDue.push(c);
+      }
+    });
+
+    due.sort((a,b)=>{
+      const sa=S.srs[a.id]?.srsNextReview||0;
+      const sb=S.srs[b.id]?.srsNextReview||0;
+      return sa-sb;
+    });
+
+    notDue.sort((a,b)=>{
+      const ia=S.srs[a.id]?.srsInterval||0;
+      const ib=S.srs[b.id]?.srsInterval||0;
+      return ia-ib;
+    });
+
+    cards=[...due,...notDue];
+
+    if(!due.length){
+      toast('Aucune carte due : révision douce lancée.','#3b6fd4');
+    }
+  }
+
+  else{
+    cards=shuffle(cards);
+  }
+
+  cards=cards
+    .slice(0,count)
+    .map(c=>applyCardDirection(c,direction));
+
+  S.studyDeck={
+    id:'__custom__',
+    name:
+      mode==='srs'
+        ?'Session personnalisée SRS'
+        :mode==='review'
+          ?'Révisions personnalisées'
+          :'Session personnalisée aléatoire',
+    level:'',
+    color:'#e8eef8',
+    accent:
+      mode==='srs'
+        ?'#4caf50'
+        :mode==='review'
+          ?'#e07b39'
+          :'#3b6fd4',
+    cards
+  };
+
+  S.studyIdx=0;
+  S.studyMode='flip';
+  S.flipped=false;
+  S.qopts=null;
+
+  updStreak();
+  earnB('b1');
+  render();
 }
 
 function mkDeck(){
@@ -2346,20 +2247,32 @@ function mkDeck(){
 }
 
 function delDk(id){
-  if(!confirm('Supprimer ce deck ?'))return;
+  const deck=S.decks.find(d=>d.id===id);
+  if(!deck)return;
+
+  const ok=confirm(`Supprimer le deck "${deck.name}" ?\n\nCette action supprimera aussi sa progression SRS.`);
+  if(!ok)return;
+
+  const cardIds=deck.cards.map(c=>c.id);
 
   S.decks=S.decks.filter(d=>d.id!==id);
   S.customDecks=(S.customDecks||[]).filter(x=>x!==id);
 
+  cardIds.forEach(cid=>{
+    delete S.srs[cid];
+  });
+
   sv('decks');
   sv('customDecks');
+  sv('srs');
+
+  toast('Deck supprimé','#c62828');
   render();
 }
 
 function addC(deckId){
   const w=document.getElementById('mw')?.value?.trim();
   const t=document.getElementById('mt')?.value?.trim();
-
   if(!w||!t)return;
 
   const card={
@@ -2404,7 +2317,6 @@ function impDeck(){
     .filter(l=>l.trim())
     .map(line=>{
       const p=line.split(/[;,\t]/).map(s=>s.trim());
-
       if(p.length>=2&&p[0]&&p[1]){
         return{
           id:uid(),
@@ -2413,7 +2325,6 @@ function impDeck(){
           ex:p[2]||''
         };
       }
-
       return null;
     })
     .filter(Boolean);
