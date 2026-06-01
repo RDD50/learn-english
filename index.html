@@ -6,45 +6,48 @@
 <title>Learn English</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4f4f0;--s:#fff;--b:#e8e8e4;--t:#1a1a1a;--m:#999;--f:#f0f0ec;--a:#1a1a1a;--g:#4caf50;--bl:#3b6fd4;--or:#e07b39}
+:root{--bg:#f4f4f0;--s:#fff;--b:#e8e8e4;--t:#1a1a1a;--m:#999;--f:#f0f0ec;--a:#1a1a1a;--g:#4caf50;--bl:#3b6fd4;--or:#e07b39;--re:#e53935;--pu:#7c4dff}
 .dk{--bg:#111;--s:#1c1c1f;--b:#2a2a2e;--t:#f0f0ed;--m:#666;--f:#222226;--a:#f0f0ed}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--t);font-family:'DM Sans',sans-serif;transition:background .3s}
 h1,h2,h3{font-family:'Playfair Display',serif}
-button{cursor:pointer;font-family:'DM Sans',sans-serif}
-input,textarea{font-family:'DM Sans',sans-serif;background:var(--f);color:var(--t);border:1px solid var(--b);border-radius:9px;padding:10px 14px;font-size:14px;outline:none;width:100%}
-input:focus{border-color:var(--bl)}
+button{cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .18s}
+input,textarea,select{font-family:'DM Sans',sans-serif;background:var(--f);color:var(--t);border:1px solid var(--b);border-radius:9px;padding:10px 14px;font-size:14px;outline:none;width:100%;transition:border .2s}
+input:focus,textarea:focus{border-color:var(--bl)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--b);border-radius:4px}
 .card{background:var(--s);border:1px solid var(--b);border-radius:16px;padding:20px}
-.bp{background:var(--a);color:var(--bg);border:none;border-radius:9px;padding:11px 18px;font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
-.bg{background:var(--f);color:var(--m);border:1px solid var(--b);border-radius:9px;padding:11px 18px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.bp{background:var(--a);color:var(--bg);border:none;border-radius:9px;padding:11px 18px;font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:5px}
+.bg{background:var(--f);color:var(--m);border:1px solid var(--b);border-radius:9px;padding:11px 18px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:5px}
 .bs{background:#f0faf0;color:#2e7d32;border:1px solid #c8e6c9;border-radius:9px;padding:11px 18px;font-size:13px;cursor:pointer}
 .bd{background:#fff5f5;color:#c62828;border:1px solid #fcd0d0;border-radius:9px;padding:11px 18px;font-size:13px;cursor:pointer}
-.pbar{height:5px;background:var(--f);border-radius:3px;overflow:hidden}
+.btn-full{width:100%;display:flex;justify-content:center}
+.pbar{height:6px;background:var(--f);border-radius:3px;overflow:hidden}
 .pfill{height:100%;border-radius:3px;transition:width .6s}
-.tab-bar{display:flex;gap:5px;overflow-x:auto;padding-bottom:4px;margin-bottom:18px}
-.tab-bar::-webkit-scrollbar{display:none}
-.tbtn{padding:7px 12px;border:1px solid var(--b);border-radius:8px;font-size:11.5px;white-space:nowrap;flex-shrink:0;background:var(--s);color:var(--m)}
-.tbtn.on{background:var(--a);color:var(--bg);border-color:var(--a)}
-.opt{padding:13px 16px;border-radius:9px;text-align:left;font-size:14px;border:1px solid var(--b);background:var(--f);color:var(--t);width:100%;display:block;margin-bottom:9px;cursor:pointer}
-.opt.ok{background:#f0faf0!important;border-color:#4caf50!important;color:#2e7d32!important}
-.opt.no{background:#fff5f5!important;border-color:#f44336!important;color:#c62828!important}
-.bnav{position:fixed;bottom:0;left:0;right:0;background:var(--s);border-top:1px solid var(--b);display:flex;z-index:100}
+.bnav{position:fixed;bottom:0;left:0;right:0;background:var(--s);border-top:1px solid var(--b);display:flex;z-index:100;max-width:480px;margin:0 auto}
 .nit{flex:1;padding:10px 4px 12px;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:none;font-size:9px;color:var(--m);font-family:'DM Sans',sans-serif}
 .nit.on{color:var(--a)}
 #app{max-width:480px;margin:0 auto;padding:24px 16px 80px}
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:200;padding:16px}
+.modal{background:var(--s);border-radius:20px;padding:26px;width:100%;max-width:440px;max-height:90vh;overflow-y:auto}
+.ob{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.sec{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--m);margin-bottom:12px}
+.lbl{font-size:11px;color:var(--m);letter-spacing:.05em;display:block;margin-bottom:5px}
+.opt{padding:13px 16px;border-radius:9px;text-align:left;font-size:14px;border:1px solid var(--b);background:var(--f);color:var(--t);width:100%;display:block;margin-bottom:9px;cursor:pointer;transition:all .2s}
+.opt.ok{background:#f0faf0!important;border-color:#4caf50!important;color:#2e7d32!important}
+.opt.no{background:#fff5f5!important;border-color:#f44336!important;color:#c62828!important}
+.deck-check{display:flex;align-items:center;gap:12px;padding:14px 16px;border:2px solid var(--b);border-radius:12px;margin-bottom:10px;cursor:pointer;transition:all .2s;background:var(--s)}
+.deck-check.selected{border-color:var(--bl);background:#e8eef8}
+.deck-check.selected.dk{background:#1a2030}
 .cbai{background:var(--f);border-radius:18px 18px 18px 4px;padding:11px 15px;max-width:85%;font-size:14px;line-height:1.6}
 .cbme{background:var(--a);color:var(--bg);border-radius:18px 18px 4px 18px;padding:11px 15px;max-width:85%;font-size:14px;line-height:1.6}
 @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
 @keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pop{0%{transform:scale(.8);opacity:0}60%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
 .dl span{width:7px;height:7px;border-radius:50%;background:var(--m);display:inline-block;animation:bounce 1s infinite}
 .dl span:nth-child(2){animation-delay:.15s}.dl span:nth-child(3){animation-delay:.3s}
 .xpa{animation:fu 1.4s ease forwards;position:fixed;top:80px;right:20px;font-size:18px;font-weight:700;color:var(--g);pointer-events:none;z-index:300;font-family:'Playfair Display',serif}
-.story-t{font-size:15px;line-height:2.1;padding:20px;background:var(--f);border-radius:14px;border:1px solid var(--b)}
-.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:200;padding:16px}
-.modal{background:var(--s);border-radius:20px;padding:26px;width:100%;max-width:440px;max-height:90vh;overflow-y:auto}
-.ob{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
-.sec{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--m);margin-bottom:14px}
-.lbl{font-size:11px;color:var(--m);letter-spacing:.05em;display:block;margin-bottom:5px}
+.flip-card{min-height:200px;border-radius:16px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;transition:all .35s;border:1px solid var(--b)}
+.tag{font-size:10px;padding:3px 9px;border-radius:20px;font-weight:600;display:inline-block}
 </style>
 </head>
 <body>
@@ -58,92 +61,80 @@ const uid=()=>'_'+Math.random().toString(36).slice(2,9);
 const esc=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const tts=(t,r=.9)=>{if(!window.speechSynthesis)return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=r;window.speechSynthesis.speak(u)};
 const today=()=>new Date().toDateString();
-const DECKS=[
-  {id:'d1',name:'Débutant — Essentials',level:'A1',color:'#e8f4e8',accent:'#4caf50',cards:[
-    {id:'c1',word:'Hello',tr:'Bonjour',ex:'Hello, how are you?'},
-    {id:'c2',word:'Beautiful',tr:'Beau / Belle',ex:'What a beautiful day!'},
-    {id:'c3',word:'Grateful',tr:'Reconnaissant',ex:'I am grateful for your help.'},
-    {id:'c4',word:'Quickly',tr:'Rapidement',ex:'She spoke quickly.'},
-    {id:'c5',word:'Understand',tr:'Comprendre',ex:'Do you understand?'},
-    {id:'c6',word:'Friendly',tr:'Aimable',ex:'She is very friendly.'},
-  ]},
-  {id:'d2',name:'Intermédiaire — Nuances',level:'B2',color:'#e8eef8',accent:'#3b6fd4',cards:[
-    {id:'c7',word:'Ambiguous',tr:'Ambigu',ex:'The instructions were ambiguous.'},
-    {id:'c8',word:'Diligent',tr:'Diligent',ex:'She is a diligent student.'},
-    {id:'c9',word:'Ephemeral',tr:'Éphémère',ex:'Fame can be ephemeral.'},
-    {id:'c10',word:'Eloquent',tr:'Éloquent',ex:'He gave an eloquent speech.'},
-    {id:'c11',word:'Resilient',tr:'Résilient',ex:'Children are surprisingly resilient.'},
-  ]},
-  {id:'d3',name:'Avancé — C1',level:'C1',color:'#f8eee8',accent:'#e07b39',cards:[
-    {id:'c12',word:'Surreptitious',tr:'Furtif',ex:'A surreptitious glance.'},
-    {id:'c13',word:'Perspicacious',tr:'Perspicace',ex:'A perspicacious observer.'},
-    {id:'c14',word:'Obfuscate',tr:'Obscurcir',ex:'He tried to obfuscate the facts.'},
-  ]},
-];
-const GQUIZ=[
-  {q:'She ___ to Paris last year.',opts:['has gone','went','goes','go'],a:1,exp:'Simple past pour une action terminée.',lvl:'A2'},
-  {q:'If I ___ rich, I would travel.',opts:['am','was','were','be'],a:2,exp:"'Were' dans les conditionnels.",lvl:'B2'},
-  {q:'The report ___ by the manager.',opts:['write','wrote','was written','is write'],a:2,exp:'Passive : was + participe passé.',lvl:'B1'},
-  {q:'By tomorrow, she ___ the book.',opts:['reads','will read','will have read','read'],a:2,exp:'Future perfect.',lvl:'C1'},
-  {q:'He told me he ___ tired.',opts:['is','was','be','were'],a:1,exp:'Reported speech.',lvl:'B2'},
-];
-const PHRASES=[
-  {p:'Could you say that again?',ctx:'Pas compris',fr:'Pouvez-vous répéter ?',lvl:'A1'},
-  {p:'I was wondering if...',ctx:'Demande polie',fr:'Je me demandais si...',lvl:'B1'},
-  {p:'To be honest with you...',ctx:'Opinion franche',fr:'Pour être honnête...',lvl:'B1'},
-  {p:'It depends on...',ctx:'Nuancer',fr:'Ça dépend de...',lvl:'A2'},
-  {p:'Make yourself at home.',ctx:'Accueil',fr:'Faites comme chez vous.',lvl:'A2'},
-  {p:'That being said...',ctx:'Nuance',fr:'Cela dit...',lvl:'B2'},
-];
-const IDIOMS=[
-  {e:'Break a leg',m:'Bonne chance',ex:'Break a leg on your presentation!'},
-  {e:'Hit the sack',m:'Aller dormir',ex:"I'm going to hit the sack."},
-  {e:'Bite the bullet',m:'Serrer les dents',ex:'Just bite the bullet and do it.'},
-  {e:'Spill the beans',m:'Vendre la mèche',ex:"Don't spill the beans!"},
-  {e:'Under the weather',m:'Ne pas se sentir bien',ex:"I'm a bit under the weather."},
-];
+const shuffle=arr=>[...arr].sort(()=>Math.random()-.5);
+
 const LVLS=[
   {l:'A1',min:0,label:'Débutant',c:'#4caf50'},
   {l:'A2',min:200,label:'Élémentaire',c:'#8bc34a'},
   {l:'B1',min:500,label:'Intermédiaire',c:'#3b6fd4'},
   {l:'B2',min:1100,label:'Indépendant',c:'#7c4dff'},
   {l:'C1',min:2200,label:'Avancé',c:'#e07b39'},
+  {l:'C2',min:4000,label:'Maîtrise',c:'#e53935'},
 ];
+
 const BADGES=[
   {id:'b1',i:'🎯',n:'Premier pas'},{id:'b2',i:'🔥',n:'En feu'},
   {id:'b3',i:'⭐',n:'100 XP'},{id:'b4',i:'🌟',n:'500 XP'},
   {id:'b5',i:'📚',n:'Deck terminé'},{id:'b6',i:'🏆',n:'Quiz parfait'},
-  {id:'b7',i:'📖',n:'Lecteur'},{id:'b8',i:'💬',n:'Bavard'},
+  {id:'b7',i:'🎓',n:'Niveau testé'},{id:'b8',i:'👑',n:'Boss Round'},
+  {id:'b9',i:'💯',n:'TOEIC 80%'},{id:'b10',i:'🔁',n:'SRS 7 jours'},
 ];
+
 let S={
   tab:'home',dk:LS.get('dk',false),xp:LS.get('xp',0),
   streak:LS.get('streak',0),lastStudy:LS.get('ls',null),
   dailyP:LS.get('dp',0),dailyG:LS.get('dg',10),dailyD:LS.get('dd',null),
   userLvl:LS.get('ulvl',null),obDone:LS.get('ob',false),
-  decks:LS.get('decks',null),srs:LS.get('srs',{}),
-  badges:LS.get('bdg',[]),phrases:LS.get('phr',[]),
-  errLog:LS.get('erl',[]),hist:LS.get('hist',{}),
-  report:LS.get('rep',null),readS:LS.get('rs',[]),
-  studyDeck:null,studyIdx:0,studyMode:'flip',flipped:false,
-  qopts:null,gqd:null,gqmode:'learn',gqf:'all',
-  phf:'all',pron:0,learnSub:'grammar',
-  contentSub:'stories',examSub:'toeic',
-  aiMsgs:null,dlgMsgs:[],activeDlg:null,activeStory:null,
-  toeicIdx:0,toeicSel:null,toeicDone:false,toeicScore:0,
-  transIdx:0,transRes:null,ltData:null,dictIdx:0,obStep:0,
+  decks:LS.get('decks',[]),srs:LS.get('srs',{}),
+  badges:LS.get('bdg',[]),errLog:LS.get('erl',[]),
+  // Learn session
+  selectedDecks:LS.get('selDecks',[]),
+  cardCount:LS.get('cardCount',20),
+  studyMode:'srs',
+  session:null, // {cards,idx,correct,wrong,mode}
+  // Exam
+  ltData:null,toeicData:null,
+  obStep:0,
 };
-if(!S.decks)S.decks=JSON.parse(JSON.stringify(DECKS));
+
 if(S.dailyD!==today()){S.dailyP=0;S.dailyD=today();sv('dailyP');sv('dailyD');}
-function sv(k){const m={xp:'xp',streak:'streak',lastStudy:'ls',dailyP:'dp',dailyG:'dg',dailyD:'dd',userLvl:'ulvl',obDone:'ob',decks:'decks',srs:'srs',badges:'bdg',phrases:'phr',errLog:'erl',hist:'hist',report:'rep',readS:'rs',dk:'dk'};if(m[k])LS.set(m[k],S[k]);}
+
+function sv(k){
+  const m={xp:'xp',streak:'streak',lastStudy:'ls',dailyP:'dp',dailyG:'dg',dailyD:'dd',
+    userLvl:'ulvl',obDone:'ob',decks:'decks',srs:'srs',badges:'bdg',errLog:'erl',
+    selectedDecks:'selDecks',cardCount:'cardCount',dk:'dk'};
+  if(m[k])LS.set(m[k],S[k]);
+}
+
 function getLvl(xp){let l=LVLS[0];for(const t of LVLS){if(xp>=t.min)l=t;}return l;}
-function srsNext(c,ok){const now=Date.now(),i=c.srsInterval||1,e=c.srsEase||2.5;if(!ok)return{srsInterval:1,srsEase:Math.max(1.3,e-.2),srsNextReview:now+60000};const ni=Math.round(i*e);return{srsInterval:ni,srsEase:Math.min(3,e+.1),srsNextReview:now+ni*86400000};}
-function addXP(n){S.xp+=n;sv('xp');checkB();const el=document.createElement('div');el.className='xpa';el.textContent=`+${n} XP ⚡`;document.getElementById('xpt').innerHTML='';document.getElementById('xpt').appendChild(el);setTimeout(()=>el.remove(),1500);}
-function toast(msg,c='#4caf50'){const el=document.createElement('div');el.className='xpa';el.style.color=c;el.textContent=msg;document.getElementById('xpt').appendChild(el);setTimeout(()=>el.remove(),2500);}
-function earnB(id){if(S.badges.includes(id))return;S.badges.push(id);sv('badges');}
+function srsNext(c,ok){
+  const now=Date.now(),i=c.srsInterval||1,e=c.srsEase||2.5;
+  if(!ok)return{srsInterval:1,srsEase:Math.max(1.3,e-.2),srsNextReview:now+300000};
+  const ni=Math.round(i*ease);
+  return{srsInterval:ni,srsEase:Math.min(3,e+.1),srsNextReview:now+ni*86400000};
+}
+function srsNextFixed(cardSrs,ok){
+  const now=Date.now(),i=cardSrs.srsInterval||1,e=cardSrs.srsEase||2.5;
+  if(!ok)return{srsInterval:1,srsEase:Math.max(1.3,e-.2),srsNextReview:now+300000};
+  const ni=Math.round(i*e);
+  return{srsInterval:ni,srsEase:Math.min(3,e+.1),srsNextReview:now+ni*86400000};
+}
+function isDue(cardId){const s=S.srs[cardId];return!s?.srsNextReview||s.srsNextReview<=Date.now();}
+function addXP(n){
+  S.xp+=n;sv('xp');checkB();
+  const el=document.createElement('div');el.className='xpa';el.textContent=`+${n} XP ⚡`;
+  document.getElementById('xpt').innerHTML='';document.getElementById('xpt').appendChild(el);
+  setTimeout(()=>el.remove(),1500);
+}
+function toast(msg,c='#4caf50'){
+  const el=document.createElement('div');el.className='xpa';el.style.color=c;el.textContent=msg;
+  document.getElementById('xpt').appendChild(el);setTimeout(()=>el.remove(),2500);
+}
+function earnB(id){if(S.badges.includes(id))return;S.badges.push(id);sv('badges');const b=BADGES.find(x=>x.id===id);if(b)toast(`${b.i} ${b.n}!`,'#e07b39');}
 function checkB(){if(S.xp>=100)earnB('b3');if(S.xp>=500)earnB('b4');if(S.streak>=3)earnB('b2');}
 function updStreak(){const t=today();if(S.lastStudy===t)return;const y=new Date(Date.now()-86400000).toDateString();S.streak=S.lastStudy===y?S.streak+1:1;S.lastStudy=t;sv('streak');sv('lastStudy');}
 function incD(){S.dailyP++;sv('dailyP');if(S.dailyP===S.dailyG)toast('🎉 Objectif atteint !','#4caf50');}
-function logErr(w,ok){S.errLog.push({t:Date.now(),w,ok});if(S.errLog.length>200)S.errLog=S.errLog.slice(-200);sv('errLog');}
+
 function render(){
   if(S.dk)document.body.classList.add('dk');else document.body.classList.remove('dk');
   if(!S.obDone){renderOb();return;}
@@ -151,9 +142,10 @@ function render(){
   document.getElementById('app').style.display='block';
   document.getElementById('bnav').style.display='flex';
   renderNav();
-  const fns={home:rHome,decks:rDecks,learn:rLearn,content:rContent,exams:rExams,ai:rAI};
+  const fns={home:rHome,decks:rDecks,learn:rLearn,exams:rExams};
   document.getElementById('app').innerHTML=rHeader()+'<div id="tc">'+(fns[S.tab]||rHome)()+'</div>';
 }
+
 function rHeader(){
   const lv=getLvl(S.xp),nx=LVLS.find(t=>t.min>S.xp),p=nx?Math.min(100,((S.xp-lv.min)/(nx.min-lv.min))*100):100;
   return`<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px">
@@ -175,444 +167,340 @@ function rHeader(){
     </div>
   </div>`;
 }
+
 function renderNav(){
-  const tabs=[{id:'home',i:'🏠',l:'Accueil'},{id:'decks',i:'📚',l:'Decks'},{id:'learn',i:'✏️',l:'Apprendre'},{id:'content',i:'🌍',l:'Contenu'},{id:'exams',i:'🎓',l:'Examens'},{id:'ai',i:'🤖',l:'Tuteur'}];
-  document.getElementById('bnav').innerHTML=tabs.map(t=>`<button class="nit ${S.tab===t.id?'on':''}" onclick="setTab('${t.id}')"><span style="font-size:18px">${t.i}</span><span>${t.l}</span></button>`).join('');
+  const tabs=[{id:'home',i:'🏠',l:'Accueil'},{id:'decks',i:'📦',l:'Decks'},{id:'learn',i:'✏️',l:'Apprendre'},{id:'exams',i:'🎓',l:'Examens'}];
+  document.getElementById('bnav').innerHTML=tabs.map(t=>`<button class="nit ${S.tab===t.id?'on':''}" onclick="setTab('${t.id}')"><span style="font-size:20px">${t.i}</span><span>${t.l}</span></button>`).join('');
 }
 function rHome(){
   const mastered=Object.values(S.srs).filter(x=>x.srsInterval>=7).length;
-  const due=S.decks.flatMap(d=>d.cards).filter(c=>{const s=S.srs[c.id];return!s?.srsNextReview||s.srsNextReview<=Date.now();}).length;
+  const allCards=S.decks.flatMap(d=>d.cards);
+  const due=allCards.filter(c=>isDue(c.id)).length;
+  const total=allCards.length;
   const pct=S.dailyG?Math.min(100,(S.dailyP/S.dailyG)*100):0;
-  const errs=S.errLog.filter(e=>!e.ok).map(e=>e.w);const wc={};errs.forEach(w=>wc[w]=(wc[w]||0)+1);
-  const top=Object.entries(wc).sort((a,b)=>b[1]-a[1]).slice(0,5);
   return`
   <div class="card" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div style="font-weight:600;font-size:15px">Objectif du jour</div><span style="font-size:13px;color:${S.dailyP>=S.dailyG?'var(--g)':'var(--m)'};font-weight:600">${S.dailyP}/${S.dailyG}</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <div style="font-weight:600;font-size:15px">Objectif du jour</div>
+      <span style="font-size:13px;color:${S.dailyP>=S.dailyG?'var(--g)':'var(--m)'};font-weight:600">${S.dailyP}/${S.dailyG}</span>
+    </div>
     <div class="pbar"><div class="pfill" style="width:${pct}%;background:${S.dailyP>=S.dailyG?'var(--g)':'var(--bl)'}"></div></div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
-    <button class="bp" onclick="startDaily()" style="padding:14px;flex-direction:column;gap:4px;border-radius:13px"><span style="font-size:20px">🔁</span><span style="font-size:12px">Révision SRS (${due})</span></button>
-    <button class="bg" onclick="startBoss()" style="padding:14px;flex-direction:column;gap:4px;border-radius:13px;justify-content:center"><span style="font-size:20px">👑</span><span style="font-size:12px">Boss Round</span></button>
+    ${S.dailyP>=S.dailyG?'<div style="font-size:12px;color:var(--g);margin-top:6px">🎉 Objectif atteint !</div>':''}
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px">
-    ${[['⚡',S.xp,'XP'],['✅',mastered,'Maîtrisées'],['🕐',due,'À revoir']].map(([i,v,l])=>`<div class="card" style="text-align:center;padding:14px 8px"><div style="font-size:20px;margin-bottom:4px">${i}</div><div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700">${v}</div><div style="font-size:10px;color:var(--m)">${l}</div></div>`).join('')}
+    ${[['📦',S.decks.length,'Decks'],['📇',total,'Cartes'],['🕐',due,'À revoir']].map(([i,v,l])=>`
+    <div class="card" style="text-align:center;padding:14px 8px">
+      <div style="font-size:22px;margin-bottom:4px">${i}</div>
+      <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700">${v}</div>
+      <div style="font-size:10px;color:var(--m)">${l}</div>
+    </div>`).join('')}
   </div>
   <div class="card" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-      <h3 style="font-size:14px">Analyse des erreurs</h3>
-      <button class="bg" onclick="setTab('ai');S.aiMsgs=null;setTimeout(()=>{setAI('Analyse mes erreurs et génère des exercices ciblés');sendAI();},300)" style="padding:6px 12px;font-size:11px">Analyser →</button>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+      <h3 style="font-size:15px">Progression SRS</h3>
+      <span style="font-size:12px;color:var(--m)">${mastered}/${total} maîtrisées</span>
     </div>
-    ${top.length?`<div style="display:flex;flex-wrap:wrap;gap:6px">${top.map(([w,c])=>`<span style="padding:4px 10px;background:${c>=3?'#fff5f5':'#fff9e6'};color:${c>=3?'#c62828':'#e65100'};border-radius:20px;font-size:12px;font-weight:500">${esc(w)} ×${c}</span>`).join('')}</div>`:'<div style="font-size:13px;color:var(--m)">Aucune erreur récente.</div>'}
+    <div class="pbar" style="height:10px"><div class="pfill" style="width:${total?Math.round((mastered/total)*100):0}%;background:var(--g)"></div></div>
+    <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:var(--m)">
+      <span>🔴 À revoir : ${due}</span>
+      <span>🟡 En cours : ${total-mastered-due}</span>
+      <span>🟢 Maîtrisées : ${mastered}</span>
+    </div>
   </div>
-  <div class="card" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-      <h3 style="font-size:14px">Rapport hebdomadaire</h3>
-      <button class="bp" onclick="genReport()" style="padding:7px 13px;font-size:12px" id="repbtn">Générer ✨</button>
-    </div>
-    <div id="repc">${S.report?`<div style="font-size:13px;line-height:1.7">${esc(S.report).replace(/\n/g,'<br>')}</div>`:'<div style="font-size:13px;color:var(--m)">Génère ton bilan personnalisé.</div>'}</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+    <button class="bp" onclick="setTab('learn')" style="padding:16px;flex-direction:column;gap:6px;border-radius:14px">
+      <span style="font-size:28px">✏️</span>
+      <span style="font-size:13px">Apprendre</span>
+    </button>
+    <button class="bg" onclick="setTab('exams')" style="padding:16px;flex-direction:column;gap:6px;border-radius:14px;justify-content:center">
+      <span style="font-size:28px">🎓</span>
+      <span style="font-size:13px">Examens</span>
+    </button>
   </div>
   <div class="card">
     <h3 style="font-size:14px;margin-bottom:14px">Badges ${S.badges.length}/${BADGES.length}</h3>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
-      ${BADGES.map(b=>`<div style="text-align:center;padding:10px 4px;border-radius:9px;background:${S.badges.includes(b.id)?'var(--f)':'transparent'};opacity:${S.badges.includes(b.id)?1:.2}"><div style="font-size:24px">${b.i}</div><div style="font-size:10px;color:var(--m);margin-top:4px">${b.n}</div></div>`).join('')}
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px">
+      ${BADGES.map(b=>`<div title="${b.n}" style="text-align:center;padding:8px 4px;border-radius:9px;background:${S.badges.includes(b.id)?'var(--f)':'transparent'};opacity:${S.badges.includes(b.id)?1:.2}">
+        <div style="font-size:22px">${b.i}</div>
+        <div style="font-size:8px;color:var(--m);margin-top:3px;line-height:1.2">${b.n}</div>
+      </div>`).join('')}
     </div>
   </div>`;
 }
+
 function rDecks(){
-  if(S.studyDeck)return rStudy();
-  return`<div style="display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap">
+  return`
+  <div style="display:flex;gap:7px;margin-bottom:16px">
     <button class="bp" onclick="showM('gen')" style="flex:1">✨ Générer IA</button>
-    <button class="bg" onclick="showM('cdeck')" style="flex:1">+ Deck</button>
     <button class="bg" onclick="showM('imp')" style="flex:1">↑ Importer</button>
+    <button class="bg" onclick="showM('cdeck')" style="flex:1">+ Nouveau</button>
   </div>
-  ${S.decks.map(dk=>{
-    const due=dk.cards.filter(c=>{const s=S.srs[c.id];return!s?.srsNextReview||s.srsNextReview<=Date.now();}).length;
-    const m=dk.cards.filter(c=>S.srs[c.id]?.srsInterval>=7).length;
+  ${!S.decks.length?`<div style="text-align:center;padding:40px 20px;color:var(--m)">
+    <div style="font-size:48px;margin-bottom:12px">📦</div>
+    <div style="font-size:15px;font-family:'Playfair Display',serif;margin-bottom:8px">Aucun deck</div>
+    <div style="font-size:13px">Importe ou génère ton premier deck !</div>
+  </div>`:''}
+  ${S.decks.map((dk,di)=>{
+    const mastered=dk.cards.filter(c=>S.srs[c.id]?.srsInterval>=7).length;
+    const due=dk.cards.filter(c=>isDue(c.id)).length;
+    const pct=dk.cards.length?Math.round((mastered/dk.cards.length)*100):0;
     return`<div style="border:1px solid var(--b);border-radius:14px;overflow:hidden;margin-bottom:11px">
-      <div style="padding:16px 18px;background:${dk.color};cursor:pointer" onclick="tog('db-${dk.id}')">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#1a1a1a;margin-bottom:5px">${esc(dk.name)}</div>
-            <div style="display:flex;gap:7px;align-items:center">
-              <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:${dk.accent}22;color:${dk.accent};font-weight:600">${dk.level}</span>
-              <span style="font-size:12px;color:#555">${dk.cards.length} cartes</span>
-              ${due>0?`<span style="font-size:11px;padding:2px 7px;background:#fff3e0;color:#e65100;border-radius:20px">🕐 ${due}</span>`:''}
+      <div style="padding:16px 18px;background:${dk.color||'var(--f)'};cursor:pointer" onclick="tog('db-${dk.id}')">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div style="flex:1">
+            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#1a1a1a;margin-bottom:6px">${esc(dk.name)}</div>
+            <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
+              <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:rgba(0,0,0,.1);color:#333;font-weight:600">${dk.cards.length} cartes</span>
+              ${due>0?`<span style="font-size:10px;padding:2px 7px;background:#fff3e0;color:#e65100;border-radius:20px">🕐 ${due} dues</span>`:''}
+              <span style="font-size:10px;padding:2px 7px;background:#f0faf0;color:#2e7d32;border-radius:20px">✓ ${pct}%</span>
             </div>
           </div>
-          <button onclick="event.stopPropagation();startStudy('${dk.id}')" style="background:${dk.accent};color:#fff;border:none;border-radius:9px;padding:9px 14px;font-size:13px;cursor:pointer" ${!dk.cards.length?'disabled':''}>Étudier</button>
+          <button onclick="event.stopPropagation();delDk('${dk.id}')" style="background:rgba(0,0,0,.1);border:none;border-radius:7px;padding:6px 9px;font-size:12px;cursor:pointer;color:#333;margin-left:8px">🗑</button>
         </div>
+        <div class="pbar" style="margin-top:10px;height:4px"><div class="pfill" style="width:${pct}%;background:${dk.accent||'#4caf50'}"></div></div>
       </div>
       <div id="db-${dk.id}" style="display:none;background:var(--s);padding:14px 18px;border-top:1px solid var(--b)">
-        <div style="display:flex;justify-content:space-between;margin-bottom:10px">
-          <span style="font-size:12px;color:var(--m)">${m}/${dk.cards.length} maîtrisées</span>
-          <div style="display:flex;gap:7px">
-            <button class="bp" onclick="showM('acard','${dk.id}')" style="padding:6px 11px;font-size:11px">+ Carte</button>
-            <button class="bd" onclick="delDk('${dk.id}')" style="padding:6px 10px;font-size:11px">🗑</button>
-          </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <span style="font-size:12px;color:var(--m)">${mastered}/${dk.cards.length} maîtrisées</span>
+          <button class="bp" onclick="showM('acard','${dk.id}')" style="padding:6px 11px;font-size:11px">+ Carte</button>
         </div>
-        <div style="max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:7px">
-          ${dk.cards.map(c=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--f);border-radius:8px">
-            <div><span style="font-family:'Playfair Display',serif;font-size:14px;font-weight:600">${esc(c.word)}</span><span style="font-size:12px;color:var(--m);margin-left:8px">${esc(c.tr)}</span></div>
-            <button onclick="delC('${dk.id}','${c.id}')" style="background:none;border:none;color:var(--b);font-size:14px;padding:2px 4px;cursor:pointer">✕</button>
-          </div>`).join('')}
+        <div style="max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:7px">
+          ${!dk.cards.length?'<div style="color:var(--m);text-align:center;padding:12px;font-size:13px">Aucune carte. Ajoutes-en une !</div>':''}
+          ${dk.cards.slice(0,50).map(c=>{
+            const srs=S.srs[c.id];const d=isDue(c.id);
+            return`<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--f);border-radius:8px">
+              <div><span style="font-family:'Playfair Display',serif;font-size:14px;font-weight:600">${esc(c.word)}</span><span style="font-size:12px;color:var(--m);margin-left:8px">${esc(c.tr)}</span></div>
+              <div style="display:flex;align-items:center;gap:6px">
+                ${srs?.srsInterval>=7?'<span style="font-size:11px;color:var(--g)">✓</span>':(d?'<span style="width:7px;height:7px;border-radius:50%;background:#ff9800;display:inline-block"></span>':'')}
+                <button onclick="delC('${dk.id}','${c.id}')" style="background:none;border:none;color:var(--b);font-size:14px;padding:2px 4px;cursor:pointer">✕</button>
+              </div>
+            </div>`;}).join('')}
+          ${dk.cards.length>50?`<div style="text-align:center;font-size:12px;color:var(--m);padding:8px">... et ${dk.cards.length-50} autres cartes</div>`:''}
         </div>
       </div>
     </div>`;}).join('')}`;
 }
-function rStudy(){
-  const dk=S.studyDeck,idx=S.studyIdx||0,card=dk.cards[idx];
-  if(!card){earnB('b5');sv('srs');return`<div style="text-align:center;padding:36px 0"><div style="font-size:48px;margin-bottom:10px">🏆</div><h2 style="margin-bottom:8px">Deck terminé !</h2><button class="bp" onclick="endStudy()">Retour</button></div>`;}
-  const md=S.studyMode||'flip',total=dk.cards.length,prog=Math.round((idx/total)*100);
+
+function rLearn(){
+  if(S.session)return rSession();
+  const allCards=S.decks.flatMap(d=>d.cards);
+  const due=allCards.filter(c=>isDue(c.id)).length;
+  return`
+  <div style="margin-bottom:20px">
+    <h2 style="font-size:20px;margin-bottom:6px">Sélectionne tes decks</h2>
+    <div style="font-size:13px;color:var(--m)">Coche les decks à étudier</div>
+  </div>
+  ${!S.decks.length?`<div style="text-align:center;padding:32px 20px;color:var(--m)">
+    <div style="font-size:40px;margin-bottom:10px">📦</div>
+    <div style="font-size:14px">Aucun deck disponible.</div>
+    <button class="bp" onclick="setTab('decks')" style="margin-top:14px">Importer un deck</button>
+  </div>`:`
+  <div style="margin-bottom:16px">
+    ${S.decks.map(dk=>{
+      const sel=S.selectedDecks.includes(dk.id);
+      const dkDue=dk.cards.filter(c=>isDue(c.id)).length;
+      return`<div class="deck-check ${sel?'selected':''}" onclick="toggleDeckSel('${dk.id}')">
+        <div style="width:22px;height:22px;border-radius:6px;border:2px solid ${sel?'var(--bl)':'var(--b)'};background:${sel?'var(--bl)':'transparent'};display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s">
+          ${sel?'<span style="color:#fff;font-size:13px">✓</span>':''}
+        </div>
+        <div style="flex:1">
+          <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:600">${esc(dk.name)}</div>
+          <div style="font-size:12px;color:var(--m);margin-top:2px">${dk.cards.length} cartes · ${dkDue} dues SRS</div>
+        </div>
+      </div>`;}).join('')}
+  </div>
+  <div class="card" style="margin-bottom:16px">
+    <div style="font-weight:600;font-size:14px;margin-bottom:14px">⚙️ Paramètres de session</div>
+    <div style="margin-bottom:14px">
+      <div class="lbl">Nombre de cartes</div>
+      <div style="display:flex;gap:7px;flex-wrap:wrap">
+        ${[10,20,30,50,100,'Tout'].map(n=>`<button class="${(n==='Tout'?S.cardCount===99999:S.cardCount===n)?'bp':'bg'}" onclick="S.cardCount=${n==='Tout'?99999:n};sv('cardCount');render()" style="padding:8px 14px;font-size:13px">${n}</button>`).join('')}
+      </div>
+    </div>
+    <div>
+      <div class="lbl">Mode d'apprentissage</div>
+      <div style="display:flex;gap:7px">
+        <button class="${S.studyMode==='srs'?'bp':'bg'}" onclick="S.studyMode='srs';render()" style="flex:1;padding:10px;font-size:12px;flex-direction:column;gap:3px">
+          <span style="font-size:16px">🧠</span><span>SRS Intelligent</span>
+        </button>
+        <button class="${S.studyMode==='random'?'bp':'bg'}" onclick="S.studyMode='random';render()" style="flex:1;padding:10px;font-size:12px;flex-direction:column;gap:3px">
+          <span style="font-size:16px">🎲</span><span>Aléatoire</span>
+        </button>
+        <button class="${S.studyMode==='qcm'?'bp':'bg'}" onclick="S.studyMode='qcm';render()" style="flex:1;padding:10px;font-size:12px;flex-direction:column;gap:3px">
+          <span style="font-size:16px">🔤</span><span>QCM</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  ${S.selectedDecks.length>0?`
+  <div style="padding:12px 16px;background:var(--f);border-radius:10px;margin-bottom:14px;font-size:13px;color:var(--m)">
+    ${S.selectedDecks.length} deck(s) · ${S.decks.filter(d=>S.selectedDecks.includes(d.id)).flatMap(d=>d.cards).length} cartes disponibles
+    ${S.studyMode==='srs'?` · ${S.decks.filter(d=>S.selectedDecks.includes(d.id)).flatMap(d=>d.cards).filter(c=>isDue(c.id)).length} dues`:''}
+  </div>`:''}
+  <button class="bp btn-full" onclick="startSession()" ${!S.selectedDecks.length?'disabled':''} style="padding:16px;font-size:15px;border-radius:12px;opacity:${S.selectedDecks.length?1:.4}">
+    🚀 Lancer la session
+  </button>`}`;
+}
+function startSession(){
+  if(!S.selectedDecks.length)return;
+  let cards=S.decks.filter(d=>S.selectedDecks.includes(d.id)).flatMap(d=>d.cards.map(c=>({...c,deckName:d.name})));
+  if(S.studyMode==='srs'){
+    const due=cards.filter(c=>isDue(c.id));
+    if(!due.length){toast('✓ Toutes les cartes sont à jour !','#4caf50');return;}
+    cards=due;
+  }
+  cards=shuffle(cards);
+  if(S.cardCount!==99999)cards=cards.slice(0,S.cardCount);
+  if(!cards.length){toast('Aucune carte à étudier !','#e07b39');return;}
+  S.session={cards,idx:0,correct:0,wrong:0,mode:S.studyMode,flipped:false,qopts:null,fillRes:null};
+  updStreak();earnB('b1');render();
+}
+
+function rSession(){
+  const sess=S.session;
+  const idx=sess.idx,card=sess.cards[idx];
+  if(!card)return rSessionEnd();
+  const prog=Math.round((idx/sess.cards.length)*100);
+  const md=sess.mode==='qcm'?'qcm':sess.mode==='fill'?'fill':'flip';
   let cnt='';
-  if(md==='flip'){const fl=S.flipped;cnt=`
-    <div onclick="doFlip()" style="min-height:190px;background:${fl?'var(--a)':'var(--f)'};border:1px solid var(--b);border-radius:16px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;transition:all .3s;color:${fl?'var(--bg)':'var(--t)'}">
-      ${!fl?`<div style="text-align:center"><div class="sec">Anglais</div><div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700">${esc(card.word)}</div><div style="font-size:12px;color:var(--m);margin-top:10px">Cliquer pour révéler</div></div>`
-      :`<div style="text-align:center"><div class="sec" style="color:var(--m)">Traduction</div><div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:14px">${esc(card.tr)}</div><div style="font-size:13px;font-style:italic;color:#aaa;border-top:1px solid #333;padding-top:12px">"${esc(card.ex)}"</div></div>`}
+
+  if(md==='flip'){
+    const fl=sess.flipped;
+    cnt=`<div class="flip-card" style="background:${fl?'var(--a)':'var(--f)'};color:${fl?'var(--bg)':'var(--t)'}" onclick="sessFlip()">
+      ${!fl?`<div style="text-align:center">
+        <div class="sec">Anglais · ${esc(card.deckName||'')}</div>
+        <div style="font-family:'Playfair Display',serif;font-size:38px;font-weight:700;margin-bottom:10px">${esc(card.word)}</div>
+        <div style="font-size:12px;color:var(--m)">Toucher pour révéler</div>
+      </div>`:`<div style="text-align:center">
+        <div class="sec" style="color:var(--m)">Traduction</div>
+        <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:12px">${esc(card.tr)}</div>
+        <div style="font-size:13px;font-style:italic;color:${fl?'#aaa':'var(--m)'};border-top:1px solid ${fl?'#333':'var(--b)'};padding-top:12px">"${esc(card.ex||'')}"</div>
+      </div>`}
     </div>
     <div style="display:flex;gap:8px;margin:12px 0">
-      <button class="bg" onclick="tts('${esc(card.word)}')" style="flex:1">🔊 Écouter</button>
-      <button class="bg" onclick="doSpeech()" style="flex:1">🎤 Répéter</button>
+      <button class="bg" onclick="tts('${esc(card.word)}')" style="flex:1;padding:10px">🔊 Écouter</button>
     </div>
-    <div id="spkr"></div>
-    ${fl?`<div style="display:flex;gap:9px;margin-top:6px"><button class="bd" onclick="ans(false)" style="flex:1">😕 À revoir</button><button class="bs" onclick="ans(true)" style="flex:1">✓ Je savais !</button></div>`:`<button class="bp" onclick="doFlip()" style="width:100%">Retourner</button>`}`;}
-  else if(md==='qcm'){const opts=S.qopts||genQCM(card);if(!S.qopts)S.qopts=opts;cnt=`<div class="card" style="text-align:center;margin-bottom:14px"><div class="sec">Quelle est la traduction ?</div><div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700">${esc(card.word)}</div><button class="bg" onclick="tts('${esc(card.word)}')" style="margin-top:10px">🔊</button></div><div id="qopts">${opts.map(o=>`<button class="opt" onclick="ansQ('${esc(o)}')">${esc(o)}</button>`).join('')}</div>`;}
-  else{cnt=`<div class="card" style="margin-bottom:14px"><div class="sec">Traduis en français</div><div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;margin-bottom:8px">${esc(card.word)}</div><div style="font-size:13px;color:var(--m);font-style:italic">"${esc(card.ex)}"</div></div><input id="finp" placeholder="Tape la traduction..." onkeydown="if(event.key==='Enter')chkFill()"><div id="fr" style="margin-top:10px"></div><button class="bp" onclick="chkFill()" style="width:100%;margin-top:10px" id="fbtn">Vérifier</button>`;}
+    ${fl?`<div style="display:flex;gap:9px">
+      <button class="bd" onclick="sessAns(false)" style="flex:1;padding:14px;font-size:14px">😕 À revoir</button>
+      <button class="bs" onclick="sessAns(true)" style="flex:1;padding:14px;font-size:14px">✓ Je savais !</button>
+    </div>`:`<button class="bp btn-full" onclick="sessFlip()" style="padding:14px">Retourner la carte</button>`}`;
+  }
+
+  else if(md==='qcm'){
+    const opts=sess.qopts||genQCM(card);if(!sess.qopts)sess.qopts=opts;
+    cnt=`<div class="card" style="text-align:center;margin-bottom:16px;padding:28px">
+      <div class="sec">${esc(card.deckName||'')}</div>
+      <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;margin-bottom:12px">${esc(card.word)}</div>
+      <button class="bg" onclick="tts('${esc(card.word)}')" style="padding:8px 16px;font-size:12px">🔊 Écouter</button>
+    </div>
+    <div id="qopts">${opts.map(o=>`<button class="opt" onclick="sessQCM('${esc(o)}')">${esc(o)}</button>`).join('')}</div>`;
+  }
+
+  else{
+    cnt=`<div class="card" style="margin-bottom:14px;padding:24px;text-align:center">
+      <div class="sec">${esc(card.deckName||'')}</div>
+      <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;margin-bottom:8px">${esc(card.word)}</div>
+      <button class="bg" onclick="tts('${esc(card.word)}')" style="padding:8px 16px;font-size:12px">🔊 Écouter</button>
+    </div>
+    <input id="finp" placeholder="Tape la traduction en français..." onkeydown="if(event.key==='Enter')sessFill()" style="margin-bottom:10px">
+    <div id="fr"></div>
+    <button class="bp btn-full" onclick="sessFill()" id="fbtn" style="padding:14px">Vérifier</button>`;
+  }
+
   return`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-    <button class="bg" onclick="endStudy()" style="padding:7px 12px;font-size:12px">← Retour</button>
-    <div style="display:flex;gap:5px">${['flip','qcm','fill'].map(m=>`<button class="${md===m?'bp':'bg'}" onclick="setSM('${m}')" style="padding:7px 12px;font-size:11px">${m==='flip'?'Carte':m==='qcm'?'QCM':'Saisie'}</button>`).join('')}</div>
-    <span style="font-size:12px;color:var(--m)">${idx+1}/${total}</span>
+    <button class="bg" onclick="endSession()" style="padding:7px 12px;font-size:12px">✕ Quitter</button>
+    <div style="text-align:center">
+      <div style="font-size:12px;color:var(--m)">${idx+1} / ${sess.cards.length}</div>
+      <div style="font-size:11px;color:var(--m)">✓${sess.correct} ✗${sess.wrong}</div>
+    </div>
+    <div style="display:flex;gap:5px">
+      ${['flip','qcm'].map(m=>`<button class="${sess.mode===m?'bp':'bg'}" onclick="sess.mode='${m}';sess.flipped=false;sess.qopts=null;render()" style="padding:6px 10px;font-size:11px">${m==='flip'?'Carte':'QCM'}</button>`).join('')}
+    </div>
   </div>
-  <div class="pbar" style="margin-bottom:16px"><div class="pfill" style="width:${prog}%;background:${dk.accent||'var(--bl)'}"></div></div>
+  <div class="pbar" style="margin-bottom:16px"><div class="pfill" style="width:${prog}%;background:var(--bl)"></div></div>
   ${cnt}`;
 }
-function genQCM(c){const all=S.decks.flatMap(d=>d.cards);const oth=all.filter(x=>x.id!==c.id&&x.tr!==c.tr).sort(()=>Math.random()-.5).slice(0,3).map(x=>x.tr);return[...oth,c.tr].sort(()=>Math.random()-.5);}
-function rLearn(){
-  const subs=[{id:'grammar',l:'Grammaire'},{id:'phrases',l:'Phrases'},{id:'pronun',l:'Prononciation'},{id:'idioms',l:'Idiomes'},{id:'dictation',l:'Dictée'}];
-  const fns={grammar:rGram,phrases:rPhr,pronun:rPron,idioms:rIdioms,dictation:rDict};
-  return`<div class="tab-bar">${subs.map(s=>`<button class="tbtn ${S.learnSub===s.id?'on':''}" onclick="S.learnSub='${s.id}';render()">${s.l}</button>`).join('')}</div><div id="lc">${(fns[S.learnSub]||rGram)()}</div>`;
+
+function rSessionEnd(){
+  const sess=S.session;
+  const total=sess.correct+sess.wrong;
+  const pct=total?Math.round((sess.correct/total)*100):0;
+  earnB('b5');
+  if(pct>=80)earnB('b10');
+  return`<div style="text-align:center;padding:32px 0">
+    <div style="font-size:56px;margin-bottom:14px">${pct>=80?'🏆':pct>=60?'👍':'💪'}</div>
+    <h2 style="font-size:28px;margin-bottom:8px">${sess.correct}/${total}</h2>
+    <div style="font-size:15px;color:var(--m);margin-bottom:6px">${pct}% de bonnes réponses</div>
+    <div style="font-size:13px;color:var(--m);margin-bottom:28px">${pct>=80?'Excellent travail !':pct>=60?'Bien joué !':'Continue à pratiquer !'}</div>
+    <div style="display:flex;gap:10px;margin-bottom:12px">
+      <button class="bp" onclick="restartSession()" style="flex:1;padding:14px">🔁 Recommencer</button>
+      <button class="bg" onclick="endSession()" style="flex:1;padding:14px">Retour</button>
+    </div>
+    ${sess.wrong>0?`<button class="bg btn-full" onclick="reviewWrong()" style="padding:14px;margin-top:4px">😕 Réviser les ${sess.wrong} erreurs</button>`:''}
+  </div>`;
 }
-function rGram(){
-  if(S.gqmode==='quiz')return rGQ();
-  const flt=S.gqf==='all'?[{rule:'Present Simple',formula:'subject + verb',ex:'She works every day.',tip:'Habitudes.',lvl:'A1'},{rule:'Present Perfect',formula:'have/has + pp',ex:'I have lived here for 5 years.',tip:'Relie passé au présent.',lvl:'B1'},{rule:'Second Conditional',formula:'If + past, would + verb',ex:'If I had time, I would travel.',tip:'Hypothétique.',lvl:'B2'},{rule:'Passive Voice',formula:'to be + pp',ex:'The book was written by Orwell.',tip:"Focus sur l'action.",lvl:'B1'},{rule:'Third Conditional',formula:'If + past perfect, would have + pp',ex:'If I had studied, I would have passed.',tip:'Regret sur le passé.',lvl:'B2'}]:[{rule:'Present Simple',formula:'subject + verb',ex:'She works every day.',tip:'Habitudes.',lvl:'A1'},{rule:'Present Perfect',formula:'have/has + pp',ex:'I have lived here for 5 years.',tip:'Relie passé au présent.',lvl:'B1'},{rule:'Second Conditional',formula:'If + past, would + verb',ex:'If I had time, I would travel.',tip:'Hypothétique.',lvl:'B2'},{rule:'Passive Voice',formula:'to be + pp',ex:'The book was written by Orwell.',tip:"Focus sur l'action.",lvl:'B1'},{rule:'Third Conditional',formula:'If + past perfect, would have + pp',ex:'If I had studied, I would have passed.',tip:'Regret sur le passé.',lvl:'B2'}].filter(g=>g.lvl===S.gqf);
-  return`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-    <div style="display:flex;gap:5px">${['all','A1','B1','B2'].map(l=>`<button class="${S.gqf===l?'bp':'bg'}" onclick="S.gqf='${l}';render()" style="padding:6px 10px;font-size:11px">${l==='all'?'Tout':l}</button>`).join('')}</div>
-    <button class="bp" onclick="S.gqmode='quiz';S.gqd={idx:0,sc:0,sel:null,done:false};render()" style="padding:7px 13px;font-size:12px">Quiz →</button>
-  </div>
-  ${flt.map(g=>`<div style="padding:18px 20px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:12px">
-    <div style="display:flex;justify-content:space-between;margin-bottom:8px"><div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700">${esc(g.rule)}</div><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${g.lvl}</span></div>
-    <div style="font-size:12px;color:var(--m);background:var(--s);border-radius:7px;padding:6px 12px;margin-bottom:9px;font-style:italic">${esc(g.formula)}</div>
-    <div style="font-size:13px;margin-bottom:7px">"${esc(g.ex)}" <button onclick="tts('${esc(g.ex)}')" style="background:none;border:none;cursor:pointer;color:var(--m);font-size:13px;vertical-align:middle">🔊</button></div>
-    <div style="font-size:12px;color:var(--m)">💡 ${esc(g.tip)}</div>
-  </div>`).join('')}`;
+
+function sessFlip(){S.session.flipped=!S.session.flipped;render();}
+
+function sessAns(ok){
+  const card=S.session.cards[S.session.idx];
+  const srs=srsNextFixed(S.srs[card.id]||{},ok);
+  S.srs[card.id]=srs;sv('srs');
+  if(ok){S.session.correct++;addXP(10);}else{S.session.wrong++;addXP(2);}
+  incD();S.session.idx++;S.session.flipped=false;S.session.qopts=null;render();
 }
-function rGQ(){
-  if(!S.gqd)S.gqd={idx:0,sc:0,sel:null,done:false};
-  const{idx,sc,sel,done}=S.gqd;
-  if(done)return`<div style="text-align:center;padding:36px 0"><div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700">${sc}/${GQUIZ.length}</div><div style="font-size:14px;color:var(--m);margin:8px 0 24px">${sc===GQUIZ.length?'Quiz parfait ! 🏆':'Bien joué !'}</div><div style="display:flex;gap:10px"><button class="bp" onclick="S.gqd={idx:0,sc:0,sel:null,done:false};render()">Recommencer</button><button class="bg" onclick="S.gqmode='learn';render()">Retour</button></div></div>`;
-  const q=GQUIZ[idx];
-  return`<div style="display:flex;justify-content:space-between;margin-bottom:14px"><button class="bg" onclick="S.gqmode='learn';render()" style="font-size:12px">← Retour</button><span style="font-size:12px;color:var(--m)">${idx+1}/${GQUIZ.length}</span></div>
-  <div style="font-family:'Playfair Display',serif;font-size:21px;font-weight:600;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div>
-  <div>${q.opts.map((o,i)=>`<button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}
-  " onclick="ansGQ('${esc(o)}')" ${sel!==null?'disabled':''}>${esc(o)}</button>`).join('')}</div>
-  ${sel!==null?`<div style="margin-top:12px;padding:13px;background:var(--f);border-radius:9px;font-size:13px;color:var(--m);line-height:1.6">💡 ${esc(q.exp)}<button class="bp" onclick="nxtGQ()" style="display:block;margin-top:10px;width:100%">${idx+1>=GQUIZ.length?'Résultats':'Suivant →'}</button></div>`:''}`;
+
+function sessQCM(opt){
+  const card=S.session.cards[S.session.idx];const ok=opt===card.tr;
+  document.querySelectorAll('.opt').forEach(b=>{
+    if(b.textContent.trim()===card.tr)b.classList.add('ok');
+    else if(b.textContent.trim()===opt&&!ok)b.classList.add('no');
+    b.disabled=true;
+  });
+  const srs=srsNextFixed(S.srs[card.id]||{},ok);S.srs[card.id]=srs;sv('srs');
+  if(ok){S.session.correct++;addXP(12);}else{S.session.wrong++;addXP(2);}
+  incD();
+  setTimeout(()=>{S.session.idx++;S.session.qopts=null;render();},1000);
 }
-function rPhr(){
-  const flt=S.phf==='all'?PHRASES:PHRASES.filter(p=>p.lvl===S.phf);
-  return`<div style="display:flex;gap:5px;margin-bottom:14px">${['all','A1','A2','B1','B2'].map(l=>`<button class="${S.phf===l?'bp':'bg'}" onclick="S.phf='${l}';render()" style="padding:5px 9px;font-size:11px">${l==='all'?'Tout':l}</button>`).join('')}</div>
-  ${flt.map((p,i)=>{const gi=PHRASES.indexOf(p),done=S.phrases.includes(gi);return`<div style="padding:16px 18px;border:1px solid ${done?'var(--a)':'var(--b)'};border-radius:13px;background:${done?'var(--a)':'var(--f)'};margin-bottom:10px">
-    <div style="font-size:10px;text-transform:uppercase;color:${done?'#888':'var(--m)'};margin-bottom:7px">${esc(p.ctx)} · ${p.lvl}</div>
-    <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:${done?'var(--bg)':'var(--t)'};margin-bottom:5px">"${esc(p.p)}" <button onclick="tts('${esc(p.p)}')" style="background:none;border:none;cursor:pointer;color:${done?'#888':'var(--m)'};font-size:13px;vertical-align:middle">🔊</button></div>
-    <div style="font-size:12px;color:${done?'#888':'var(--m)'};margin-bottom:11px">→ ${esc(p.fr)}</div>
-    <button onclick="togPhr(${gi})" style="padding:6px 13px;background:${done?'transparent':'var(--a)'};color:${done?'#777':'var(--bg)'};border:${done?'1px solid #555':'none'};border-radius:7px;font-size:11px;cursor:pointer">${done?'✓ Appris':'Marquer · +8 XP'}</button>
-  </div>`;}).join('')}`;
-}
-const PRON_D=[{s:'TH',d:"Place la langue entre les dents.",ws:['think','the','there','tooth'],ipa:'/θ/ ou /ð/'},{s:'W',d:"Arrondis bien les lèvres.",ws:['water','world','word','want'],ipa:'/w/'},{s:'R',d:"Recourbe la langue vers l'arrière.",ws:['right','really','road','red'],ipa:'/r/'}];
-function rPron(){const t=PRON_D[S.pron||0];return`<div style="display:flex;gap:7px;margin-bottom:18px">${PRON_D.map((x,i)=>`<button class="${(S.pron||0)===i?'bp':'bg'}" onclick="S.pron=${i};render()" style="flex:1;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;padding:9px 4px">${x.s}</button>`).join('')}</div>
-<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px"><div><div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700">${t.s}</div><div style="font-size:13px;color:var(--m)">${t.ipa}</div></div><button class="bp" onclick="tts('${t.ws[0]}')">🔊 Exemple</button></div>
-<div style="font-size:13px;color:var(--m);padding:11px 14px;background:var(--f);border-radius:8px;margin-bottom:16px;line-height:1.7">💬 ${esc(t.d)}</div>
-<div style="display:flex;flex-direction:column;gap:8px">${t.ws.map(w=>`<div style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--f);border-radius:9px"><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:15px;flex:1">${esc(w)}</span><button onclick="tts('${esc(w)}')" style="background:none;border:none;cursor:pointer;font-size:16px">🔊</button><button onclick="tts('${esc(w)}',.6)" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--m)">0.6x</button></div>`).join('')}</div></div>`;}
-function rIdioms(){return`<div style="font-size:13px;color:var(--m);margin-bottom:16px">5 expressions idiomatiques essentielles</div>${IDIOMS.map(id=>`<div style="padding:16px 18px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:10px"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;margin-bottom:7px">${esc(id.e)}</div><div style="font-size:14px;color:var(--bl);margin-bottom:7px;font-weight:500">→ ${esc(id.m)}</div><div style="font-size:13px;color:var(--m);font-style:italic">"${esc(id.ex)}" <button onclick="tts('${esc(id.ex)}')" style="background:none;border:none;cursor:pointer;color:var(--m);font-size:12px">🔊</button></div></div>`).join('')}`;}
-function rDict(){const di=S.dictIdx||0,dk=S.decks[0],c=dk.cards[di%dk.cards.length];return`<div class="card" style="margin-bottom:14px"><div class="sec">Écoute et écris le mot en anglais</div><button onclick="tts('${esc(c.word)}')" style="font-size:48px;background:none;border:none;cursor:pointer;display:block;margin:0 auto 8px">🔊</button><button onclick="tts('${esc(c.word)}',.6)" style="padding:6px 14px;background:var(--f);border:1px solid var(--b);border-radius:20px;font-size:12px;cursor:pointer;display:block;margin:0 auto">0.6x lent</button></div>
-<input id="dinp" placeholder="Écris le mot anglais..." style="margin-bottom:10px" onkeydown="if(event.key==='Enter')chkDict()">
-<button class="bp" onclick="chkDict()" style="width:100%">Vérifier</button>
-<div id="dr"></div><div style="text-align:center;font-size:12px;color:var(--m);margin-top:12px">${di+1} / ${dk.cards.length}</div>`;}
-function rContent(){
-  const subs=[{id:'stories',l:'Histoires'},{id:'dialogues',l:'Dialogues'}];
-  return`<div class="tab-bar">${subs.map(s=>`<button class="tbtn ${S.contentSub===s.id?'on':''}" onclick="S.contentSub='${s.id}';render()">${s.l}</button>`).join('')}</div>
-  <div id="ci">${S.contentSub==='stories'?rStories():rDlgs()}</div>`;
-}
-const STORIES=[
-  {id:'s1',title:'A Morning in London',lvl:'A2',text:'Every morning, Tom wakes up at 7am. He lives in a small flat in London near the Thames. He makes a cup of tea and reads the news on his phone. Today, something is different. There is a letter on his doorstep from an old friend he has not seen in ten years.',kw:{flat:'appartement',doorstep:'pas de la porte',Thames:'la Tamise'}},
-  {id:'s2',title:'The Job Interview',lvl:'B1',text:"Sarah arrived fifteen minutes early for her interview at a tech company. She was nervous but well-prepared. The interviewer greeted her warmly. 'Tell me about yourself,' she said. Sarah took a deep breath and began speaking confidently.",kw:{interview:'entretien',nervous:'nerveux/se',confidently:'avec confiance'}},
-];
-const DIALOGUES=[
-  {id:'dl1',title:'Au restaurant 🍽️',lvl:'A1',sc:'Tu commandes dans un restaurant.',ai:'serveur',user:'client',open:'Good evening! Welcome to The Oak. Do you have a reservation?'},
-  {id:'dl2',title:'Entretien 💼',lvl:'B1',sc:'Tu passes un entretien dans une startup.',ai:'recruteur',user:'candidat',open:"Thanks for coming in! Tell me about your background?"},
-];
-function rStories(){
-  if(S.activeStory)return rStoryR();
-  return`<div style="font-size:13px;color:var(--m);margin-bottom:16px">Clique sur les mots soulignés pour les expliquer.</div>
-  ${STORIES.map(s=>`<div onclick="S.activeStory='${s.id}';render()" style="padding:18px 20px;border:1px solid ${S.readS.includes(s.id)?'#4caf50':'var(--b)'};border-radius:14px;background:var(--f);cursor:pointer;margin-bottom:11px">
-    <div style="display:flex;justify-content:space-between;margin-bottom:6px"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600">${esc(s.title)}</div><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${s.lvl}</span></div>
-    <div style="font-size:13px;color:var(--m)">${esc(s.text.slice(0,80))}...</div>
-    ${S.readS.includes(s.id)?'<div style="font-size:11px;color:#4caf50;margin-top:6px">✓ Lu</div>':''}
-  </div>`).join('')}`;
-}
-function rStoryR(){
-  const s=STORIES.find(x=>x.id===S.activeStory);if(!s)return rStories();
-  const km={};Object.keys(s.kw).forEach(w=>{km[w.toLowerCase()]=s.kw[w];});
-  const th=s.text.split(/(\s+)/).map(w=>{const cl=w.replace(/[^a-zA-Z']/g,'').toLowerCase();if(!cl)return esc(w);const isK=km[cl];return`<span onclick="explainW('${esc(cl)}')" style="border-bottom:${isK?'2px solid':'1px dotted'} var(--bl);color:${isK?'var(--bl)':'var(--t)'};cursor:pointer">${esc(w)}</span>`;}).join('');
-  return`<button onclick="S.activeStory=null;render()" style="background:none;border:none;cursor:pointer;color:var(--m);font-size:13px;margin-bottom:14px;font-family:'DM Sans',sans-serif">← Retour</button>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><h2 style="font-size:20px">${esc(s.title)}</h2><div style="display:flex;gap:7px"><button onclick="tts('${esc(s.text)}')" class="bg" style="padding:6px 10px;font-size:12px">🔊</button><button onclick="tts('${esc(s.text)}',.7)" class="bg" style="padding:6px 10px;font-size:12px">🐢</button></div></div>
-  <div class="story-t">${th}</div>
-  <div id="wexp" style="margin-top:12px"></div>
-  <button onclick="if(!S.readS.includes('${s.id}')){S.readS.push('${s.id}');LS.set('rs',S.readS);addXP(25);earnB('b7');}S.activeStory=null;render()" class="bp" style="width:100%;margin-top:16px">${S.readS.includes(s.id)?'Relire':'J\'ai lu · +25 XP'}</button>`;
-}
-async function explainW(word){
-  const el=document.getElementById('wexp');if(!el)return;
-  el.innerHTML=`<div class="card"><div class="dl"><span></span><span></span><span></span></div></div>`;
-  try{const r=await claude([{role:'user',content:`Explique le mot anglais "${word}" en français: traduction, classe grammaticale, exemple. 3 lignes max.`}],'Tu es un dictionnaire pédagogique. Sois concis.');
-  el.innerHTML=`<div class="card"><div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:8px">${esc(word)} <button onclick="tts('${esc(word)}')" style="background:none;border:none;cursor:pointer;font-size:16px">🔊</button></div><div style="font-size:14px;line-height:1.7">${esc(r).replace(/\n/g,'<br>')}</div></div>`;}catch{el.innerHTML='';}
-}
-function rDlgs(){
-  if(S.activeDlg)return rDlgChat();
-  return`${DIALOGUES.map(d=>`<div onclick="openDlg('${d.id}')" style="padding:18px 20px;border:1px solid var(--b);border-radius:14px;background:var(--f);cursor:pointer;margin-bottom:11px">
-    <div style="display:flex;justify-content:space-between;margin-bottom:6px"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600">${esc(d.title)}</div><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${d.lvl}</span></div>
-    <div style="font-size:13px;color:var(--m)">${esc(d.sc)}</div>
-  </div>`).join('')}`;
-}
-function rDlgChat(){
-  const d=DIALOGUES.find(x=>x.id===S.activeDlg);if(!d)return rDlgs();
-  const msgs=S.dlgMsgs||[];
-  return`<div style="display:flex;flex-direction:column;height:calc(100vh - 200px)">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--b)">
-    <div><div style="font-size:15px;font-family:'Playfair Display',serif;font-weight:600">${esc(d.title)}</div></div>
-    <button onclick="S.activeDlg=null;S.dlgMsgs=[];render()" class="bg" style="padding:6px 11px;font-size:12px">Quitter</button>
-  </div>
-  <div id="dlgm" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:11px;padding-bottom:8px">
-    ${msgs.map(m=>`<div style="display:flex;justify-content:${m.r==='u'?'flex-end':'flex-start'}"><div class="${m.r==='u'?'cbme':'cbai'}">${m.c.split('\n').map(l=>`<div>${esc(l)}</div>`).join('')}</div></div>`).join('')}
-    <div id="dlgl" style="display:none"><div style="display:flex;align-items:center;gap:6px;padding:11px 15px;background:var(--f);border-radius:18px 18px 18px 4px;width:fit-content"><div class="dl"><span></span><span></span><span></span></div></div></div>
-  </div>
-  <div style="display:flex;gap:9px;padding-top:11px;border-top:1px solid var(--b)">
-    <input id="dlgi" placeholder="Réponds en anglais..." onkeydown="if(event.key==='Enter')sendDlg()">
-    <button onclick="sendDlg()" class="bp" style="padding:10px 16px;font-size:18px">↑</button>
-  </div></div>`;
-}
-function rExams(){
-  const subs=[{id:'toeic',l:'TOEIC'},{id:'translation',l:'Traduction'},{id:'leveltest',l:'Test niveau'}];
-  return`<div class="tab-bar">${subs.map(s=>`<button class="tbtn ${S.examSub===s.id?'on':''}" onclick="S.examSub='${s.id}';render()">${s.l}</button>`).join('')}</div>
-  <div id="ec">${S.examSub==='toeic'?rTOEIC():S.examSub==='translation'?rTrans():rLT()}</div>`;
-}
-const TOEIC=[
-  {q:'The meeting ___ postponed until next Monday.',opts:['has been','have been','was been','is been'],a:0,exp:'Present perfect passive.',lvl:'B2'},
-  {q:'Please ___ to the attached document.',opts:['refer','mention','look','point'],a:0,exp:"'Refer to' = se référer à.",lvl:'B1'},
-  {q:'Had she known, she ___ differently.',opts:['would plan','would have planned','will plan','had planned'],a:1,exp:'3rd conditional.',lvl:'C1'},
-  {q:'The new policy will ___ effect from January.',opts:['take','make','do','have'],a:0,exp:"'Take effect' = entrer en vigueur.",lvl:'B1'},
-];
-function rTOEIC(){
-  if(S.toeicDone)return`<div style="text-align:center;padding:36px 0"><div style="font-size:48px;margin-bottom:10px">🎓</div><div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700">${S.toeicScore}/${TOEIC.length}</div><button class="bp" onclick="S.toeicIdx=0;S.toeicSel=null;S.toeicDone=false;S.toeicScore=0;render()" style="margin-top:24px">Recommencer</button></div>`;
-  const idx=S.toeicIdx||0,q=TOEIC[idx],sel=S.toeicSel;
-  return`<div style="display:flex;justify-content:space-between;margin-bottom:12px"><span style="font-size:12px;color:var(--m)">${q.lvl}</span><span style="font-size:12px;color:var(--m)">${idx+1}/${TOEIC.length}</span></div>
-  <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:600;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div>
-  <div>${q.opts.map((o,i)=>`<button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}
-  " onclick="ansTOEIC('${esc(o)}')" ${sel!==null?'disabled':''}>${esc(o)}</button>`).join('')}</div>
-  ${sel!==null?`<div style="margin-top:12px;padding:13px;background:var(--f);border-radius:9px;font-size:13px;color:var(--m);line-height:1.6">💡 ${esc(q.exp)}<button class="bp" onclick="nxtTOEIC()" style="display:block;margin-top:10px;width:100%">${idx+1>=TOEIC.length?'Résultats':'Suivant →'}</button></div>`:''}`;
-}
-const SENTS=["Il fait beau aujourd'hui.","Je voudrais un café s'il vous plaît.","Elle travaille ici depuis 5 ans.","Si j'avais plus de temps, je voyagerais davantage."];
-function rTrans(){const idx=S.transIdx||0,sent=SENTS[idx%SENTS.length],res=S.transRes;
-  return`<div class="card" style="text-align:center;margin-bottom:14px"><div class="sec">Traduis en anglais</div><div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1.4">${esc(sent)}</div></div>
-  <textarea id="tinp" placeholder="Ta traduction en anglais..." style="height:90px;resize:vertical;margin-bottom:10px" ${res?'disabled':''}></textarea>
-  ${!res?`<button class="bp" onclick="chkTrans('${esc(sent)}')" style="width:100%">Vérifier avec l'IA · +20 XP</button>`:''}
-  <div id="tr">${res?rTransR(res):''}</div>`;}
-function rTransR(r){return`<div style="padding:16px;background:${r.score>=80?'#f0faf0':r.score>=50?'#fff9e6':'#fff5f5'};border-radius:11px;margin-top:10px"><div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:${r.score>=80?'#2e7d32':r.score>=50?'#e65100':'#c62828'};margin-bottom:8px">${r.score}/100</div><div style="font-size:13px;margin-bottom:8px">${esc(r.feedback||'')}</div>${r.correction?`<div style="font-size:13px;font-style:italic;color:var(--bl)">✓ "${esc(r.correction)}"</div>`:''}<button class="bp" onclick="S.transIdx=(S.transIdx||0)+1;S.transRes=null;render()" style="margin-top:12px;width:100%">Suivant →</button></div>`;}
-const LTQS=[{q:'___ is your name?',opts:['What','Who','Where','Which'],a:0},{q:'She ___ to work by bus every day.',opts:['go','goes','going','gone'],a:1},{q:'I have lived here ___ five years.',opts:['since','for','during','ago'],a:1},{q:'If I ___ you, I would apologise.',opts:['am','was','were','be'],a:2},{q:'___ she studied hard, she failed.',opts:['Although','However','Despite','Because'],a:0}];
-function rLT(){
-  if(!S.ltData)return`<div style="text-align:center;padding:20px 0"><div style="font-size:40px;margin-bottom:14px">🎯</div><h2 style="margin-bottom:10px">Test de niveau</h2><p style="color:var(--m);font-size:14px;margin-bottom:24px">${LTQS.length} questions de A1 à C1.</p><button class="bp" onclick="S.ltData={idx:0,sc:0,sel:null,done:false};render()" style="font-size:15px;padding:13px 28px">Commencer</button></div>`;
-  const{idx,sc,sel,done}=S.ltData;
-  if(done){const pct=sc/LTQS.length;const lv=pct<=.4?'A1':pct<=.6?'B1':pct<=.8?'B2':'C1';return`<div style="text-align:center;padding:24px 0"><div style="font-size:48px;margin-bottom:12px">🎯</div><div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--bl)">${lv}</div><div style="font-size:14px;color:var(--m);margin-bottom:24px">${sc}/${LTQS.length} bonnes réponses</div><button class="bp" onclick="S.userLvl='${lv}';sv('userLvl');toast('✓ Niveau enregistré !');S.ltData=null;render()" style="width:100%;margin-bottom:10px">Enregistrer</button></div>`;}
-  const q=LTQS[idx];
-  return`<div style="display:flex;justify-content:space-between;margin-bottom:14px"><span style="font-size:12px;color:var(--m)">Test de niveau</span><span style="font-size:12px;color:var(--m)">${idx+1}/${LTQS.length}</span></div>
-  <div class="pbar" style="margin-bottom:16px"><div class="pfill" style="width:${Math.round((idx/LTQS.length)*100)}%;background:var(--bl)"></div></div>
-  <div style="font-family:'Playfair Display',serif;font-size:21px;font-weight:600;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div>
-  <div>${q.opts.map((o,i)=>`<button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}
-  " onclick="S.ltData.sel='${esc(o)}';if(${i}===${q.a})S.ltData.sc++;render()" ${sel!==null?'disabled':''}>${esc(o)}</button>`).join('')}</div>
-  ${sel!==null?`<div style="display:flex;justify-content:flex-end;margin-top:14px"><button class="bp" onclick="if(${idx}+1>=${LTQS.length})S.ltData.done=true;else{S.ltData.idx++;S.ltData.sel=null;}render()">${idx+1>=LTQS.length?'Résultats':'Suivant →'}</button></div>`:''}`;
-}
-function rAI(){
-  const msgs=S.aiMsgs||[{r:'a',c:"Bonjour ! 👋 Je suis ton tuteur anglais. Pose-moi n'importe quelle question !"}];
-  const QK=["Corrige : I go to school yesterday","Explique le present perfect","Quiz niveau B1","Analyse mes erreurs récentes"];
-  return`<div style="display:flex;flex-direction:column;height:calc(100vh - 210px)">
-  <div id="aim" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:11px;padding-bottom:8px">
-    ${msgs.length===1?`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">${QK.map(q=>`<button onclick="setAI('${esc(q)}')" style="padding:6px 12px;background:var(--f);color:var(--m);border:1px solid var(--b);border-radius:20px;cursor:pointer;font-size:12px;font-family:'DM Sans',sans-serif">${esc(q)}</button>`).join('')}</div>`:''}
-    ${msgs.map(m=>`<div style="display:flex;justify-content:${m.r==='u'?'flex-end':'flex-start'}"><div class="${m.r==='u'?'cbme':'cbai'}">${m.c.split('\n').map(l=>`<div>${esc(l)}</div>`).join('')}</div></div>`).join('')}
-    <div id="ail" style="display:none"><div style="display:flex;align-items:center;gap:6px;padding:11px 15px;background:var(--f);border-radius:18px 18px 18px 4px;width:fit-content"><div class="dl"><span></span><span></span><span></span></div></div></div>
-  </div>
-  <div style="display:flex;gap:9px;padding-top:11px;border-top:1px solid var(--b)">
-    <input id="aii" placeholder="Pose ta question..." onkeydown="if(event.key==='Enter')sendAI()">
-    <button onclick="sendAI()" class="bp" style="padding:10px 16px;font-size:18px">↑</button>
-  </div></div>`;
-}
-function renderOb(){
-  const ob=document.getElementById('ob');ob.style.display='flex';
-  const step=S.obStep||0;
-  if(step===0){ob.innerHTML=`<div style="max-width:400px;width:100%;text-align:center"><div style="font-size:64px;margin-bottom:16px">🇬🇧</div><h1 style="font-size:32px;margin-bottom:12px">Learn English</h1><p style="color:var(--m);font-size:15px;line-height:1.7;margin-bottom:32px">L'application complète pour apprendre l'anglais de A1 à C2.</p><button class="bp" onclick="S.obStep=1;renderOb()" style="font-size:15px;padding:14px 32px;width:100%">Commencer →</button></div>`;}
-  else if(step===1){ob.innerHTML=`<div style="max-width:400px;width:100%"><h2 style="font-size:24px;margin-bottom:20px">Ton niveau ?</h2><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px">${LVLS.map(l=>`<div onclick="S.userLvl='${l.l}';sv('userLvl');renderOb()" style="padding:16px 8px;border:2px solid ${`var(--b)`};border-radius:13px;cursor:pointer;text-align:center"><div style="font-size:22px;font-family:'Playfair Display',serif;font-weight:700;color:${l.c}">${l.l}</div><div style="font-size:11px;color:var(--m)">${l.label}</div></div>`).join('')}</div><button class="bp" onclick="S.obStep=2;renderOb()" style="width:100%">Continuer →</button></div>`;}
-  else{ob.innerHTML=`<div style="max-width:400px;width:100%"><h2 style="font-size:24px;margin-bottom:6px">Objectif quotidien</h2><p style="color:var(--m);font-size:13px;margin-bottom:20px">Cartes par jour ?</p><div style="display:flex;gap:10px;margin-bottom:24px">${[5,10,15,20].map(n=>`<div onclick="S.dailyG=${n};sv('dailyG');renderOb()" style="flex:1;padding:16px 4px;border:2px solid ${S.dailyG===n?'var(--a)':'var(--b)'};border-radius:13px;cursor:pointer;text-align:center;background:${S.dailyG===n?'var(--f)':'var(--s)'}"><div style="font-size:20px;font-family:'Playfair Display',serif;font-weight:700">${n}</div><div style="font-size:10px;color:var(--m)">cartes</div></div>`).join('')}</div><button class="bp" onclick="finOb()" style="width:100%;font-size:15px;padding:14px">C'est parti ! 🚀</button></div>`;}
-}
-function finOb(){S.obDone=true;sv('obDone');document.getElementById('ob').style.display='none';render();}
-let mL='A1',mC={accent:'#4caf50',bg:'#e8f4e8'},mCnt=10;
-function showM(type,extra){
-  const o=document.createElement('div');o.className='modal-ov';o.id='movl';o.onclick=e=>{if(e.target===o)closeM();};
-  let inner='';
-  if(type==='cdeck'){inner=`<h2 style="margin-bottom:20px">Nouveau deck</h2><label class="lbl">Nom *</label><input id="mn" placeholder="ex: Vocabulaire Business" style="margin-bottom:12px"><label class="lbl">Niveau</label><div style="display:flex;gap:6px;margin-bottom:22px">${['A1','A2','B1','B2','C1'].map(l=>`<button class="${mL===l?'bp':'bg'} lsl" data-l="${l}" onclick="selL(this)">${l}</button>`).join('')}</div><button class="bp" onclick="mkDeck()" style="width:100%">Créer</button>`;}
-  else if(type==='acard'){inner=`<h2 style="margin-bottom:20px">Nouvelle carte</h2><label class="lbl">Mot anglais *</label><div style="display:flex;gap:8px;margin-bottom:10px"><input id="mw" placeholder="ex: Ephemeral" style="flex:1" onkeydown="if(event.key==='Enter')doAI()"><button class="bp" onclick="doAI()" id="aib" style="white-space:nowrap">✨ IA</button></div><label class="lbl">Traduction *</label><input id="mt" placeholder="ex: Éphémère" style="margin-bottom:10px"><label class="lbl">Exemple</label><input id="me" placeholder="ex: Fame can be ephemeral." style="margin-bottom:10px"><button class="bp" onclick="addC('${extra}')" style="width:100%">Ajouter</button>`;}
-  else if(type==='imp'){inner=`<h2 style="margin-bottom:6px">Importer un deck</h2><div style="font-size:12px;color:var(--m);margin-bottom:16px">Format : Mot ; Traduction ; Exemple</div><input id="min" value="Deck importé" style="margin-bottom:10px"><textarea id="mit" placeholder="Ephemeral ; Éphémère ; Fame can be ephemeral" style="height:130px;resize:vertical;margin-bottom:10px"></textarea><button class="bp" onclick="impDeck()" style="width:100%">Importer</button>`;}
-  else if(type==='gen'){inner=`<h2 style="margin-bottom:6px">Générer un deck ✨</h2><label class="lbl">Thème</label><input id="mth" placeholder="ex: Médecine, Voyage…" style="margin-bottom:12px"><label class="lbl">Nombre de cartes</label><div style="display:flex;gap:6px;margin-bottom:12px">${[5,10,15,20].map((n,i)=>`<button class="${i===1?'bp':'bg'} csl" data-c="${n}" onclick="selCnt(this)" style="flex:1">${n}</button>`).join('')}</div><label class="lbl">Niveau</label><div style="display:flex;gap:6px;margin-bottom:20px">${['A1','A2','B1','B2','C1'].map(l=>`<button class="${l==='B1'?'bp':'bg'} lsl" data-l="${l}" onclick="selL(this)">${l}</button>`).join('')}</div><div id="ge" style="font-size:12px;color:red;margin-bottom:10px"></div><button class="bp" onclick="genDeck()" id="gnb" style="width:100%">✨ Générer</button>`;}
-  o.innerHTML=`<div class="modal">${inner}</div>`;document.body.appendChild(o);
-}
-function closeM(){const o=document.getElementById('movl');if(o)o.remove();}
-function selL(b){document.querySelectorAll('.lsl').forEach(x=>{x.classList.remove('bp');x.classList.add('bg');});b.classList.remove('bg');b.classList.add('bp');mL=b.dataset.l;}
-function selCnt(b){document.querySelectorAll('.csl').forEach(x=>{x.classList.remove('bp');x.classList.add('bg');});b.classList.remove('bg');b.classList.add('bp');mCnt=parseInt(b.dataset.c);}
-function toggleDk(){S.dk=!S.dk;sv('dk');render();}
-function setTab(t){S.tab=t;S.studyDeck=null;render();}
-function tog(id){const el=document.getElementById(id);if(el)el.style.display=el.style.display==='none'?'block':'none';}
-function startDaily(){
-  const due=S.decks.flatMap(d=>d.cards.map(c=>({...c,deckAccent:d.accent}))).filter(c=>{const s=S.srs[c.id];return!s?.srsNextReview||s.srsNextReview<=Date.now();});
-  if(!due.length){toast('✓ Toutes tes cartes sont à jour !','#4caf50');return;}
-  S.studyDeck={id:'__rev__',name:`Révision (${due.length})`,level:'',color:'#e8eef8',accent:'#3b6fd4',cards:due};
-  S.studyIdx=0;S.studyMode='flip';S.flipped=false;S.qopts=null;updStreak();earnB('b1');S.tab='decks';render();
-}
-function startBoss(){
-  const bad=S.errLog.filter(e=>!e.ok).map(e=>e.w);
-  const cands=S.decks.flatMap(d=>d.cards).filter(c=>bad.includes(c.word)).slice(0,8);
-  if(cands.length<3){toast('Pas assez d\'erreurs pour le Boss Round !','#e07b39');return;}
-  S.studyDeck={id:'__boss__',name:'👑 Boss Round',level:'',color:'#1a1a1a',accent:'#9c27b0',cards:cands.sort(()=>Math.random()-.5)};
-  S.studyIdx=0;S.studyMode='qcm';S.qopts=null;S.tab='decks';render();
-}
-function startStudy(id){
-  const dk=S.decks.find(d=>d.id===id);if(!dk||!dk.cards.length)return;
-  S.studyDeck=dk;S.studyIdx=0;S.studyMode='flip';S.flipped=false;S.qopts=null;updStreak();earnB('b1');render();
-}
-function endStudy(){S.studyDeck=null;S.studyIdx=0;sv('srs');render();}
-function setSM(m){S.studyMode=m;S.flipped=false;S.qopts=null;render();}
-function doFlip(){S.flipped=!S.flipped;render();}
-function ans(ok){
-  const c=S.studyDeck.cards[S.studyIdx||0];const srs=srsNext(S.srs[c.id]||{},ok);S.srs[c.id]=srs;
-  addXP(ok?10:3);incD();logErr(c.word,ok);earnB('b1');
-  S.studyIdx=(S.studyIdx||0)+1;S.flipped=false;S.qopts=null;
-  if(S.studyIdx>=S.studyDeck.cards.length)sv('srs');render();
-}
-function ansQ(opt){
-  const c=S.studyDeck.cards[S.studyIdx||0];const ok=opt===c.tr;
-  document.querySelectorAll('.opt').forEach(b=>{if(b.textContent.trim()===c.tr)b.classList.add('ok');else if(b.textContent.trim()===opt&&!ok)b.classList.add('no');b.disabled=true;});
-  addXP(ok?12:2);logErr(c.word,ok);const srs=srsNext(S.srs[c.id]||{},ok);S.srs[c.id]=srs;incD();
-  setTimeout(()=>{S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;if(S.studyIdx>=S.studyDeck.cards.length)sv('srs');render();},1200);
-}
-function chkFill(){
+
+function sessFill(){
   const inp=document.getElementById('finp');if(!inp)return;
-  const c=S.studyDeck.cards[S.studyIdx||0];const a=inp.value.trim().toLowerCase(),co=c.tr.toLowerCase();
-  const ok=a===co||co.includes(a)||a.includes(co.split('/')[0].trim().toLowerCase());
+  const card=S.session.cards[S.session.idx];
+  const ans=inp.value.trim().toLowerCase(),cor=card.tr.toLowerCase();
+  const ok=ans===cor||cor.includes(ans)||ans.includes(cor.split('/')[0].trim().toLowerCase());
   inp.style.borderColor=ok?'#4caf50':'#f44336';inp.disabled=true;
-  const res=document.getElementById('fr');if(res)res.innerHTML=`<div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'}">${ok?'✓ Correct ! +15 XP':`✗ C'était : "${esc(c.tr)}"`}<button class="bp" onclick="S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;render()" style="display:block;margin-top:10px;width:100%">Suivant →</button></div>`;
-  if(ok)addXP(15);else addXP(2);const srs=srsNext(S.srs[c.id]||{},ok);S.srs[c.id]=srs;incD();
-  const fb=document.getElementById('fbtn');if(fb)fb.style.display='none';
+  const res=document.getElementById('fr');
+  if(res)res.innerHTML=`<div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'};margin-bottom:10px">${ok?'✓ Correct !':'✗ '+esc(card.tr)}<button class="bp" onclick="sessNext(${ok})" style="display:block;margin-top:10px;width:100%">Suivant →</button></div>`;
+  const srs=srsNextFixed(S.srs[card.id]||{},ok);S.srs[card.id]=srs;sv('srs');
+  if(ok){S.session.correct++;addXP(15);}else{S.session.wrong++;addXP(2);}
+  incD();const fb=document.getElementById('fbtn');if(fb)fb.style.display='none';
 }
-function ansGQ(opt){const q=GQUIZ[S.gqd.idx];S.gqd.sel=opt;const ok=q.opts[q.a]===opt;if(ok)S.gqd.sc++;addXP(ok?15:3);logErr(q.q,ok);render();}
-function nxtGQ(){const d=S.gqd;if(d.idx+1>=GQUIZ.length){d.done=true;if(d.sc===GQUIZ.length)earnB('b6');}else{d.idx++;d.sel=null;}render();}
-function togPhr(idx){if(S.phrases.includes(idx))S.phrases=S.phrases.filter(x=>x!==idx);else{S.phrases.push(idx);addXP(8);}sv('phrases');render();}
-function chkDict(){
-  const inp=document.getElementById('dinp');if(!inp)return;
-  const dk=S.decks[0],c=dk.cards[(S.dictIdx||0)%dk.cards.length];
-  const ok=inp.value.trim().toLowerCase()===c.word.toLowerCase();
-  inp.style.borderColor=ok?'#4caf50':'#f44336';inp.disabled=true;
-  const res=document.getElementById('dr');if(res)res.innerHTML=`<div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'};margin-top:10px">${ok?'✓ Parfait ! +15 XP':`✗ C'était : "${esc(c.word)}"`}<button class="bp" onclick="S.dictIdx=(S.dictIdx||0)+1;render()" style="display:block;margin-top:10px;width:100%">Suivant →</button></div>`;
-  if(ok)addXP(15);else addXP(2);
+
+function sessNext(ok){S.session.idx++;S.session.qopts=null;render();}
+
+function endSession(){S.session=null;render();}
+
+function restartSession(){
+  const cards=shuffle([...S.session.cards]);
+  S.session={cards,idx:0,correct:0,wrong:0,mode:S.session.mode,flipped:false,qopts:null};render();
 }
-function openDlg(id){const d=DIALOGUES.find(x=>x.id===id);S.activeDlg=id;S.dlgMsgs=[{r:'a',c:d.open}];tts(d.open);render();setTimeout(()=>{const m=document.getElementById('dlgm');if(m)m.scrollTop=m.scrollHeight;},100);}
-async function sendDlg(){
-  const inp=document.getElementById('dlgi');if(!inp||!inp.value.trim())return;
-  const text=inp.value.trim();inp.value='';
-  const d=DIALOGUES.find(x=>x.id===S.activeDlg);
-  S.dlgMsgs.push({r:'u',c:text});addXP(8);render();
-  setTimeout(()=>{const l=document.getElementById('dlgl');if(l)l.style.display='block';const m=document.getElementById('dlgm');if(m)m.scrollTop=m.scrollHeight;},50);
-  try{const r=await claude(S.dlgMsgs.map(m=>({role:m.r==='u'?'user':'assistant',content:m.c})),`Tu joues le rôle d'un(e) ${d.ai}. L'utilisateur joue: ${d.user}. Réponds en anglais niveau ${d.lvl}. Si erreur de grammaire, corrige à la fin [Correction: ...]. 2-3 phrases max.`);
-  S.dlgMsgs.push({r:'a',c:r});tts(r.replace(/\[.*?\]/g,''));if(S.dlgMsgs.filter(m=>m.r==='u').length>=5)earnB('b8');}
-  catch{S.dlgMsgs.push({r:'a',c:'Sorry, something went wrong!'});}
-  render();setTimeout(()=>{const m=document.getElementById('dlgm');if(m)m.scrollTop=m.scrollHeight;},50);
+
+function reviewWrong(){
+  const wrongCards=S.session.cards.filter((c,i)=>{
+    return i<S.session.idx&&S.srs[c.id]?.srsInterval===1;
+  });
+  if(!wrongCards.length){toast('Aucune carte à réviser','#4caf50');return;}
+  S.session={cards:shuffle(wrongCards),idx:0,correct:0,wrong:0,mode:S.session.mode,flipped:false,qopts:null};render();
 }
-function ansTOEIC(opt){const q=TOEIC[S.toeicIdx||0];S.toeicSel=opt;const ok=q.opts[q.a]===opt;if(!S.toeicData)S.toeicData={sc:0};if(ok)S.toeicData.sc++;addXP(ok?15:3);render();}
-function nxtTOEIC(){const i=S.toeicIdx||0;if(i+1>=TOEIC.length){S.toeicDone=true;S.toeicScore=S.toeicData?.sc||0;}else{S.toeicIdx=i+1;S.toeicSel=null;}render();}
-async function chkTrans(sent){
-  const inp=document.getElementById('tinp');if(!inp||!inp.value.trim())return;
-  const ut=inp.value.trim();inp.disabled=true;
-  document.getElementById('tr').innerHTML='<div style="color:var(--m);font-size:13px;padding:10px">Correction en cours...</div>';
-  try{const r=await claude([{role:'user',content:`Phrase française: "${sent}"\nTraduction élève: "${ut}"\nJSON sans backticks: {"score":0-100,"correction":"traduction idéale","feedback":"commentaire en français"}`}],'Tu es un correcteur. UNIQUEMENT JSON valide sans backticks.');
-  const p=JSON.parse(r);S.transRes=p;if(p.score>=80)addXP(20);else if(p.score>=50)addXP(10);else addXP(3);
-  document.getElementById('tr').innerHTML=rTransR(p);}catch{document.getElementById('tr').innerHTML='<div style="color:red;font-size:13px">Erreur.</div>';}
+
+function genQCM(card){
+  const all=S.decks.flatMap(d=>d.cards);
+  const oth=all.filter(x=>x.id!==card.id&&x.tr!==card.tr).sort(()=>Math.random()-.5).slice(0,3).map(x=>x.tr);
+  return shuffle([...oth,card.tr]);
 }
-function setAI(t){const i=document.getElementById('aii');if(i){i.value=t;i.focus();}}
-async function sendAI(){
-  const inp=document.getElementById('aii');if(!inp||!inp.value.trim())return;
-  const text=inp.value.trim();inp.value='';
-  if(!S.aiMsgs)S.aiMsgs=[{r:'a',c:'Bonjour !'}];
-  S.aiMsgs.push({r:'u',c:text});addXP(5);render();
-  setTimeout(()=>{const l=document.getElementById('ail');if(l)l.style.display='block';const m=document.getElementById('aim');if(m)m.scrollTop=m.scrollHeight;},50);
-  const errs=[...new Set(S.errLog.filter(e=>!e.ok).map(e=>e.w))].slice(0,8).join(', ');
-  const sys=`Tu es un tuteur d'anglais pour francophones. Si français, réponds en français avec exemples anglais. Si anglais, réponds en anglais et corrige doucement. Sois concis et pédagogique. ${S.userLvl?`Niveau: ${S.userLvl}.`:''} ${errs?`Erreurs récentes: ${errs}.`:''}`;
-  try{const r=await claude(S.aiMsgs.map(m=>({role:m.r==='u'?'user':'assistant',content:m.c})),sys);S.aiMsgs.push({r:'a',c:r});}
-  catch{S.aiMsgs.push({r:'a',c:'Erreur de connexion. Réessaie !'});}
-  render();setTimeout(()=>{const m=document.getElementById('aim');if(m)m.scrollTop=m.scrollHeight;},50);
+
+function toggleDeckSel(id){
+  if(S.selectedDecks.includes(id))S.selectedDecks=S.selectedDecks.filter(x=>x!==id);
+  else S.selectedDecks.push(id);
+  sv('selectedDecks');render();
 }
-async function genReport(){
-  const btn=document.getElementById('repbtn');if(btn){btn.textContent='...';btn.disabled=true;}
-  const repc=document.getElementById('repc');
-  const mastered=Object.values(S.srs).filter(x=>x.srsInterval>=7).length;
-  const errs=[...new Set(S.errLog.filter(e=>!e.ok).map(e=>e.w))].slice(0,5).join(', ');
-  try{const r=await claude([{role:'user',content:`Rapport hebdomadaire pour un apprenant d'anglais. Niveau: ${S.userLvl||'inconnu'}, ${S.xp} XP, streak ${S.streak} jours, ${mastered} cartes maîtrisées, mots ratés: ${errs||'aucun'}. Bilan 5 lignes: points forts, à améliorer, 2 recommandations. Sois encourageant.`}],'Tu es un coach pédagogique. Réponds en français.');
-  S.report=r;sv('report');addXP(20);if(repc)repc.innerHTML=`<div style="font-size:13px;line-height:1.7">${esc(r).replace(/\n/g,'<br>')}</div>`;}
-  catch{if(repc)repc.innerHTML='<div style="color:red;font-size:13px">Erreur.</div>';}
-  if(btn){btn.textContent='Regénérer ✨';btn.disabled=false;}
-}
-function doSpeech(){
-  if(!window.SpeechRecognition&&!window.webkitSpeechRecognition){alert('Non supporté.');return;}
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;const r=new SR();r.lang='en-US';r.interimResults=false;
-  const c=S.studyDeck?.cards[S.studyIdx||0];if(!c)return;
-  r.onresult=e=>{const said=e.results[0][0].transcript.toLowerCase();const res=document.getElementById('spkr');const ok=said.includes(c.word.toLowerCase());if(res)res.innerHTML=`<div style="font-size:12px;color:${ok?'#4caf50':'var(--m)'};padding:4px 0">🎤 "${esc(said)}" ${ok?'✓':'— Réessaie !'}</div>`;if(ok)addXP(5);};
-  r.onerror=()=>{};r.start();
-}
-function mkDeck(){const name=document.getElementById('mn')?.value?.trim();if(!name)return;S.decks.push({id:uid(),name,level:mL,color:'#e8eef8',accent:'#3b6fd4',cards:[]});sv('decks');closeM();render();}
-function delDk(id){if(!confirm('Supprimer ?'))return;S.decks=S.decks.filter(d=>d.id!==id);sv('decks');render();}
-async function doAI(){
-  const w=document.getElementById('mw')?.value?.trim();if(!w)return;
-  const btn=document.getElementById('aib');if(btn){btn.textContent='...';btn.disabled=true;}
-  try{const r=await claude([{role:'user',content:`Traduction française et exemple pour "${w}". JSON sans backticks: {"translation":"...","example":"..."}`}],'UNIQUEMENT JSON valide sans backticks.');
-  const p=JSON.parse(r);const mt=document.getElementById('mt'),me=document.getElementById('me');if(mt&&p.translation)mt.value=p.translation;if(me&&p.example)me.value=p.example;}catch{}
-  if(btn){btn.textContent='✨ IA';btn.disabled=false;}
-}
-function addC(deckId){
-  const w=document.getElementById('mw')?.value?.trim(),t=document.getElementById('mt')?.value?.trim();if(!w||!t)return;
-  const card={id:uid(),word:w,tr:t,ex:document.getElementById('me')?.value?.trim()||''};
-  S.decks=S.decks.map(d=>d.id===deckId?{...d,cards:[...d.cards,card]}:d);sv('decks');closeM();render();
-}
-function delC(did,cid){S.decks=S.decks.map(d=>d.id===did?{...d,cards:d.cards.filter(c=>c.id!==cid)}:d);sv('decks');render();}
-function impDeck(){
-  const raw=document.getElementById('mit')?.value||'',name=document.getElementById('min')?.value||'Deck importé';
-  const cards=raw.trim().split('\n').filter(l=>l.trim()).map(line=>{const p=line.split(/[;,\t]/).map(s=>s.trim());if(p.length>=2&&p[0]&&p[1])return{id:uid(),word:p[0],tr:p[1],ex:p[2]||''};return null;}).filter(Boolean);
-  if(!cards.length){alert('Format non reconnu.');return;}
-  S.decks.push({id:uid(),name,level:'A1',color:'#e8eef8',accent:'#3b6fd4',cards});sv('decks');closeM();render();
-}
-async function genDeck(){
-  const theme=document.getElementById('mth')?.value?.trim();if(!theme)return;
-  const btn=document.getElementById('gnb');if(btn){btn.textContent='Génération...';btn.disabled=true;}
-  try{const r=await claude([{role:'user',content:`Génère ${mCnt} flashcards anglais niveau ${mL} sur: "${theme}". JSON sans backticks: {"deckName":"...","cards":[{"word":"...","translation":"...","example":"..."}]}`}],'UNIQUEMENT JSON valide sans backticks.');
-  const p=JSON.parse(r);if(p.cards?.length){S.decks.push({id:uid(),name:p.deckName||theme,level:mL,color:'#f3e8f8',accent:'#9c27b0',cards:p.cards.map(c=>({...c,id:uid(),tr:c.translation,ex:c.example}))});sv('decks');closeM();render();}else throw new Error();}
-  catch{const e=document.getElementById('ge');if(e)e.textContent='Erreur. Réessaie.';if(btn){btn.textContent='✨ Générer';btn.disabled=false;}}
-}
-async function claude(messages,system='Tu es un assistant utile.'){
-  const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,system,messages})});
-  const data=await res.json();return data.content?.map(b=>b.text||'').join('')||'';
-}
-render();
-</script>
-</body>
-</html>
