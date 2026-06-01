@@ -26,10 +26,21 @@ jobs:
           channel: stable
           cache: true
 
+      - name: Install SVG converter
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y librsvg2-bin
+
+      - name: Generate PNG launcher icon
+        run: |
+          mkdir -p assets/icon
+          rsvg-convert assets/icon/app_icon.svg -w 1024 -h 1024 -o assets/icon/app_icon.png
+
       - name: Generate Flutter project files
         run: |
           flutter create . --platforms=android --project-name learn_english
           flutter pub get
+          dart run flutter_launcher_icons
 
       - name: Set Android applicationId
         run: |
@@ -38,8 +49,13 @@ jobs:
       - name: Build release APK
         run: flutter build apk --release
 
+      - name: Rename APK with version
+        run: |
+          mkdir -p release
+          cp build/app/outputs/flutter-apk/app-release.apk release/learn-english-v1.0.1.apk
+
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: learn-english-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: learn-english-v1.0.1-apk
+          path: release/learn-english-v1.0.1.apk
