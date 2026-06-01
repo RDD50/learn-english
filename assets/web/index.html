@@ -5,259 +5,46 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Learn English</title>
 <style>
-:root{
-  --bg:#f4f4f0;
-  --s:#ffffff;
-  --b:#e8e8e4;
-  --t:#1a1a1a;
-  --m:#777;
-  --f:#f0f0ec;
-  --a:#1a1a1a;
-  --g:#4caf50;
-  --bl:#3b6fd4;
-  --or:#e07b39;
-  --red:#c62828;
-}
-.dk{
-  --bg:#111;
-  --s:#1c1c1f;
-  --b:#2a2a2e;
-  --t:#f0f0ed;
-  --m:#999;
-  --f:#222226;
-  --a:#f0f0ed;
-}
+:root{--bg:#f4f4f0;--s:#fff;--b:#e8e8e4;--t:#1a1a1a;--m:#777;--f:#f0f0ec;--a:#1a1a1a;--g:#4caf50;--bl:#3b6fd4;--or:#e07b39;--red:#c62828}
+.dk{--bg:#111;--s:#1c1c1f;--b:#2a2a2e;--t:#f0f0ed;--m:#999;--f:#222226;--a:#f0f0ed}
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  background:var(--bg);
-  color:var(--t);
-  font-family:Arial,Helvetica,sans-serif;
-}
-h1,h2,h3{
-  font-family:Georgia,serif;
-}
-button{
-  cursor:pointer;
-  font-family:Arial,Helvetica,sans-serif;
-}
-button:disabled{
-  opacity:.45;
-  cursor:not-allowed;
-}
-input,textarea,select{
-  width:100%;
-  background:var(--f);
-  color:var(--t);
-  border:1px solid var(--b);
-  border-radius:9px;
-  padding:10px 14px;
-  font-size:14px;
-  outline:none;
-}
+body{background:var(--bg);color:var(--t);font-family:Arial,Helvetica,sans-serif}
+h1,h2,h3{font-family:Georgia,serif}
+button{cursor:pointer;font-family:Arial,Helvetica,sans-serif}
+button:disabled{opacity:.45;cursor:not-allowed}
+input,textarea,select{width:100%;background:var(--f);color:var(--t);border:1px solid var(--b);border-radius:9px;padding:10px 14px;font-size:14px;outline:none}
 textarea{resize:vertical}
-.card{
-  background:var(--s);
-  border:1px solid var(--b);
-  border-radius:16px;
-  padding:18px;
-}
-.bp{
-  background:var(--a);
-  color:var(--bg);
-  border:none;
-  border-radius:9px;
-  padding:11px 16px;
-  font-size:13px;
-  font-weight:600;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-}
-.bg{
-  background:var(--f);
-  color:var(--m);
-  border:1px solid var(--b);
-  border-radius:9px;
-  padding:11px 16px;
-  font-size:13px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-}
-.bs{
-  background:#f0faf0;
-  color:#2e7d32;
-  border:1px solid #c8e6c9;
-  border-radius:9px;
-  padding:11px 16px;
-  font-size:13px;
-}
-.bd{
-  background:#fff5f5;
-  color:#c62828;
-  border:1px solid #fcd0d0;
-  border-radius:9px;
-  padding:11px 16px;
-  font-size:13px;
-}
-.pbar{
-  height:5px;
-  background:var(--f);
-  border-radius:3px;
-  overflow:hidden;
-}
-.pfill{
-  height:100%;
-  border-radius:3px;
-  transition:width .4s;
-}
-.tab-bar{
-  display:flex;
-  gap:5px;
-  overflow-x:auto;
-  padding-bottom:4px;
-  margin-bottom:18px;
-}
+.card{background:var(--s);border:1px solid var(--b);border-radius:16px;padding:18px}
+.bp{background:var(--a);color:var(--bg);border:none;border-radius:9px;padding:11px 16px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.bg{background:var(--f);color:var(--m);border:1px solid var(--b);border-radius:9px;padding:11px 16px;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.bs{background:#f0faf0;color:#2e7d32;border:1px solid #c8e6c9;border-radius:9px;padding:11px 16px;font-size:13px}
+.bd{background:#fff5f5;color:#c62828;border:1px solid #fcd0d0;border-radius:9px;padding:11px 16px;font-size:13px}
+.pbar{height:5px;background:var(--f);border-radius:3px;overflow:hidden}
+.pfill{height:100%;border-radius:3px;transition:width .4s}
+.tab-bar{display:flex;gap:5px;overflow-x:auto;padding-bottom:4px;margin-bottom:18px}
 .tab-bar::-webkit-scrollbar{display:none}
-.tbtn{
-  padding:7px 12px;
-  border:1px solid var(--b);
-  border-radius:8px;
-  font-size:11.5px;
-  white-space:nowrap;
-  flex-shrink:0;
-  background:var(--s);
-  color:var(--m);
-}
-.tbtn.on{
-  background:var(--a);
-  color:var(--bg);
-  border-color:var(--a);
-}
-.opt{
-  padding:13px 16px;
-  border-radius:9px;
-  text-align:left;
-  font-size:14px;
-  border:1px solid var(--b);
-  background:var(--f);
-  color:var(--t);
-  width:100%;
-  display:block;
-  margin-bottom:9px;
-}
-.opt.ok{
-  background:#f0faf0!important;
-  border-color:#4caf50!important;
-  color:#2e7d32!important;
-}
-.opt.no{
-  background:#fff5f5!important;
-  border-color:#f44336!important;
-  color:#c62828!important;
-}
-.bnav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:var(--s);
-  border-top:1px solid var(--b);
-  display:flex;
-  z-index:100;
-}
-.nit{
-  flex:1;
-  padding:10px 4px 12px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:3px;
-  border:none;
-  background:none;
-  font-size:9px;
-  color:var(--m);
-}
+.tbtn{padding:7px 12px;border:1px solid var(--b);border-radius:8px;font-size:11.5px;white-space:nowrap;flex-shrink:0;background:var(--s);color:var(--m)}
+.tbtn.on{background:var(--a);color:var(--bg);border-color:var(--a)}
+.opt{padding:13px 16px;border-radius:9px;text-align:left;font-size:14px;border:1px solid var(--b);background:var(--f);color:var(--t);width:100%;display:block;margin-bottom:9px}
+.opt.ok{background:#f0faf0!important;border-color:#4caf50!important;color:#2e7d32!important}
+.opt.no{background:#fff5f5!important;border-color:#f44336!important;color:#c62828!important}
+.bnav{position:fixed;bottom:0;left:0;right:0;background:var(--s);border-top:1px solid var(--b);display:flex;z-index:100}
+.nit{flex:1;padding:10px 4px 12px;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:none;font-size:9px;color:var(--m)}
 .nit.on{color:var(--a)}
-#app{
-  max-width:480px;
-  margin:0 auto;
-  padding:24px 16px 82px;
-}
-.xpa{
-  position:fixed;
-  top:80px;
-  right:20px;
-  font-size:17px;
-  font-weight:700;
-  color:var(--g);
-  z-index:300;
-  pointer-events:none;
-  animation:fadeup 1.4s ease forwards;
-}
-@keyframes fadeup{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.modal-ov{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.5);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:200;
-  padding:16px;
-}
-.modal{
-  background:var(--s);
-  border-radius:20px;
-  padding:24px;
-  width:100%;
-  max-width:440px;
-  max-height:90vh;
-  overflow-y:auto;
-}
-.ob{
-  position:fixed;
-  inset:0;
-  background:var(--bg);
-  z-index:1000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-.sec{
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--m);
-  margin-bottom:12px;
-}
-.lbl{
-  font-size:11px;
-  color:var(--m);
-  display:block;
-  margin-bottom:5px;
-}
-.small{
-  font-size:13px;
-  color:var(--m);
-  line-height:1.6;
-}
-.grid2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-.grid3{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:10px;
-}
+#app{max-width:480px;margin:0 auto;padding:24px 16px 82px}
+.xpa{position:fixed;top:80px;right:20px;font-size:17px;font-weight:700;color:var(--g);z-index:300;pointer-events:none;animation:fadeup 1.4s ease forwards}
+@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:200;padding:16px}
+.modal{background:var(--s);border-radius:20px;padding:24px;width:100%;max-width:440px;max-height:90vh;overflow-y:auto}
+.ob{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+.sec{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--m);margin-bottom:12px}
+.lbl{font-size:11px;color:var(--m);display:block;margin-bottom:5px}
+.small{font-size:13px;color:var(--m);line-height:1.6}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.article-text{font-size:15px;line-height:1.9;background:var(--f);border:1px solid var(--b);border-radius:14px;padding:18px}
+.line{display:flex;gap:8px;margin-bottom:10px;align-items:flex-start}
+.role{font-size:11px;color:var(--m);min-width:82px}
 </style>
 </head>
 <body>
@@ -267,44 +54,12 @@ textarea{resize:vertical}
 <nav id="bnav" class="bnav" style="display:none"></nav>
 
 <script>
-const LS={
-  get:(k,d)=>{
-    try{
-      const v=localStorage.getItem('le_'+k);
-      return v?JSON.parse(v):d;
-    }catch{
-      return d;
-    }
-  },
-  set:(k,v)=>{
-    try{
-      localStorage.setItem('le_'+k,JSON.stringify(v));
-    }catch{}
-  }
-};
-
+const LS={get:(k,d)=>{try{const v=localStorage.getItem('le_'+k);return v?JSON.parse(v):d}catch{return d}},set:(k,v)=>{try{localStorage.setItem('le_'+k,JSON.stringify(v))}catch{}}};
 const uid=()=>'_'+Math.random().toString(36).slice(2,10);
-
-const esc=s=>String(s||'')
-  .replace(/&/g,'&amp;')
-  .replace(/</g,'&lt;')
-  .replace(/>/g,'&gt;')
-  .replace(/"/g,'&quot;');
-
+const esc=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const today=()=>new Date().toDateString();
-
-function tts(text,rate=.9){
-  if(!window.speechSynthesis)return;
-  window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang='en-US';
-  u.rate=rate;
-  window.speechSynthesis.speak(u);
-}
-
-function shuffle(arr){
-  return [...arr].sort(()=>Math.random()-.5);
-}
+const shuffle=arr=>[...arr].sort(()=>Math.random()-.5);
+function tts(text,rate=.9){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=rate;window.speechSynthesis.speak(u)}
 
 const LVLS=[
   {l:'A1',min:0,label:'Débutant',c:'#4caf50'},
@@ -329,35 +84,24 @@ const BADGES=[
 const GRAMMAR=[
   {rule:'Present Simple',formula:'subject + verb',ex:'She works every day.',tip:'Habitudes et vérités générales.',lvl:'A1'},
   {rule:'Past Simple',formula:'verb + -ed / irregular',ex:'They visited London last year.',tip:'Action terminée dans le passé.',lvl:'A2'},
-  {rule:'Future with will',formula:'will + verb',ex:'I will call you tomorrow.',tip:'Promesse, décision ou prédiction.',lvl:'A2'},
   {rule:'Present Perfect',formula:'have/has + past participle',ex:'I have lived here for five years.',tip:'Lien entre passé et présent.',lvl:'B1'},
   {rule:'Passive Voice',formula:'to be + past participle',ex:'The book was written by Orwell.',tip:"On insiste sur l'action.",lvl:'B1'},
   {rule:'Second Conditional',formula:'If + past, would + verb',ex:'If I had time, I would travel.',tip:'Hypothèse imaginaire.',lvl:'B2'},
-  {rule:'Reported Speech',formula:'said/told + shifted tense',ex:'He said he was tired.',tip:'Rapporter les paroles.',lvl:'B2'},
-  {rule:'Third Conditional',formula:'If + past perfect, would have + pp',ex:'If I had studied, I would have passed.',tip:'Regret sur le passé.',lvl:'C1'},
-  {rule:'Inversion',formula:'Never + auxiliary + subject + verb',ex:'Never have I seen such a thing.',tip:'Structure formelle.',lvl:'C1'},
-  {rule:'Cleft Sentences',formula:'It is/was + focus + that/who...',ex:'It was John who called me.',tip:'Mettre en valeur une information.',lvl:'C2'}
+  {rule:'Third Conditional',formula:'If + past perfect, would have + pp',ex:'If I had studied, I would have passed.',tip:'Regret sur le passé.',lvl:'C1'}
 ];
 
 const GQUIZ=[
-  {q:'She ___ to Paris last year.',opts:['has gone','went','goes','go'],a:1,exp:'Simple past pour une action terminée.',lvl:'A2'},
-  {q:'I ___ English every day.',opts:['study','studies','studying','studied'],a:0,exp:'Présent simple avec I.',lvl:'A1'},
-  {q:'They have lived here ___ 2020.',opts:['for','since','during','ago'],a:1,exp:'Since + point de départ.',lvl:'B1'},
-  {q:'If I ___ rich, I would travel.',opts:['am','was','were','be'],a:2,exp:'Were est courant dans les conditionnels.',lvl:'B2'},
-  {q:'The report ___ by the manager.',opts:['write','wrote','was written','is write'],a:2,exp:'Passive : was + participe passé.',lvl:'B1'},
-  {q:'By tomorrow, she ___ the book.',opts:['reads','will read','will have read','read'],a:2,exp:'Future perfect.',lvl:'C1'},
-  {q:'He told me he ___ tired.',opts:['is','was','be','were'],a:1,exp:'Reported speech.',lvl:'B2'},
-  {q:'Never ___ such a strange result.',opts:['I saw','have I seen','I have seen','saw I'],a:1,exp:'Inversion après never.',lvl:'C1'}
+  {q:'She ___ to Paris last year.',opts:['has gone','went','goes','go'],a:1,exp:'Simple past pour une action terminée.'},
+  {q:'They have lived here ___ 2020.',opts:['for','since','during','ago'],a:1,exp:'Since + point de départ.'},
+  {q:'The report ___ by the manager.',opts:['write','wrote','was written','is write'],a:2,exp:'Passive : was + participe passé.'},
+  {q:'If I ___ more time, I would travel.',opts:['had','have','will have','would have'],a:0,exp:'Second conditional.'}
 ];
 
 const PHRASES=[
   {p:'Could you say that again?',ctx:'Pas compris',fr:'Pouvez-vous répéter ?',lvl:'A1'},
-  {p:'Can you help me, please?',ctx:'Aide',fr:'Pouvez-vous m’aider ?',lvl:'A1'},
   {p:'I would like a coffee, please.',ctx:'Commander',fr:'Je voudrais un café.',lvl:'A1'},
   {p:'It depends on the situation.',ctx:'Nuancer',fr:'Cela dépend de la situation.',lvl:'A2'},
-  {p:'I’m looking forward to it.',ctx:'Attente',fr:'J’ai hâte.',lvl:'B1'},
   {p:'I was wondering if...',ctx:'Demande polie',fr:'Je me demandais si...',lvl:'B1'},
-  {p:'That being said...',ctx:'Nuance',fr:'Cela dit...',lvl:'B2'},
   {p:'From my point of view...',ctx:'Opinion',fr:'De mon point de vue...',lvl:'B2'},
   {p:'It goes without saying that...',ctx:'Évidence',fr:'Il va sans dire que...',lvl:'C1'}
 ];
@@ -366,9 +110,7 @@ const IDIOMS=[
   {e:'Break a leg',m:'Bonne chance',ex:'Break a leg on your presentation!'},
   {e:'Hit the sack',m:'Aller dormir',ex:"I'm going to hit the sack."},
   {e:'Bite the bullet',m:'Serrer les dents',ex:'Just bite the bullet and do it.'},
-  {e:'Spill the beans',m:'Vendre la mèche',ex:"Don't spill the beans!"},
-  {e:'Under the weather',m:'Ne pas se sentir bien',ex:"I'm a bit under the weather."},
-  {e:'Once in a blue moon',m:'Très rarement',ex:'He visits us once in a blue moon.'}
+  {e:'Under the weather',m:'Ne pas se sentir bien',ex:"I'm a bit under the weather."}
 ];
 
 const PRON_D=[
@@ -383,488 +125,334 @@ const DICT_WORDS=[
   {word:'beautiful',tr:'beau / belle'},
   {word:'quickly',tr:'rapidement'},
   {word:'understand',tr:'comprendre'},
-  {word:'friendly',tr:'aimable'},
   {word:'meeting',tr:'réunion'},
   {word:'deadline',tr:'date limite'},
-  {word:'customer',tr:'client'},
-  {word:'important',tr:'important'},
-  {word:'decision',tr:'décision'}
+  {word:'customer',tr:'client'}
 ];
 
-const STORIES=[
+const ARTICLES=[
   {
-    id:'s1',
-    title:'A Morning in London',
-    lvl:'A2',
-    text:'Every morning, Tom wakes up at 7am. He lives in a small flat in London near the Thames. He makes a cup of tea and reads the news on his phone. Today, something is different. There is a letter on his doorstep from an old friend.',
-    kw:{flat:'appartement',doorstep:'pas de la porte',Thames:'la Tamise'}
+    id:'a1',lvl:'A2',title:'A Day Without a Smartphone',
+    intro:'Un article simple sur la vie quotidienne et les habitudes numériques.',
+    text:'Last Saturday, Emma decided to spend one full day without her smartphone. At first, she felt nervous. She usually checks her messages every ten minutes. In the morning, she read a book and made breakfast slowly. In the afternoon, she went for a walk and noticed small details in her neighbourhood: a new café, flowers near a window, and children playing in the park. In the evening, Emma wrote in her notebook. She realized that a quiet day can feel longer, but also richer.',
+    fr:'Emma passe une journée sans téléphone. Elle se sent d’abord nerveuse, puis redécouvre des activités simples et remarque davantage son environnement.',
+    vocab:[
+      ['to decide','décider'],
+      ['nervous','nerveux / nerveuse'],
+      ['neighbourhood','quartier'],
+      ['to realize','se rendre compte']
+    ],
+    q:'What did Emma notice during her walk?',
+    a:'She noticed small details in her neighbourhood.'
   },
   {
-    id:'s2',
-    title:'The Job Interview',
-    lvl:'B1',
-    text:"Sarah arrived fifteen minutes early for her interview at a tech company. She was nervous but well-prepared. The interviewer greeted her warmly. Sarah took a deep breath and began speaking confidently.",
-    kw:{interview:'entretien',nervous:'nerveux/se',confidently:'avec confiance'}
+    id:'a2',lvl:'B1',title:'Remote Work and Daily Balance',
+    intro:'Un article de niveau intermédiaire sur le télétravail.',
+    text:'Remote work has changed the way many people organize their day. For some employees, working from home means less time in transport and more flexibility. They can start earlier, take short breaks, and spend more time with their family. However, remote work also has challenges. Some people find it difficult to separate work from personal life. They answer emails late at night or feel isolated during the day. To keep a healthy balance, experts recommend a clear schedule, a dedicated workspace, and regular communication with colleagues.',
+    fr:'Le télétravail apporte flexibilité et gain de temps, mais peut aussi créer de l’isolement et brouiller la frontière entre travail et vie personnelle.',
+    vocab:[
+      ['remote work','télétravail'],
+      ['flexibility','souplesse / flexibilité'],
+      ['isolated','isolé'],
+      ['dedicated workspace','espace de travail dédié']
+    ],
+    q:'What do experts recommend?',
+    a:'They recommend a clear schedule, a dedicated workspace, and regular communication.'
+  },
+  {
+    id:'a3',lvl:'B2',title:'Why Lifelong Learning Matters',
+    intro:'Article argumentatif sur l’apprentissage continu.',
+    text:'In a changing economy, learning is no longer limited to school or university. People need to update their skills throughout their lives. New technologies can transform a job in only a few years, and professionals who stop learning may lose opportunities. Lifelong learning does not always mean formal courses. It can include reading, practicing a language, following tutorials, attending workshops, or learning from colleagues. The most important habit is consistency. A person who studies twenty minutes a day can make significant progress over a year.',
+    fr:'L’apprentissage continu devient essentiel dans une économie qui change vite. Il ne dépend pas seulement des cours officiels, mais surtout de la régularité.',
+    vocab:[
+      ['lifelong learning','apprentissage tout au long de la vie'],
+      ['to update skills','mettre ses compétences à jour'],
+      ['opportunities','opportunités'],
+      ['consistency','régularité']
+    ],
+    q:'Why is consistency important?',
+    a:'Because small regular efforts can create significant progress over time.'
+  },
+  {
+    id:'a4',lvl:'C1',title:'The Attention Economy',
+    intro:'Article avancé sur l’économie de l’attention.',
+    text:'Modern digital platforms compete not only for money, but also for attention. Every notification, recommendation, and infinite feed is designed to keep users engaged. This business model has clear advantages: information is easier to access, creators can reach large audiences, and communities can form across borders. Yet it also raises concerns. When attention becomes a commodity, users may find it harder to focus deeply, evaluate information carefully, or disconnect without guilt. Developing digital discipline is therefore not a rejection of technology, but a way to use it deliberately rather than passively.',
+    fr:'Les plateformes numériques cherchent à capter l’attention. Elles offrent des avantages, mais peuvent réduire la concentration et l’esprit critique.',
+    vocab:[
+      ['attention economy','économie de l’attention'],
+      ['infinite feed','fil infini'],
+      ['commodity','marchandise'],
+      ['deliberately','délibérément']
+    ],
+    q:'What is digital discipline?',
+    a:'It is the ability to use technology deliberately rather than passively.'
+  }
+];
+
+const INTERVIEWS=[
+  {
+    id:'i1',lvl:'A2',title:'Interview: A New Student in London',
+    intro:'Interview courte et simple.',
+    lines:[
+      ['Interviewer','Where are you from?'],
+      ['Student','I am from Spain, but I live in London now.'],
+      ['Interviewer','Why are you learning English?'],
+      ['Student','I want to study at a British university next year.'],
+      ['Interviewer','What is difficult for you?'],
+      ['Student','Listening is difficult because people speak very fast.']
+    ],
+    vocab:[['university','université'],['next year','l’année prochaine'],['fast','rapidement']]
+  },
+  {
+    id:'i2',lvl:'B1',title:'Interview: Working in Customer Service',
+    intro:'Interview professionnelle niveau intermédiaire.',
+    lines:[
+      ['Interviewer','Can you describe your job?'],
+      ['Employee','I help customers solve problems with their orders.'],
+      ['Interviewer','What skills are important in your role?'],
+      ['Employee','Patience, clear communication, and the ability to stay calm.'],
+      ['Interviewer','What do you do when a customer is angry?'],
+      ['Employee','I listen carefully, apologize when necessary, and offer a practical solution.']
+    ],
+    vocab:[['order','commande'],['patience','patience'],['practical solution','solution pratique']]
+  },
+  {
+    id:'i3',lvl:'B2',title:'Interview: Starting a Small Business',
+    intro:'Interview business plus naturelle.',
+    lines:[
+      ['Journalist','What made you start your own business?'],
+      ['Founder','I saw a problem in my local area and wanted to offer a simple solution.'],
+      ['Journalist','What was the hardest part at the beginning?'],
+      ['Founder','Finding customers was harder than creating the product.'],
+      ['Journalist','What advice would you give to beginners?'],
+      ['Founder','Test your idea quickly, listen to feedback, and avoid spending too much too early.']
+    ],
+    vocab:[['founder','fondateur'],['feedback','retour / avis'],['to avoid','éviter']]
+  },
+  {
+    id:'i4',lvl:'C1',title:'Interview: The Future of Education',
+    intro:'Interview avancée sur l’éducation.',
+    lines:[
+      ['Journalist','How is technology changing education?'],
+      ['Expert','It gives learners access to resources that were previously difficult to obtain.'],
+      ['Journalist','Is that always positive?'],
+      ['Expert','Not necessarily. Access to information does not automatically create understanding.'],
+      ['Journalist','What should schools focus on?'],
+      ['Expert','They should teach students how to question sources, build arguments, and learn independently.']
+    ],
+    vocab:[['previously','auparavant'],['understanding','compréhension'],['to question sources','questionner les sources']]
+  }
+];
+
+const DIALOGUES=[
+  {
+    id:'d1',lvl:'A1',title:'At the Hotel',
+    intro:'Situation : arrivée à l’hôtel.',
+    lines:[
+      ['Receptionist','Good evening. Welcome to the Riverside Hotel.'],
+      ['Guest','Good evening. I have a reservation.'],
+      ['Receptionist','What is your name, please?'],
+      ['Guest','My name is Martin Dupont.'],
+      ['Receptionist','Here is your key. Your room is on the second floor.']
+    ],
+    useful:['I have a reservation.','What is your name, please?','Your room is on the second floor.']
+  },
+  {
+    id:'d2',lvl:'A2',title:'At the Doctor',
+    intro:'Situation : expliquer un problème simple.',
+    lines:[
+      ['Doctor','What seems to be the problem?'],
+      ['Patient','I have a headache and I feel tired.'],
+      ['Doctor','How long have you felt this way?'],
+      ['Patient','Since yesterday morning.'],
+      ['Doctor','You should rest and drink plenty of water.']
+    ],
+    useful:['I have a headache.','How long have you felt this way?','You should rest.']
+  },
+  {
+    id:'d3',lvl:'B1',title:'Job Interview',
+    intro:'Situation : entretien d’embauche.',
+    lines:[
+      ['Recruiter','Can you tell me about your experience?'],
+      ['Candidate','I have worked in customer service for three years.'],
+      ['Recruiter','Why do you want this position?'],
+      ['Candidate','I want to improve my skills and join a strong team.'],
+      ['Recruiter','What are your strengths?'],
+      ['Candidate','I am organized, patient, and comfortable speaking with customers.']
+    ],
+    useful:['Can you tell me about your experience?','I want to improve my skills.','What are your strengths?']
+  },
+  {
+    id:'d4',lvl:'B2',title:'Business Meeting',
+    intro:'Situation : réunion professionnelle.',
+    lines:[
+      ['Manager','Let’s start with the sales figures.'],
+      ['Analyst','Sales increased by eight percent compared with last quarter.'],
+      ['Manager','That is encouraging. What explains the improvement?'],
+      ['Analyst','The new online campaign brought more qualified leads.'],
+      ['Manager','Good. Let’s prepare a short report for Friday.']
+    ],
+    useful:['Let’s start with...','Compared with last quarter.','Let’s prepare a short report.']
   }
 ];
 
 const TOEIC=[
-  {q:'All employees are required to ___ their ID badges.',opts:['wear','wearing','wore','worn'],a:0,exp:'Require to + verbe.',lvl:'B1'},
-  {q:'The meeting has been ___ until Monday.',opts:['postponed','postpone','postponing','postpones'],a:0,exp:'Has been + participe passé.',lvl:'B2'},
-  {q:'Please ___ to the attached document.',opts:['refer','mention','look','point'],a:0,exp:'Refer to = se référer à.',lvl:'B1'},
-  {q:'The new policy will ___ effect in January.',opts:['take','make','do','have'],a:0,exp:'Take effect = entrer en vigueur.',lvl:'B1'},
-  {q:'Had she known, she ___ differently.',opts:['would plan','would have planned','will plan','had planned'],a:1,exp:'Third conditional.',lvl:'C1'},
-  {q:'The package should arrive ___ Friday.',opts:['by','until','during','since'],a:0,exp:'By = au plus tard.',lvl:'B1'},
-  {q:'Applicants must submit forms ___ the deadline.',opts:['before','ago','during','while'],a:0,exp:'Before the deadline.',lvl:'A2'},
-  {q:'The manager asked us to ___ the figures.',opts:['review','reviewing','reviewed','reviews'],a:0,exp:'Ask someone to + verb.',lvl:'B1'},
-  {q:'The printer is out of ___.',opts:['order','place','work','use'],a:0,exp:'Out of order = en panne.',lvl:'B1'},
-  {q:'The training session is ___ for all employees.',opts:['mandatory','optional','temporary','previous'],a:0,exp:'Mandatory = obligatoire.',lvl:'B2'}
+  {q:'All employees are required to ___ their ID badges.',opts:['wear','wearing','wore','worn'],a:0,exp:'Require to + verbe.'},
+  {q:'The meeting has been ___ until Monday.',opts:['postponed','postpone','postponing','postpones'],a:0,exp:'Has been + participe passé.'},
+  {q:'Please ___ to the attached document.',opts:['refer','mention','look','point'],a:0,exp:'Refer to = se référer à.'},
+  {q:'The new policy will ___ effect in January.',opts:['take','make','do','have'],a:0,exp:'Take effect = entrer en vigueur.'},
+  {q:'The package should arrive ___ Friday.',opts:['by','until','during','since'],a:0,exp:'By = au plus tard.'},
+  {q:'The training session is ___ for all employees.',opts:['mandatory','optional','temporary','previous'],a:0,exp:'Mandatory = obligatoire.'}
 ];
 
 const LTQS=[
   {q:'___ name is John.',opts:['My','Me','I','Mine'],a:0,lvl:'A1'},
   {q:'She ___ from Canada.',opts:['is','are','am','be'],a:0,lvl:'A1'},
-  {q:'I ___ coffee every morning.',opts:['drink','drinks','drinking','drank'],a:0,lvl:'A1'},
-  {q:'Where ___ you live?',opts:['do','does','are','is'],a:0,lvl:'A1'},
-  {q:'This is ___ apple.',opts:['an','a','the','one'],a:0,lvl:'A1'},
   {q:'I went to the cinema ___.',opts:['yesterday','tomorrow','now','often'],a:0,lvl:'A2'},
-  {q:'She is ___ than her brother.',opts:['taller','tall','tallest','more tall'],a:0,lvl:'A2'},
-  {q:'We ___ dinner when he called.',opts:['were having','had','have','are having'],a:0,lvl:'A2'},
   {q:'I have lived here ___ three years.',opts:['for','since','during','ago'],a:0,lvl:'A2'},
-  {q:'There isn’t ___ milk left.',opts:['any','some','many','few'],a:0,lvl:'A2'},
   {q:'If it rains, we ___ at home.',opts:['will stay','stay','stayed','would stay'],a:0,lvl:'B1'},
   {q:'The book ___ by millions of people.',opts:['was read','read','has read','is reading'],a:0,lvl:'B1'},
-  {q:'I’m interested ___ learning English.',opts:['in','on','at','for'],a:0,lvl:'B1'},
-  {q:'He told me he ___ tired.',opts:['was','is','be','were'],a:0,lvl:'B1'},
-  {q:'She has already ___ the report.',opts:['finished','finish','finishing','finishes'],a:0,lvl:'B1'},
   {q:'If I ___ more time, I would travel.',opts:['had','have','will have','would have'],a:0,lvl:'B2'},
-  {q:'Despite ___ tired, she continued working.',opts:['being','be','was','to be'],a:0,lvl:'B2'},
   {q:'I wish I ___ harder at school.',opts:['had studied','studied','have studied','study'],a:0,lvl:'B2'},
-  {q:'He denied ___ the documents.',opts:['taking','to take','take','took'],a:0,lvl:'B2'},
-  {q:'This device is used ___ measuring temperature.',opts:['for','to','by','with'],a:0,lvl:'B2'},
-  {q:'Had I known earlier, I ___ you.',opts:['would have called','would call','will call','called'],a:0,lvl:'C1'},
-  {q:'No sooner had we arrived ___ it started raining.',opts:['than','that','when','then'],a:0,lvl:'C1'},
   {q:'Rarely ___ such dedication.',opts:['have I seen','I have seen','I saw','saw I'],a:0,lvl:'C1'},
-  {q:'The results are unlikely to be ___.',opts:['conclusive','concluded','concluding','conclusion'],a:0,lvl:'C1'},
-  {q:'His explanation was so ___ that few understood it.',opts:['convoluted','simple','plain','direct'],a:0,lvl:'C2'},
-  {q:'The speaker’s remarks were deliberately ___.',opts:['ambiguous','clear','obvious','literal'],a:0,lvl:'C2'},
   {q:'The evidence was deemed ___.',opts:['insufficient','unsufficient','deficiently','lackingly'],a:0,lvl:'C2'}
 ];
 
 let S={
-  tab:'home',
-  dk:LS.get('dk',false),
-  xp:LS.get('xp',0),
-  streak:LS.get('streak',0),
-  lastStudy:LS.get('ls',null),
-  dailyP:LS.get('dp',0),
-  dailyG:LS.get('dg',10),
-  dailyD:LS.get('dd',null),
-  userLvl:LS.get('ulvl',null),
-  obDone:LS.get('ob',false),
-  decks:LS.get('decks',[]),
-  srs:LS.get('srs',{}),
-  badges:LS.get('bdg',[]),
-  phrases:LS.get('phr',[]),
-  errLog:LS.get('erl',[]),
-  readS:LS.get('rs',[]),
-  studyDeck:null,
-  studyIdx:0,
-  studyMode:'flip',
-  flipped:false,
-  qopts:null,
-  learnSub:'grammar',
-  gqd:null,
-  gqmode:'learn',
-  gqf:'all',
-  phf:'all',
-  pron:0,
-  dictIdx:0,
-  contentSub:'stories',
-  examSub:'leveltest',
-  toeicIdx:0,
-  toeicSel:null,
-  toeicDone:false,
-  toeicScore:0,
-  toeicData:null,
-  ltData:null,
-  customDecks:LS.get('customDecks',[]),
-  customCount:LS.get('customCount',10),
-  customDir:LS.get('customDir','enfr'),
-  deleteMode:false,
-  deleteDecks:[],
-  activeStory:null
+  tab:'home',dk:LS.get('dk',false),xp:LS.get('xp',0),streak:LS.get('streak',0),lastStudy:LS.get('ls',null),
+  dailyP:LS.get('dp',0),dailyG:LS.get('dg',10),dailyD:LS.get('dd',null),userLvl:LS.get('ulvl',null),obDone:LS.get('ob',false),
+  decks:LS.get('decks',[]),srs:LS.get('srs',{}),badges:LS.get('bdg',[]),phrases:LS.get('phr',[]),errLog:LS.get('erl',[]),readS:LS.get('rs',[]),
+  studyDeck:null,studyIdx:0,studyMode:'flip',flipped:false,qopts:null,
+  learnSub:'grammar',gqd:null,gqmode:'learn',gqf:'all',phf:'all',pron:0,dictIdx:0,
+  contentSub:'articles',activeContent:null,
+  examSub:'leveltest',toeicIdx:0,toeicSel:null,toeicDone:false,toeicScore:0,toeicData:null,ltData:null,
+  customDecks:LS.get('customDecks',[]),customCount:LS.get('customCount',10),customDir:LS.get('customDir','enfr'),
+  deleteMode:false,deleteDecks:[]
 };
 
-if(S.dailyD!==today()){
-  S.dailyP=0;
-  S.dailyD=today();
-  sv('dailyP');
-  sv('dailyD');
-}
+if(S.dailyD!==today()){S.dailyP=0;S.dailyD=today();sv('dailyP');sv('dailyD')}
 
 function sv(k){
-  const m={
-    xp:'xp',
-    streak:'streak',
-    lastStudy:'ls',
-    dailyP:'dp',
-    dailyG:'dg',
-    dailyD:'dd',
-    userLvl:'ulvl',
-    obDone:'ob',
-    decks:'decks',
-    srs:'srs',
-    badges:'bdg',
-    phrases:'phr',
-    errLog:'erl',
-    readS:'rs',
-    dk:'dk',
-    customDecks:'customDecks',
-    customCount:'customCount',
-    customDir:'customDir'
-  };
+  const m={xp:'xp',streak:'streak',lastStudy:'ls',dailyP:'dp',dailyG:'dg',dailyD:'dd',userLvl:'ulvl',obDone:'ob',decks:'decks',srs:'srs',badges:'bdg',phrases:'phr',errLog:'erl',readS:'rs',dk:'dk',customDecks:'customDecks',customCount:'customCount',customDir:'customDir'};
   if(m[k])LS.set(m[k],S[k]);
 }
+function getLvl(xp){let l=LVLS[0];for(const t of LVLS){if(xp>=t.min)l=t}return l}
+function srsNext(c,ok){const now=Date.now(),i=c.srsInterval||1,e=c.srsEase||2.5;if(!ok)return{srsInterval:1,srsEase:Math.max(1.3,e-.2),srsNextReview:now+60000};const ni=Math.round(i*e);return{srsInterval:ni,srsEase:Math.min(3,e+.1),srsNextReview:now+ni*86400000}}
+function addXP(n){S.xp+=n;sv('xp');checkB();const el=document.createElement('div');el.className='xpa';el.textContent=`+${n} XP`;document.getElementById('xpt').innerHTML='';document.getElementById('xpt').appendChild(el);setTimeout(()=>el.remove(),1500)}
+function toast(msg,c='#4caf50'){const el=document.createElement('div');el.className='xpa';el.style.color=c;el.textContent=msg;document.getElementById('xpt').appendChild(el);setTimeout(()=>el.remove(),2300)}
+function earnB(id){if(S.badges.includes(id))return;S.badges.push(id);sv('badges')}
+function checkB(){if(S.xp>=100)earnB('b3');if(S.xp>=500)earnB('b4');if(S.streak>=3)earnB('b2')}
+function updStreak(){const t=today();if(S.lastStudy===t)return;const y=new Date(Date.now()-86400000).toDateString();S.streak=S.lastStudy===y?S.streak+1:1;S.lastStudy=t;sv('streak');sv('lastStudy')}
+function incD(){S.dailyP++;sv('dailyP');if(S.dailyP===S.dailyG)toast('Objectif atteint')}
+function logErr(w,ok){S.errLog.push({t:Date.now(),w,ok});if(S.errLog.length>300)S.errLog=S.errLog.slice(-300);sv('errLog')}
 
-function getLvl(xp){
-  let l=LVLS[0];
-  for(const t of LVLS){
-    if(xp>=t.min)l=t;
-  }
-  return l;
-}
-
-function srsNext(c,ok){
-  const now=Date.now();
-  const i=c.srsInterval||1;
-  const e=c.srsEase||2.5;
-  if(!ok){
-    return{
-      srsInterval:1,
-      srsEase:Math.max(1.3,e-.2),
-      srsNextReview:now+60000
-    };
-  }
-  const ni=Math.round(i*e);
-  return{
-    srsInterval:ni,
-    srsEase:Math.min(3,e+.1),
-    srsNextReview:now+ni*86400000
-  };
-}
-
-function addXP(n){
-  S.xp+=n;
-  sv('xp');
-  checkB();
-  const el=document.createElement('div');
-  el.className='xpa';
-  el.textContent=`+${n} XP`;
-  document.getElementById('xpt').innerHTML='';
-  document.getElementById('xpt').appendChild(el);
-  setTimeout(()=>el.remove(),1500);
-}
-
-function toast(msg,c='#4caf50'){
-  const el=document.createElement('div');
-  el.className='xpa';
-  el.style.color=c;
-  el.textContent=msg;
-  document.getElementById('xpt').appendChild(el);
-  setTimeout(()=>el.remove(),2300);
-}
-
-function earnB(id){
-  if(S.badges.includes(id))return;
-  S.badges.push(id);
-  sv('badges');
-}
-
-function checkB(){
-  if(S.xp>=100)earnB('b3');
-  if(S.xp>=500)earnB('b4');
-  if(S.streak>=3)earnB('b2');
-}
-
-function updStreak(){
-  const t=today();
-  if(S.lastStudy===t)return;
-  const y=new Date(Date.now()-86400000).toDateString();
-  S.streak=S.lastStudy===y?S.streak+1:1;
-  S.lastStudy=t;
-  sv('streak');
-  sv('lastStudy');
-}
-
-function incD(){
-  S.dailyP++;
-  sv('dailyP');
-  if(S.dailyP===S.dailyG)toast('Objectif atteint');
-}
-
-function logErr(w,ok){
-  S.errLog.push({t:Date.now(),w,ok});
-  if(S.errLog.length>300)S.errLog=S.errLog.slice(-300);
-  sv('errLog');
-}
-
-function cardDirection(c){
-  return c._dir||'enfr';
-}
-
-function cardFrontLang(c){
-  return cardDirection(c)==='fren'?'Français':'Anglais';
-}
-
-function cardBackLang(c){
-  return cardDirection(c)==='fren'?'Anglais':'Français';
-}
-
-function cardFrontText(c){
-  return cardDirection(c)==='fren'?c.tr:c.word;
-}
-
-function cardBackText(c){
-  return cardDirection(c)==='fren'?c.word:c.tr;
-}
-
-function applyCardDirection(c,dir){
-  let finalDir=dir;
-  if(dir==='mix'){
-    finalDir=Math.random()<0.5?'enfr':'fren';
-  }
-  return{...c,_dir:finalDir};
-}
+function cardDirection(c){return c._dir||'enfr'}
+function cardFrontLang(c){return cardDirection(c)==='fren'?'Français':'Anglais'}
+function cardBackLang(c){return cardDirection(c)==='fren'?'Anglais':'Français'}
+function cardFrontText(c){return cardDirection(c)==='fren'?c.tr:c.word}
+function cardBackText(c){return cardDirection(c)==='fren'?c.word:c.tr}
+function applyCardDirection(c,dir){let finalDir=dir;if(dir==='mix')finalDir=Math.random()<0.5?'enfr':'fren';return{...c,_dir:finalDir}}
 
 function render(){
-  if(S.dk)document.body.classList.add('dk');
-  else document.body.classList.remove('dk');
-
-  if(!S.obDone){
-    renderOb();
-    return;
-  }
-
+  if(S.dk)document.body.classList.add('dk');else document.body.classList.remove('dk');
+  if(!S.obDone){renderOb();return}
   document.getElementById('ob').style.display='none';
   document.getElementById('app').style.display='block';
   document.getElementById('bnav').style.display='flex';
-
   renderNav();
-
-  const fns={
-    home:rHome,
-    decks:rDecks,
-    learn:rLearn,
-    content:rContent,
-    exams:rExams
-  };
-
-  document.getElementById('app').innerHTML=
-    rHeader()+
-    '<div id="tc">'+(fns[S.tab]||rHome)()+'</div>';
+  const fns={home:rHome,decks:rDecks,learn:rLearn,content:rContent,exams:rExams};
+  document.getElementById('app').innerHTML=rHeader()+'<div id="tc">'+(fns[S.tab]||rHome)()+'</div>';
 }
 
 function rHeader(){
-  const lv=getLvl(S.xp);
-  const nx=LVLS.find(t=>t.min>S.xp);
-  const p=nx?Math.min(100,((S.xp-lv.min)/(nx.min-lv.min))*100):100;
-
+  const lv=getLvl(S.xp),nx=LVLS.find(t=>t.min>S.xp),p=nx?Math.min(100,((S.xp-lv.min)/(nx.min-lv.min))*100):100;
   return`
   <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px">
-    <div>
-      <div class="sec" style="margin:0 0 3px">Application</div>
-      <h1 style="font-size:26px;line-height:1.1">Learn English</h1>
-    </div>
-    <button class="bg" onclick="toggleDk()" style="padding:8px 10px;font-size:16px">
-      ${S.dk?'☀️':'🌙'}
-    </button>
+    <div><div class="sec" style="margin:0 0 3px">Application</div><h1 style="font-size:26px;line-height:1.1">Learn English</h1></div>
+    <button class="bg" onclick="toggleDk()" style="padding:8px 10px;font-size:16px">${S.dk?'☀️':'🌙'}</button>
   </div>
-
   <div style="display:flex;gap:10px;margin-bottom:20px">
     <div class="card" style="display:flex;align-items:center;gap:8px;padding:12px 14px;min-width:88px">
-      <span style="font-size:22px">🔥</span>
-      <div>
-        <div style="font-family:Georgia,serif;font-size:22px;font-weight:700;line-height:1">${S.streak}</div>
-        <div style="font-size:10px;color:var(--m)">streak</div>
-      </div>
+      <span style="font-size:22px">🔥</span><div><div style="font-family:Georgia,serif;font-size:22px;font-weight:700;line-height:1">${S.streak}</div><div style="font-size:10px;color:var(--m)">streak</div></div>
     </div>
-
     <div class="card" style="flex:1">
       <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-        <span style="font-size:12px;font-weight:600;color:${lv.c}">
-          ${S.userLvl||lv.l} · ${lv.label}
-        </span>
+        <span style="font-size:12px;font-weight:600;color:${lv.c}">${S.userLvl||lv.l} · ${lv.label}</span>
         <span style="font-size:11px;color:var(--m)">${S.xp} XP</span>
       </div>
-      <div class="pbar">
-        <div class="pfill" style="width:${p}%;background:${lv.c}"></div>
-      </div>
+      <div class="pbar"><div class="pfill" style="width:${p}%;background:${lv.c}"></div></div>
       ${nx?`<div style="font-size:10px;color:var(--m);margin-top:4px">${nx.min-S.xp} XP → ${nx.l}</div>`:''}
     </div>
   </div>`;
 }
 
 function renderNav(){
-  const tabs=[
-    {id:'home',i:'🏠',l:'Accueil'},
-    {id:'decks',i:'📚',l:'Decks'},
-    {id:'learn',i:'✏️',l:'Apprendre'},
-    {id:'content',i:'🌍',l:'Contenu'},
-    {id:'exams',i:'🎓',l:'Examens'}
-  ];
-  document.getElementById('bnav').innerHTML=tabs.map(t=>`
-    <button class="nit ${S.tab===t.id?'on':''}" onclick="setTab('${t.id}')">
-      <span style="font-size:18px">${t.i}</span>
-      <span>${t.l}</span>
-    </button>
-  `).join('');
+  const tabs=[{id:'home',i:'🏠',l:'Accueil'},{id:'decks',i:'📚',l:'Decks'},{id:'learn',i:'✏️',l:'Apprendre'},{id:'content',i:'🌍',l:'Contenu'},{id:'exams',i:'🎓',l:'Examens'}];
+  document.getElementById('bnav').innerHTML=tabs.map(t=>`<button class="nit ${S.tab===t.id?'on':''}" onclick="setTab('${t.id}')"><span style="font-size:18px">${t.i}</span><span>${t.l}</span></button>`).join('');
 }
 
 function rHome(){
   const allCards=S.decks.flatMap(d=>d.cards);
   const mastered=Object.values(S.srs).filter(x=>x.srsInterval>=7).length;
-  const due=allCards.filter(c=>{
-    const s=S.srs[c.id];
-    return !s?.srsNextReview||s.srsNextReview<=Date.now();
-  }).length;
+  const due=allCards.filter(c=>{const s=S.srs[c.id];return !s?.srsNextReview||s.srsNextReview<=Date.now()}).length;
   const pct=S.dailyG?Math.min(100,(S.dailyP/S.dailyG)*100):0;
-
-  const errs=S.errLog.filter(e=>!e.ok).map(e=>e.w);
-  const wc={};
-  errs.forEach(w=>wc[w]=(wc[w]||0)+1);
+  const errs=S.errLog.filter(e=>!e.ok).map(e=>e.w),wc={};errs.forEach(w=>wc[w]=(wc[w]||0)+1);
   const top=Object.entries(wc).sort((a,b)=>b[1]-a[1]).slice(0,5);
-
   return`
   <div class="card" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-      <div style="font-weight:600;font-size:15px">Objectif du jour</div>
-      <span style="font-size:13px;color:${S.dailyP>=S.dailyG?'var(--g)':'var(--m)'};font-weight:600">
-        ${S.dailyP}/${S.dailyG}
-      </span>
-    </div>
-    <div class="pbar">
-      <div class="pfill" style="width:${pct}%;background:${S.dailyP>=S.dailyG?'var(--g)':'var(--bl)'}"></div>
-    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div style="font-weight:600;font-size:15px">Objectif du jour</div><span style="font-size:13px;color:${S.dailyP>=S.dailyG?'var(--g)':'var(--m)'};font-weight:600">${S.dailyP}/${S.dailyG}</span></div>
+    <div class="pbar"><div class="pfill" style="width:${pct}%;background:${S.dailyP>=S.dailyG?'var(--g)':'var(--bl)'}"></div></div>
   </div>
-
   <div class="grid2" style="margin-bottom:14px">
-    <button class="bp" onclick="startDaily()" style="padding:14px;flex-direction:column">
-      <span style="font-size:20px">🔁</span>
-      <span style="font-size:12px">Révision SRS (${due})</span>
-    </button>
-    <button class="bg" onclick="S.tab='learn';S.learnSub='custom';render()" style="padding:14px;flex-direction:column">
-      <span style="font-size:20px">🔀</span>
-      <span style="font-size:12px">Personnaliser</span>
-    </button>
+    <button class="bp" onclick="startDaily()" style="padding:14px;flex-direction:column"><span style="font-size:20px">🔁</span><span style="font-size:12px">Révision SRS (${due})</span></button>
+    <button class="bg" onclick="S.tab='learn';S.learnSub='custom';render()" style="padding:14px;flex-direction:column"><span style="font-size:20px">🔀</span><span style="font-size:12px">Personnaliser</span></button>
   </div>
-
   <div class="grid3" style="margin-bottom:14px">
-    ${[
-      ['⚡',S.xp,'XP'],
-      ['✅',mastered,'Maîtrisées'],
-      ['🕐',due,'À revoir']
-    ].map(([i,v,l])=>`
-      <div class="card" style="text-align:center;padding:14px 8px">
-        <div style="font-size:20px;margin-bottom:4px">${i}</div>
-        <div style="font-family:Georgia,serif;font-size:24px;font-weight:700">${v}</div>
-        <div style="font-size:10px;color:var(--m)">${l}</div>
-      </div>
-    `).join('')}
+    ${[['⚡',S.xp,'XP'],['✅',mastered,'Maîtrisées'],['🕐',due,'À revoir']].map(([i,v,l])=>`<div class="card" style="text-align:center;padding:14px 8px"><div style="font-size:20px;margin-bottom:4px">${i}</div><div style="font-family:Georgia,serif;font-size:24px;font-weight:700">${v}</div><div style="font-size:10px;color:var(--m)">${l}</div></div>`).join('')}
   </div>
-
   <div class="card" style="margin-bottom:14px">
     <h3 style="font-size:14px;margin-bottom:12px">Analyse des erreurs</h3>
-    ${top.length?`
-      <div style="display:flex;flex-wrap:wrap;gap:6px">
-        ${top.map(([w,c])=>`
-          <span style="padding:4px 10px;background:${c>=3?'#fff5f5':'#fff9e6'};color:${c>=3?'#c62828':'#e65100'};border-radius:20px;font-size:12px;font-weight:500">
-            ${esc(w)} ×${c}
-          </span>
-        `).join('')}
-      </div>
-    `:'<div class="small">Aucune erreur récente.</div>'}
+    ${top.length?`<div style="display:flex;flex-wrap:wrap;gap:6px">${top.map(([w,c])=>`<span style="padding:4px 10px;background:${c>=3?'#fff5f5':'#fff9e6'};color:${c>=3?'#c62828':'#e65100'};border-radius:20px;font-size:12px;font-weight:500">${esc(w)} ×${c}</span>`).join('')}</div>`:'<div class="small">Aucune erreur récente.</div>'}
   </div>
-
   <div class="card">
     <h3 style="font-size:14px;margin-bottom:14px">Badges ${S.badges.length}/${BADGES.length}</h3>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
-      ${BADGES.map(b=>`
-        <div style="text-align:center;padding:10px 4px;border-radius:9px;background:${S.badges.includes(b.id)?'var(--f)':'transparent'};opacity:${S.badges.includes(b.id)?1:.25}">
-          <div style="font-size:24px">${b.i}</div>
-          <div style="font-size:10px;color:var(--m);margin-top:4px">${b.n}</div>
-        </div>
-      `).join('')}
-    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">${BADGES.map(b=>`<div style="text-align:center;padding:10px 4px;border-radius:9px;background:${S.badges.includes(b.id)?'var(--f)':'transparent'};opacity:${S.badges.includes(b.id)?1:.25}"><div style="font-size:24px">${b.i}</div><div style="font-size:10px;color:var(--m);margin-top:4px">${b.n}</div></div>`).join('')}</div>
   </div>`;
 }
 
 function rDecks(){
   if(S.studyDeck)return rStudy();
-
   return`
   <div style="display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap">
     <button class="bg" onclick="showM('cdeck')" style="flex:1">+ Deck</button>
     <button class="bp" onclick="showM('imp')" style="flex:1">↑ Importer</button>
   </div>
-
-  ${!S.decks.length?`
-    <div class="card" style="text-align:center">
-      <div style="font-size:44px;margin-bottom:10px">📚</div>
-      <h2 style="font-size:20px;margin-bottom:8px">Aucun deck</h2>
-      <p class="small" style="margin-bottom:16px">Crée ou importe un deck pour commencer.</p>
-      <button class="bp" onclick="showM('imp')" style="width:100%">Importer un deck</button>
-    </div>
-  `:''}
-
+  ${!S.decks.length?`<div class="card" style="text-align:center"><div style="font-size:44px;margin-bottom:10px">📚</div><h2 style="font-size:20px;margin-bottom:8px">Aucun deck</h2><p class="small" style="margin-bottom:16px">Crée ou importe un deck pour commencer.</p><button class="bp" onclick="showM('imp')" style="width:100%">Importer un deck</button></div>`:''}
   ${S.decks.map(dk=>{
-    const due=dk.cards.filter(c=>{
-      const s=S.srs[c.id];
-      return !s?.srsNextReview||s.srsNextReview<=Date.now();
-    }).length;
+    const due=dk.cards.filter(c=>{const s=S.srs[c.id];return !s?.srsNextReview||s.srsNextReview<=Date.now()}).length;
     const m=dk.cards.filter(c=>S.srs[c.id]?.srsInterval>=7).length;
-
     return`
     <div style="border:1px solid var(--b);border-radius:14px;overflow:hidden;margin-bottom:11px">
       <div style="padding:16px 18px;background:${dk.color||'#e8eef8'};cursor:pointer" onclick="tog('db-${dk.id}')">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
           <div style="min-width:0">
-            <div style="font-family:Georgia,serif;font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:5px">
-              ${esc(dk.name)}
-            </div>
+            <div style="font-family:Georgia,serif;font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:5px">${esc(dk.name)}</div>
             <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
-              <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:${dk.accent||'#3b6fd4'}22;color:${dk.accent||'#3b6fd4'};font-weight:600">
-                ${esc(dk.level||'A1')}
-              </span>
+              <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:${dk.accent||'#3b6fd4'}22;color:${dk.accent||'#3b6fd4'};font-weight:600">${esc(dk.level||'A1')}</span>
               <span style="font-size:12px;color:#555">${dk.cards.length} cartes</span>
               ${due>0?`<span style="font-size:11px;padding:2px 7px;background:#fff3e0;color:#e65100;border-radius:20px">🕐 ${due}</span>`:''}
             </div>
           </div>
-          <button onclick="event.stopPropagation();startStudy('${dk.id}')" style="background:${dk.accent||'#3b6fd4'};color:#fff;border:none;border-radius:9px;padding:9px 14px;font-size:13px" ${!dk.cards.length?'disabled':''}>
-            Étudier
-          </button>
+          <button onclick="event.stopPropagation();startStudy('${dk.id}')" style="background:${dk.accent||'#3b6fd4'};color:#fff;border:none;border-radius:9px;padding:9px 14px;font-size:13px" ${!dk.cards.length?'disabled':''}>Étudier</button>
         </div>
       </div>
-
       <div id="db-${dk.id}" style="display:none;background:var(--s);padding:14px 18px;border-top:1px solid var(--b)">
         <div style="display:flex;justify-content:space-between;margin-bottom:10px;gap:8px">
           <span style="font-size:12px;color:var(--m)">${m}/${dk.cards.length} maîtrisées</span>
-          <div style="display:flex;gap:7px">
-            <button class="bp" onclick="showM('acard','${dk.id}')" style="padding:6px 11px;font-size:11px">+ Carte</button>
-            <button class="bd" onclick="delDk('${dk.id}')" style="padding:6px 10px;font-size:11px">Supprimer</button>
-          </div>
+          <div style="display:flex;gap:7px"><button class="bp" onclick="showM('acard','${dk.id}')" style="padding:6px 11px;font-size:11px">+ Carte</button><button class="bd" onclick="delDk('${dk.id}')" style="padding:6px 10px;font-size:11px">Supprimer</button></div>
         </div>
-
         <div style="max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:7px">
-          ${dk.cards.map(c=>`
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--f);border-radius:8px;gap:8px">
-              <div style="min-width:0">
-                <span style="font-family:Georgia,serif;font-size:14px;font-weight:700">${esc(c.word)}</span>
-                <span style="font-size:12px;color:var(--m);margin-left:8px">${esc(c.tr)}</span>
-              </div>
-              <button onclick="delC('${dk.id}','${c.id}')" style="background:none;border:none;color:var(--m);font-size:14px;padding:2px 4px">✕</button>
-            </div>
-          `).join('')}
+          ${dk.cards.map(c=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--f);border-radius:8px;gap:8px"><div style="min-width:0"><span style="font-family:Georgia,serif;font-size:14px;font-weight:700">${esc(c.word)}</span><span style="font-size:12px;color:var(--m);margin-left:8px">${esc(c.tr)}</span></div><button onclick="delC('${dk.id}','${c.id}')" style="background:none;border:none;color:var(--m);font-size:14px;padding:2px 4px">✕</button></div>`).join('')}
         </div>
       </div>
     </div>`;
@@ -872,1523 +460,225 @@ function rDecks(){
 }
 
 function rStudy(){
-  const dk=S.studyDeck;
-  const idx=S.studyIdx||0;
-  const card=dk.cards[idx];
-
-  if(!card){
-    earnB('b5');
-    sv('srs');
-    return`
-    <div style="text-align:center;padding:36px 0">
-      <div style="font-size:48px;margin-bottom:10px">🏆</div>
-      <h2 style="margin-bottom:8px">Session terminée</h2>
-      <p class="small" style="margin-bottom:18px">Les cartes ont été enregistrées dans le système SRS.</p>
-      <button class="bp" onclick="endStudy()">Retour</button>
-    </div>`;
-  }
-
-  const md=S.studyMode||'flip';
-  const total=dk.cards.length;
-  const prog=Math.round((idx/total)*100);
-
-  const frontLang=cardFrontLang(card);
-  const backLang=cardBackLang(card);
-  const front=cardFrontText(card);
-  const back=cardBackText(card);
-
+  const dk=S.studyDeck,idx=S.studyIdx||0,card=dk.cards[idx];
+  if(!card){earnB('b5');sv('srs');return`<div style="text-align:center;padding:36px 0"><div style="font-size:48px;margin-bottom:10px">🏆</div><h2 style="margin-bottom:8px">Session terminée</h2><p class="small" style="margin-bottom:18px">Les cartes ont été enregistrées dans le système SRS.</p><button class="bp" onclick="endStudy()">Retour</button></div>`}
+  const md=S.studyMode||'flip',total=dk.cards.length,prog=Math.round((idx/total)*100);
+  const frontLang=cardFrontLang(card),backLang=cardBackLang(card),front=cardFrontText(card),back=cardBackText(card);
   let cnt='';
-
   if(md==='flip'){
     const fl=S.flipped;
-    cnt=`
-    <div onclick="doFlip()" style="min-height:190px;background:${fl?'var(--a)':'var(--f)'};border:1px solid var(--b);border-radius:16px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;transition:all .3s;color:${fl?'var(--bg)':'var(--t)'}">
-      ${!fl?`
-        <div style="text-align:center">
-          <div class="sec">${frontLang}</div>
-          <div style="font-family:Georgia,serif;font-size:40px;font-weight:700">${esc(front)}</div>
-          <div style="font-size:12px;color:var(--m);margin-top:10px">Cliquer pour révéler</div>
-          ${card.deckName?`<div style="font-size:11px;color:var(--m);margin-top:8px">${esc(card.deckName)}</div>`:''}
-        </div>
-      `:`
-        <div style="text-align:center">
-          <div class="sec" style="color:var(--m)">${backLang}</div>
-          <div style="font-family:Georgia,serif;font-size:28px;font-weight:700;margin-bottom:14px">${esc(back)}</div>
-          ${card.ex?`<div style="font-size:13px;font-style:italic;color:#aaa;border-top:1px solid #333;padding-top:12px">"${esc(card.ex)}"</div>`:''}
-        </div>
-      `}
+    cnt=`<div onclick="doFlip()" style="min-height:190px;background:${fl?'var(--a)':'var(--f)'};border:1px solid var(--b);border-radius:16px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;transition:all .3s;color:${fl?'var(--bg)':'var(--t)'}">
+      ${!fl?`<div style="text-align:center"><div class="sec">${frontLang}</div><div style="font-family:Georgia,serif;font-size:40px;font-weight:700">${esc(front)}</div><div style="font-size:12px;color:var(--m);margin-top:10px">Cliquer pour révéler</div>${card.deckName?`<div style="font-size:11px;color:var(--m);margin-top:8px">${esc(card.deckName)}</div>`:''}</div>`:`<div style="text-align:center"><div class="sec" style="color:var(--m)">${backLang}</div><div style="font-family:Georgia,serif;font-size:28px;font-weight:700;margin-bottom:14px">${esc(back)}</div>${card.ex?`<div style="font-size:13px;font-style:italic;color:#aaa;border-top:1px solid #333;padding-top:12px">"${esc(card.ex)}"</div>`:''}</div>`}
     </div>
-
-    <div style="display:flex;gap:8px;margin:12px 0">
-      <button class="bg" onclick="tts('${esc(front)}')" style="flex:1">🔊 Écouter</button>
-      <button class="bg" onclick="doSpeech()" style="flex:1">🎤 Répéter</button>
-    </div>
-
+    <div style="display:flex;gap:8px;margin:12px 0"><button class="bg" onclick="tts('${esc(front)}')" style="flex:1">🔊 Écouter</button><button class="bg" onclick="doSpeech()" style="flex:1">🎤 Répéter</button></div>
     <div id="spkr"></div>
-
-    ${fl?`
-      <div style="display:flex;gap:9px;margin-top:6px">
-        <button class="bd" onclick="ans(false)" style="flex:1">À revoir</button>
-        <button class="bs" onclick="ans(true)" style="flex:1">Je savais</button>
-      </div>
-    `:`
-      <button class="bp" onclick="doFlip()" style="width:100%">Retourner</button>
-    `}`;
+    ${fl?`<div style="display:flex;gap:9px;margin-top:6px"><button class="bd" onclick="ans(false)" style="flex:1">À revoir</button><button class="bs" onclick="ans(true)" style="flex:1">Je savais</button></div>`:`<button class="bp" onclick="doFlip()" style="width:100%">Retourner</button>`}`;
+  }else if(md==='qcm'){
+    const opts=S.qopts||genQCM(card);if(!S.qopts)S.qopts=opts;
+    cnt=`<div class="card" style="text-align:center;margin-bottom:14px"><div class="sec">Trouve la traduction</div><div style="font-size:12px;color:var(--m);margin-bottom:8px">${frontLang} → ${backLang}</div><div style="font-family:Georgia,serif;font-size:36px;font-weight:700">${esc(front)}</div><button class="bg" onclick="tts('${esc(front)}')" style="margin-top:10px">🔊</button></div><div id="qopts">${opts.map(o=>`<button class="opt" onclick="ansQ('${esc(o)}')">${esc(o)}</button>`).join('')}</div>`;
+  }else{
+    cnt=`<div class="card" style="margin-bottom:14px"><div class="sec">Traduis en ${backLang.toLowerCase()}</div><div style="font-family:Georgia,serif;font-size:36px;font-weight:700;margin-bottom:8px">${esc(front)}</div>${card.ex?`<div style="font-size:13px;color:var(--m);font-style:italic">"${esc(card.ex)}"</div>`:''}</div><input id="finp" placeholder="Tape la réponse..." onkeydown="if(event.key==='Enter')chkFill()"><div id="fr" style="margin-top:10px"></div><button class="bp" onclick="chkFill()" style="width:100%;margin-top:10px" id="fbtn">Vérifier</button>`;
   }
-
-  else if(md==='qcm'){
-    const opts=S.qopts||genQCM(card);
-    if(!S.qopts)S.qopts=opts;
-    cnt=`
-    <div class="card" style="text-align:center;margin-bottom:14px">
-      <div class="sec">Trouve la traduction</div>
-      <div style="font-size:12px;color:var(--m);margin-bottom:8px">${frontLang} → ${backLang}</div>
-      <div style="font-family:Georgia,serif;font-size:36px;font-weight:700">${esc(front)}</div>
-      <button class="bg" onclick="tts('${esc(front)}')" style="margin-top:10px">🔊</button>
-    </div>
-    <div id="qopts">
-      ${opts.map(o=>`<button class="opt" onclick="ansQ('${esc(o)}')">${esc(o)}</button>`).join('')}
-    </div>`;
-  }
-
-  else{
-    cnt=`
-    <div class="card" style="margin-bottom:14px">
-      <div class="sec">Traduis en ${backLang.toLowerCase()}</div>
-      <div style="font-family:Georgia,serif;font-size:36px;font-weight:700;margin-bottom:8px">${esc(front)}</div>
-      ${card.ex?`<div style="font-size:13px;color:var(--m);font-style:italic">"${esc(card.ex)}"</div>`:''}
-    </div>
-    <input id="finp" placeholder="Tape la réponse..." onkeydown="if(event.key==='Enter')chkFill()">
-    <div id="fr" style="margin-top:10px"></div>
-    <button class="bp" onclick="chkFill()" style="width:100%;margin-top:10px" id="fbtn">Vérifier</button>`;
-  }
-
-  return`
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px">
-    <button class="bg" onclick="endStudy()" style="padding:7px 12px;font-size:12px">← Retour</button>
-    <div style="display:flex;gap:5px">
-      ${['flip','qcm','fill'].map(m=>`
-        <button class="${md===m?'bp':'bg'}" onclick="setSM('${m}')" style="padding:7px 10px;font-size:11px">
-          ${m==='flip'?'Carte':m==='qcm'?'QCM':'Saisie'}
-        </button>
-      `).join('')}
-    </div>
-    <span style="font-size:12px;color:var(--m)">${idx+1}/${total}</span>
-  </div>
-  <div class="pbar" style="margin-bottom:16px">
-    <div class="pfill" style="width:${prog}%;background:${dk.accent||'var(--bl)'}"></div>
-  </div>
-  ${cnt}`;
+  return`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px"><button class="bg" onclick="endStudy()" style="padding:7px 12px;font-size:12px">← Retour</button><div style="display:flex;gap:5px">${['flip','qcm','fill'].map(m=>`<button class="${md===m?'bp':'bg'}" onclick="setSM('${m}')" style="padding:7px 10px;font-size:11px">${m==='flip'?'Carte':m==='qcm'?'QCM':'Saisie'}</button>`).join('')}</div><span style="font-size:12px;color:var(--m)">${idx+1}/${total}</span></div><div class="pbar" style="margin-bottom:16px"><div class="pfill" style="width:${prog}%;background:${dk.accent||'var(--bl)'}"></div></div>${cnt}`;
 }
 
 function genQCM(c){
-  const correct=cardBackText(c);
-  const dir=cardDirection(c);
+  const correct=cardBackText(c),dir=cardDirection(c);
   const all=S.decks.flatMap(d=>d.cards.map(x=>applyCardDirection(x,dir)));
-  const oth=all
-    .filter(x=>x.id!==c.id&&cardBackText(x)!==correct)
-    .sort(()=>Math.random()-.5)
-    .slice(0,3)
-    .map(x=>cardBackText(x));
-
-  while(oth.length<3){
-    oth.push(['Je ne sais pas','Autre réponse','Réponse proche'][oth.length]||'Autre');
-  }
-
+  const oth=all.filter(x=>x.id!==c.id&&cardBackText(x)!==correct).sort(()=>Math.random()-.5).slice(0,3).map(x=>cardBackText(x));
+  while(oth.length<3)oth.push(['Je ne sais pas','Autre réponse','Réponse proche'][oth.length]||'Autre');
   return[...oth,correct].sort(()=>Math.random()-.5);
 }
 
 function rLearn(){
   if(S.studyDeck)return rStudy();
-
-  const subs=[
-    {id:'grammar',l:'Grammaire'},
-    {id:'phrases',l:'Phrases'},
-    {id:'pronun',l:'Prononciation'},
-    {id:'idioms',l:'Idiomes'},
-    {id:'dictation',l:'Dictée'},
-    {id:'custom',l:'Personnaliser'}
-  ];
-
-  const fns={
-    grammar:rGram,
-    phrases:rPhr,
-    pronun:rPron,
-    idioms:rIdioms,
-    dictation:rDict,
-    custom:rCustomLearn
-  };
-
-  return`
-  <div class="tab-bar">
-    ${subs.map(s=>`
-      <button class="tbtn ${S.learnSub===s.id?'on':''}" onclick="S.learnSub='${s.id}';render()">
-        ${s.l}
-      </button>
-    `).join('')}
-  </div>
-  <div id="lc">${(fns[S.learnSub]||rGram)()}</div>`;
+  const subs=[{id:'grammar',l:'Grammaire'},{id:'phrases',l:'Phrases'},{id:'pronun',l:'Prononciation'},{id:'idioms',l:'Idiomes'},{id:'dictation',l:'Dictée'},{id:'custom',l:'Personnaliser'}];
+  const fns={grammar:rGram,phrases:rPhr,pronun:rPron,idioms:rIdioms,dictation:rDict,custom:rCustomLearn};
+  return`<div class="tab-bar">${subs.map(s=>`<button class="tbtn ${S.learnSub===s.id?'on':''}" onclick="S.learnSub='${s.id}';render()">${s.l}</button>`).join('')}</div><div id="lc">${(fns[S.learnSub]||rGram)()}</div>`;
 }
 
 function rGram(){
   if(S.gqmode==='quiz')return rGQ();
   const flt=S.gqf==='all'?GRAMMAR:GRAMMAR.filter(g=>g.lvl===S.gqf);
-
-  return`
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px">
-    <div style="display:flex;gap:5px;overflow-x:auto">
-      ${['all','A1','A2','B1','B2','C1','C2'].map(l=>`
-        <button class="${S.gqf===l?'bp':'bg'}" onclick="S.gqf='${l}';render()" style="padding:6px 10px;font-size:11px">
-          ${l==='all'?'Tout':l}
-        </button>
-      `).join('')}
-    </div>
-    <button class="bp" onclick="S.gqmode='quiz';S.gqd={idx:0,sc:0,sel:null,done:false};render()" style="padding:7px 13px;font-size:12px">
-      Quiz
-    </button>
-  </div>
-
-  ${flt.map(g=>`
-    <div style="padding:18px 20px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:12px">
-      <div style="display:flex;justify-content:space-between;margin-bottom:8px;gap:8px">
-        <div style="font-family:Georgia,serif;font-size:18px;font-weight:700">${esc(g.rule)}</div>
-        <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${g.lvl}</span>
-      </div>
-      <div style="font-size:12px;color:var(--m);background:var(--s);border-radius:7px;padding:6px 12px;margin-bottom:9px;font-style:italic">
-        ${esc(g.formula)}
-      </div>
-      <div style="font-size:13px;margin-bottom:7px">
-        "${esc(g.ex)}"
-        <button onclick="tts('${esc(g.ex)}')" style="background:none;border:none;color:var(--m);font-size:13px">🔊</button>
-      </div>
-      <div style="font-size:12px;color:var(--m)">💡 ${esc(g.tip)}</div>
-    </div>
-  `).join('')}`;
+  return`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px"><div style="display:flex;gap:5px;overflow-x:auto">${['all','A1','A2','B1','B2','C1'].map(l=>`<button class="${S.gqf===l?'bp':'bg'}" onclick="S.gqf='${l}';render()" style="padding:6px 10px;font-size:11px">${l==='all'?'Tout':l}</button>`).join('')}</div><button class="bp" onclick="S.gqmode='quiz';S.gqd={idx:0,sc:0,sel:null,done:false};render()" style="padding:7px 13px;font-size:12px">Quiz</button></div>
+  ${flt.map(g=>`<div style="padding:18px 20px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:8px;gap:8px"><div style="font-family:Georgia,serif;font-size:18px;font-weight:700">${esc(g.rule)}</div><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${g.lvl}</span></div><div style="font-size:12px;color:var(--m);background:var(--s);border-radius:7px;padding:6px 12px;margin-bottom:9px;font-style:italic">${esc(g.formula)}</div><div style="font-size:13px;margin-bottom:7px">"${esc(g.ex)}" <button onclick="tts('${esc(g.ex)}')" style="background:none;border:none;color:var(--m);font-size:13px">🔊</button></div><div style="font-size:12px;color:var(--m)">💡 ${esc(g.tip)}</div></div>`).join('')}`;
 }
 
 function rGQ(){
   if(!S.gqd)S.gqd={idx:0,sc:0,sel:null,done:false};
   const {idx,sc,sel,done}=S.gqd;
-
-  if(done){
-    return`
-    <div style="text-align:center;padding:36px 0">
-      <div style="font-family:Georgia,serif;font-size:44px;font-weight:700">${sc}/${GQUIZ.length}</div>
-      <div class="small" style="margin:8px 0 24px">${sc===GQUIZ.length?'Quiz parfait':'Quiz terminé'}</div>
-      <div style="display:flex;gap:10px">
-        <button class="bp" onclick="S.gqd={idx:0,sc:0,sel:null,done:false};render()">Recommencer</button>
-        <button class="bg" onclick="S.gqmode='learn';render()">Retour</button>
-      </div>
-    </div>`;
-  }
-
+  if(done)return`<div style="text-align:center;padding:36px 0"><div style="font-family:Georgia,serif;font-size:44px;font-weight:700">${sc}/${GQUIZ.length}</div><div class="small" style="margin:8px 0 24px">${sc===GQUIZ.length?'Quiz parfait':'Quiz terminé'}</div><div style="display:flex;gap:10px"><button class="bp" onclick="S.gqd={idx:0,sc:0,sel:null,done:false};render()">Recommencer</button><button class="bg" onclick="S.gqmode='learn';render()">Retour</button></div></div>`;
   const q=GQUIZ[idx];
-
-  return`
-  <div style="display:flex;justify-content:space-between;margin-bottom:14px">
-    <button class="bg" onclick="S.gqmode='learn';render()" style="font-size:12px">← Retour</button>
-    <span style="font-size:12px;color:var(--m)">${idx+1}/${GQUIZ.length}</span>
-  </div>
-  <div style="font-family:Georgia,serif;font-size:21px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div>
-  <div>
-    ${q.opts.map((o,i)=>`
-      <button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansGQ('${esc(o)}')" ${sel!==null?'disabled':''}>
-        ${esc(o)}
-      </button>
-    `).join('')}
-  </div>
-  ${sel!==null?`
-    <div style="margin-top:12px;padding:13px;background:var(--f);border-radius:9px;font-size:13px;color:var(--m);line-height:1.6">
-      💡 ${esc(q.exp)}
-      <button class="bp" onclick="nxtGQ()" style="display:block;margin-top:10px;width:100%">
-        ${idx+1>=GQUIZ.length?'Résultats':'Suivant'}
-      </button>
-    </div>
-  `:''}`;
+  return`<div style="display:flex;justify-content:space-between;margin-bottom:14px"><button class="bg" onclick="S.gqmode='learn';render()" style="font-size:12px">← Retour</button><span style="font-size:12px;color:var(--m)">${idx+1}/${GQUIZ.length}</span></div><div style="font-family:Georgia,serif;font-size:21px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div><div>${q.opts.map((o,i)=>`<button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansGQ('${esc(o)}')" ${sel!==null?'disabled':''}>${esc(o)}</button>`).join('')}</div>${sel!==null?`<div style="margin-top:12px;padding:13px;background:var(--f);border-radius:9px;font-size:13px;color:var(--m);line-height:1.6">💡 ${esc(q.exp)}<button class="bp" onclick="nxtGQ()" style="display:block;margin-top:10px;width:100%">${idx+1>=GQUIZ.length?'Résultats':'Suivant'}</button></div>`:''}`;
 }
 
 function rPhr(){
-  const flt=S.phf==='all'?PHRASES:PHRASES.filter(p=>p.lvl===S.phf);
-  return`
-  <div style="display:flex;gap:5px;margin-bottom:14px;overflow-x:auto">
-    ${['all','A1','A2','B1','B2','C1'].map(l=>`
-      <button class="${S.phf===l?'bp':'bg'}" onclick="S.phf='${l}';render()" style="padding:5px 9px;font-size:11px">
-        ${l==='all'?'Tout':l}
-      </button>
-    `).join('')}
-  </div>
-  ${flt.map(p=>{
-    const gi=PHRASES.indexOf(p);
-    const done=S.phrases.includes(gi);
-    return`
-    <div style="padding:16px 18px;border:1px solid ${done?'var(--a)':'var(--b)'};border-radius:13px;background:${done?'var(--a)':'var(--f)'};margin-bottom:10px">
-      <div style="font-size:10px;text-transform:uppercase;color:${done?'#888':'var(--m)'};margin-bottom:7px">${esc(p.ctx)} · ${p.lvl}</div>
-      <div style="font-family:Georgia,serif;font-size:18px;font-weight:700;color:${done?'var(--bg)':'var(--t)'};margin-bottom:5px">
-        "${esc(p.p)}"
-        <button onclick="tts('${esc(p.p)}')" style="background:none;border:none;color:${done?'#888':'var(--m)'};font-size:13px">🔊</button>
-      </div>
-      <div style="font-size:12px;color:${done?'#888':'var(--m)'};margin-bottom:11px">→ ${esc(p.fr)}</div>
-      <button onclick="togPhr(${gi})" style="padding:6px 13px;background:${done?'transparent':'var(--a)'};color:${done?'#777':'var(--bg)'};border:${done?'1px solid #555':'none'};border-radius:7px;font-size:11px">
-        ${done?'✓ Appris':'Marquer · +8 XP'}
-      </button>
-    </div>`;
-  }).join('')}`;
+  return`${PHRASES.map((p,i)=>{const done=S.phrases.includes(i);return`<div style="padding:16px 18px;border:1px solid ${done?'var(--a)':'var(--b)'};border-radius:13px;background:${done?'var(--a)':'var(--f)'};margin-bottom:10px"><div style="font-size:10px;text-transform:uppercase;color:${done?'#888':'var(--m)'};margin-bottom:7px">${esc(p.ctx)} · ${p.lvl}</div><div style="font-family:Georgia,serif;font-size:18px;font-weight:700;color:${done?'var(--bg)':'var(--t)'};margin-bottom:5px">"${esc(p.p)}" <button onclick="tts('${esc(p.p)}')" style="background:none;border:none;color:${done?'#888':'var(--m)'};font-size:13px">🔊</button></div><div style="font-size:12px;color:${done?'#888':'var(--m)'};margin-bottom:11px">→ ${esc(p.fr)}</div><button onclick="togPhr(${i})" style="padding:6px 13px;background:${done?'transparent':'var(--a)'};color:${done?'#777':'var(--bg)'};border:${done?'1px solid #555':'none'};border-radius:7px;font-size:11px">${done?'✓ Appris':'Marquer · +8 XP'}</button></div>`}).join('')}`;
 }
 
 function rPron(){
   const t=PRON_D[S.pron||0];
-  return`
-  <div style="display:flex;gap:7px;margin-bottom:18px;overflow-x:auto">
-    ${PRON_D.map((x,i)=>`
-      <button class="${(S.pron||0)===i?'bp':'bg'}" onclick="S.pron=${i};render()" style="flex:1;font-family:Georgia,serif;font-size:14px;font-weight:700;padding:9px 12px">
-        ${x.s}
-      </button>
-    `).join('')}
-  </div>
-  <div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
-      <div>
-        <div style="font-family:Georgia,serif;font-size:44px;font-weight:700">${t.s}</div>
-        <div style="font-size:13px;color:var(--m)">${t.ipa}</div>
-      </div>
-      <button class="bp" onclick="tts('${t.ws[0]}')">🔊 Exemple</button>
-    </div>
-    <div style="font-size:13px;color:var(--m);padding:11px 14px;background:var(--f);border-radius:8px;margin-bottom:16px;line-height:1.7">
-      ${esc(t.d)}
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px">
-      ${t.ws.map(w=>`
-        <div style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--f);border-radius:9px">
-          <span style="font-family:Georgia,serif;font-style:italic;font-size:15px;flex:1">${esc(w)}</span>
-          <button onclick="tts('${esc(w)}')" style="background:none;border:none;font-size:16px">🔊</button>
-          <button onclick="tts('${esc(w)}',.6)" style="background:none;border:none;font-size:12px;color:var(--m)">0.6x</button>
-        </div>
-      `).join('')}
-    </div>
-  </div>`;
+  return`<div style="display:flex;gap:7px;margin-bottom:18px;overflow-x:auto">${PRON_D.map((x,i)=>`<button class="${(S.pron||0)===i?'bp':'bg'}" onclick="S.pron=${i};render()" style="flex:1;font-family:Georgia,serif;font-size:14px;font-weight:700;padding:9px 12px">${x.s}</button>`).join('')}</div><div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px"><div><div style="font-family:Georgia,serif;font-size:44px;font-weight:700">${t.s}</div><div style="font-size:13px;color:var(--m)">${t.ipa}</div></div><button class="bp" onclick="tts('${t.ws[0]}')">🔊 Exemple</button></div><div style="font-size:13px;color:var(--m);padding:11px 14px;background:var(--f);border-radius:8px;margin-bottom:16px;line-height:1.7">${esc(t.d)}</div><div style="display:flex;flex-direction:column;gap:8px">${t.ws.map(w=>`<div style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--f);border-radius:9px"><span style="font-family:Georgia,serif;font-style:italic;font-size:15px;flex:1">${esc(w)}</span><button onclick="tts('${esc(w)}')" style="background:none;border:none;font-size:16px">🔊</button><button onclick="tts('${esc(w)}',.6)" style="background:none;border:none;font-size:12px;color:var(--m)">0.6x</button></div>`).join('')}</div></div>`;
 }
 
-function rIdioms(){
-  return`
-  <div class="small" style="margin-bottom:16px">Expressions idiomatiques utiles.</div>
-  ${IDIOMS.map(id=>`
-    <div style="padding:16px 18px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:10px">
-      <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;margin-bottom:7px">${esc(id.e)}</div>
-      <div style="font-size:14px;color:var(--bl);margin-bottom:7px;font-weight:600">→ ${esc(id.m)}</div>
-      <div style="font-size:13px;color:var(--m);font-style:italic">
-        "${esc(id.ex)}"
-        <button onclick="tts('${esc(id.ex)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button>
-      </div>
-    </div>
-  `).join('')}`;
-}
+function rIdioms(){return`<div class="small" style="margin-bottom:16px">Expressions idiomatiques utiles.</div>${IDIOMS.map(id=>`<div style="padding:16px 18px;border:1px solid var(--b);border-radius:13px;background:var(--f);margin-bottom:10px"><div style="font-family:Georgia,serif;font-size:17px;font-weight:700;margin-bottom:7px">${esc(id.e)}</div><div style="font-size:14px;color:var(--bl);margin-bottom:7px;font-weight:600">→ ${esc(id.m)}</div><div style="font-size:13px;color:var(--m);font-style:italic">"${esc(id.ex)}" <button onclick="tts('${esc(id.ex)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div></div>`).join('')}`}
 
-function rDict(){
-  const di=S.dictIdx||0;
-  const c=DICT_WORDS[di%DICT_WORDS.length];
-  return`
-  <div class="card" style="margin-bottom:14px">
-    <div class="sec">Écoute et écris le mot en anglais</div>
-    <button onclick="tts('${esc(c.word)}')" style="font-size:48px;background:none;border:none;display:block;margin:0 auto 8px">🔊</button>
-    <button onclick="tts('${esc(c.word)}',.6)" style="padding:6px 14px;background:var(--f);border:1px solid var(--b);border-radius:20px;font-size:12px;display:block;margin:0 auto">
-      0.6x lent
-    </button>
-  </div>
-  <input id="dinp" placeholder="Écris le mot anglais..." style="margin-bottom:10px" onkeydown="if(event.key==='Enter')chkDict()">
-  <button class="bp" onclick="chkDict()" style="width:100%">Vérifier</button>
-  <div id="dr"></div>
-  <div style="text-align:center;font-size:12px;color:var(--m);margin-top:12px">${di+1} / ${DICT_WORDS.length}</div>`;
-}
+function rDict(){const di=S.dictIdx||0,c=DICT_WORDS[di%DICT_WORDS.length];return`<div class="card" style="margin-bottom:14px"><div class="sec">Écoute et écris le mot en anglais</div><button onclick="tts('${esc(c.word)}')" style="font-size:48px;background:none;border:none;display:block;margin:0 auto 8px">🔊</button><button onclick="tts('${esc(c.word)}',.6)" style="padding:6px 14px;background:var(--f);border:1px solid var(--b);border-radius:20px;font-size:12px;display:block;margin:0 auto">0.6x lent</button></div><input id="dinp" placeholder="Écris le mot anglais..." style="margin-bottom:10px" onkeydown="if(event.key==='Enter')chkDict()"><button class="bp" onclick="chkDict()" style="width:100%">Vérifier</button><div id="dr"></div><div style="text-align:center;font-size:12px;color:var(--m);margin-top:12px">${di+1} / ${DICT_WORDS.length}</div>`}
 
 function rCustomLearn(){
-  const decks=S.decks||[];
-  const selected=S.customDecks||[];
-  const deleteSelected=S.deleteDecks||[];
-
-  const totalSelected=decks
-    .filter(d=>selected.includes(d.id))
-    .reduce((sum,d)=>sum+d.cards.length,0);
-
-  const dueSelected=decks
-    .filter(d=>selected.includes(d.id))
-    .flatMap(d=>d.cards)
-    .filter(c=>{
-      const s=S.srs[c.id];
-      return !s?.srsNextReview || s.srsNextReview<=Date.now();
-    }).length;
-
-  if(!decks.length){
-    return`
-    <div class="card" style="text-align:center">
-      <div style="font-size:38px;margin-bottom:10px">📚</div>
-      <h2 style="font-size:20px;margin-bottom:8px">Aucun deck disponible</h2>
-      <p class="small" style="margin-bottom:16px">Importe ou crée d'abord un deck dans l'onglet Decks.</p>
-      <button class="bp" onclick="setTab('decks')" style="width:100%">Aller aux decks</button>
-    </div>`;
-  }
-
+  const decks=S.decks||[],selected=S.customDecks||[],deleteSelected=S.deleteDecks||[];
+  const totalSelected=decks.filter(d=>selected.includes(d.id)).reduce((sum,d)=>sum+d.cards.length,0);
+  const dueSelected=decks.filter(d=>selected.includes(d.id)).flatMap(d=>d.cards).filter(c=>{const s=S.srs[c.id];return !s?.srsNextReview||s.srsNextReview<=Date.now()}).length;
+  if(!decks.length)return`<div class="card" style="text-align:center"><div style="font-size:38px;margin-bottom:10px">📚</div><h2 style="font-size:20px;margin-bottom:8px">Aucun deck disponible</h2><p class="small" style="margin-bottom:16px">Importe ou crée d'abord un deck dans l'onglet Decks.</p><button class="bp" onclick="setTab('decks')" style="width:100%">Aller aux decks</button></div>`;
   return`
+  <div class="card" style="margin-bottom:14px"><h2 style="font-size:20px;margin-bottom:8px">Apprentissage personnalisé</h2><p class="small">Choisis les decks, le nombre de cartes, le sens recto/verso, puis lance une session.</p></div>
   <div class="card" style="margin-bottom:14px">
-    <h2 style="font-size:20px;margin-bottom:8px">Apprentissage personnalisé</h2>
-    <p class="small">Choisis les decks, le nombre de cartes, le sens recto/verso, puis lance une session.</p>
-  </div>
-
-  <div class="card" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px">
-      <div class="sec" style="margin:0">${S.deleteMode?'Supprimer des decks':'Decks à étudier'}</div>
-      ${S.deleteMode?`
-        <button class="bg" onclick="cancelDeleteMode()" style="padding:7px 10px;font-size:11px">Annuler</button>
-      `:`
-        <button class="bd" onclick="startDeleteMode()" style="padding:7px 10px;font-size:11px">Supprimer</button>
-      `}
-    </div>
-
-    ${S.deleteMode?'':`
-      <div style="display:flex;gap:7px;margin-bottom:12px">
-        <button class="bg" onclick="selectAllCustomDecks()" style="flex:1;padding:8px 10px;font-size:12px">
-          Tout sélectionner
-        </button>
-        <button class="bg" onclick="clearCustomDecks()" style="flex:1;padding:8px 10px;font-size:12px">
-          Tout désélectionner
-        </button>
-      </div>
-    `}
-
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px"><div class="sec" style="margin:0">${S.deleteMode?'Supprimer des decks':'Decks à étudier'}</div>${S.deleteMode?`<button class="bg" onclick="cancelDeleteMode()" style="padding:7px 10px;font-size:11px">Annuler</button>`:`<button class="bd" onclick="startDeleteMode()" style="padding:7px 10px;font-size:11px">Supprimer</button>`}</div>
+    ${S.deleteMode?'':`<div style="display:flex;gap:7px;margin-bottom:12px"><button class="bg" onclick="selectAllCustomDecks()" style="flex:1;padding:8px 10px;font-size:12px">Tout sélectionner</button><button class="bg" onclick="clearCustomDecks()" style="flex:1;padding:8px 10px;font-size:12px">Tout désélectionner</button></div>`}
     ${decks.map(d=>{
-      const checked=selected.includes(d.id);
-      const deleteChecked=deleteSelected.includes(d.id);
-      const due=d.cards.filter(c=>{
-        const s=S.srs[c.id];
-        return !s?.srsNextReview || s.srsNextReview<=Date.now();
-      }).length;
-
-      if(S.deleteMode){
-        return`
-        <label style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--b);border-radius:10px;background:var(--f);margin-bottom:8px;cursor:pointer">
-          <input type="checkbox" ${deleteChecked?'checked':''} onchange="toggleDeleteDeck('${d.id}')" style="width:auto">
-          <div style="flex:1;min-width:0">
-            <div style="font-weight:600;font-size:14px">${esc(d.name)}</div>
-            <div style="font-size:11px;color:var(--m)">${d.cards.length} cartes · ${esc(d.level||'A1')}</div>
-          </div>
-        </label>`;
-      }
-
-      return`
-      <label style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid ${checked?'var(--a)':'var(--b)'};border-radius:10px;background:${checked?'var(--s)':'var(--f)'};margin-bottom:8px;cursor:pointer">
-        <input type="checkbox" ${checked?'checked':''} onchange="toggleCustomDeck('${d.id}')" style="width:auto">
-        <div style="flex:1;min-width:0">
-          <div style="font-weight:600;font-size:14px">${checked?'✓ ':''}${esc(d.name)}</div>
-          <div style="font-size:11px;color:var(--m)">${d.cards.length} cartes · ${due} à revoir · ${esc(d.level||'A1')}</div>
-        </div>
-      </label>`;
+      const checked=selected.includes(d.id),deleteChecked=deleteSelected.includes(d.id);
+      const due=d.cards.filter(c=>{const s=S.srs[c.id];return !s?.srsNextReview||s.srsNextReview<=Date.now()}).length;
+      if(S.deleteMode)return`<label style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--b);border-radius:10px;background:var(--f);margin-bottom:8px;cursor:pointer"><input type="checkbox" ${deleteChecked?'checked':''} onchange="toggleDeleteDeck('${d.id}')" style="width:auto"><div style="flex:1;min-width:0"><div style="font-weight:600;font-size:14px">${esc(d.name)}</div><div style="font-size:11px;color:var(--m)">${d.cards.length} cartes · ${esc(d.level||'A1')}</div></div></label>`;
+      return`<label style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid ${checked?'var(--a)':'var(--b)'};border-radius:10px;background:${checked?'var(--s)':'var(--f)'};margin-bottom:8px;cursor:pointer"><input type="checkbox" ${checked?'checked':''} onchange="toggleCustomDeck('${d.id}')" style="width:auto"><div style="flex:1;min-width:0"><div style="font-weight:600;font-size:14px">${checked?'✓ ':''}${esc(d.name)}</div><div style="font-size:11px;color:var(--m)">${d.cards.length} cartes · ${due} à revoir · ${esc(d.level||'A1')}</div></div></label>`;
     }).join('')}
-
-    ${S.deleteMode?`
-      <button class="bd" onclick="deleteSelectedDecks()" style="width:100%;margin-top:10px" ${deleteSelected.length?'':'disabled'}>
-        Supprimer ${deleteSelected.length} deck(s) sélectionné(s)
-      </button>
-      <div class="small" style="margin-top:12px">Cette action supprimera les decks cochés et leur progression SRS.</div>
-    `:`
-      <div class="small" style="margin-top:10px">
-        ${selected.length} deck(s) sélectionné(s)<br>
-        ${totalSelected} carte(s) disponibles · ${dueSelected} à revoir maintenant
-      </div>
-    `}
+    ${S.deleteMode?`<button class="bd" onclick="deleteSelectedDecks()" style="width:100%;margin-top:10px" ${deleteSelected.length?'':'disabled'}>Supprimer ${deleteSelected.length} deck(s) sélectionné(s)</button><div class="small" style="margin-top:12px">Cette action supprimera les decks cochés et leur progression SRS.</div>`:`<div class="small" style="margin-top:10px">${selected.length} deck(s) sélectionné(s)<br>${totalSelected} carte(s) disponibles · ${dueSelected} à revoir maintenant</div>`}
   </div>
-
   ${S.deleteMode?'':`
-    <div class="card" style="margin-bottom:14px">
-      <div class="sec">Nombre de cartes</div>
-      <div style="display:flex;gap:7px;flex-wrap:wrap">
-        ${[5,10,15,20,30,50].map(n=>`
-          <button class="${S.customCount===n?'bp':'bg'}" onclick="setCustomCount(${n})" style="flex:1">${n}</button>
-        `).join('')}
-      </div>
-    </div>
-
-    <div class="card" style="margin-bottom:14px">
-      <div class="sec">Sens des cartes</div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <button class="${S.customDir==='enfr'?'bp':'bg'}" onclick="setCustomDir('enfr')" style="width:100%">Anglais → Français</button>
-        <button class="${S.customDir==='fren'?'bp':'bg'}" onclick="setCustomDir('fren')" style="width:100%">Français → Anglais</button>
-        <button class="${S.customDir==='mix'?'bp':'bg'}" onclick="setCustomDir('mix')" style="width:100%">Mélange des deux</button>
-      </div>
-    </div>
-
-    <div class="card" style="margin-bottom:14px">
-      <div class="sec">Lancer une session</div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <button class="bp" onclick="startCustomStudy('random')" style="width:100%" ${selected.length?'':'disabled'}>
-          🔀 Mode aléatoire
-        </button>
-        <button class="bg" onclick="startCustomStudy('srs')" style="width:100%" ${selected.length?'':'disabled'}>
-          🔁 Mode SRS — cartes dues uniquement
-        </button>
-        <button class="bg" onclick="startCustomStudy('review')" style="width:100%" ${selected.length?'':'disabled'}>
-          🕐 Révisions personnalisées
-        </button>
-      </div>
-      <div class="small" style="margin-top:12px">
-        Le mode SRS affiche seulement les cartes prévues pour révision.<br>
-        Les révisions personnalisées lancent toujours une session si les decks sélectionnés contiennent au moins une carte.
-      </div>
-    </div>
-  `}`;
+  <div class="card" style="margin-bottom:14px"><div class="sec">Nombre de cartes</div><div style="display:flex;gap:7px;flex-wrap:wrap">${[5,10,15,20,30,50].map(n=>`<button class="${S.customCount===n?'bp':'bg'}" onclick="setCustomCount(${n})" style="flex:1">${n}</button>`).join('')}</div></div>
+  <div class="card" style="margin-bottom:14px"><div class="sec">Sens des cartes</div><div style="display:flex;flex-direction:column;gap:8px"><button class="${S.customDir==='enfr'?'bp':'bg'}" onclick="setCustomDir('enfr')" style="width:100%">Anglais → Français</button><button class="${S.customDir==='fren'?'bp':'bg'}" onclick="setCustomDir('fren')" style="width:100%">Français → Anglais</button><button class="${S.customDir==='mix'?'bp':'bg'}" onclick="setCustomDir('mix')" style="width:100%">Mélange des deux</button></div></div>
+  <div class="card" style="margin-bottom:14px"><div class="sec">Lancer une session</div><div style="display:flex;flex-direction:column;gap:8px"><button class="bp" onclick="startCustomStudy('random')" style="width:100%" ${selected.length?'':'disabled'}>🔀 Mode aléatoire</button><button class="bg" onclick="startCustomStudy('srs')" style="width:100%" ${selected.length?'':'disabled'}>🔁 Mode SRS — cartes dues uniquement</button><button class="bg" onclick="startCustomStudy('review')" style="width:100%" ${selected.length?'':'disabled'}>🕐 Révisions personnalisées</button></div><div class="small" style="margin-top:12px">Les révisions personnalisées lancent toujours une session si les decks sélectionnés contiennent au moins une carte.</div></div>`}`;
 }
 
 function rContent(){
-  const subs=[
-    {id:'stories',l:'Histoires'},
-    {id:'dialogues',l:'Dialogues'}
-  ];
-
-  return`
-  <div class="tab-bar">
-    ${subs.map(s=>`
-      <button class="tbtn ${S.contentSub===s.id?'on':''}" onclick="S.contentSub='${s.id}';render()">${s.l}</button>
-    `).join('')}
-  </div>
-  <div id="ci">${S.contentSub==='stories'?rStories():rDlgs()}</div>`;
+  if(S.activeContent)return rContentReader();
+  const tabs=[{id:'articles',l:'Articles'},{id:'interviews',l:'Interviews'},{id:'dialogues',l:'Dialogues'}];
+  const data=S.contentSub==='articles'?ARTICLES:S.contentSub==='interviews'?INTERVIEWS:DIALOGUES;
+  return`<div class="tab-bar">${tabs.map(t=>`<button class="tbtn ${S.contentSub===t.id?'on':''}" onclick="S.contentSub='${t.id}';S.activeContent=null;render()">${t.l}</button>`).join('')}</div>
+  <div class="card" style="margin-bottom:14px"><h2 style="font-size:20px;margin-bottom:8px">${S.contentSub==='articles'?'Articles pédagogiques':S.contentSub==='interviews'?'Interviews':'Dialogues réalistes'}</h2><p class="small">${S.contentSub==='articles'?'Lis des textes anglais progressifs avec résumé, vocabulaire et question de compréhension.':S.contentSub==='interviews'?'Travaille des interviews structurées avec vocabulaire utile.':'Travaille des situations concrètes avec phrases utiles.'}</p></div>
+  ${data.map(x=>`<div onclick="S.activeContent='${x.id}';render()" style="padding:18px 20px;border:1px solid ${S.readS.includes(x.id)?'#4caf50':'var(--b)'};border-radius:14px;background:var(--f);cursor:pointer;margin-bottom:11px"><div style="display:flex;justify-content:space-between;margin-bottom:6px;gap:8px"><div style="font-family:Georgia,serif;font-size:17px;font-weight:700">${esc(x.title)}</div><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${x.lvl}</span></div><div style="font-size:13px;color:var(--m)">${esc(x.intro)}</div>${S.readS.includes(x.id)?'<div style="font-size:11px;color:#4caf50;margin-top:6px">✓ Lu</div>':''}</div>`).join('')}`;
 }
 
-function rStories(){
-  if(S.activeStory)return rStoryR();
-
-  return`
-  <div class="small" style="margin-bottom:16px">Clique sur une histoire pour lire.</div>
-  ${STORIES.map(s=>`
-    <div onclick="S.activeStory='${s.id}';render()" style="padding:18px 20px;border:1px solid ${S.readS.includes(s.id)?'#4caf50':'var(--b)'};border-radius:14px;background:var(--f);cursor:pointer;margin-bottom:11px">
-      <div style="display:flex;justify-content:space-between;margin-bottom:6px;gap:8px">
-        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700">${esc(s.title)}</div>
-        <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${s.lvl}</span>
-      </div>
-      <div style="font-size:13px;color:var(--m)">${esc(s.text.slice(0,90))}...</div>
-      ${S.readS.includes(s.id)?'<div style="font-size:11px;color:#4caf50;margin-top:6px">✓ Lu</div>':''}
-    </div>
-  `).join('')}`;
-}
-
-function rStoryR(){
-  const s=STORIES.find(x=>x.id===S.activeStory);
-  if(!s)return rStories();
-
-  const km={};
-  Object.keys(s.kw).forEach(w=>km[w.toLowerCase()]=s.kw[w]);
-
-  const th=s.text.split(/(\s+)/).map(w=>{
-    const cl=w.replace(/[^a-zA-Z']/g,'').toLowerCase();
-    if(!cl)return esc(w);
-    const isK=km[cl];
-    if(isK){
-      return`<span onclick="showWordBox('${esc(cl)}','${esc(isK)}')" style="border-bottom:2px solid var(--bl);color:var(--bl);cursor:pointer">${esc(w)}</span>`;
-    }
-    return esc(w);
-  }).join('');
-
-  return`
-  <button onclick="S.activeStory=null;render()" style="background:none;border:none;color:var(--m);font-size:13px;margin-bottom:14px">← Retour</button>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px">
-    <h2 style="font-size:20px">${esc(s.title)}</h2>
-    <div style="display:flex;gap:7px">
-      <button onclick="tts('${esc(s.text)}')" class="bg" style="padding:6px 10px;font-size:12px">🔊</button>
-      <button onclick="tts('${esc(s.text)}',.7)" class="bg" style="padding:6px 10px;font-size:12px">🐢</button>
-    </div>
-  </div>
-  <div style="font-size:15px;line-height:2.1;padding:20px;background:var(--f);border-radius:14px;border:1px solid var(--b)">${th}</div>
-  <div id="wexp" style="margin-top:12px"></div>
-  <button onclick="markStoryRead('${s.id}')" class="bp" style="width:100%;margin-top:16px">
-    ${S.readS.includes(s.id)?'Relire':"J'ai lu · +25 XP"}
-  </button>`;
-}
-
-function showWordBox(word,tr){
-  const el=document.getElementById('wexp');
-  if(!el)return;
-  el.innerHTML=`
-  <div class="card">
-    <div style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:8px">
-      ${esc(word)}
-      <button onclick="tts('${esc(word)}')" style="background:none;border:none;font-size:16px">🔊</button>
-    </div>
-    <div style="font-size:14px;line-height:1.7">Traduction : <strong>${esc(tr)}</strong></div>
-  </div>`;
-}
-
-function markStoryRead(id){
-  if(!S.readS.includes(id)){
-    S.readS.push(id);
-    sv('readS');
-    addXP(25);
-    earnB('b7');
+function rContentReader(){
+  const data=[...ARTICLES,...INTERVIEWS,...DIALOGUES],x=data.find(a=>a.id===S.activeContent);
+  if(!x){S.activeContent=null;return rContent()}
+  if(ARTICLES.some(a=>a.id===x.id)){
+    return`<button class="bg" onclick="S.activeContent=null;render()" style="margin-bottom:14px">← Retour</button><div class="card" style="margin-bottom:14px"><div class="sec">${x.lvl} · Article</div><h2 style="font-size:22px;margin-bottom:10px">${esc(x.title)}</h2><p class="small">${esc(x.intro)}</p></div><div class="article-text">${esc(x.text)}</div><div style="display:flex;gap:8px;margin:12px 0"><button class="bg" onclick="tts('${esc(x.text)}')" style="flex:1">🔊 Écouter</button><button class="bg" onclick="tts('${esc(x.text)}',.7)" style="flex:1">🐢 Lent</button></div><div class="card" style="margin-bottom:12px"><div class="sec">Résumé français</div><p style="font-size:14px;line-height:1.7">${esc(x.fr)}</p></div><div class="card" style="margin-bottom:12px"><div class="sec">Vocabulaire</div>${x.vocab.map(([en,fr])=>`<div style="display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:8px"><strong>${esc(en)}</strong><span style="color:var(--m)">${esc(fr)}</span></div>`).join('')}</div><div class="card" style="margin-bottom:12px"><div class="sec">Compréhension</div><p style="font-size:14px;margin-bottom:8px">${esc(x.q)}</p><p class="small">Réponse : ${esc(x.a)}</p></div><button class="bp" onclick="markContentRead('${x.id}')" style="width:100%">Marquer comme lu · +25 XP</button>`;
   }
-  S.activeStory=null;
-  render();
+  if(INTERVIEWS.some(a=>a.id===x.id)){
+    return`<button class="bg" onclick="S.activeContent=null;render()" style="margin-bottom:14px">← Retour</button><div class="card" style="margin-bottom:14px"><div class="sec">${x.lvl} · Interview</div><h2 style="font-size:22px;margin-bottom:10px">${esc(x.title)}</h2><p class="small">${esc(x.intro)}</p></div><div class="card" style="margin-bottom:12px">${x.lines.map(([who,line])=>`<div class="line"><div class="role">${esc(who)}</div><div style="font-size:14px;line-height:1.6;flex:1">${esc(line)} <button onclick="tts('${esc(line)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div></div>`).join('')}</div><div class="card" style="margin-bottom:12px"><div class="sec">Vocabulaire</div>${x.vocab.map(([en,fr])=>`<div style="display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:8px"><strong>${esc(en)}</strong><span style="color:var(--m)">${esc(fr)}</span></div>`).join('')}</div><button class="bp" onclick="markContentRead('${x.id}')" style="width:100%">Marquer comme travaillé · +25 XP</button>`;
+  }
+  return`<button class="bg" onclick="S.activeContent=null;render()" style="margin-bottom:14px">← Retour</button><div class="card" style="margin-bottom:14px"><div class="sec">${x.lvl} · Dialogue</div><h2 style="font-size:22px;margin-bottom:10px">${esc(x.title)}</h2><p class="small">${esc(x.intro)}</p></div><div class="card" style="margin-bottom:12px">${x.lines.map(([who,line])=>`<div class="line"><div class="role">${esc(who)}</div><div style="font-size:14px;line-height:1.6;flex:1">${esc(line)} <button onclick="tts('${esc(line)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div></div>`).join('')}</div><div class="card" style="margin-bottom:12px"><div class="sec">Phrases utiles</div>${x.useful.map(u=>`<div style="font-size:14px;margin-bottom:8px">${esc(u)} <button onclick="tts('${esc(u)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button></div>`).join('')}</div><button class="bp" onclick="markContentRead('${x.id}')" style="width:100%">Marquer comme travaillé · +25 XP</button>`;
 }
 
-function rDlgs(){
-  const dialogs=[
-    {
-      title:'Au restaurant',
-      lvl:'A1',
-      lines:[
-        ['Waiter','Good evening. Do you have a reservation?'],
-        ['Customer','Yes, I have a reservation for two.'],
-        ['Waiter','Would you like to see the menu?'],
-        ['Customer','Yes, please.']
-      ]
-    },
-    {
-      title:'Entretien professionnel',
-      lvl:'B1',
-      lines:[
-        ['Recruiter','Can you tell me about your experience?'],
-        ['Candidate','I have worked in customer service for three years.'],
-        ['Recruiter','Why do you want this position?'],
-        ['Candidate','I want to improve my skills and join a strong team.']
-      ]
-    }
-  ];
-
-  return`
-  <div class="card" style="margin-bottom:14px">
-    <h2 style="font-size:20px;margin-bottom:8px">Dialogues types</h2>
-    <p class="small">Lis, écoute, puis répète les phrases utiles.</p>
-  </div>
-  ${dialogs.map(d=>`
-    <div style="padding:18px 20px;border:1px solid var(--b);border-radius:14px;background:var(--f);margin-bottom:11px">
-      <div style="display:flex;justify-content:space-between;margin-bottom:10px">
-        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700">${esc(d.title)}</div>
-        <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#e8eef8;color:#3b6fd4;font-weight:600">${d.lvl}</span>
-      </div>
-      ${d.lines.map(([who,line])=>`
-        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start">
-          <div style="font-size:11px;color:var(--m);width:70px">${esc(who)}</div>
-          <div style="font-size:13px;line-height:1.5;flex:1">
-            ${esc(line)}
-            <button onclick="tts('${esc(line)}')" style="background:none;border:none;color:var(--m);font-size:12px">🔊</button>
-          </div>
-        </div>
-      `).join('')}
-    </div>
-  `).join('')}`;
-}
+function markContentRead(id){if(!S.readS.includes(id)){S.readS.push(id);sv('readS');addXP(25);earnB('b7')}S.activeContent=null;render()}
 
 function rExams(){
-  const subs=[
-    {id:'leveltest',l:'Test niveau'},
-    {id:'toeic',l:'Mini TOEIC'}
-  ];
-
-  return`
-  <div class="tab-bar">
-    ${subs.map(s=>`
-      <button class="tbtn ${S.examSub===s.id?'on':''}" onclick="S.examSub='${s.id}';render()">${s.l}</button>
-    `).join('')}
-  </div>
-  <div id="ec">${S.examSub==='toeic'?rTOEIC():rLT()}</div>`;
+  const subs=[{id:'leveltest',l:'Test niveau'},{id:'toeic',l:'Mini TOEIC'}];
+  return`<div class="tab-bar">${subs.map(s=>`<button class="tbtn ${S.examSub===s.id?'on':''}" onclick="S.examSub='${s.id}';render()">${s.l}</button>`).join('')}</div><div id="ec">${S.examSub==='toeic'?rTOEIC():rLT()}</div>`;
 }
 
 function rTOEIC(){
-  if(S.toeicDone){
-    const pct=Math.round((S.toeicScore/TOEIC.length)*100);
-    const label=pct>=85?'Excellent':pct>=70?'Bon niveau':pct>=50?'Correct':'À renforcer';
-    return`
-    <div style="text-align:center;padding:36px 0">
-      <div style="font-size:48px;margin-bottom:10px">🎓</div>
-      <div style="font-family:Georgia,serif;font-size:36px;font-weight:700">${S.toeicScore}/${TOEIC.length}</div>
-      <div class="small" style="margin:8px 0 24px">${pct}% · ${label}</div>
-      <button class="bp" onclick="resetTOEIC()">Recommencer</button>
-    </div>`;
-  }
-
-  const idx=S.toeicIdx||0;
-  const q=TOEIC[idx];
-  const sel=S.toeicSel;
-
-  return`
-  <div style="display:flex;justify-content:space-between;margin-bottom:12px">
-    <span style="font-size:12px;color:var(--m)">${q.lvl}</span>
-    <span style="font-size:12px;color:var(--m)">${idx+1}/${TOEIC.length}</span>
-  </div>
-  <div class="pbar" style="margin-bottom:16px">
-    <div class="pfill" style="width:${Math.round((idx/TOEIC.length)*100)}%;background:var(--bl)"></div>
-  </div>
-  <div style="font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div>
-  <div>
-    ${q.opts.map((o,i)=>`
-      <button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansTOEIC('${esc(o)}')" ${sel!==null?'disabled':''}>${esc(o)}</button>
-    `).join('')}
-  </div>
-  ${sel!==null?`
-    <div style="margin-top:12px;padding:13px;background:var(--f);border-radius:9px;font-size:13px;color:var(--m);line-height:1.6">
-      💡 ${esc(q.exp)}
-      <button class="bp" onclick="nxtTOEIC()" style="display:block;margin-top:10px;width:100%">
-        ${idx+1>=TOEIC.length?'Résultats':'Suivant'}
-      </button>
-    </div>
-  `:''}`;
+  if(S.toeicDone){const pct=Math.round((S.toeicScore/TOEIC.length)*100),label=pct>=85?'Excellent':pct>=70?'Bon niveau':pct>=50?'Correct':'À renforcer';return`<div style="text-align:center;padding:36px 0"><div style="font-size:48px;margin-bottom:10px">🎓</div><div style="font-family:Georgia,serif;font-size:36px;font-weight:700">${S.toeicScore}/${TOEIC.length}</div><div class="small" style="margin:8px 0 24px">${pct}% · ${label}</div><button class="bp" onclick="resetTOEIC()">Recommencer</button></div>`}
+  const idx=S.toeicIdx||0,q=TOEIC[idx],sel=S.toeicSel;
+  return`<div style="display:flex;justify-content:space-between;margin-bottom:12px"><span style="font-size:12px;color:var(--m)">Mini TOEIC</span><span style="font-size:12px;color:var(--m)">${idx+1}/${TOEIC.length}</span></div><div class="pbar" style="margin-bottom:16px"><div class="pfill" style="width:${Math.round((idx/TOEIC.length)*100)}%;background:var(--bl)"></div></div><div style="font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div><div>${q.opts.map((o,i)=>`<button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansTOEIC('${esc(o)}')" ${sel!==null?'disabled':''}>${esc(o)}</button>`).join('')}</div>${sel!==null?`<div style="margin-top:12px;padding:13px;background:var(--f);border-radius:9px;font-size:13px;color:var(--m);line-height:1.6">💡 ${esc(q.exp)}<button class="bp" onclick="nxtTOEIC()" style="display:block;margin-top:10px;width:100%">${idx+1>=TOEIC.length?'Résultats':'Suivant'}</button></div>`:''}`;
 }
 
 function rLT(){
-  if(!S.ltData){
-    return`
-    <div style="text-align:center;padding:20px 0">
-      <div style="font-size:40px;margin-bottom:14px">🎯</div>
-      <h2 style="margin-bottom:10px">Test de niveau</h2>
-      <p class="small" style="margin-bottom:24px">${LTQS.length} questions de A1 à C2.</p>
-      <button class="bp" onclick="startLT()" style="font-size:15px;padding:13px 28px">Commencer</button>
-    </div>`;
-  }
-
-  const {idx,sc,sel,done,answers}=S.ltData;
-
-  if(done){
-    const scoreByLevel={A1:0,A2:0,B1:0,B2:0,C1:0,C2:0};
-    const totalByLevel={A1:0,A2:0,B1:0,B2:0,C1:0,C2:0};
-
-    LTQS.forEach((q,i)=>{
-      totalByLevel[q.lvl]++;
-      if(answers[i])scoreByLevel[q.lvl]++;
-    });
-
-    const pct=sc/LTQS.length;
-    let lv='A1';
-    if(pct>=.88)lv='C2';
-    else if(pct>=.75)lv='C1';
-    else if(pct>=.62)lv='B2';
-    else if(pct>=.48)lv='B1';
-    else if(pct>=.30)lv='A2';
-
-    return`
-    <div style="text-align:center;padding:24px 0">
-      <div style="font-size:48px;margin-bottom:12px">🎯</div>
-      <div style="font-family:Georgia,serif;font-size:52px;font-weight:700;color:var(--bl)">${lv}</div>
-      <div class="small" style="margin-bottom:18px">${sc}/${LTQS.length} bonnes réponses</div>
-      <div class="card" style="text-align:left;margin-bottom:14px">
-        <div class="sec">Détail par niveau</div>
-        ${Object.keys(totalByLevel).map(k=>`
-          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px">
-            <span>${k}</span>
-            <span>${scoreByLevel[k]}/${totalByLevel[k]}</span>
-          </div>
-        `).join('')}
-      </div>
-      <button class="bp" onclick="S.userLvl='${lv}';sv('userLvl');toast('Niveau enregistré');S.ltData=null;earnB('b8');render()" style="width:100%;margin-bottom:10px">
-        Enregistrer
-      </button>
-      <button class="bg" onclick="S.ltData=null;render()" style="width:100%">Refaire plus tard</button>
-    </div>`;
-  }
-
+  if(!S.ltData)return`<div style="text-align:center;padding:20px 0"><div style="font-size:40px;margin-bottom:14px">🎯</div><h2 style="margin-bottom:10px">Test de niveau</h2><p class="small" style="margin-bottom:24px">${LTQS.length} questions de A1 à C2.</p><button class="bp" onclick="startLT()" style="font-size:15px;padding:13px 28px">Commencer</button></div>`;
+  const {idx,sc,sel,done}=S.ltData;
+  if(done){const pct=sc/LTQS.length;let lv='A1';if(pct>=.88)lv='C2';else if(pct>=.75)lv='C1';else if(pct>=.62)lv='B2';else if(pct>=.48)lv='B1';else if(pct>=.30)lv='A2';return`<div style="text-align:center;padding:24px 0"><div style="font-size:48px;margin-bottom:12px">🎯</div><div style="font-family:Georgia,serif;font-size:52px;font-weight:700;color:var(--bl)">${lv}</div><div class="small" style="margin-bottom:18px">${sc}/${LTQS.length} bonnes réponses</div><button class="bp" onclick="S.userLvl='${lv}';sv('userLvl');toast('Niveau enregistré');S.ltData=null;earnB('b8');render()" style="width:100%;margin-bottom:10px">Enregistrer</button><button class="bg" onclick="S.ltData=null;render()" style="width:100%">Refaire plus tard</button></div>`}
   const q=LTQS[idx];
-
-  return`
-  <div style="display:flex;justify-content:space-between;margin-bottom:14px">
-    <span style="font-size:12px;color:var(--m)">Test de niveau · ${q.lvl}</span>
-    <span style="font-size:12px;color:var(--m)">${idx+1}/${LTQS.length}</span>
-  </div>
-  <div class="pbar" style="margin-bottom:16px">
-    <div class="pfill" style="width:${Math.round((idx/LTQS.length)*100)}%;background:var(--bl)"></div>
-  </div>
-  <div style="font-family:Georgia,serif;font-size:21px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div>
-  <div>
-    ${q.opts.map((o,i)=>`
-      <button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansLT(${i})" ${sel!==null?'disabled':''}>${esc(o)}</button>
-    `).join('')}
-  </div>
-  ${sel!==null?`
-    <div style="display:flex;justify-content:flex-end;margin-top:14px">
-      <button class="bp" onclick="nxtLT()">${idx+1>=LTQS.length?'Résultats':'Suivant'}</button>
-    </div>
-  `:''}`;
+  return`<div style="display:flex;justify-content:space-between;margin-bottom:14px"><span style="font-size:12px;color:var(--m)">Test de niveau · ${q.lvl}</span><span style="font-size:12px;color:var(--m)">${idx+1}/${LTQS.length}</span></div><div class="pbar" style="margin-bottom:16px"><div class="pfill" style="width:${Math.round((idx/LTQS.length)*100)}%;background:var(--bl)"></div></div><div style="font-family:Georgia,serif;font-size:21px;font-weight:700;line-height:1.5;margin-bottom:18px">${esc(q.q)}</div><div>${q.opts.map((o,i)=>`<button class="opt ${sel!==null?(i===q.a?'ok':(o===sel?'no':'')):''}" onclick="ansLT(${i})" ${sel!==null?'disabled':''}>${esc(o)}</button>`).join('')}</div>${sel!==null?`<div style="display:flex;justify-content:flex-end;margin-top:14px"><button class="bp" onclick="nxtLT()">${idx+1>=LTQS.length?'Résultats':'Suivant'}</button></div>`:''}`;
 }
 
 function renderOb(){
-  const ob=document.getElementById('ob');
-  ob.style.display='flex';
-  const step=S.obStep||0;
-
-  if(step===0){
-    ob.innerHTML=`
-    <div style="max-width:400px;width:100%;text-align:center">
-      <div style="font-size:64px;margin-bottom:16px">🇬🇧</div>
-      <h1 style="font-size:32px;margin-bottom:12px">Learn English</h1>
-      <p class="small" style="margin-bottom:32px">Apprends l'anglais avec tes propres decks, un système SRS, des exercices et des examens.</p>
-      <button class="bp" onclick="S.obStep=1;renderOb()" style="font-size:15px;padding:14px 32px;width:100%">Commencer</button>
-    </div>`;
-  }
-
-  else if(step===1){
-    ob.innerHTML=`
-    <div style="max-width:400px;width:100%">
-      <h2 style="font-size:24px;margin-bottom:20px">Ton niveau actuel ?</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px">
-        ${LVLS.map(l=>`
-          <div onclick="S.userLvl='${l.l}';sv('userLvl');renderOb()" style="padding:16px 8px;border:2px solid ${S.userLvl===l.l?'var(--a)':'var(--b)'};border-radius:13px;cursor:pointer;text-align:center;background:${S.userLvl===l.l?'var(--f)':'var(--s)'}">
-            <div style="font-size:22px;font-family:Georgia,serif;font-weight:700;color:${l.c}">${l.l}</div>
-            <div style="font-size:11px;color:var(--m)">${l.label}</div>
-          </div>
-        `).join('')}
-      </div>
-      <button class="bp" onclick="S.obStep=2;renderOb()" style="width:100%">Continuer</button>
-    </div>`;
-  }
-
-  else{
-    ob.innerHTML=`
-    <div style="max-width:400px;width:100%">
-      <h2 style="font-size:24px;margin-bottom:6px">Objectif quotidien</h2>
-      <p class="small" style="margin-bottom:20px">Combien de cartes par jour ?</p>
-      <div style="display:flex;gap:10px;margin-bottom:24px">
-        ${[5,10,15,20].map(n=>`
-          <div onclick="S.dailyG=${n};sv('dailyG');renderOb()" style="flex:1;padding:16px 4px;border:2px solid ${S.dailyG===n?'var(--a)':'var(--b)'};border-radius:13px;cursor:pointer;text-align:center;background:${S.dailyG===n?'var(--f)':'var(--s)'}">
-            <div style="font-size:20px;font-family:Georgia,serif;font-weight:700">${n}</div>
-            <div style="font-size:10px;color:var(--m)">cartes</div>
-          </div>
-        `).join('')}
-      </div>
-      <button class="bp" onclick="finOb()" style="width:100%;font-size:15px;padding:14px">Démarrer</button>
-    </div>`;
-  }
+  const ob=document.getElementById('ob');ob.style.display='flex';const step=S.obStep||0;
+  if(step===0)ob.innerHTML=`<div style="max-width:400px;width:100%;text-align:center"><div style="font-size:64px;margin-bottom:16px">🇬🇧</div><h1 style="font-size:32px;margin-bottom:12px">Learn English</h1><p class="small" style="margin-bottom:32px">Apprends l'anglais avec tes propres decks, un système SRS, des articles, des interviews et des dialogues.</p><button class="bp" onclick="S.obStep=1;renderOb()" style="font-size:15px;padding:14px 32px;width:100%">Commencer</button></div>`;
+  else if(step===1)ob.innerHTML=`<div style="max-width:400px;width:100%"><h2 style="font-size:24px;margin-bottom:20px">Ton niveau actuel ?</h2><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px">${LVLS.map(l=>`<div onclick="S.userLvl='${l.l}';sv('userLvl');renderOb()" style="padding:16px 8px;border:2px solid ${S.userLvl===l.l?'var(--a)':'var(--b)'};border-radius:13px;cursor:pointer;text-align:center;background:${S.userLvl===l.l?'var(--f)':'var(--s)'}"><div style="font-size:22px;font-family:Georgia,serif;font-weight:700;color:${l.c}">${l.l}</div><div style="font-size:11px;color:var(--m)">${l.label}</div></div>`).join('')}</div><button class="bp" onclick="S.obStep=2;renderOb()" style="width:100%">Continuer</button></div>`;
+  else ob.innerHTML=`<div style="max-width:400px;width:100%"><h2 style="font-size:24px;margin-bottom:6px">Objectif quotidien</h2><p class="small" style="margin-bottom:20px">Combien de cartes par jour ?</p><div style="display:flex;gap:10px;margin-bottom:24px">${[5,10,15,20].map(n=>`<div onclick="S.dailyG=${n};sv('dailyG');renderOb()" style="flex:1;padding:16px 4px;border:2px solid ${S.dailyG===n?'var(--a)':'var(--b)'};border-radius:13px;cursor:pointer;text-align:center;background:${S.dailyG===n?'var(--f)':'var(--s)'}"><div style="font-size:20px;font-family:Georgia,serif;font-weight:700">${n}</div><div style="font-size:10px;color:var(--m)">cartes</div></div>`).join('')}</div><button class="bp" onclick="finOb()" style="width:100%;font-size:15px;padding:14px">Démarrer</button></div>`;
 }
-
-function finOb(){
-  S.obDone=true;
-  sv('obDone');
-  document.getElementById('ob').style.display='none';
-  render();
-}
+function finOb(){S.obDone=true;sv('obDone');document.getElementById('ob').style.display='none';render()}
 
 let mL='A1';
-
 function showM(type,extra){
-  const o=document.createElement('div');
-  o.className='modal-ov';
-  o.id='movl';
-  o.onclick=e=>{
-    if(e.target===o)closeM();
-  };
-
-  let inner='';
-
-  if(type==='cdeck'){
-    inner=`
-    <h2 style="margin-bottom:20px">Nouveau deck</h2>
-    <label class="lbl">Nom *</label>
-    <input id="mn" placeholder="ex: Vocabulaire Business" style="margin-bottom:12px">
-    <label class="lbl">Niveau</label>
-    <div style="display:flex;gap:6px;margin-bottom:22px;flex-wrap:wrap">
-      ${['A1','A2','B1','B2','C1','C2'].map(l=>`
-        <button class="${mL===l?'bp':'bg'} lsl" data-l="${l}" onclick="selL(this)" style="flex:1">${l}</button>
-      `).join('')}
-    </div>
-    <button class="bp" onclick="mkDeck()" style="width:100%">Créer</button>`;
-  }
-
-  else if(type==='acard'){
-    inner=`
-    <h2 style="margin-bottom:20px">Nouvelle carte</h2>
-    <label class="lbl">Mot anglais *</label>
-    <input id="mw" placeholder="ex: Ephemeral" style="margin-bottom:10px">
-    <label class="lbl">Traduction *</label>
-    <input id="mt" placeholder="ex: Éphémère" style="margin-bottom:10px">
-    <label class="lbl">Exemple</label>
-    <input id="me" placeholder="ex: Fame can be ephemeral." style="margin-bottom:14px">
-    <button class="bp" onclick="addC('${extra}')" style="width:100%">Ajouter</button>`;
-  }
-
-  else if(type==='imp'){
-    inner=`
-    <h2 style="margin-bottom:6px">Importer un deck</h2>
-    <div class="small" style="margin-bottom:16px">
-      Une carte par ligne.<br>
-      Format : <strong>Mot ; Traduction ; Exemple</strong>
-    </div>
-    <label class="lbl">Nom du deck</label>
-    <input id="min" value="Deck importé" style="margin-bottom:10px">
-    <label class="lbl">Niveau</label>
-    <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
-      ${['A1','A2','B1','B2','C1','C2'].map(l=>`
-        <button class="${mL===l?'bp':'bg'} lsl" data-l="${l}" onclick="selL(this)" style="flex:1">${l}</button>
-      `).join('')}
-    </div>
-    <textarea id="mit" placeholder="Ephemeral ; Éphémère ; Fame can be ephemeral&#10;Reliable ; Fiable ; This source is reliable." style="height:150px;margin-bottom:10px"></textarea>
-    <button class="bp" onclick="impDeck()" style="width:100%">Importer</button>`;
-  }
-
-  o.innerHTML=`<div class="modal">${inner}</div>`;
-  document.body.appendChild(o);
+  const o=document.createElement('div');o.className='modal-ov';o.id='movl';o.onclick=e=>{if(e.target===o)closeM()};let inner='';
+  if(type==='cdeck')inner=`<h2 style="margin-bottom:20px">Nouveau deck</h2><label class="lbl">Nom *</label><input id="mn" placeholder="ex: Vocabulaire Business" style="margin-bottom:12px"><label class="lbl">Niveau</label><div style="display:flex;gap:6px;margin-bottom:22px;flex-wrap:wrap">${['A1','A2','B1','B2','C1','C2'].map(l=>`<button class="${mL===l?'bp':'bg'} lsl" data-l="${l}" onclick="selL(this)" style="flex:1">${l}</button>`).join('')}</div><button class="bp" onclick="mkDeck()" style="width:100%">Créer</button>`;
+  else if(type==='acard')inner=`<h2 style="margin-bottom:20px">Nouvelle carte</h2><label class="lbl">Mot anglais *</label><input id="mw" placeholder="ex: Ephemeral" style="margin-bottom:10px"><label class="lbl">Traduction *</label><input id="mt" placeholder="ex: Éphémère" style="margin-bottom:10px"><label class="lbl">Exemple</label><input id="me" placeholder="ex: Fame can be ephemeral." style="margin-bottom:14px"><button class="bp" onclick="addC('${extra}')" style="width:100%">Ajouter</button>`;
+  else if(type==='imp')inner=`<h2 style="margin-bottom:6px">Importer un deck</h2><div class="small" style="margin-bottom:16px">Une carte par ligne.<br>Format : <strong>Mot ; Traduction ; Exemple</strong></div><label class="lbl">Nom du deck</label><input id="min" value="Deck importé" style="margin-bottom:10px"><label class="lbl">Niveau</label><div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">${['A1','A2','B1','B2','C1','C2'].map(l=>`<button class="${mL===l?'bp':'bg'} lsl" data-l="${l}" onclick="selL(this)" style="flex:1">${l}</button>`).join('')}</div><textarea id="mit" placeholder="Ephemeral ; Éphémère ; Fame can be ephemeral&#10;Reliable ; Fiable ; This source is reliable." style="height:150px;margin-bottom:10px"></textarea><button class="bp" onclick="impDeck()" style="width:100%">Importer</button>`;
+  o.innerHTML=`<div class="modal">${inner}</div>`;document.body.appendChild(o);
 }
-
-function closeM(){
-  const o=document.getElementById('movl');
-  if(o)o.remove();
-}
-
-function selL(b){
-  document.querySelectorAll('.lsl').forEach(x=>{
-    x.classList.remove('bp');
-    x.classList.add('bg');
-  });
-  b.classList.remove('bg');
-  b.classList.add('bp');
-  mL=b.dataset.l;
-}
-
-function toggleDk(){
-  S.dk=!S.dk;
-  sv('dk');
-  render();
-}
-
-function setTab(t){
-  S.tab=t;
-  S.studyDeck=null;
-  render();
-}
-
-function tog(id){
-  const el=document.getElementById(id);
-  if(el)el.style.display=el.style.display==='none'?'block':'none';
-}
+function closeM(){const o=document.getElementById('movl');if(o)o.remove()}
+function selL(b){document.querySelectorAll('.lsl').forEach(x=>{x.classList.remove('bp');x.classList.add('bg')});b.classList.remove('bg');b.classList.add('bp');mL=b.dataset.l}
+function toggleDk(){S.dk=!S.dk;sv('dk');render()}
+function setTab(t){S.tab=t;S.studyDeck=null;S.activeContent=null;render()}
+function tog(id){const el=document.getElementById(id);if(el)el.style.display=el.style.display==='none'?'block':'none'}
 
 function startDaily(){
-  const due=S.decks
-    .flatMap(d=>d.cards.map(c=>({...c,deckName:d.name,deckAccent:d.accent,_dir:'enfr'})))
-    .filter(c=>{
-      const s=S.srs[c.id];
-      return !s?.srsNextReview||s.srsNextReview<=Date.now();
-    });
-
-  if(!due.length){
-    toast('Toutes tes cartes sont à jour.','#4caf50');
-    return;
-  }
-
-  S.studyDeck={
-    id:'__rev__',
-    name:`Révision (${due.length})`,
-    level:'',
-    color:'#e8eef8',
-    accent:'#3b6fd4',
-    cards:due
-  };
-
-  S.studyIdx=0;
-  S.studyMode='flip';
-  S.flipped=false;
-  S.qopts=null;
-  updStreak();
-  earnB('b1');
-  S.tab='decks';
-  render();
+  const due=S.decks.flatMap(d=>d.cards.map(c=>({...c,deckName:d.name,deckAccent:d.accent,_dir:'enfr'}))).filter(c=>{const s=S.srs[c.id];return !s?.srsNextReview||s.srsNextReview<=Date.now()});
+  if(!due.length){toast('Toutes tes cartes sont à jour.','#4caf50');return}
+  S.studyDeck={id:'__rev__',name:`Révision (${due.length})`,level:'',color:'#e8eef8',accent:'#3b6fd4',cards:due};
+  S.studyIdx=0;S.studyMode='flip';S.flipped=false;S.qopts=null;updStreak();earnB('b1');S.tab='decks';render();
 }
-
-function startStudy(id){
-  const dk=S.decks.find(d=>d.id===id);
-  if(!dk||!dk.cards.length)return;
-
-  S.studyDeck={
-    ...dk,
-    cards:shuffle(dk.cards.map(c=>({...c,deckName:dk.name,deckAccent:dk.accent,_dir:'enfr'})))
-  };
-
-  S.studyIdx=0;
-  S.studyMode='flip';
-  S.flipped=false;
-  S.qopts=null;
-  updStreak();
-  earnB('b1');
-  render();
-}
-
-function endStudy(){
-  S.studyDeck=null;
-  S.studyIdx=0;
-  sv('srs');
-  render();
-}
-
-function setSM(m){
-  S.studyMode=m;
-  S.flipped=false;
-  S.qopts=null;
-  render();
-}
-
-function doFlip(){
-  S.flipped=!S.flipped;
-  render();
-}
-
-function ans(ok){
-  const c=S.studyDeck.cards[S.studyIdx||0];
-  const srs=srsNext(S.srs[c.id]||{},ok);
-  S.srs[c.id]=srs;
-
-  addXP(ok?10:3);
-  incD();
-  logErr(c.word,ok);
-  earnB('b1');
-
-  S.studyIdx=(S.studyIdx||0)+1;
-  S.flipped=false;
-  S.qopts=null;
-
-  if(S.studyIdx>=S.studyDeck.cards.length)sv('srs');
-  render();
-}
-
-function ansQ(opt){
-  const c=S.studyDeck.cards[S.studyIdx||0];
-  const correct=cardBackText(c);
-  const ok=opt===correct;
-
-  document.querySelectorAll('.opt').forEach(b=>{
-    if(b.textContent.trim()===correct)b.classList.add('ok');
-    else if(b.textContent.trim()===opt&&!ok)b.classList.add('no');
-    b.disabled=true;
-  });
-
-  addXP(ok?12:2);
-  logErr(c.word,ok);
-
-  const srs=srsNext(S.srs[c.id]||{},ok);
-  S.srs[c.id]=srs;
-
-  incD();
-
-  setTimeout(()=>{
-    S.studyIdx=(S.studyIdx||0)+1;
-    S.qopts=null;
-    if(S.studyIdx>=S.studyDeck.cards.length)sv('srs');
-    render();
-  },1000);
-}
-
-function chkFill(){
-  const inp=document.getElementById('finp');
-  if(!inp)return;
-
-  const c=S.studyDeck.cards[S.studyIdx||0];
-  const expected=cardBackText(c);
-
-  const a=inp.value.trim().toLowerCase();
-  const co=expected.toLowerCase();
-
-  const ok=a===co||co.includes(a)||a.includes(co.split('/')[0].trim().toLowerCase());
-
-  inp.style.borderColor=ok?'#4caf50':'#f44336';
-  inp.disabled=true;
-
-  const res=document.getElementById('fr');
-  if(res){
-    res.innerHTML=`
-    <div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'}">
-      ${ok?'Correct · +15 XP':`C'était : "${esc(expected)}"`}
-      <button class="bp" onclick="S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;render()" style="display:block;margin-top:10px;width:100%">Suivant</button>
-    </div>`;
-  }
-
-  if(ok)addXP(15);
-  else addXP(2);
-
-  const srs=srsNext(S.srs[c.id]||{},ok);
-  S.srs[c.id]=srs;
-
-  incD();
-
-  const fb=document.getElementById('fbtn');
-  if(fb)fb.style.display='none';
-}
-
-function ansGQ(opt){
-  const q=GQUIZ[S.gqd.idx];
-  S.gqd.sel=opt;
-  const ok=q.opts[q.a]===opt;
-  if(ok)S.gqd.sc++;
-  addXP(ok?15:3);
-  logErr(q.q,ok);
-  render();
-}
-
-function nxtGQ(){
-  const d=S.gqd;
-  if(d.idx+1>=GQUIZ.length){
-    d.done=true;
-    if(d.sc===GQUIZ.length)earnB('b6');
-  }else{
-    d.idx++;
-    d.sel=null;
-  }
-  render();
-}
-
-function togPhr(idx){
-  if(S.phrases.includes(idx)){
-    S.phrases=S.phrases.filter(x=>x!==idx);
-  }else{
-    S.phrases.push(idx);
-    addXP(8);
-  }
-  sv('phrases');
-  render();
-}
-
-function chkDict(){
-  const inp=document.getElementById('dinp');
-  if(!inp)return;
-
-  const c=DICT_WORDS[(S.dictIdx||0)%DICT_WORDS.length];
-  const ok=inp.value.trim().toLowerCase()===c.word.toLowerCase();
-
-  inp.style.borderColor=ok?'#4caf50':'#f44336';
-  inp.disabled=true;
-
-  const res=document.getElementById('dr');
-  if(res){
-    res.innerHTML=`
-    <div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'};margin-top:10px">
-      ${ok?'Parfait · +15 XP':`C'était : "${esc(c.word)}" · ${esc(c.tr)}`}
-      <button class="bp" onclick="S.dictIdx=(S.dictIdx||0)+1;render()" style="display:block;margin-top:10px;width:100%">Suivant</button>
-    </div>`;
-  }
-
-  if(ok)addXP(15);
-  else addXP(2);
-}
-
-function ansTOEIC(opt){
-  const q=TOEIC[S.toeicIdx||0];
-  S.toeicSel=opt;
-  const ok=q.opts[q.a]===opt;
-  if(!S.toeicData)S.toeicData={sc:0};
-  if(ok)S.toeicData.sc++;
-  addXP(ok?10:2);
-  logErr(q.q,ok);
-  render();
-}
-
-function nxtTOEIC(){
-  const i=S.toeicIdx||0;
-  if(i+1>=TOEIC.length){
-    S.toeicDone=true;
-    S.toeicScore=S.toeicData?.sc||0;
-    earnB('b8');
-  }else{
-    S.toeicIdx=i+1;
-    S.toeicSel=null;
-  }
-  render();
-}
-
-function resetTOEIC(){
-  S.toeicIdx=0;
-  S.toeicSel=null;
-  S.toeicDone=false;
-  S.toeicScore=0;
-  S.toeicData=null;
-  render();
-}
-
-function startLT(){
-  S.ltData={idx:0,sc:0,sel:null,done:false,answers:{}};
-  render();
-}
-
-function ansLT(i){
-  const q=LTQS[S.ltData.idx];
-  S.ltData.sel=q.opts[i];
-  const ok=i===q.a;
-  if(ok){
-    S.ltData.sc++;
-    S.ltData.answers[S.ltData.idx]=true;
-    addXP(3);
-  }else{
-    S.ltData.answers[S.ltData.idx]=false;
-  }
-  logErr(q.q,ok);
-  render();
-}
-
-function nxtLT(){
-  const d=S.ltData;
-  if(d.idx+1>=LTQS.length){
-    d.done=true;
-  }else{
-    d.idx++;
-    d.sel=null;
-  }
-  render();
-}
-
-function doSpeech(){
-  if(!window.SpeechRecognition&&!window.webkitSpeechRecognition){
-    alert('Reconnaissance vocale non supportée sur cet appareil.');
-    return;
-  }
-
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  const r=new SR();
-  r.lang='en-US';
-  r.interimResults=false;
-
-  const c=S.studyDeck?.cards[S.studyIdx||0];
-  if(!c)return;
-
-  const target=cardFrontText(c).toLowerCase();
-
-  r.onresult=e=>{
-    const said=e.results[0][0].transcript.toLowerCase();
-    const res=document.getElementById('spkr');
-    const ok=said.includes(target);
-
-    if(res){
-      res.innerHTML=`
-      <div style="font-size:12px;color:${ok?'#4caf50':'var(--m)'};padding:4px 0">
-        🎤 "${esc(said)}" ${ok?'✓':'— Réessaie'}
-      </div>`;
-    }
-
-    if(ok)addXP(5);
-  };
-
-  r.onerror=()=>{};
-  r.start();
-}
-
-function toggleCustomDeck(id){
-  const selected=S.customDecks||[];
-  if(selected.includes(id)){
-    S.customDecks=selected.filter(x=>x!==id);
-  }else{
-    S.customDecks=[...selected,id];
-  }
-  sv('customDecks');
-  render();
-}
-
-function selectAllCustomDecks(){
-  S.customDecks=(S.decks||[])
-    .filter(d=>d.cards&&d.cards.length>0)
-    .map(d=>d.id);
-  sv('customDecks');
-  render();
-}
-
-function clearCustomDecks(){
-  S.customDecks=[];
-  sv('customDecks');
-  render();
-}
-
-function setCustomCount(n){
-  S.customCount=n;
-  sv('customCount');
-  render();
-}
-
-function setCustomDir(dir){
-  S.customDir=dir;
-  sv('customDir');
-  render();
-}
-
-function startDeleteMode(){
-  S.deleteMode=true;
-  S.deleteDecks=[];
-  render();
-}
-
-function cancelDeleteMode(){
-  S.deleteMode=false;
-  S.deleteDecks=[];
-  render();
-}
-
-function toggleDeleteDeck(id){
-  const selected=S.deleteDecks||[];
-  if(selected.includes(id)){
-    S.deleteDecks=selected.filter(x=>x!==id);
-  }else{
-    S.deleteDecks=[...selected,id];
-  }
-  render();
-}
-
-function deleteSelectedDecks(){
-  const ids=S.deleteDecks||[];
-
-  if(!ids.length){
-    toast('Aucun deck sélectionné.','#e07b39');
-    return;
-  }
-
-  const names=S.decks
-    .filter(d=>ids.includes(d.id))
-    .map(d=>d.name)
-    .join(', ');
-
-  const ok=confirm(`Supprimer ${ids.length} deck(s) ?\n\n${names}\n\nLa progression SRS liée sera aussi supprimée.`);
-  if(!ok)return;
-
-  const cardIds=S.decks
-    .filter(d=>ids.includes(d.id))
-    .flatMap(d=>d.cards.map(c=>c.id));
-
-  S.decks=S.decks.filter(d=>!ids.includes(d.id));
-  S.customDecks=(S.customDecks||[]).filter(id=>!ids.includes(id));
-
-  cardIds.forEach(cid=>{
-    delete S.srs[cid];
-  });
-
-  S.deleteMode=false;
-  S.deleteDecks=[];
-
-  sv('decks');
-  sv('customDecks');
-  sv('srs');
-
-  toast('Decks supprimés','#c62828');
-  render();
-}
+function startStudy(id){const dk=S.decks.find(d=>d.id===id);if(!dk||!dk.cards.length)return;S.studyDeck={...dk,cards:shuffle(dk.cards.map(c=>({...c,deckName:dk.name,deckAccent:dk.accent,_dir:'enfr'})))};S.studyIdx=0;S.studyMode='flip';S.flipped=false;S.qopts=null;updStreak();earnB('b1');render()}
+function endStudy(){S.studyDeck=null;S.studyIdx=0;sv('srs');render()}
+function setSM(m){S.studyMode=m;S.flipped=false;S.qopts=null;render()}
+function doFlip(){S.flipped=!S.flipped;render()}
+function ans(ok){const c=S.studyDeck.cards[S.studyIdx||0];S.srs[c.id]=srsNext(S.srs[c.id]||{},ok);addXP(ok?10:3);incD();logErr(c.word,ok);earnB('b1');S.studyIdx=(S.studyIdx||0)+1;S.flipped=false;S.qopts=null;if(S.studyIdx>=S.studyDeck.cards.length)sv('srs');render()}
+function ansQ(opt){const c=S.studyDeck.cards[S.studyIdx||0],correct=cardBackText(c),ok=opt===correct;document.querySelectorAll('.opt').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('ok');else if(b.textContent.trim()===opt&&!ok)b.classList.add('no');b.disabled=true});addXP(ok?12:2);logErr(c.word,ok);S.srs[c.id]=srsNext(S.srs[c.id]||{},ok);incD();setTimeout(()=>{S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;if(S.studyIdx>=S.studyDeck.cards.length)sv('srs');render()},1000)}
+function chkFill(){const inp=document.getElementById('finp');if(!inp)return;const c=S.studyDeck.cards[S.studyIdx||0],expected=cardBackText(c);const a=inp.value.trim().toLowerCase(),co=expected.toLowerCase();const ok=a===co||co.includes(a)||a.includes(co.split('/')[0].trim().toLowerCase());inp.style.borderColor=ok?'#4caf50':'#f44336';inp.disabled=true;const res=document.getElementById('fr');if(res)res.innerHTML=`<div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'}">${ok?'Correct · +15 XP':`C'était : "${esc(expected)}"`}<button class="bp" onclick="S.studyIdx=(S.studyIdx||0)+1;S.qopts=null;render()" style="display:block;margin-top:10px;width:100%">Suivant</button></div>`;if(ok)addXP(15);else addXP(2);S.srs[c.id]=srsNext(S.srs[c.id]||{},ok);incD();const fb=document.getElementById('fbtn');if(fb)fb.style.display='none'}
+
+function ansGQ(opt){const q=GQUIZ[S.gqd.idx];S.gqd.sel=opt;const ok=q.opts[q.a]===opt;if(ok)S.gqd.sc++;addXP(ok?15:3);logErr(q.q,ok);render()}
+function nxtGQ(){const d=S.gqd;if(d.idx+1>=GQUIZ.length){d.done=true;if(d.sc===GQUIZ.length)earnB('b6')}else{d.idx++;d.sel=null}render()}
+function togPhr(idx){if(S.phrases.includes(idx))S.phrases=S.phrases.filter(x=>x!==idx);else{S.phrases.push(idx);addXP(8)}sv('phrases');render()}
+function chkDict(){const inp=document.getElementById('dinp');if(!inp)return;const c=DICT_WORDS[(S.dictIdx||0)%DICT_WORDS.length];const ok=inp.value.trim().toLowerCase()===c.word.toLowerCase();inp.style.borderColor=ok?'#4caf50':'#f44336';inp.disabled=true;const res=document.getElementById('dr');if(res)res.innerHTML=`<div style="padding:12px;background:${ok?'#f0faf0':'#fff5f5'};border-radius:9px;font-size:14px;color:${ok?'#2e7d32':'#c62828'};margin-top:10px">${ok?'Parfait · +15 XP':`C'était : "${esc(c.word)}" · ${esc(c.tr)}`}<button class="bp" onclick="S.dictIdx=(S.dictIdx||0)+1;render()" style="display:block;margin-top:10px;width:100%">Suivant</button></div>`;if(ok)addXP(15);else addXP(2)}
+
+function ansTOEIC(opt){const q=TOEIC[S.toeicIdx||0];S.toeicSel=opt;const ok=q.opts[q.a]===opt;if(!S.toeicData)S.toeicData={sc:0};if(ok)S.toeicData.sc++;addXP(ok?10:2);logErr(q.q,ok);render()}
+function nxtTOEIC(){const i=S.toeicIdx||0;if(i+1>=TOEIC.length){S.toeicDone=true;S.toeicScore=S.toeicData?.sc||0;earnB('b8')}else{S.toeicIdx=i+1;S.toeicSel=null}render()}
+function resetTOEIC(){S.toeicIdx=0;S.toeicSel=null;S.toeicDone=false;S.toeicScore=0;S.toeicData=null;render()}
+function startLT(){S.ltData={idx:0,sc:0,sel:null,done:false};render()}
+function ansLT(i){const q=LTQS[S.ltData.idx];S.ltData.sel=q.opts[i];const ok=i===q.a;if(ok){S.ltData.sc++;addXP(3)}logErr(q.q,ok);render()}
+function nxtLT(){const d=S.ltData;if(d.idx+1>=LTQS.length)d.done=true;else{d.idx++;d.sel=null}render()}
+
+function doSpeech(){if(!window.SpeechRecognition&&!window.webkitSpeechRecognition){alert('Reconnaissance vocale non supportée sur cet appareil.');return}const SR=window.SpeechRecognition||window.webkitSpeechRecognition,r=new SR();r.lang='en-US';r.interimResults=false;const c=S.studyDeck?.cards[S.studyIdx||0];if(!c)return;const target=cardFrontText(c).toLowerCase();r.onresult=e=>{const said=e.results[0][0].transcript.toLowerCase(),res=document.getElementById('spkr'),ok=said.includes(target);if(res)res.innerHTML=`<div style="font-size:12px;color:${ok?'#4caf50':'var(--m)'};padding:4px 0">🎤 "${esc(said)}" ${ok?'✓':'— Réessaie'}</div>`;if(ok)addXP(5)};r.onerror=()=>{};r.start()}
+
+function toggleCustomDeck(id){const selected=S.customDecks||[];S.customDecks=selected.includes(id)?selected.filter(x=>x!==id):[...selected,id];sv('customDecks');render()}
+function selectAllCustomDecks(){S.customDecks=(S.decks||[]).filter(d=>d.cards&&d.cards.length>0).map(d=>d.id);sv('customDecks');render()}
+function clearCustomDecks(){S.customDecks=[];sv('customDecks');render()}
+function setCustomCount(n){S.customCount=n;sv('customCount');render()}
+function setCustomDir(dir){S.customDir=dir;sv('customDir');render()}
+function startDeleteMode(){S.deleteMode=true;S.deleteDecks=[];render()}
+function cancelDeleteMode(){S.deleteMode=false;S.deleteDecks=[];render()}
+function toggleDeleteDeck(id){const selected=S.deleteDecks||[];S.deleteDecks=selected.includes(id)?selected.filter(x=>x!==id):[...selected,id];render()}
+function deleteSelectedDecks(){const ids=S.deleteDecks||[];if(!ids.length){toast('Aucun deck sélectionné.','#e07b39');return}const names=S.decks.filter(d=>ids.includes(d.id)).map(d=>d.name).join(', ');const ok=confirm(`Supprimer ${ids.length} deck(s) ?\n\n${names}\n\nLa progression SRS liée sera aussi supprimée.`);if(!ok)return;const cardIds=S.decks.filter(d=>ids.includes(d.id)).flatMap(d=>d.cards.map(c=>c.id));S.decks=S.decks.filter(d=>!ids.includes(d.id));S.customDecks=(S.customDecks||[]).filter(id=>!ids.includes(id));cardIds.forEach(cid=>delete S.srs[cid]);S.deleteMode=false;S.deleteDecks=[];sv('decks');sv('customDecks');sv('srs');toast('Decks supprimés','#c62828');render()}
 
 function startCustomStudy(mode){
   const selected=S.customDecks||[];
-
-  if(!selected.length){
-    toast('Sélectionne au moins un deck.','#e07b39');
-    return;
-  }
-
-  let cards=S.decks
-    .filter(d=>selected.includes(d.id))
-    .flatMap(d=>d.cards.map(c=>({
-      ...c,
-      deckName:d.name,
-      deckAccent:d.accent
-    })));
-
-  if(!cards.length){
-    toast('Les decks sélectionnés sont vides.','#e07b39');
-    return;
-  }
-
-  const count=S.customCount||10;
-  const direction=S.customDir||'enfr';
-
+  if(!selected.length){toast('Sélectionne au moins un deck.','#e07b39');return}
+  let cards=S.decks.filter(d=>selected.includes(d.id)).flatMap(d=>d.cards.map(c=>({...c,deckName:d.name,deckAccent:d.accent})));
+  if(!cards.length){toast('Les decks sélectionnés sont vides.','#e07b39');return}
+  const count=S.customCount||10,direction=S.customDir||'enfr';
   if(mode==='srs'){
-    cards=cards.filter(c=>{
-      const s=S.srs[c.id];
-      return !s?.srsNextReview || s.srsNextReview<=Date.now();
-    });
-
-    if(!cards.length){
-      toast('Aucune carte à revoir maintenant. Lance Révisions personnalisées.','#e07b39');
-      return;
-    }
-
-    cards.sort((a,b)=>{
-      const sa=S.srs[a.id]?.srsNextReview||0;
-      const sb=S.srs[b.id]?.srsNextReview||0;
-      return sa-sb;
-    });
-  }
-
-  else if(mode==='review'){
-    const due=[];
-    const notDue=[];
-
-    cards.forEach(c=>{
-      const s=S.srs[c.id];
-      if(!s?.srsNextReview || s.srsNextReview<=Date.now()){
-        due.push(c);
-      }else{
-        notDue.push(c);
-      }
-    });
-
-    due.sort((a,b)=>{
-      const sa=S.srs[a.id]?.srsNextReview||0;
-      const sb=S.srs[b.id]?.srsNextReview||0;
-      return sa-sb;
-    });
-
-    notDue.sort((a,b)=>{
-      const ia=S.srs[a.id]?.srsInterval||0;
-      const ib=S.srs[b.id]?.srsInterval||0;
-      return ia-ib;
-    });
-
+    cards=cards.filter(c=>{const s=S.srs[c.id];return !s?.srsNextReview||s.srsNextReview<=Date.now()});
+    if(!cards.length){toast('Aucune carte à revoir maintenant. Lance Révisions personnalisées.','#e07b39');return}
+    cards.sort((a,b)=>(S.srs[a.id]?.srsNextReview||0)-(S.srs[b.id]?.srsNextReview||0));
+  }else if(mode==='review'){
+    const due=[],notDue=[];
+    cards.forEach(c=>{const s=S.srs[c.id];(!s?.srsNextReview||s.srsNextReview<=Date.now()?due:notDue).push(c)});
+    due.sort((a,b)=>(S.srs[a.id]?.srsNextReview||0)-(S.srs[b.id]?.srsNextReview||0));
+    notDue.sort((a,b)=>(S.srs[a.id]?.srsInterval||0)-(S.srs[b.id]?.srsInterval||0));
     cards=[...due,...notDue];
-
-    if(!cards.length){
-      toast('Aucune carte disponible.','#e07b39');
-      return;
-    }
-
-    if(!due.length){
-      toast('Aucune carte due : révision douce lancée.','#3b6fd4');
-    }
-  }
-
-  else{
-    cards=shuffle(cards);
-  }
-
-  cards=cards
-    .slice(0,count)
-    .map(c=>applyCardDirection(c,direction));
-
-  S.studyDeck={
-    id:'__custom__',
-    name:
-      mode==='srs'
-        ?'Session personnalisée SRS'
-        :mode==='review'
-          ?'Révisions personnalisées'
-          :'Session personnalisée aléatoire',
-    level:'',
-    color:'#e8eef8',
-    accent:
-      mode==='srs'
-        ?'#4caf50'
-        :mode==='review'
-          ?'#e07b39'
-          :'#3b6fd4',
-    cards
-  };
-
-  S.studyIdx=0;
-  S.studyMode='flip';
-  S.flipped=false;
-  S.qopts=null;
-
-  updStreak();
-  earnB('b1');
-  render();
+    if(!due.length)toast('Aucune carte due : révision douce lancée.','#3b6fd4');
+  }else cards=shuffle(cards);
+  cards=cards.slice(0,count).map(c=>applyCardDirection(c,direction));
+  S.studyDeck={id:'__custom__',name:mode==='srs'?'Session personnalisée SRS':mode==='review'?'Révisions personnalisées':'Session personnalisée aléatoire',level:'',color:'#e8eef8',accent:mode==='srs'?'#4caf50':mode==='review'?'#e07b39':'#3b6fd4',cards};
+  S.studyIdx=0;S.studyMode='flip';S.flipped=false;S.qopts=null;updStreak();earnB('b1');render();
 }
 
-function mkDeck(){
-  const name=document.getElementById('mn')?.value?.trim();
-  if(!name)return;
-
-  S.decks.push({
-    id:uid(),
-    name,
-    level:mL,
-    color:'#e8eef8',
-    accent:'#3b6fd4',
-    cards:[]
-  });
-
-  sv('decks');
-  closeM();
-  render();
-}
-
-function delDk(id){
-  const deck=S.decks.find(d=>d.id===id);
-  if(!deck)return;
-
-  const ok=confirm(`Supprimer le deck "${deck.name}" ?\n\nCette action supprimera aussi sa progression SRS.`);
-  if(!ok)return;
-
-  const cardIds=deck.cards.map(c=>c.id);
-
-  S.decks=S.decks.filter(d=>d.id!==id);
-  S.customDecks=(S.customDecks||[]).filter(x=>x!==id);
-
-  cardIds.forEach(cid=>{
-    delete S.srs[cid];
-  });
-
-  sv('decks');
-  sv('customDecks');
-  sv('srs');
-
-  toast('Deck supprimé','#c62828');
-  render();
-}
-
-function addC(deckId){
-  const w=document.getElementById('mw')?.value?.trim();
-  const t=document.getElementById('mt')?.value?.trim();
-  if(!w||!t)return;
-
-  const card={
-    id:uid(),
-    word:w,
-    tr:t,
-    ex:document.getElementById('me')?.value?.trim()||''
-  };
-
-  S.decks=S.decks.map(d=>
-    d.id===deckId
-      ?{...d,cards:[...d.cards,card]}
-      :d
-  );
-
-  sv('decks');
-  closeM();
-  render();
-}
-
-function delC(did,cid){
-  S.decks=S.decks.map(d=>
-    d.id===did
-      ?{...d,cards:d.cards.filter(c=>c.id!==cid)}
-      :d
-  );
-
-  delete S.srs[cid];
-
-  sv('decks');
-  sv('srs');
-  render();
-}
-
-function impDeck(){
-  const raw=document.getElementById('mit')?.value||'';
-  const name=document.getElementById('min')?.value?.trim()||'Deck importé';
-
-  const cards=raw
-    .trim()
-    .split('\n')
-    .filter(l=>l.trim())
-    .map(line=>{
-      const p=line.split(/[;,\t]/).map(s=>s.trim());
-      if(p.length>=2&&p[0]&&p[1]){
-        return{
-          id:uid(),
-          word:p[0],
-          tr:p[1],
-          ex:p[2]||''
-        };
-      }
-      return null;
-    })
-    .filter(Boolean);
-
-  if(!cards.length){
-    alert('Format non reconnu. Exemple : word ; traduction ; phrase exemple');
-    return;
-  }
-
-  S.decks.push({
-    id:uid(),
-    name,
-    level:mL,
-    color:'#e8eef8',
-    accent:'#3b6fd4',
-    cards
-  });
-
-  sv('decks');
-  closeM();
-  render();
-}
+function mkDeck(){const name=document.getElementById('mn')?.value?.trim();if(!name)return;S.decks.push({id:uid(),name,level:mL,color:'#e8eef8',accent:'#3b6fd4',cards:[]});sv('decks');closeM();render()}
+function delDk(id){const deck=S.decks.find(d=>d.id===id);if(!deck)return;const ok=confirm(`Supprimer le deck "${deck.name}" ?\n\nCette action supprimera aussi sa progression SRS.`);if(!ok)return;const cardIds=deck.cards.map(c=>c.id);S.decks=S.decks.filter(d=>d.id!==id);S.customDecks=(S.customDecks||[]).filter(x=>x!==id);cardIds.forEach(cid=>delete S.srs[cid]);sv('decks');sv('customDecks');sv('srs');toast('Deck supprimé','#c62828');render()}
+function addC(deckId){const w=document.getElementById('mw')?.value?.trim(),t=document.getElementById('mt')?.value?.trim();if(!w||!t)return;const card={id:uid(),word:w,tr:t,ex:document.getElementById('me')?.value?.trim()||''};S.decks=S.decks.map(d=>d.id===deckId?{...d,cards:[...d.cards,card]}:d);sv('decks');closeM();render()}
+function delC(did,cid){S.decks=S.decks.map(d=>d.id===did?{...d,cards:d.cards.filter(c=>c.id!==cid)}:d);delete S.srs[cid];sv('decks');sv('srs');render()}
+function impDeck(){const raw=document.getElementById('mit')?.value||'',name=document.getElementById('min')?.value?.trim()||'Deck importé';const cards=raw.trim().split('\n').filter(l=>l.trim()).map(line=>{const p=line.split(/[;,\t]/).map(s=>s.trim());if(p.length>=2&&p[0]&&p[1])return{id:uid(),word:p[0],tr:p[1],ex:p[2]||''};return null}).filter(Boolean);if(!cards.length){alert('Format non reconnu. Exemple : word ; traduction ; phrase exemple');return}S.decks.push({id:uid(),name,level:mL,color:'#e8eef8',accent:'#3b6fd4',cards});sv('decks');closeM();render()}
 
 render();
 </script>
